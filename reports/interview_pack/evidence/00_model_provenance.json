@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "verification_method": "grep -oE '\"model\":\\s*\"[^\"]+\"' across evidence/20260501T135005Z/_research_arms/*.json",
+  "verification_run_at": "2026-05-03",
+  "principle": "Radical transparency: every model invoked across the research pipeline is enumerated by tier, billing class, and the artifacts it produced.",
+  "models_actually_invoked": [
+    {
+      "model_id": "perplexity/sonar-pro",
+      "billing_class": "paid",
+      "vendor": "Perplexity (via OpenRouter)",
+      "role": "primary deep search and peer discovery",
+      "produced_arms": [
+        "B_sonar_pro.json",
+        "E2_pricing_pro.json",
+        "G_gtm_sonar.json",
+        "H_naval_sonar.json",
+        "H2_naval_pro.json"
+      ],
+      "downstream_evidence_files": [
+        "03_peers_dedup.json",
+        "10_monetization.json",
+        "11_gtm.json"
+      ]
+    },
+    {
+      "model_id": "perplexity/sonar-deep-research",
+      "billing_class": "paid",
+      "vendor": "Perplexity (via OpenRouter)",
+      "role": "long-form research with multi-step web traversal",
+      "produced_arms": [
+        "A_sonar_deep.json",
+        "E_pricing_sonar.json",
+        "F_geo_sonar.json",
+        "J_market_size_big4.json"
+      ],
+      "downstream_evidence_files": [
+        "10_monetization.json",
+        "12_geo.json",
+        "15_market_size.json"
+      ]
+    },
+    {
+      "model_id": "perplexity/sonar-reasoning-pro",
+      "billing_class": "paid",
+      "vendor": "Perplexity (via OpenRouter)",
+      "role": "reasoning over peer set and adversarial red-team",
+      "produced_arms": [
+        "I_peers_reasoning.json",
+        "Z_redteam_final.json"
+      ],
+      "downstream_evidence_files": [
+        "03_peers_dedup.json",
+        "06_red_team.json"
+      ]
+    },
+    {
+      "model_id": "alibaba/tongyi-deepresearch-30b-a3b",
+      "billing_class": "FREE",
+      "vendor": "Alibaba (via OpenRouter free tier)",
+      "role": "redundancy arm for first-pass scan; cross-checked against paid Perplexity arms",
+      "produced_arms": [
+        "C_tongyi.json"
+      ],
+      "downstream_evidence_files": [
+        "03_peers_dedup.json"
+      ],
+      "transparency_note": "This is the only free OpenRouter model whose output was fed into evidence ingestion. Its claims were treated as INFERRED until corroborated by a paid Perplexity arm or a direct fetch."
+    },
+    {
+      "model_id": "anthropic/claude-opus-4.x",
+      "billing_class": "paid",
+      "vendor": "Anthropic (via Claude Code orchestrator)",
+      "role": "plan, synthesis, red-team direction, and final write-up; orchestrates all sub-agents",
+      "produced_arms": [
+        "orchestration of 00_blueprint.json through 15_market_size.json"
+      ],
+      "downstream_evidence_files": [
+        "all reports/* output"
+      ]
+    },
+    {
+      "model_id": "anthropic/claude-haiku-4.5",
+      "billing_class": "paid",
+      "vendor": "Anthropic (via Claude Code orchestrator)",
+      "role": "structured extraction sub-agents, render templates",
+      "produced_arms": [
+        "structured-extraction stage of evidence/_research_arms processing"
+      ],
+      "downstream_evidence_files": [
+        "evidence/<phase>.json normalization steps"
+      ]
+    },
+    {
+      "model_id": "anthropic/claude-sonnet-4.6",
+      "billing_class": "paid",
+      "vendor": "Anthropic (via Claude Code orchestrator)",
+      "role": "mid-tier coding and execution where Opus would be over-spec",
+      "produced_arms": [
+        "scripts/_build_*.py generation"
+      ],
+      "downstream_evidence_files": []
+    }
+  ],
+  "free_model_fallback_chain_declared_but_NOT_invoked": [
+    {
+      "model_id": "nvidia/nemotron-3-super-120b-a12b:free",
+      "status": "declared in CLAUDE.md fallback chain; no invocation found in evidence/_research_arms/"
+    },
+    {
+      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "status": "declared in CLAUDE.md fallback chain; no invocation found in evidence/_research_arms/"
+    },
+    {
+      "model_id": "inclusionai/ling-2.6-1t:free",
+      "status": "declared in CLAUDE.md fallback chain; no invocation found in evidence/_research_arms/"
+    }
+  ],
+  "free_model_actually_used": {
+    "model_id": "alibaba/tongyi-deepresearch-30b-a3b",
+    "scope": "one research arm (C_tongyi.json) — cross-validated by paid Perplexity arms before any claim entered final reports"
+  },
+  "paid_model_share_estimate": {
+    "by_arm_count": "11 of 12 research arms (~92%) ran on paid Perplexity Sonar tiers",
+    "by_synthesis_share": "100% of synthesis, red-team, and final report assembly ran on paid Anthropic models",
+    "method": "arm enumeration + role-based attribution; not weighted by token count"
+  },
+  "data_gaps": [
+    {
+      "gap": "exact token-cost split per model is not preserved in this evidence run; only model identity and arm membership are recoverable.",
+      "closure": "future runs are expected to write a cost_report.sh per CLAUDE.md tooling section."
+    },
+    {
+      "gap": "the precise Anthropic model used per Claude Code session step (Opus vs Sonnet vs Haiku) is not stamped into evidence files; declared mapping in CLAUDE.md is the source of truth, not a measurement."
+    }
+  ],
+  "transparency_statement_for_public_pages": "Research pipeline ran primarily on paid Perplexity Sonar tiers (sonar-pro, sonar-deep-research, sonar-reasoning-pro) for web traversal, with one free Alibaba Tongyi arm used for redundancy. Synthesis, planning, and adversarial review ran on paid Anthropic Claude (Opus 4.x, Sonnet 4.6, Haiku 4.5) via the Claude Code orchestrator. The fallback free-model chain declared in the operating contract (Nvidia Nemotron, InclusionAI Ling) was not invoked in this run. Token-cost splits per model are a documented gap for future runs."
+}

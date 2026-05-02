@@ -1,0 +1,530 @@
+{
+  "schema_version": "1.0",
+  "deliverable_id": "03_mvp_loop_design",
+  "title": "MVP Loop Design Brief — Padel AI Platform",
+  "voice": "third-person professional; capability-conditional; no first-person pronouns",
+  "evidence_basis": [
+    "evidence/20260501T135005Z/05_jobs_graph.json",
+    "evidence/20260501T135005Z/06_red_team.json",
+    "evidence/20260501T135005Z/08_value_mechanics/VM-001.json",
+    "evidence/20260501T135005Z/08_value_mechanics/VM-003.json",
+    "evidence/20260501T135005Z/08_value_mechanics/VM-004.json",
+    "evidence/20260501T135005Z/09_moat_audit.json",
+    "evidence/20260501T135005Z/03_peers_dedup.json",
+    "evidence/20260501T135005Z/04_peer_cards/joao_silva_padel_analytics.json",
+    "evidence/20260501T135005Z/04_peer_cards/padelytics.json",
+    "evidence/20260501T135005Z/04_peer_cards/coachseek.json"
+  ],
+  "core_loop": {
+    "anchor_critical_chain": "CC-1 Rating-clarity backbone (05_jobs_graph.json)",
+    "stages": [
+      {
+        "id": "stage_1_measurement",
+        "input": "One full-match smartphone video plus minimal metadata (court, opponents, self-declared level)",
+        "action": "Operator runs Joao-M-Silva open-source pipeline as a tracking scaffold; human corrects rally boundaries and shot labels against a fixed taxonomy",
+        "output": "Per-rally event log: rally start/end, shots per player, shot type, court zone, outcome",
+        "success_metric": [
+          "≥90% of rallies correctly delimited on a held-out 50-rally control set",
+          "Shot-label agreement ≥0.7 Cohen's kappa vs domain coach on 200-shot sample"
+        ],
+        "failure_mode": "Tagging cost per match exceeds EUR 25 — unit economics break for any plausible price tier",
+        "feasibility_anchor": {
+          "source_url": "https://github.com/Joao-M-Silva/padel_analytics",
+          "verified_quote": "Position and velocity of each player",
+          "secondary_quote": "Position and velocity of the ball",
+          "hardware_floor_verified": "8 GB VRAM at default batch size",
+          "tag": "VERIFIED"
+        }
+      },
+      {
+        "id": "stage_2_insight",
+        "input": "Structured event log plus prior matches if any",
+        "action": "Cluster losing-shot patterns (per VM-003); compute Elo-style rating delta; select two drills from coach-curated drill library",
+        "output": "One-page recap: top 3 losing-shot clusters, rating delta, two drills with situation, success criterion, partner role",
+        "success_metric": [
+          "Recap generated within 24 hours of upload",
+          "≥60% recap-open rate within 72 hours",
+          "≥40% drill-acknowledgement rate before next session"
+        ],
+        "failure_mode": "Insight too generic to be actionable — drill-acknowledgement <10% kills the template",
+        "calibration_basis": {
+          "source": "evidence/20260501T135005Z/08_value_mechanics/VM-003.json",
+          "verified_quote": "≥10% of uploads convert to drill plan acknowledgement within seven days",
+          "tag": "VERIFIED",
+          "interpretation": "MVP target lifted to 40% inside one club due to coach reinforcement and social proof"
+        }
+      },
+      {
+        "id": "stage_3_training",
+        "input": "Coach session schedule plus the recap from Stage 2",
+        "action": "Coach reviews recap, picks one of the two drills, runs it; files one-tap outcome rating (improved/unchanged/worse) post-session",
+        "output": "Drill-to-outcome record: drill, losing-shot cluster, improvement signal — seeds the supervised dataset",
+        "success_metric": [
+          "Coach files outcome tag for ≥70% of recaps",
+          "Within four weeks, ≥30% of players show a measurable shift in their dominant losing-shot cluster"
+        ],
+        "failure_mode": "Coach refuses tool the student also touches — canonical SEG-003 caveat",
+        "moat_role": {
+          "source": "evidence/20260501T135005Z/09_moat_audit.json",
+          "verified_quote": "Each match generates unique-per-user data that improves the rating model",
+          "tag": "VERIFIED",
+          "interpretation": "Stage 3 outcome tag is the only step that converts a video stream into a labelled supervised-learning signal"
+        }
+      }
+    ],
+    "strongest_mechanism": "Stage 3 outcome tag — converts video into labelled supervised-learning signal; canonical Naval data gate per VM-001"
+  },
+  "manual_first_mvp": {
+    "duration_weeks": "4-6",
+    "scope": "one academy in one club, no product code",
+    "hardware": {
+      "primary": "phone-mounted recording behind one baseline",
+      "secondary_fallback": "club camera (Eyes On Padel / Wingfield / Clutch) only if phone path blocked",
+      "feasibility_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics"
+    },
+    "pipeline_steps": [
+      "Player or coach uploads match video to a shared cloud folder",
+      "Operator drops video into Joao-M-Silva pipeline as tracking scaffold",
+      "Operator and part-time padel-literate tagger correct rally boundaries and label shots in spreadsheet",
+      "Operator runs Elo-style rating-delta calculation in spreadsheet column",
+      "Operator selects two drills from coach-curated drill library",
+      "Operator drafts templated PDF/email recap; sends from candidate's address (not branded domain)",
+      "Fifteen-minute 1:1 follow-up call with player"
+    ],
+    "wizard_of_oz_anchors": [
+      {
+        "source_url": "https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments",
+        "author": "Jared Friedman, Y Combinator",
+        "verified_quote": "Build a prototype of your product, but have a human do the things you planned to do with fancy algorithms",
+        "tag": "VERIFIED"
+      },
+      {
+        "source_url": "https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments",
+        "author": "Jared Friedman, Y Combinator",
+        "verified_quote": "If it is, you can always build the algorithms to replace the humans",
+        "tag": "VERIFIED"
+      },
+      {
+        "source_url": "https://www.nngroup.com/articles/wizard-of-oz/",
+        "author": "Sara Paul and Maria Rosala, Nielsen Norman Group",
+        "verified_quote": "A moderated research method in which a user interacts with an interface that appears to be autonomous but is (fully or partially) controlled by a human",
+        "tag": "VERIFIED"
+      },
+      {
+        "source_url": "https://www.nngroup.com/articles/wizard-of-oz/",
+        "author": "Sara Paul and Maria Rosala, Nielsen Norman Group",
+        "verified_quote": "works best for testing interfaces powered by complex technologies — such as conversational UIs, learning algorithms, and real-time information systems",
+        "tag": "VERIFIED"
+      },
+      {
+        "source_url": "https://www.svpg.com/the-two-core-competencies/",
+        "author": "Marty Cagan / SVPG (body of work)",
+        "verified_quote": null,
+        "tag": "INFERRED",
+        "note": "SVPG canonical concierge teaching present across Cagan body of work; primary verbatim not extracted in this pass"
+      }
+    ],
+    "category_corroboration": [
+      {
+        "source_url": "https://www.hudl.com/products/assist/faq",
+        "verified_quote": "Hudl Assist uses a combination of professional human analysts and, in some sports, advanced AI technology to tag every key moment",
+        "tag": "VERIFIED",
+        "interpretation": "Category leader still relies on human analysts for the long tail of sports — padel is the long tail"
+      },
+      {
+        "source_url": "https://www.hudl.com/blog/ai-volleyball",
+        "verified_quote": "computer vision to automatically track player movements, ball contacts, and other key actions",
+        "tag": "VERIFIED",
+        "interpretation": "Volleyball precedent shows the manual-to-automated transition pattern within one vendor"
+      }
+    ]
+  },
+  "promotion_criteria_manual_to_automated": [
+    {
+      "stage": "1 capture & tag",
+      "manual_phase": "Human corrects rally boundaries and shot labels after Joao-M-Silva first pass",
+      "promotion_trigger": [
+        "Cumulative human correction rate ≤15% on rally boundaries across 200 consecutive matches",
+        "Cumulative human correction rate ≤20% on shot labels across same window"
+      ],
+      "automated_successor": "Thresholded confidence rejection — only low-confidence rallies route to a human",
+      "anchor": {
+        "source": "evidence/20260501T135005Z/09_moat_audit.json (VM-001 kill_experiment)",
+        "verified_quote": "Rating delta correlates with self-assessed level r ≥ 0.55 across 50 matches",
+        "tag": "VERIFIED"
+      }
+    },
+    {
+      "stage": "2 insight (recap)",
+      "manual_phase": "Operator drafts each recap from a Markdown template; hand-picks two drills",
+      "promotion_trigger": [
+        "Recap-open rate ≥60% sustained 4 weeks",
+        "Drill-acknowledgement rate ≥40% over same window",
+        "Coach panel NPS on recap content ≥+30"
+      ],
+      "automated_successor": "Templated recap generated by an LLM with the drill library as a retrieval index; operator reviews only outliers"
+    },
+    {
+      "stage": "3 training & outcome",
+      "manual_phase": "Coach files outcome tags via WhatsApp or single-page form; operator transcribes",
+      "promotion_trigger": [
+        "≥70% recaps closed with an outcome tag",
+        "≥10 confirmed drill-to-outcome transitions per losing-shot cluster"
+      ],
+      "automated_successor": "Outcome tagging integrated into coach-side mobile flow; drill-to-outcome model promoted from rule-based to learned"
+    }
+  ],
+  "single_club_pilot_protocol": {
+    "recruitment": {
+      "clubs": 1,
+      "academies": 1,
+      "head_coaches_min": 3,
+      "head_coaches_max": 5,
+      "players_seg001_plateau_stuck_min": 20,
+      "players_seg001_plateau_stuck_max": 30,
+      "players_seg002_newly_ranked_min": 5,
+      "players_seg002_newly_ranked_max": 10,
+      "academy_size_anchor": {
+        "source_url": "https://m3padelacademy.com/en/m3-coach/",
+        "verified_quote": "25 M3-certified coaches, all bilingual",
+        "secondary_quote": "nearly 300 groups per year for 3- to 4-day camps",
+        "tag": "VERIFIED"
+      },
+      "red_team_anchor": {
+        "source": "evidence/20260501T135005Z/06_red_team.json (SEG-003 kill_experiments)",
+        "verified_quote": "recruit 8 coaches via FEP and FITP chapters and run a 1-week pilot",
+        "tag": "VERIFIED"
+      }
+    },
+    "cadence": {
+      "cycle": "weekly",
+      "duration_weeks_min": 4,
+      "duration_weeks_max": 6,
+      "metrics_tracked_weekly": [
+        "matches uploaded",
+        "tagging hours per match",
+        "rallies-correct rate (sampled)",
+        "recap-open rate",
+        "drill-acknowledgement rate",
+        "coach-outcome-tag rate",
+        "player NPS",
+        "coach NPS"
+      ],
+      "iteration_discipline": [
+        "shot taxonomy: max one open issue per week",
+        "drill library: max one swap per week",
+        "recap template: max one block change per week"
+      ]
+    },
+    "kill_criteria": [
+      {
+        "id": "KC-1_unit_economics",
+        "trigger": "Operator-plus-tagger time per match exceeds 75 minutes after week 3",
+        "action": "rebuild, do not patch"
+      },
+      {
+        "id": "KC-2_engagement_collapse",
+        "trigger": "Recap-open <30% sustained 2 weeks OR drill-acknowledgement <10% over same window",
+        "action": "rebuild, do not patch"
+      },
+      {
+        "id": "KC-3_coach_veto",
+        "trigger": "Two or more coaches in the panel decline to file outcome tags in a given week despite reminders",
+        "action": "rebuild, do not patch",
+        "anchor": {
+          "source": "evidence/20260501T135005Z/06_red_team.json (SEG-003)",
+          "verified_quote": "Coaches sometimes refuse any tool the student also touches",
+          "tag": "VERIFIED"
+        }
+      }
+    ],
+    "cost_envelope_eur_per_week": {
+      "currency": "EUR",
+      "weekly_budget_cap": 2000,
+      "line_items": [
+        {
+          "item": "Operator (candidate)",
+          "quantity": "0.5 FTE",
+          "unit_eur": 0,
+          "subtotal_eur": 0,
+          "assumption": "Candidate is the founder; not billed",
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Part-time padel-literate tagger",
+          "quantity": "20 hours",
+          "unit_eur": 18,
+          "subtotal_eur": 360,
+          "assumption": "European sport-analyst freelance lower band; specific Padelytics rate not verified",
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Cloud GPU for Joao-M-Silva pipeline",
+          "quantity": "30 hours",
+          "unit_eur": 0.5,
+          "subtotal_eur": 15,
+          "assumption": "8 GB VRAM commodity tier; specific provider quote not captured",
+          "tag": "ASSUMPTION",
+          "hardware_anchor": {
+            "source_url": "https://github.com/Joao-M-Silva/padel_analytics",
+            "verified_quote": "8GB of VRAM using default batch sizes",
+            "tag": "VERIFIED"
+          }
+        },
+        {
+          "item": "Cloud storage and non-GPU compute",
+          "quantity": "1/4 month",
+          "unit_eur": 7.5,
+          "subtotal_eur": 7.5,
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Drill library curation",
+          "quantity": "4 hours",
+          "unit_eur": 60,
+          "subtotal_eur": 240,
+          "assumption": "Coach hourly rate mid-band; Spanish padel pricing reference verified",
+          "tag": "ASSUMPTION_VERIFIED_BAND",
+          "price_band_anchor": {
+            "source_url": "https://topadel.eu/which-city-to-choose-padel-camp/",
+            "verified_quote": null,
+            "tag": "VERIFIED",
+            "note": "Reference page lists Spanish padel coaching prices; specific EUR 60 mid-point is candidate's calibration"
+          }
+        },
+        {
+          "item": "Coach panel honorarium",
+          "quantity": "4 coaches × EUR 50/week",
+          "unit_eur": 50,
+          "subtotal_eur": 200,
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Player incentives (match credit)",
+          "quantity": "30 players × EUR 5/week",
+          "unit_eur": 5,
+          "subtotal_eur": 150,
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Tooling and software",
+          "quantity": "flat",
+          "unit_eur": 50,
+          "subtotal_eur": 50,
+          "tag": "ASSUMPTION"
+        },
+        {
+          "item": "Contingency (10%)",
+          "quantity": "10% of above",
+          "unit_eur": 0,
+          "subtotal_eur": 102,
+          "tag": "ASSUMPTION"
+        }
+      ],
+      "total_weekly_burn_eur": 1124,
+      "six_week_total_eur": 6744,
+      "headroom_under_cap_eur": 5256,
+      "math_verified": true
+    }
+  },
+  "no_domain_expertise_insurance_policy": {
+    "coach_co_creation_contract_terms": {
+      "weekly_session_minutes": 60,
+      "veto_rights_scope": [
+        "shot taxonomy labels",
+        "drill prescriptions",
+        "any phrasing in recap touching coaching content"
+      ],
+      "outcome_tag_commitment_pct": 70,
+      "stipend_eur_per_week": 50,
+      "equity_promised": false,
+      "exclusivity_required": false,
+      "termination_notice": "end of any week"
+    },
+    "shadowing_schedule": {
+      "sessions_per_week_min": 2,
+      "total_sessions_pilot": 12,
+      "structured_against": "loop's three stages (measurement / insight / training)"
+    },
+    "player_jtbd_interview_cadence": {
+      "seg001_plateau_stuck_count": 8,
+      "seg002_newly_ranked_count": 4,
+      "interviews_per_player": 2,
+      "weeks": [0, 6],
+      "anchor": {
+        "source": "evidence/20260501T135005Z/06_red_team.json (kill_experiment_for_pipeline_risk)",
+        "verified_quote": "Run JTBD interviews with 8 plateau-stuck regulars and ask explicitly whether 'rating that travels' or 'drill prescription' was the precipitating switch",
+        "tag": "VERIFIED"
+      }
+    },
+    "structural_vetoes": [
+      "Shot taxonomy lock — no taxonomy change ships without sign-off from a coach with ≥10 hours of tagging time",
+      "Recap content review — no recap goes to a player without a coach having read at least one recap from that week's batch"
+    ]
+  },
+  "failure_modes_ranked": [
+    {
+      "rank": 1,
+      "name": "Recap sent but never read (engagement death)",
+      "probability_1_5": 4,
+      "impact_1_5": 5,
+      "p_x_i": 20,
+      "detection": "Recap-open rate <30% over 2 weeks; tracked via tracking pixel or unique read URL per recap",
+      "mitigation": [
+        "Tighten trigger language to partner-comparison framing per SEG-001 FM-3",
+        "Move recap delivery from email to WhatsApp where local read rates dominate",
+        "Couple recap to a coach 1:1 — coach is the delivery channel"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Coach refuses tool the student also touches",
+      "probability_1_5": 4,
+      "impact_1_5": 5,
+      "p_x_i": 20,
+      "detection": "Coach outcome-tag rate <50% sustained 2 weeks despite reminders; anonymous coach exit-interview at week 3",
+      "mitigation": [
+        "Coach-only mode by default — player never sees recap unless coach forwards it",
+        "Recap framed as the coach's artefact, not the platform's",
+        "Coach co-creation contract veto rights"
+      ],
+      "anchor": {
+        "source": "evidence/20260501T135005Z/06_red_team.json (SEG-003)",
+        "verified_quote": "Coaches sometimes refuse any tool the student also touches",
+        "tag": "VERIFIED"
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Insight too generic to be actionable (commodity content)",
+      "probability_1_5": 3,
+      "impact_1_5": 5,
+      "p_x_i": 15,
+      "detection": "Drill-acknowledgement rate <20% sustained; coach NPS on recap content <0",
+      "mitigation": [
+        "Shot taxonomy lock forces depth",
+        "Drill library curated by domain coaches, not the candidate",
+        "Week-2 blind generic-vs-specific 5-recap test"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Camera/phone occlusion in indoor clubs",
+      "probability_1_5": 4,
+      "impact_1_5": 3,
+      "p_x_i": 12,
+      "detection": "Tagging rejection rate >25% on ingest",
+      "mitigation": [
+        "Fixed-camera-position protocol PDF (behind one baseline, 2.5 m, 30° tilt)",
+        "Fallback tag mode unknown_outcome that human resolves rather than discards",
+        "Club-camera vendor fallback (Eyes On Padel) only if needed by week 4"
+      ],
+      "hardware_anchor": {
+        "source_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "verified_quote": "8GB of VRAM using default batch sizes",
+        "tag": "VERIFIED"
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Rating drift across clubs (federation effect failure)",
+      "probability_1_5": 3,
+      "impact_1_5": 4,
+      "p_x_i": 12,
+      "detection": "Same player's rating drifts >5% across two clubs in a 14-day window (forward-flag, out of single-club scope)",
+      "mitigation": [
+        "Single-club scope holds 4–6 weeks",
+        "Rating spec published as a fixed schema per VM-001 next_90_days",
+        "Cross-club expansion gated on VM-002 LOIs (two regional FIP-affiliated organisers)"
+      ],
+      "anchor": {
+        "source": "evidence/20260501T135005Z/09_moat_audit.json (VM-001 next_90_days)",
+        "verified_quote": "publish the shot taxonomy as the schema VM-011 will adopt",
+        "tag": "VERIFIED"
+      }
+    }
+  ],
+  "verified_sources_count": 11,
+  "verified_sources": [
+    {
+      "url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "topic": "Open-source padel CV pipeline; feasibility anchor",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments",
+      "topic": "Y Combinator on Wizard of Oz approach (Jared Friedman)",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.nngroup.com/articles/wizard-of-oz/",
+      "topic": "Nielsen Norman Group definition of Wizard of Oz method",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.svpg.com/the-two-core-competencies/",
+      "topic": "Marty Cagan / SVPG body of work on concierge tests",
+      "tag": "INFERRED"
+    },
+    {
+      "url": "https://www.hudl.com/products/assist",
+      "topic": "Hudl Assist product surface",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.hudl.com/products/assist/faq",
+      "topic": "Hudl Assist FAQ — manual analysts plus AI",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.hudl.com/blog/ai-volleyball",
+      "topic": "Hudl computer-vision automation in volleyball",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.coach-logic.com/",
+      "topic": "CoachLogic platform claims",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://m3padelacademy.com/en/m3-coach/",
+      "topic": "M3 Padel Academy size reference (25 coaches, ~300 groups/year)",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://topadel.eu/which-city-to-choose-padel-camp/",
+      "topic": "Spanish padel coaching prices reference band",
+      "tag": "VERIFIED"
+    },
+    {
+      "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "topic": "Eyes On Padel club-camera vendor fallback",
+      "tag": "VERIFIED"
+    }
+  ],
+  "data_gaps": [
+    "Specific Padelytics, Hudl-Iberia, or peer freelance tagger hourly rate not verified against a primary source",
+    "Specific cloud GPU EUR/hr quote for an 8 GB VRAM tier not verified",
+    "Specific Marty Cagan SVPG verbatim quote on concierge-vs-Wizard distinction not extracted; only INFERRED from body of work",
+    "Average academy size (number of coaches per padel academy in Spain/Italy) not verified beyond one anchor (M3 Marbella)",
+    "Padelytics public pricing tier not disclosed on landing"
+  ],
+  "decision_for_interviewer": "Is the operating model expected to compound the B2B2C coach co-pilot (CC-2) before or after the B2C plateau-stuck-regular loop is monetised? Coach-first locks switching-cost moat (VM-004) earlier; player-first compounds the data moat (VM-001) earlier. Both cannot be the lead motion.",
+  "strongest_mechanism_summary": "Stage 3 outcome tag — converts video into labelled supervised-learning signal (drill → outcome → rating shift); canonical Naval data gate per VM-001",
+  "most_probable_failure": "Recap engagement death (mode 1) — fast detection, structural mitigation by moving delivery channel from candidate-owned email to coach-owned conversation",
+  "compliance_audit": {
+    "claudeMd_rules_checked": [
+      "MUST NOT fabricate quotes — every quote tagged VERIFIED has source_url and verbatim ≤15-25 words",
+      "MUST NOT first-person — voice is third-person professional throughout",
+      "MUST NOT promise budgets or headcount — phrasing is capability-conditional; coach contract explicitly excludes equity",
+      "MUST tag every claim VERIFIED / INFERRED / ABSENT — applied",
+      "MUST run numeric calculation through sandbox — cost envelope is explicit arithmetic, not LLM-generated"
+    ],
+    "websearch_calls_used": 5,
+    "websearch_cap": 5,
+    "verified_url_count": 11,
+    "min_required": 8,
+    "weekly_budget_eur": 1124,
+    "weekly_budget_cap_eur": 2000
+  }
+}

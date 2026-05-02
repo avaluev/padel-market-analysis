@@ -1,0 +1,303 @@
+{
+  "run_at": "2026-05-02T20:46:06.326Z",
+  "total": 33,
+  "ok": 30,
+  "failed": 3,
+  "results": [
+    {
+      "url": "https://avaluev.github.io/padel-market-analysis/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "jd-coverage-map.html",
+        "model-provenance.html"
+      ]
+    },
+    {
+      "url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://github.com/avaluev",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html",
+        "competitor-intelligence.html",
+        "index.html",
+        "jd-coverage-map.html",
+        "model-provenance.html",
+        "mvp-loop-design.html",
+        "subscription-economics.html"
+      ]
+    },
+    {
+      "url": "https://github.com/avaluev/padel-market-analysis",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html",
+        "competitor-intelligence.html",
+        "index.html",
+        "jd-coverage-map.html",
+        "model-provenance.html",
+        "mvp-loop-design.html",
+        "subscription-economics.html"
+      ]
+    },
+    {
+      "url": "https://github.com/avaluev/padel-market-analysis/blob/main/.gitignore",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "model-provenance.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html",
+        "jd-coverage-map.html",
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://m3padelacademy.com/en/m3-coach/",
+      "status": 0,
+      "error": "fetch failed",
+      "method": "all-failed",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://openrouter.ai/api/v1/models",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "jd-coverage-map.html"
+      ]
+    },
+    {
+      "url": "https://playtomic.com/global-padel-report",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://playtomic.io/blog",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "jd-coverage-map.html"
+      ]
+    },
+    {
+      "url": "https://t.me/ASNKT",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html",
+        "competitor-intelligence.html",
+        "index.html",
+        "jd-coverage-map.html",
+        "model-provenance.html",
+        "mvp-loop-design.html",
+        "subscription-economics.html"
+      ]
+    },
+    {
+      "url": "https://topadel.eu/which-city-to-choose-padel-camp/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.agile-minds.com/category/knowledge/workshop-notes/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.clutchapp.io/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.coach-logic.com/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "status": 415,
+      "method": "GET-fallback",
+      "sources": [
+        "mvp-loop-design.html",
+        "subscription-economics.html"
+      ]
+    },
+    {
+      "url": "https://www.fep.es/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html",
+        "jd-coverage-map.html"
+      ]
+    },
+    {
+      "url": "https://www.fitp.it/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.hudl.com/blog/ai-volleyball",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.hudl.com/pricing",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.hudl.com/products",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.hudl.com/products/assist",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "jd-coverage-map.html",
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.hudl.com/products/assist/faq",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.linkedin.com/in/valuev/",
+      "status": 999,
+      "method": "GET-fallback",
+      "sources": [
+        "30-60-90-plan.html",
+        "competitor-intelligence.html",
+        "index.html",
+        "jd-coverage-map.html",
+        "model-provenance.html",
+        "mvp-loop-design.html",
+        "subscription-economics.html"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/wizard-of-oz/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.padelfip.com/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "jd-coverage-map.html"
+      ]
+    },
+    {
+      "url": "https://www.padelfip.com/world-padel-report-2025/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.padelytics.ai/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.strava.com/premium",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "30-60-90-plan.html"
+      ]
+    },
+    {
+      "url": "https://www.svpg.com/the-two-core-competencies/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.wingfield.io/",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    },
+    {
+      "url": "https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments",
+      "status": 200,
+      "method": "HEAD",
+      "sources": [
+        "mvp-loop-design.html"
+      ]
+    }
+  ]
+}

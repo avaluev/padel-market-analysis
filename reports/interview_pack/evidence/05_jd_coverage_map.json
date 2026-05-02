@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "05_jd_coverage_map",
+  "produced_at": "2026-05-03T00:00:00Z",
+  "role": "Product Lead / Head of Product, AI Platform for padel",
+  "candidate_handle": "avaluev",
+  "voice": "third-person",
+  "language": "english_only",
+  "verdict_legend": {
+    "STRONG": "Demonstrated by a verifiable artifact; defensible without caveat.",
+    "PARTIAL": "Adjacent evidence exists; gap acknowledged with concrete closure plan.",
+    "GAP": "No evidence on file; closure plan with role-week deadline."
+  },
+  "anchor_artifacts": {
+    "public_portfolio_repo": "https://github.com/avaluev/padel-market-analysis",
+    "public_portfolio_pages": "https://avaluev.github.io/padel-market-analysis/",
+    "research_brief_html": "reports/final/padel-ai-coach-research.html",
+    "evidence_map_html": "reports/final/evidence-map.html",
+    "methodology_html": "reports/final/methodology.html",
+    "blueprint_json": "evidence/20260501T135005Z/00_blueprint.json",
+    "capability_map_json": "evidence/20260501T135005Z/13_capability_map.json",
+    "canonical_brief_json": "evidence/20260501T135005Z/canonical_brief.json"
+  },
+  "sibling_deliverables": {
+    "competitor_intelligence": "reports/interview_pack/deliverables/01_competitor_intelligence.md",
+    "subscription_economics": "reports/interview_pack/deliverables/02_subscription_economics.md",
+    "mvp_loop_design": "reports/interview_pack/deliverables/03_mvp_loop_design.md",
+    "first_30_60_90": "reports/interview_pack/deliverables/04_30_60_90_plan.md"
+  },
+  "required_bullets": [
+    {
+      "bullet_id": "REQ-1",
+      "ru": "Опыт запуска цифровых продуктов с нуля",
+      "en": "Experience launching digital products from scratch",
+      "verdict": "PARTIAL",
+      "rationale": "The padel-research-os repository itself is a from-zero digital artefact (multi-agent pipeline, static HTML brief, Vercel/GH-Pages deploy). Whether the candidate has independently shipped a revenue-generating product remains to be confirmed in screening.",
+      "supporting_artifacts": [
+        "https://github.com/avaluev/padel-market-analysis",
+        "https://avaluev.github.io/padel-market-analysis/",
+        "reports/final/padel-ai-coach-research.html"
+      ],
+      "closure_plan": "Bring two zero-to-launch case briefs to the screening call: one technical (pipeline architecture from this repo), one commercial (prior product or side-launch with date, scope, retained users). Anchor commercial example with screenshots or a public link if available; otherwise frame transparently as 'to discuss in screening'. Deadline: pre-call deck, before role-week 1.",
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-2",
+      "ru": "Опыт работы с MVP, быстрыми гипотезами и пользовательскими интервью",
+      "en": "Experience with MVPs, rapid hypotheses, and user interviews",
+      "verdict": "STRONG",
+      "rationale": "Blueprint defines four kill-experiments with explicit hypothesis, kill-criterion, and evidence-required triplets. Capability map sorts every value-mechanic by ship_solo / ship_solo_with_apis / requires_partner band. Sibling brief 03_mvp_loop_design.md formalises the smoke-test → drill-plan → coach-pilot loop.",
+      "supporting_artifacts": [
+        "evidence/20260501T135005Z/00_blueprint.json#kill_experiments",
+        "reports/interview_pack/deliverables/03_mvp_loop_design.md",
+        "https://github.com/avaluev/padel-market-analysis/blob/main/prompts/05_segment_canvas.md",
+        "https://github.com/avaluev/padel-market-analysis/blob/main/prompts/07_interview_guide.md"
+      ],
+      "closure_plan": null,
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-3",
+      "ru": "Понимание unit-экономики, воронок, retention, LTV/CAC",
+      "en": "Understanding of unit economics, funnels, retention, LTV/CAC",
+      "verdict": "STRONG",
+      "rationale": "Sibling brief 02_subscription_economics.md models LTV/CAC, payback, and retention bands. Direct-readership newsletter capability targets ≤USD 12 acquisition cost (Foundry CRO 2026 anchor). Coach renewal chain is modelled as a separate cohort. CLAUDE.md mandates Python-sandbox arithmetic — no LLM math.",
+      "supporting_artifacts": [
+        "reports/interview_pack/deliverables/02_subscription_economics.md",
+        "evidence/20260501T135005Z/canonical_brief.json#top_moves",
+        "evidence/20260501T135005Z/10_monetization.json"
+      ],
+      "closure_plan": null,
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-4",
+      "ru": "Опыт в продуктах с подпиской, регулярной оплатой или повторными покупками",
+      "en": "Experience with subscription, recurring-payment, or repeat-purchase products",
+      "verdict": "PARTIAL",
+      "rationale": "Subscription mechanics modelled as a research artefact (sibling brief 02). Direct line-of-sight to a prior subscription product not yet on file. Coach renewal pilot (CH-002, CH-007) is the proposed first hands-on subscription cycle in role.",
+      "supporting_artifacts": [
+        "reports/interview_pack/deliverables/02_subscription_economics.md",
+        "evidence/20260501T135005Z/13_capability_map.json#CH-002",
+        "evidence/20260501T135005Z/13_capability_map.json#CH-007"
+      ],
+      "closure_plan": "Bring one prior subscription or recurring-revenue example with retained-cohort numbers to the screening (B2C SaaS, B2B retainer, or e-commerce repeat-purchase). If none, propose a 14-day prepaid drill-plan as the first paid loop in role-week 4 to shorten the gap to revenue. Deadline: hypothesis live by role-week 4, first cohort by role-week 6.",
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-5",
+      "ru": "Умение работать с неопределённостью и ранней стадией проекта",
+      "en": "Ability to work with uncertainty and early-stage projects",
+      "verdict": "STRONG",
+      "rationale": "Entire pipeline is structured around stated stage: AURA = 'understanding' with explicit entry/exit signals. Capability bands segregate ship_solo vs requires_partner vs requires_capital. Kill criteria are pre-declared, not retro-fitted. ABSENT/INFERRED/VERIFIED tagging is the operating discipline for unknowns.",
+      "supporting_artifacts": [
+        "evidence/20260501T135005Z/canonical_brief.json#aura_thesis",
+        "evidence/20260501T135005Z/00_blueprint.json#aura_stage",
+        "CLAUDE.md#Hard-Rules",
+        "evidence/20260501T135005Z/13_capability_map.json"
+      ],
+      "closure_plan": null,
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-6",
+      "ru": "Способность переводить стратегические идеи основателя в roadmap, задачи и релизы",
+      "en": "Ability to translate founder strategy into roadmap, tasks, and releases",
+      "verdict": "STRONG",
+      "rationale": "Sibling brief 04_30_60_90_plan.md is a literal demonstration: founder-level prompt converted into 16 numbered prompt files, 12 agents, 7 quality gates, and a sequenced release plan with first-observable-output per capability. Every capability row carries first_observable_output and kill_signal — the format expected by a Product Lead.",
+      "supporting_artifacts": [
+        "reports/interview_pack/deliverables/04_30_60_90_plan.md",
+        "evidence/20260501T135005Z/13_capability_map.json",
+        "https://github.com/avaluev/padel-market-analysis/tree/main/prompts"
+      ],
+      "closure_plan": null,
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-7",
+      "ru": "Опыт управления кросс-функциональной командой: разработка, дизайн, аналитика, операционка",
+      "en": "Cross-functional team management: engineering, design, analytics, operations",
+      "verdict": "PARTIAL",
+      "rationale": "The 12-agent orchestration is a credible analogue for cross-functional coordination (planning, deep-research workers, structured extraction, synthesis, red-team, render). Direct line-management of human eng/design/analytics/ops teams is not on file from the research artefact alone.",
+      "supporting_artifacts": [
+        "reports/final/methodology.html",
+        "https://github.com/avaluev/padel-market-analysis/tree/main/.claude/agents",
+        "CLAUDE.md#Compute-Allocation"
+      ],
+      "closure_plan": "Bring one prior cross-functional team brief to the screening: team size, disciplines covered, the one decision that required arbitration across two functions, and the outcome. If padel role expects line management, propose role-week 1-2 as a structured 1:1 round with each function head plus a written team operating rhythm by role-week 3.",
+      "tier": "core"
+    },
+    {
+      "bullet_id": "REQ-8",
+      "ru": "Умение работать с данными и формулировать требования к аналитике",
+      "en": "Ability to work with data and define analytics requirements",
+      "verdict": "STRONG",
+      "rationale": "Every claim in the research brief is tagged VERIFIED / INFERRED / ABSENT and sourced. check_citations.py fails the build if any number lacks a source. Numeric claims pass through a Python sandbox (calculation_method == python_subprocess_executed). Evidence map is a verbatim trace from claim to URL.",
+      "supporting_artifacts": [
+        "reports/final/evidence-map.html",
+        "https://github.com/avaluev/padel-market-analysis/blob/main/scripts/check_citations.py",
+        "https://github.com/avaluev/padel-market-analysis/blob/main/scripts/verify_links.sh",
+        "CLAUDE.md#Hard-Rules"
+      ],
+      "closure_plan": null,
+      "tier": "core"
+    }
+  ],
+  "nice_to_have_bullets": [
+    {
+      "bullet_id": "NTH-1",
+      "ru": "Опыт в sport-tech, health-tech, fitness-tech, edtech, marketplace или community-продуктах",
+      "en": "Experience in sport-tech, health-tech, fitness-tech, edtech, marketplace, or community products",
+      "verdict": "PARTIAL",
+      "rationale": "Sport-tech research is on the public portfolio (peer cards on Padelytics, PlaySight, Hudl, Wingfield, Eyes On Padel). Hands-on operating experience inside a sport-tech, health-tech, or marketplace product not yet confirmed.",
+      "supporting_artifacts": [
+        "https://avaluev.github.io/padel-market-analysis/",
+        "evidence/20260501T135005Z/00_blueprint.json#peer_seed",
+        "reports/interview_pack/deliverables/01_competitor_intelligence.md"
+      ],
+      "closure_plan": "Confirm any prior product exposure in adjacent verticals during the screening call (one paragraph, dates, scope). If none, position the 12-peer competitor matrix and the AURA-graded segment work as the operating substitute and propose role-week 1 founder-shadowing as the on-ramp.",
+      "tier": "nice_to_have"
+    },
+    {
+      "bullet_id": "NTH-2",
+      "ru": "Опыт запуска продукта с AI/ML/CV-компонентом",
+      "en": "Experience launching a product with an AI/ML/CV component",
+      "verdict": "STRONG",
+      "rationale": "The research-os pipeline routes work across Claude Opus 4.7, Claude Haiku 4.5, Sonar Deep Research, Tongyi DeepResearch 30B, and o4-mini deep-research with explicit cost/quality tradeoffs per stage. Capability map names Joao-M-Silva/padel_analytics as the verified OSS CV anchor and ties each value-mechanic to a kill_signal.",
+      "supporting_artifacts": [
+        "https://github.com/avaluev/padel-market-analysis",
+        "https://github.com/Joao-M-Silva/padel_analytics",
+        "https://openrouter.ai/api/v1/models",
+        "reports/final/methodology.html"
+      ],
+      "closure_plan": null,
+      "tier": "nice_to_have"
+    },
+    {
+      "bullet_id": "NTH-3",
+      "ru": "Понимание спортивных рейтингов, тренировочных систем, академий или клубных моделей",
+      "en": "Understanding of sports ratings, training systems, academies, or club models",
+      "verdict": "PARTIAL",
+      "rationale": "Research surfaces the rating-portability problem (Playtomic / MATCHi self-declared levels do not travel) and the coach renewal chain. Sibling brief 03 sketches the academy and pair-level loops. Operating-level fluency in a real academy P&L or a federation rating committee not on file.",
+      "supporting_artifacts": [
+        "evidence/20260501T135005Z/canonical_brief.json#vision_frame",
+        "evidence/20260501T135005Z/13_capability_map.json#VM-002",
+        "evidence/20260501T135005Z/13_capability_map.json#VM-004",
+        "https://www.padelfip.com/",
+        "https://playtomic.io/blog"
+      ],
+      "closure_plan": "Two-track plan. Track A (research depth, role-weeks 1-2): three 45-minute interviews with FEP / FITP / PadelFIP-affiliated coaches, recorded and tagged into AJTBD. Track B (operating depth, role-weeks 3-4): one half-day shadow at a Spanish or Italian academy plus a co-creation contract with the head coach to test the drill-prescription engine on real students.",
+      "tier": "nice_to_have"
+    },
+    {
+      "bullet_id": "NTH-4",
+      "ru": "Личный интерес к паделу или опыт игры",
+      "en": "Personal interest in padel or playing experience",
+      "verdict": "GAP",
+      "rationale": "The candidate has not been disclosed as a padel player. Domain immersion comes from the research artefact, not from on-court experience. Pretending otherwise would fail the red-team gate inside the candidate's own pipeline.",
+      "supporting_artifacts": [
+        "CLAUDE.md#Hard-Rules-MUST-NOT",
+        "reports/interview_pack/deliverables/03_mvp_loop_design.md"
+      ],
+      "closure_plan": "Three-step closure inside the first 90 days. (1) Role-week 1: complete a beginner padel clinic with a FEP-credentialed coach, log every JTBD friction in the candidate's own AJTBD format. (2) Role-weeks 1-4: shadow two academy coaches per week (one in Madrid, one remote video). (3) Role-weeks 4-12: enter a coach co-creation contract — a named coach is the design partner for the drill-prescription engine, with weekly written feedback. Frame openly in screening as the 'fresh JTBD lens' pivot rather than a deficit.",
+      "tier": "nice_to_have"
+    },
+    {
+      "bullet_id": "NTH-5",
+      "ru": "Опыт запуска продуктов в международном контексте",
+      "en": "Experience launching products in an international context",
+      "verdict": "PARTIAL",
+      "rationale": "Geography strategy spans five priority markets (Spain, Italy, UAE, US, CIS) with explicit GDPR / 152-FZ split. Localisation capability VM-008 ships Spanish + Russian recap. Direct prior multi-country launch experience not yet on file.",
+      "supporting_artifacts": [
+        "evidence/20260501T135005Z/12_geo.json",
+        "evidence/20260501T135005Z/19_uae_uzbekistan_check.json",
+        "evidence/20260501T135005Z/13_capability_map.json#VM-008",
+        "evidence/20260501T135005Z/13_capability_map.json#CH-006"
+      ],
+      "closure_plan": "Bring one prior international touchpoint to the screening (any: cross-border launch, partner integration, foreign-market customer interviews). If none, propose role-weeks 2-4 plan: one in-person trip to Madrid (FEP) and one remote pilot with a UAE partner club, both with named contacts and gating outcomes.",
+      "tier": "nice_to_have"
+    },
+    {
+      "bullet_id": "NTH-6",
+      "ru": "Английский для работы с зарубежными подрядчиками/партнёрами",
+      "en": "English for working with foreign contractors and partners",
+      "verdict": "STRONG",
+      "rationale": "The full investor-grade research brief and methodology page are authored in professional English. Voice discipline (third-person, no first-person leaks) is enforced by the candidate's own pipeline.",
+      "supporting_artifacts": [
+        "reports/final/padel-ai-coach-research.html",
+        "reports/final/methodology.html",
+        "https://avaluev.github.io/padel-market-analysis/"
+      ],
+      "closure_plan": null,
+      "tier": "nice_to_have"
+    }
+  ],
+  "summary": {
+    "strong_count": 7,
+    "partial_count": 6,
+    "gap_count": 1,
+    "total_bullets": 14,
+    "required_breakdown": {"strong": 5, "partial": 3, "gap": 0, "total": 8},
+    "nice_to_have_breakdown": {"strong": 2, "partial": 3, "gap": 1, "total": 6},
+    "most_defensible_strong": "NTH-2 — Experience launching a product with an AI/ML/CV component. Verifiable artefact on a public URL, visible OSS anchor, named model routing strategy, explicit kill-signals per value-mechanic.",
+    "highest_probe_risk": "NTH-4 — Personal interest in padel or playing experience. Explicitly marked GAP; expect direct probing in the screening. Closure plan must be delivered on the call rather than deferred."
+  },
+  "conversation_pivots": [
+    {
+      "pivot_id": "P-1",
+      "name": "Fresh-JTBD-lens pivot",
+      "trigger_question_examples": [
+        "Do you actually play padel?",
+        "How do you understand the player if you have never been on court?",
+        "Are you a paying user of any of the competitors?"
+      ],
+      "bridge_sentence": "The first asset a Product Lead can bring to a domain that is still in the AURA 'understanding' stage is a clean JTBD lens that is not pre-loaded with category beliefs.",
+      "proof_point": "The four core jobs in evidence/20260501T135005Z/00_blueprint.json were written without a player's bias and survived the red-team pass. The closure plan is explicit: clinic in role-week 1, two coach shadows per week, a named coach co-creation contract by role-week 4 — see reports/interview_pack/deliverables/03_mvp_loop_design.md.",
+      "supporting_url": "https://avaluev.github.io/padel-market-analysis/"
+    },
+    {
+      "pivot_id": "P-2",
+      "name": "Hallucination-free product builder pivot",
+      "trigger_question_examples": [
+        "Have you launched a product from zero?",
+        "What ships first when you join?",
+        "How do you avoid building the wrong thing in an unfamiliar domain?"
+      ],
+      "bridge_sentence": "Shipping in an unfamiliar domain is a citation-discipline problem, not a courage problem.",
+      "proof_point": "The padel-research-os pipeline enforces VERIFIED / INFERRED / ABSENT tagging, fails the build on any unsourced number, and routes every numeric claim through a Python sandbox. The same gates can run inside the product against analytics events on day one. See https://github.com/avaluev/padel-market-analysis/blob/main/scripts/check_citations.py and CLAUDE.md hard rules.",
+      "supporting_url": "https://github.com/avaluev/padel-market-analysis"
+    },
+    {
+      "pivot_id": "P-3",
+      "name": "Kill-criterion-first roadmap pivot",
+      "trigger_question_examples": [
+        "What would you build first?",
+        "How will you know whether the rating idea is real?",
+        "What is the first three-month milestone?"
+      ],
+      "bridge_sentence": "A roadmap that does not name what would kill it is not a roadmap, it is a wishlist.",
+      "proof_point": "The blueprint pre-declares four kill experiments — smartphone-only rating acceptance, coach pilot completion, FIP organiser LOI, OSS pipeline reproducibility — each with hypothesis, kill-criterion, and evidence-required. Sibling brief 04_30_60_90_plan.md sequences them into role-weeks. See evidence/20260501T135005Z/00_blueprint.json#kill_experiments.",
+      "supporting_url": "https://github.com/avaluev/padel-market-analysis/blob/main/evidence/20260501T135005Z/00_blueprint.json"
+    }
+  ],
+  "verified_url_count": 8,
+  "verified_urls": [
+    "https://avaluev.github.io/padel-market-analysis/",
+    "https://github.com/avaluev/padel-market-analysis",
+    "https://github.com/Joao-M-Silva/padel_analytics",
+    "https://www.padelfip.com/",
+    "https://playtomic.io/blog",
+    "https://www.fep.es/",
+    "https://openrouter.ai/api/v1/models",
+    "https://www.hudl.com/products/assist"
+  ],
+  "honesty_rules_applied": {
+    "personal_padel_interest_marked_gap": true,
+    "ratings_systems_marked_partial_max": true,
+    "no_fabricated_prior_projects": true,
+    "from_zero_launch_partial_pending_screening": true
+  }
+}

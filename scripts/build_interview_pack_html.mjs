@@ -1,0 +1,371 @@
+#!/usr/bin/env node
+// Build GitHub-Pages-ready HTML pages for the Padel AI Coach interview pack.
+// Reads markdown deliverables from reports/interview_pack/deliverables/*.md
+// Wraps each in a styled HTML page consistent with reports/final/ portfolio.
+// Embeds screenshots from reports/interview_pack/screenshots/ where referenced.
+
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'fs';
+import { join, basename } from 'path';
+
+const ROOT = '/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os';
+const SRC  = join(ROOT, 'reports/interview_pack/deliverables');
+const OUT  = join(ROOT, 'reports/final/interview-pack');
+const SHOTS_SRC = join(ROOT, 'reports/interview_pack/screenshots');
+const SHOTS_OUT = join(OUT, 'screenshots');
+
+mkdirSync(OUT, { recursive: true });
+mkdirSync(SHOTS_OUT, { recursive: true });
+
+// Copy screenshots
+for (const f of readdirSync(SHOTS_SRC)) {
+  if (/\.(png|jpg|jpeg|webp)$/i.test(f)) {
+    const buf = readFileSync(join(SHOTS_SRC, f));
+    writeFileSync(join(SHOTS_OUT, f), buf);
+  }
+}
+
+// Minimal markdown → HTML transform (headings, lists, links, code, paragraphs, tables, images)
+function md2html(md) {
+  const lines = md.split('\n');
+  let out = [];
+  let inCode = false, inList = false, inOL = false, inTable = false, tableHeader = false;
+  let para = [];
+
+  const flushPara = () => {
+    if (para.length) {
+      out.push('<p>' + inline(para.join(' ')) + '</p>');
+      para = [];
+    }
+  };
+  const flushList = () => {
+    if (inList) { out.push('</ul>'); inList = false; }
+    if (inOL) { out.push('</ol>'); inOL = false; }
+  };
+
+  function inline(s) {
+    // images first
+    s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, url) => {
+      // local screenshot reference
+      if (/^screenshots\//.test(url)) {
+        return `<figure class="shot"><img src="${url}" alt="${alt.replace(/"/g,'&quot;')}" loading="lazy"><figcaption>${alt}</figcaption></figure>`;
+      }
+      return `<figure class="shot"><img src="${url}" alt="${alt.replace(/"/g,'&quot;')}" loading="lazy"><figcaption>${alt}</figcaption></figure>`;
+    });
+    // links
+    s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" rel="noopener" target="_blank">$1</a>');
+    // bold
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // italic
+    s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+    // inline code
+    s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+    return s;
+  }
+
+  for (let raw of lines) {
+    let line = raw.replace(/\r$/, '');
+    if (line.startsWith('```')) {
+      flushPara(); flushList();
+      inCode = !inCode;
+      out.push(inCode ? '<pre><code>' : '</code></pre>');
+      continue;
+    }
+    if (inCode) { out.push(line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')); continue; }
+
+    if (/^#{1,6}\s/.test(line)) {
+      flushPara(); flushList();
+      const m = line.match(/^(#{1,6})\s+(.+)$/);
+      out.push(`<h${m[1].length}>${inline(m[2])}</h${m[1].length}>`);
+      continue;
+    }
+
+    // table
+    if (/^\s*\|.+\|\s*$/.test(line)) {
+      flushPara(); flushList();
+      if (!inTable) { out.push('<div class="table-wrap"><table>'); inTable = true; tableHeader = true; }
+      const cells = line.trim().slice(1,-1).split('|').map(c=>c.trim());
+      // separator row
+      if (/^\s*\|[\s:|-]+\|\s*$/.test(line)) { tableHeader = false; continue; }
+      if (tableHeader) {
+        out.push('<thead><tr>' + cells.map(c=>`<th>${inline(c)}</th>`).join('') + '</tr></thead><tbody>');
+      } else {
+        out.push('<tr>' + cells.map(c=>`<td>${inline(c)}</td>`).join('') + '</tr>');
+      }
+      continue;
+    } else if (inTable) {
+      out.push('</tbody></table></div>'); inTable = false;
+    }
+
+    if (/^\s*[-*]\s+/.test(line)) {
+      flushPara();
+      if (inOL) { out.push('</ol>'); inOL = false; }
+      if (!inList) { out.push('<ul class="crisp">'); inList = true; }
+      out.push('<li>' + inline(line.replace(/^\s*[-*]\s+/, '')) + '</li>');
+      continue;
+    }
+    if (/^\s*\d+\.\s+/.test(line)) {
+      flushPara();
+      if (inList) { out.push('</ul>'); inList = false; }
+      if (!inOL) { out.push('<ol class="crisp">'); inOL = true; }
+      out.push('<li>' + inline(line.replace(/^\s*\d+\.\s+/, '')) + '</li>');
+      continue;
+    }
+
+    if (line.trim() === '') {
+      flushPara(); flushList();
+      continue;
+    }
+    if (line.startsWith('> ')) {
+      flushPara(); flushList();
+      out.push('<blockquote>' + inline(line.slice(2)) + '</blockquote>');
+      continue;
+    }
+
+    para.push(line);
+  }
+  flushPara(); flushList();
+  if (inTable) out.push('</tbody></table></div>');
+  return out.join('\n');
+}
+
+const TITLES = {
+  '01_competitor_intelligence.md':   { title: 'Competitor Intelligence', tag: '01 · Competitive landscape' },
+  '02_subscription_economics.md':    { title: 'Subscription Economics & Funnel',  tag: '02 · LTV / CAC / retention' },
+  '03_mvp_loop_design.md':           { title: 'MVP Loop Design', tag: '03 · Measurement → insight → training' },
+  '04_30_60_90_plan.md':             { title: '30-60-90 Day Plan', tag: '04 · First-quarter operating plan' },
+  '05_jd_coverage_map.md':           { title: 'JD Coverage Map', tag: '05 · Role fit & honest gaps' },
+  '06_model_provenance.md':          { title: 'Model Provenance & Transparency', tag: '06 · Radical transparency' },
+};
+
+function shell({ title, tag, body, slug }) {
+return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="${title} — Padel AI Coach Product Lead interview pack. Evidence-driven, model-transparent.">
+<meta property="og:title" content="${title} — Interview Pack">
+<meta property="og:type" content="article">
+<title>${title} · Padel AI Coach Interview Pack</title>
+<link rel="canonical" href="./${slug}.html">
+<style>
+  :root{
+    --bg:#fff; --bg-soft:#fafafa; --bg-card:#fff; --bg-elev:#f5f7fa;
+    --ink:#0a0a0a; --ink-soft:#3f3f46; --ink-mute:#71717a;
+    --line:#e6e6e6;
+    --accent:#0a6cf3; --accent-soft:#e6efff; --accent-ink:#fff;
+    --good:#0a8a52; --warn:#b54708; --bad:#b42318;
+    --shadow:0 1px 2px rgba(0,0,0,.04),0 1px 1px rgba(0,0,0,.04);
+    --shadow-elev:0 6px 24px rgba(0,0,0,.08);
+    --radius:10px;
+    --safe-l:env(safe-area-inset-left,0); --safe-r:env(safe-area-inset-right,0); --safe-b:env(safe-area-inset-bottom,0);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0a0a0a; --bg-soft:#101012; --bg-card:#141416; --bg-elev:#181a1d;
+      --ink:#fafafa; --ink-soft:#d4d4d8; --ink-mute:#a1a1aa;
+      --line:#27272a;
+      --accent:#3b9bff; --accent-soft:#0e2440; --accent-ink:#0a0a0a;
+      --good:#2f9961; --warn:#d97706; --bad:#ef4444;
+      --shadow-elev:0 6px 24px rgba(0,0,0,.5);
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI","SF Pro Text",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    padding-left:var(--safe-l);padding-right:var(--safe-r);
+    overflow-x:clip;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"kern","liga","calt","ss01";
+  }
+  @media (min-width:640px){ body{font-size:17px} }
+  @media (min-width:1024px){ body{font-size:17.5px;line-height:1.7} }
+  ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent);color:var(--ink)}
+  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{text-decoration-color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  .topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;
+    padding:10px 16px;border-bottom:1px solid var(--line);
+    background:var(--bg-soft);font-size:.825rem}
+  .topnav .brand{font-weight:700;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .topnav .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+  .topnav a.np{color:var(--ink-soft);text-decoration:none;padding:4px 8px;border-radius:6px}
+  .topnav a.np:hover{background:var(--bg-elev);color:var(--ink)}
+  .topnav .spacer{flex:1}
+  .topnav .ext{color:var(--ink-mute);font-size:.75rem}
+
+  .wrap{max-width:720px;margin:0 auto;padding:clamp(24px,6vw,64px) clamp(16px,5vw,28px) calc(64px + var(--safe-b))}
+  @media (min-width:1024px){ .wrap{max-width:760px} }
+  .meta{color:var(--ink-mute);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+  h1{font-size:clamp(1.875rem,1.5rem + 2.2vw,2.6rem);line-height:1.12;letter-spacing:-0.025em;margin:0 0 .4em;text-wrap:balance;color:var(--ink);font-weight:700}
+  h2{font-size:clamp(1.25rem,1.05rem + .65vw,1.5rem);margin:52px 0 14px;letter-spacing:-.015em;line-height:1.25;text-wrap:balance;font-weight:650}
+  h2::before{content:"";display:block;width:32px;height:2px;background:var(--accent);margin-bottom:14px;border-radius:2px;opacity:.7}
+  h3{font-size:1.1rem;margin:32px 0 10px;letter-spacing:-.01em;line-height:1.3;font-weight:600}
+  h4{font-size:.85rem;margin:22px 0 8px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  p{margin:.7em 0 1em;color:var(--ink-soft);text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+  p strong{color:var(--ink);font-weight:600}
+  em{font-style:italic;color:var(--ink)}
+  blockquote{margin:1.2em 0;padding:.7em 1.1em;border-left:3px solid var(--accent);background:var(--bg-soft);color:var(--ink);border-radius:0 var(--radius) var(--radius) 0;font-size:1.0625rem;line-height:1.55}
+  blockquote p{color:var(--ink);margin:.3em 0}
+  ul.crisp,ol.crisp{margin:14px 0 18px;padding-left:1.2em}
+  ul.crisp li,ol.crisp li{margin:.55em 0;color:var(--ink-soft);padding-left:.2em}
+  ul.crisp li::marker{color:var(--accent)}
+  ol.crisp li::marker{color:var(--accent);font-weight:600}
+  ul.crisp li strong, ol.crisp li strong{color:var(--ink)}
+
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--bg-elev);padding:1px 5px;border-radius:4px;border:1px solid var(--line);overflow-wrap:anywhere;word-break:break-word}
+  @media (max-width:480px){ code{font-size:.88em} }
+  /* Ensure code never falls below 12px even when nested in small text */
+  .badge code, .author-foot code, footer code{font-size:.78rem}
+  small code, .meta code{font-size:.75rem}
+  pre{margin:14px 0;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow-x:auto;font-size:.8125rem;line-height:1.5;-webkit-overflow-scrolling:touch}
+  pre code{background:none;border:none;padding:0;font-size:1em}
+
+  .table-wrap{overflow-x:auto;margin:18px -4px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);-webkit-overflow-scrolling:touch;position:relative}
+  .table-wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:24px;background:linear-gradient(to right,transparent,var(--bg-soft));pointer-events:none;border-radius:0 var(--radius) var(--radius) 0;opacity:.85}
+  table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:max-content}
+  @media (max-width:640px){ table{font-size:.825rem} }
+  th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:var(--bg-elev);font-weight:600;color:var(--ink);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--bg-elev)}
+  td code{font-size:.95em;padding:1px 4px}
+
+  figure.shot{margin:24px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-soft);box-shadow:var(--shadow)}
+  figure.shot img{display:block;width:100%;height:auto;aspect-ratio:1280/800;object-fit:cover}
+  figure.shot figcaption{padding:10px 14px;font-size:.825rem;color:var(--ink-mute);border-top:1px solid var(--line);background:var(--bg-elev);line-height:1.45}
+
+  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:.75rem}
+
+  .author-foot{margin-top:48px;padding:24px 16px calc(32px + env(safe-area-inset-bottom,0));border-top:1px solid var(--line);font-size:.825rem;color:var(--ink-mute);max-width:1100px;margin-left:auto;margin-right:auto}
+  .author-foot .author-shell{display:flex;flex-direction:column;gap:10px;flex-wrap:wrap}
+  .author-foot .author-line,.author-foot .author-fingerprint{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;line-height:1.5}
+  .author-foot .author-line strong{color:var(--ink);font-weight:600}
+  .author-foot a{color:var(--accent)}
+  .author-foot .dot-sep{color:var(--ink-mute);user-select:none}
+  .author-foot code{font-size:.78rem}
+  @media (min-width:768px){.author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}}
+
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 28px}
+  .badge{display:inline-block;padding:5px 11px;font-size:.78rem;font-weight:600;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);white-space:nowrap}
+  .badge.good{color:var(--good);border-color:rgba(10,138,82,.25);background:rgba(10,138,82,.08)}
+  .badge.warn{color:var(--warn);border-color:rgba(181,71,8,.25);background:rgba(181,71,8,.08)}
+  .badge.bad{color:var(--bad);border-color:rgba(180,35,24,.25);background:rgba(180,35,24,.08)}
+</style>
+<meta name="author" content="Alexandr Valuev">
+<link rel="me" href="https://www.linkedin.com/in/valuev/">
+<link rel="me" href="https://t.me/ASNKT">
+<link rel="me" href="https://github.com/avaluev">
+</head>
+<body>
+
+<header class="topnav" role="navigation" aria-label="Cross-page navigation">
+  <a class="brand" href="../index.html"><span class="dot" aria-hidden="true"></span>Deep Research OS</a>
+  <a class="np" href="../index.html">Home</a>
+  <a class="np" href="../padel-ai-coach-research.html">Strategic Brief</a>
+  <a class="np" href="../evidence-map.html">Evidence Map</a>
+  <a class="np" href="../methodology.html">Methodology</a>
+  <a class="np" href="index.html"><strong>Interview Pack</strong></a>
+  <span class="spacer"></span>
+  <span class="ext">Run 20260501T135005Z</span>
+</header>
+
+<div class="wrap">
+<p class="meta">${tag}</p>
+<h1>${title}</h1>
+
+${body}
+
+<footer>
+  <p>Apache 2.0 licensed · This page is part of the Product Lead interview pack — evidence base lives in <code>reports/interview_pack/evidence/</code> in the repository.</p>
+</footer>
+</div>
+
+<footer class="author-foot" role="contentinfo">
+  <div class="author-shell">
+    <div class="author-line">
+      <span class="who">By <strong>Alexandr Valuev</strong></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/valuev/" rel="me noopener" target="_blank">LinkedIn</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://t.me/ASNKT" rel="me noopener" target="_blank">Telegram</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">GitHub repository</a>
+    </div>
+    <div class="author-fingerprint">
+      <span>Run <code>20260501T135005Z</code></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Apache 2.0</span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Models: Claude Opus 4.7 + Sonnet 4.6 + Haiku 4.5 · Perplexity Sonar (pro / deep / reasoning) · Alibaba Tongyi 30B (free)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>`;
+}
+
+// Process each markdown file
+const files = readdirSync(SRC).filter(f => f.endsWith('.md')).sort();
+const indexEntries = [];
+
+for (const f of files) {
+  const md = readFileSync(join(SRC, f), 'utf8');
+  const meta = TITLES[f] || { title: basename(f, '.md'), tag: 'Interview Pack' };
+  const slug = basename(f, '.md').replace(/^\d+_/, '').replace(/_/g, '-');
+  const html = md2html(md);
+  const page = shell({ title: meta.title, tag: meta.tag, body: html, slug });
+  writeFileSync(join(OUT, `${slug}.html`), page);
+  indexEntries.push({ slug, title: meta.title, tag: meta.tag, file: f });
+  console.log(`built ${slug}.html`);
+}
+
+// Build index page
+const tiles = indexEntries.map(e => `
+  <a class="tile" href="${e.slug}.html">
+    <h3>${e.title} →</h3>
+    <p class="tag">${e.tag}</p>
+  </a>`).join('\n');
+
+const indexHtml = shell({
+  title: 'Padel AI Coach — Product Lead Interview Pack',
+  tag: 'Interview pack · ' + indexEntries.length + ' deliverables',
+  slug: 'index',
+  body: `
+<p class="lede" style="font-size:1.05rem;color:var(--ink-soft);margin:0 0 24px;max-width:68ch">An evidence-driven preparatory bundle assembled before a Product Lead screening interview. Every deliverable cites a verified source URL or marks the gap explicitly. Subscription unit-economics, competitive landscape, MVP loop, 30-60-90 plan, JD coverage map and full model-provenance disclosure ship together as one auditable artefact.</p>
+<div class="badges">
+  <span class="badge good">Evidence-driven</span>
+  <span class="badge good">Zero fabricated metrics</span>
+  <span class="badge">${indexEntries.length} deliverables</span>
+  <span class="badge">Model-transparent</span>
+  <span class="badge warn">Domain expertise: GAP (declared)</span>
+</div>
+<h2>Read the pack</h2>
+<style>
+  .grid{display:grid;gap:14px;grid-template-columns:1fr;margin:18px 0}
+  @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+  a.tile{display:block;text-decoration:none;color:var(--ink);padding:22px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);box-shadow:var(--shadow);transition:border-color 120ms,transform 120ms,box-shadow 120ms}
+  a.tile:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-elev)}
+  a.tile h3{margin:0 0 .25em;font-size:1.1rem;color:var(--accent);letter-spacing:-.01em}
+  a.tile p.tag{margin:0;color:var(--ink-mute);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+</style>
+<div class="grid">${tiles}</div>
+<h2>How to read this pack</h2>
+<ol class="crisp">
+  <li><strong>Start with the Model Provenance page.</strong> Every claim downstream is only as honest as the model that produced it. The provenance page enumerates every model, its billing class (paid vs free), and the artefacts it produced.</li>
+  <li><strong>Then JD Coverage Map.</strong> Maps every Russian-original JD bullet to a STRONG / PARTIAL / GAP verdict and a closure plan. Domain-expertise gap is declared, not hidden.</li>
+  <li><strong>Competitor Intelligence and Subscription Economics</strong> are the two analytical anchors; they are sourced from a 28-peer dataset and Perplexity Sonar deep search.</li>
+  <li><strong>MVP Loop and 30-60-90 plan</strong> translate the analysis into operating commitments — capability-conditional, not promised.</li>
+</ol>
+`
+});
+writeFileSync(join(OUT, 'index.html'), indexHtml);
+console.log('built index.html');
+console.log(`\nTotal pages: ${indexEntries.length + 1}`);
+console.log(`Output dir: ${OUT}`);
