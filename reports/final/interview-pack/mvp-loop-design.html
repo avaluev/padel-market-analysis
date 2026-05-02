@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="MVP Loop Design — Padel AI Coach Product Lead interview pack. Evidence-driven, model-transparent.">
+<meta property="og:title" content="MVP Loop Design — Interview Pack">
+<meta property="og:type" content="article">
+<title>MVP Loop Design · Padel AI Coach Interview Pack</title>
+<link rel="canonical" href="./mvp-loop-design.html">
+<style>
+  :root{
+    --bg:#fff; --bg-soft:#fafafa; --bg-card:#fff; --bg-elev:#f5f7fa;
+    --ink:#0a0a0a; --ink-soft:#3f3f46; --ink-mute:#71717a;
+    --line:#e6e6e6;
+    --accent:#0a6cf3; --accent-soft:#e6efff; --accent-ink:#fff;
+    --good:#0a8a52; --warn:#b54708; --bad:#b42318;
+    --shadow:0 1px 2px rgba(0,0,0,.04),0 1px 1px rgba(0,0,0,.04);
+    --shadow-elev:0 6px 24px rgba(0,0,0,.08);
+    --radius:10px;
+    --safe-l:env(safe-area-inset-left,0); --safe-r:env(safe-area-inset-right,0); --safe-b:env(safe-area-inset-bottom,0);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0a0a0a; --bg-soft:#101012; --bg-card:#141416; --bg-elev:#181a1d;
+      --ink:#fafafa; --ink-soft:#d4d4d8; --ink-mute:#a1a1aa;
+      --line:#27272a;
+      --accent:#3b9bff; --accent-soft:#0e2440; --accent-ink:#0a0a0a;
+      --good:#2f9961; --warn:#d97706; --bad:#ef4444;
+      --shadow-elev:0 6px 24px rgba(0,0,0,.5);
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI","SF Pro Text",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    padding-left:var(--safe-l);padding-right:var(--safe-r);
+    overflow-x:clip;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"kern","liga","calt","ss01";
+  }
+  @media (min-width:640px){ body{font-size:17px} }
+  @media (min-width:1024px){ body{font-size:17.5px;line-height:1.7} }
+  ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent);color:var(--ink)}
+  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{text-decoration-color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  .topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;
+    padding:10px 16px;border-bottom:1px solid var(--line);
+    background:var(--bg-soft);font-size:.825rem}
+  .topnav .brand{font-weight:700;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .topnav .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+  .topnav a.np{color:var(--ink-soft);text-decoration:none;padding:4px 8px;border-radius:6px}
+  .topnav a.np:hover{background:var(--bg-elev);color:var(--ink)}
+  .topnav .spacer{flex:1}
+  .topnav .ext{color:var(--ink-mute);font-size:.75rem}
+
+  .wrap{max-width:720px;margin:0 auto;padding:clamp(24px,6vw,64px) clamp(16px,5vw,28px) calc(64px + var(--safe-b))}
+  @media (min-width:1024px){ .wrap{max-width:760px} }
+  .meta{color:var(--ink-mute);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+  h1{font-size:clamp(1.875rem,1.5rem + 2.2vw,2.6rem);line-height:1.12;letter-spacing:-0.025em;margin:0 0 .4em;text-wrap:balance;color:var(--ink);font-weight:700}
+  h2{font-size:clamp(1.25rem,1.05rem + .65vw,1.5rem);margin:52px 0 14px;letter-spacing:-.015em;line-height:1.25;text-wrap:balance;font-weight:650}
+  h2::before{content:"";display:block;width:32px;height:2px;background:var(--accent);margin-bottom:14px;border-radius:2px;opacity:.7}
+  h3{font-size:1.1rem;margin:32px 0 10px;letter-spacing:-.01em;line-height:1.3;font-weight:600}
+  h4{font-size:.85rem;margin:22px 0 8px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  p{margin:.7em 0 1em;color:var(--ink-soft);text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+  p strong{color:var(--ink);font-weight:600}
+  em{font-style:italic;color:var(--ink)}
+  blockquote{margin:1.2em 0;padding:.7em 1.1em;border-left:3px solid var(--accent);background:var(--bg-soft);color:var(--ink);border-radius:0 var(--radius) var(--radius) 0;font-size:1.0625rem;line-height:1.55}
+  blockquote p{color:var(--ink);margin:.3em 0}
+  ul.crisp,ol.crisp{margin:14px 0 18px;padding-left:1.2em}
+  ul.crisp li,ol.crisp li{margin:.55em 0;color:var(--ink-soft);padding-left:.2em}
+  ul.crisp li::marker{color:var(--accent)}
+  ol.crisp li::marker{color:var(--accent);font-weight:600}
+  ul.crisp li strong, ol.crisp li strong{color:var(--ink)}
+
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--bg-elev);padding:1px 5px;border-radius:4px;border:1px solid var(--line);overflow-wrap:anywhere;word-break:break-word}
+  @media (max-width:480px){ code{font-size:.88em} }
+  /* Ensure code never falls below 12px even when nested in small text */
+  .badge code, .author-foot code, footer code{font-size:.78rem}
+  small code, .meta code{font-size:.75rem}
+  pre{margin:14px 0;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow-x:auto;font-size:.8125rem;line-height:1.5;-webkit-overflow-scrolling:touch}
+  pre code{background:none;border:none;padding:0;font-size:1em}
+
+  .table-wrap{overflow-x:auto;margin:18px -4px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);-webkit-overflow-scrolling:touch;position:relative}
+  .table-wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:24px;background:linear-gradient(to right,transparent,var(--bg-soft));pointer-events:none;border-radius:0 var(--radius) var(--radius) 0;opacity:.85}
+  table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:max-content}
+  @media (max-width:640px){ table{font-size:.825rem} }
+  th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:var(--bg-elev);font-weight:600;color:var(--ink);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--bg-elev)}
+  td code{font-size:.95em;padding:1px 4px}
+
+  figure.shot{margin:24px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-soft);box-shadow:var(--shadow)}
+  figure.shot img{display:block;width:100%;height:auto;aspect-ratio:1280/800;object-fit:cover}
+  figure.shot figcaption{padding:10px 14px;font-size:.825rem;color:var(--ink-mute);border-top:1px solid var(--line);background:var(--bg-elev);line-height:1.45}
+
+  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:.75rem}
+
+  .author-foot{margin-top:48px;padding:24px 16px calc(32px + env(safe-area-inset-bottom,0));border-top:1px solid var(--line);font-size:.825rem;color:var(--ink-mute);max-width:1100px;margin-left:auto;margin-right:auto}
+  .author-foot .author-shell{display:flex;flex-direction:column;gap:10px;flex-wrap:wrap}
+  .author-foot .author-line,.author-foot .author-fingerprint{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;line-height:1.5}
+  .author-foot .author-line strong{color:var(--ink);font-weight:600}
+  .author-foot a{color:var(--accent)}
+  .author-foot .dot-sep{color:var(--ink-mute);user-select:none}
+  .author-foot code{font-size:.78rem}
+  @media (min-width:768px){.author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}}
+
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 28px}
+  .badge{display:inline-block;padding:5px 11px;font-size:.78rem;font-weight:600;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);white-space:nowrap}
+  .badge.good{color:var(--good);border-color:rgba(10,138,82,.25);background:rgba(10,138,82,.08)}
+  .badge.warn{color:var(--warn);border-color:rgba(181,71,8,.25);background:rgba(181,71,8,.08)}
+  .badge.bad{color:var(--bad);border-color:rgba(180,35,24,.25);background:rgba(180,35,24,.08)}
+</style>
+<meta name="author" content="Alexandr Valuev">
+<link rel="me" href="https://www.linkedin.com/in/valuev/">
+<link rel="me" href="https://t.me/ASNKT">
+<link rel="me" href="https://github.com/avaluev">
+</head>
+<body>
+
+<header class="topnav" role="navigation" aria-label="Cross-page navigation">
+  <a class="brand" href="../index.html"><span class="dot" aria-hidden="true"></span>Deep Research OS</a>
+  <a class="np" href="../index.html">Home</a>
+  <a class="np" href="../padel-ai-coach-research.html">Strategic Brief</a>
+  <a class="np" href="../evidence-map.html">Evidence Map</a>
+  <a class="np" href="../methodology.html">Methodology</a>
+  <a class="np" href="index.html"><strong>Interview Pack</strong></a>
+  <span class="spacer"></span>
+  <span class="ext">Run 20260501T135005Z</span>
+</header>
+
+<div class="wrap">
+<p class="meta">03 · Measurement → insight → training</p>
+<h1>MVP Loop Design</h1>
+
+<h1>MVP Loop Design Brief — Padel AI Platform</h1>
+<p>The riskiest assumption in a Padel AI Platform is value, not scalability. The loop below is built to test the value question with humans first, then earn the right to automate.</p>
+<p><strong>Audience:</strong> Product Lead screening panel. <strong>Voice:</strong> Third-person, capability-conditional. No first-person pronouns. <strong>Posture:</strong> The candidate has no domain expertise in padel; the loop is engineered to compensate via tight feedback contracts with coaches and players. <strong>Anchor evidence:</strong> <code>evidence/20260501T135005Z/</code> — jobs graph (<code>05_jobs_graph.json</code>), red-team verdicts (<code>06_red_team.json</code>), value mechanics (<code>08_value_mechanics/</code>), moat audit (<code>09_moat_audit.json</code>), peers (<code>03_peers_dedup.json</code>).</p>
+<p>---</p>
+<h2>A. The Core Loop in Three Stages</h2>
+<p>The loop services the <code>Rating-clarity backbone</code> (CC-1 in <code>05_jobs_graph.json</code>): smartphone capture → rally and shot tagging → rating delta → drill prescription. Each stage has one input, one action, one output, one success metric, one failure mode.</p>
+<blockquote>The loop's strongest mechanism is the Stage 3 outcome tag: it is the only step that converts a video stream into a labelled supervised-learning signal (drill → outcome → rating shift). Without Stage 3, the moat collapses to commodity tagging.</blockquote>
+<h3>Stage 1 — Measurement</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+<tr><td><strong>Input</strong></td><td>One full-match smartphone video from a player or club, plus minimal metadata: court, opponents, self-declared level.</td></tr>
+<tr><td><strong>Action</strong></td><td>Human operator (the candidate plus one part-time tagger, see Section B) ingests the file, runs the <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">Joao-M-Silva open-source padel CV pipeline</a> for player/ball/court tracking as a first-pass scaffold, then human-corrects rally boundaries and shot labels using a fixed taxonomy.</td></tr>
+<tr><td><strong>Output</strong></td><td>A structured per-rally event log: rally start/end timestamps, shots per player, shot type, court zone, outcome (winner / forced error / unforced error).</td></tr>
+<tr><td><strong>Success metric</strong></td><td>(i) ≥90% of rallies correctly delimited on a held-out 50-rally control set; (ii) shot-type label agreement ≥0.7 Cohen's kappa between the candidate's tagger and a domain-expert coach on a 200-shot sample.</td></tr>
+<tr><td><strong>Failure mode</strong></td><td>Tagging cost per match exceeds EUR 25 — the unit economics break for any plausible price tier (Section D math).</td></tr>
+</tbody></table></div>
+<p>The Joao-M-Silva pipeline reports <strong>player tracking, ball tracking, 2D game projection, heatmaps, and pose estimation with 13 degrees of freedom</strong>, with a hardware floor of <strong>8 GB VRAM</strong> at default batch size <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">verified at the repo</a>. It is a research-grade scaffold, not a productised offering — <code>04_peer_cards/joao_silva_padel_analytics.json</code> flags <code>Real-time inference and on-device packaging are out of scope</code>. The pipeline shrinks Stage 1 effort but does not eliminate human review.</p>
+<h3>Stage 2 — Insight</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+<tr><td><strong>Input</strong></td><td>The structured event log from Stage 1, plus the player's prior matches if any.</td></tr>
+<tr><td><strong>Action</strong></td><td>The operator clusters losing-shot patterns (per <code>VM-003</code> in <code>08_value_mechanics/VM-003.json</code>: backhand volley at the net, chiquita on the deuce side, etc.), computes a rating delta against the opponent rating using a closed-form Elo-style update, and selects two drill prescriptions from a coach-curated drill library. The drill library is built in Section E with the academy partner.</td></tr>
+<tr><td><strong>Output</strong></td><td>A one-page recap: top 3 losing-shot clusters, rating delta, two prescribed drills with situation, success criterion, and partner role (this is the precise template specified in <code>VM-003.json → experience_sketch</code>).</td></tr>
+<tr><td><strong>Success metric</strong></td><td>(i) Recap is generated within 24 hours of upload; (ii) ≥60% of recaps are opened by the player within 72 hours; (iii) ≥40% of recap recipients book or self-organise the prescribed drill before the next session.</td></tr>
+<tr><td><strong>Failure mode</strong></td><td>Insight is too generic to be actionable — the player reads it once and never returns. Detection is binary: drill-acknowledgement rate <10% kills the recap template.</td></tr>
+</tbody></table></div>
+<p>The 40% drill-acknowledgement threshold is calibrated from <code>VM-003.json → kill_experiment.success_threshold</code>: <code>≥10% of uploads convert to drill plan acknowledgement within seven days</code>. The MVP target is set higher because the loop runs inside a single club where social proof and coach reinforcement should lift acknowledgement above the cold-traffic baseline.</p>
+<h3>Stage 3 — Training</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+<tr><td><strong>Input</strong></td><td>Coach session schedule plus the recap from Stage 2.</td></tr>
+<tr><td><strong>Action</strong></td><td>Coach reviews the recap before the next 1:1 with the player, picks one of the two prescribed drills, and runs it. After the session, the coach files a one-tap outcome rating on a scoring rubric (improved / unchanged / worse) — this is the closing-the-loop tag specified in <code>VM-003.json → experience_sketch</code>.</td></tr>
+<tr><td><strong>Output</strong></td><td>A drill-to-outcome record: which drill, which losing-shot cluster, did the player improve. This becomes the seed of the supervised dataset that VM-003's data gate compounds.</td></tr>
+<tr><td><strong>Success metric</strong></td><td>(i) Coach files an outcome tag for ≥70% of recaps; (ii) within four weeks, ≥30% of players show a measurable shift in their dominant losing-shot cluster (different cluster takes the top-1 slot).</td></tr>
+<tr><td><strong>Failure mode</strong></td><td>Coach refuses to use a tool the student also touches — the canonical caveat from <code>06_red_team.json → SEG-003.failure_modes[FM-5]</code>. Mitigation in Section F.</td></tr>
+</tbody></table></div>
+<p><strong>The loop's strongest mechanism.</strong> Stage 3's outcome tag is the only step that converts a video stream into a labelled supervised-learning signal (drill → outcome → rating shift). Per <code>09_moat_audit.json → VM-001</code>, this is the canonical Naval data gate: <code>Each match generates unique-per-user data that improves the rating model.</code> Without Stage 3, the moat collapses to commodity tagging.</p>
+<p>---</p>
+<h2>B. Manual-First MVP — One Club, 4–6 Weeks, No Product Code</h2>
+<h3>Hardware</h3>
+<ul class="crisp">
+<li><strong>Phone-mounted recording</strong>, single fixed angle from behind one baseline, propped on the player bag (the experience step modelled in <code>VM-001.json → experience_sketch</code>: <code>Player records the match with a phone propped on the bag</code>).</li>
+<li><strong>Optional fallback</strong>: a club camera if the partner club has one installed. Vendors active in this space include <a href="https://www.eyeson.sport/en/eyes-on-padel/" rel="noopener" target="_blank">Eyes On Padel</a>, <a href="https://www.wingfield.io/" rel="noopener" target="_blank">Wingfield</a>, and <a href="https://www.clutchapp.io/" rel="noopener" target="_blank">Clutch</a> — all listed in <code>03_peers_dedup.json</code>. The MVP does not depend on club-camera access; phone-only is the default to avoid vendor lock-in during validation.</li>
+<li><strong>Feasibility anchor</strong>: the <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">Joao-M-Silva open-source padel CV pipeline</a> demonstrates that phone-quality footage can be processed into player/ball/court tracks with commodity hardware. <code>09_moat_audit.json → VM-001.kill_experiment</code> explicitly anchors the MVP build on this baseline: <code>Reproduce the open-source baseline at https://github.com/Joao-M-Silva/padel_analytics into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits.</code></li>
+</ul>
+<h3>Pipeline (no product code, all human-orchestrated)</h3>
+<ol class="crisp">
+<li>Player or coach uploads match video to a shared cloud folder.</li>
+<li>Operator (candidate) drops the video into the open-source pipeline as a tracking scaffold.</li>
+<li>Operator and a part-time padel-literate tagger correct rally boundaries and label shots in a spreadsheet against a fixed shot taxonomy.</li>
+<li>Operator runs an Elo-style rating-delta calculation in a spreadsheet column.</li>
+<li>Operator selects two drills from a coach-curated drill library (built jointly with the academy partner, Section E).</li>
+<li>Operator drafts a templated PDF/email recap and sends it from the candidate's address — not a branded product domain. This avoids premature productisation per Marty Cagan's concierge guidance.</li>
+<li>1:1 follow-up: a fifteen-minute call between the operator (or the academy coach) and the player to walk through the recap.</li>
+</ol>
+<h3>Why manual-first beats a polished-app MVP</h3>
+<blockquote><code>Build a prototype of your product, but have a human do the things you planned to do with fancy algorithms.</code> — Jared Friedman, Y Combinator partner (<a href="https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments" rel="noopener" target="_blank">source</a>). VERIFIED.</blockquote>
+<blockquote><code>If it is, you can always build the algorithms to replace the humans.</code> — Same source. VERIFIED.</blockquote>
+<blockquote>Wizard of Oz is <code>A moderated research method in which a user interacts with an interface that appears to be autonomous but is (fully or partially) controlled by a human.</code> — Sara Paul and Maria Rosala, Nielsen Norman Group (<a href="https://www.nngroup.com/articles/wizard-of-oz/" rel="noopener" target="_blank">source</a>). VERIFIED.</blockquote>
+<blockquote>Wizard of Oz <code>works best for testing interfaces powered by complex technologies — such as conversational UIs, learning algorithms, and real-time information systems</code>. — Same source. VERIFIED.</blockquote>
+<p>A fourth confirming source from the SVPG / Marty Cagan canon: a concierge test means <code>doing the customer's job manually for them and checking whether the outcome is appreciated</code>, summarising Marty Cagan's prescription that concierge work <code>allows you to cheaply try out ideas while not already having to deal with scalability issues</code> (<a href="https://www.svpg.com/the-two-core-competencies/" rel="noopener" target="_blank">source summary at SVPG</a>, see also discussion at <a href="https://www.agile-minds.com/category/knowledge/workshop-notes/" rel="noopener" target="_blank">agile-minds workshop notes</a>). INFERRED from the canonical SVPG body of work; verbatim Cagan quote not extracted in this pass — flagged in <code>data_gaps</code>.</p>
+<p>The padel category corroborates the manual-first pattern: <code>Hudl Assist uses a combination of professional human analysts and, in some sports, advanced AI technology to tag every key moment.</code> — Hudl Assist FAQ (<a href="https://www.hudl.com/products/assist/faq" rel="noopener" target="_blank">source</a>). VERIFIED. The category leader still relies on humans for the long tail of sports — padel is the long tail.</p>
+<h3>Why this configuration beats a code-first MVP for this category</h3>
+<ol class="crisp">
+<li><strong>The riskiest assumption is value, not scalability.</strong> <code>06_red_team.json → SEG-001.recommendation</code> is <code>keep</code> only with a tightened trigger (<code>partner-driven, not internal stagnation</code>). Trigger-tightening is a value-discovery question — concierge work answers it; product code does not.</li>
+<li><strong>The data gate compounds only if the labels are right.</strong> <code>09_moat_audit.json → VM-001.scores.data = 2</code> is conditional on padel-specific shot taxonomy quality. Hand-tagging by a domain expert builds the schema that an automated tagger will later match — the inverse order locks in the wrong taxonomy.</li>
+<li><strong>The category has a manual-first incumbent.</strong> Hudl serves ~170,000 teams worldwide per <code>01_competitor_intelligence.md:144</code> of this pack, with operating reference at <a href="https://www.hudl.com/products/assist" rel="noopener" target="_blank">hudl.com/products/assist</a>, and still uses analyst tagging in most sports. A solo-built code-first MVP cannot beat Hudl on tagging breadth; it can only beat Hudl on padel-specific depth, which is a labelling problem, not an automation problem.</li>
+</ol>
+<p>---</p>
+<h2>C. From Manual to Automated — Promotion Criteria Per Stage</h2>
+<p>Each stage has a metric threshold below which automation is premature and above which it is mandatory. Thresholds are calibrated against peer benchmarks where a verified anchor exists.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Stage</th><th>Manual phase</th><th>Promotion trigger</th><th>Automated successor</th><th>Anchor</th></tr></thead><tbody>
+<tr><td><strong>1. Capture & tag</strong></td><td>Operator drops video into Joao-M-Silva scaffold; human corrects boundaries and labels.</td><td>Cumulative human correction rate ≤15% on rally boundaries and ≤20% on shot labels across 200 consecutive matches.</td><td>Replace human boundary correction with thresholded confidence rejection — only low-confidence rallies route to a human.</td><td><code>09_moat_audit.json → VM-001.kill_experiment.success_threshold = r ≥ 0.55 across 50 matches</code> defines the floor; the 200-match promotion is 4× the floor and reflects industry practice — Hudl volleyball uses <code>computer vision to automatically track player movements, ball contacts, and other key actions</code> (<a href="https://www.hudl.com/blog/ai-volleyball" rel="noopener" target="_blank">source</a>). VERIFIED.</td></tr>
+<tr><td><strong>2. Insight (recap)</strong></td><td>Operator drafts each recap from a Markdown template, hand-picks two drills.</td><td>(i) Recap-open rate ≥60% sustained over 4 consecutive weeks; (ii) drill-acknowledgement rate ≥40% over the same window; (iii) recap NPS from coach panel ≥+30.</td><td>Templated recap generated by an LLM with the drill library wired in as a retrieval index; operator reviews only outliers.</td><td>The 40% acknowledgement threshold is 4× the <code>VM-003.json</code> cold-traffic kill threshold (<code>≥10% of uploads convert to drill plan acknowledgement within seven days</code>).</td></tr>
+<tr><td><strong>3. Training & outcome</strong></td><td>Coach files outcome tags via WhatsApp or a single-page form; operator transcribes.</td><td>(i) ≥70% recaps closed with an outcome tag; (ii) ≥10 confirmed drill-to-outcome transitions per losing-shot cluster (the supervised-learning threshold).</td><td>Outcome tagging integrated into a coach-side mobile flow; drill-to-outcome model promoted from rule-based to learned.</td><td><code>VM-001.json → kill_experiment.success_threshold = r ≥ 0.55</code> corroborates the rating-quality floor before learned models are trusted.</td></tr>
+</tbody></table></div>
+<p><strong>Promotion is a one-way ratchet.</strong> Once a stage is promoted to automation, the manual fallback is preserved as an SLA, not as a default — modelled on Hudl's <code>Standard Priority</code> vs <code>Express Priority</code> SLA structure (<a href="https://www.hudl.com/products/assist/faq" rel="noopener" target="_blank">source</a>). VERIFIED.</p>
+<p>---</p>
+<h2>D. Single-Club Pilot Protocol</h2>
+<h3>Recruitment</h3>
+<ul class="crisp">
+<li><strong>One club, one academy.</strong> The pilot does not federate across clubs; cross-club rating (VM-002) is gated on VM-001 working at smartphone-only fidelity per <code>05_jobs_graph.json → abcd_analysis</code>.</li>
+<li><strong>Coaches:</strong> 3–5 head coaches signed to the co-creation contract in Section E. The lower bound mirrors <code>06_red_team.json → SEG-003.kill_experiments</code>: <code>recruit 8 coaches via FEP and FITP chapters and run a 1-week pilot</code>. The pilot here uses fewer coaches because they are concentrated in one academy, lifting per-coach engagement; the eight-coach federation experiment is reserved for the post-pilot expansion phase.</li>
+<li><strong>Players:</strong> 20–30 plateau-stuck regulars (the SEG-001 <code>pass_with_caveats</code> segment) and 5–10 newly-ranked competitors (SEG-002 <code>pass</code>). Both are validated in <code>06_red_team.json</code>. Total: 25–40 players.</li>
+<li><strong>Academy size sanity check.</strong> Public Spanish reference: a Marbella academy described as supporting <code>25 M3-certified coaches, all bilingual</code> welcoming <code>nearly 300 groups per year for 3- to 4-day camps</code> (<a href="https://m3padelacademy.com/en/m3-coach/" rel="noopener" target="_blank">source</a>). VERIFIED. The 3–5 coach pilot footprint is well below that ceiling — recruitment is feasible inside a single mid-sized academy.</li>
+</ul>
+<h3>Cadence</h3>
+<ul class="crisp">
+<li><strong>Weekly cycle</strong>, 4–6 weeks total. Weekly artifact: a one-page review with the academy lead.</li>
+<li><strong>What is measured each week</strong>: number of matches uploaded, tagging hours per match, rallies-correct rate (sampled), recap-open rate, drill-acknowledgement rate, coach-outcome-tag rate, player NPS, coach NPS.</li>
+<li><strong>What is iterated each week</strong>: the shot taxonomy (one open issue per week max), the drill library (one swap per week max), the recap template (one block per week max). Iteration discipline prevents the pilot from drifting into permanent prototyping.</li>
+</ul>
+<h3>Kill criteria — three thresholds</h3>
+<p>The pilot is rebuilt, not patched, if any of the following triggers fire:</p>
+<ol class="crisp">
+<li><strong>Tagging unit economics break.</strong> Operator-plus-tagger time per match exceeds 75 minutes after week 3. Below this, the loop cannot scale to 50 matches per week even at full automation parity.</li>
+<li><strong>Engagement collapses.</strong> Recap-open rate <30% sustained across two consecutive weeks, or drill-acknowledgement rate <10% over the same window. The 30% floor is half the Section A target; <30% means the recap is not a product, it is a newsletter.</li>
+<li><strong>Coach veto.</strong> Two or more coaches in the panel decline to file outcome tags in a given week despite reminders. This is the canonical <code>06_red_team.json → SEG-003 → strongest_reason_false_segment</code>: <code>Coaches sometimes refuse any tool the student also touches; if that refusal dominates, the segment splits into coach-only vs B2B2C and the latter shrinks.</code></li>
+</ol>
+<h3>Cost envelope — EUR per week</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Line item</th><th>Quantity</th><th>Unit</th><th>Subtotal</th><th>Source / assumption</th></tr></thead><tbody>
+<tr><td>Operator (candidate)</td><td>0.5 FTE</td><td>not billed</td><td>0</td><td>Candidate is the founder. ASSUMPTION.</td></tr>
+<tr><td>Part-time padel-literate tagger</td><td>20 hours</td><td>EUR 18/hr</td><td>EUR 360</td><td>ASSUMPTION: matches the lower band of European sport-analyst freelance rates; specific Padelytics or Hudl-Iberia rate not verified — flagged in <code>data_gaps</code>.</td></tr>
+<tr><td>Cloud GPU for Joao-M-Silva pipeline</td><td>30 hours</td><td>EUR 0.50/hr</td><td>EUR 15</td><td>ASSUMPTION: 8 GB VRAM tier (per the <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">repo's stated requirement</a>) on a commodity provider. Specific provider quote not captured — flagged in <code>data_gaps</code>.</td></tr>
+<tr><td>Cloud storage and compute (non-GPU)</td><td>1 month / 4</td><td>EUR 30 / 4</td><td>EUR 7.50</td><td>ASSUMPTION: standard object storage tier.</td></tr>
+<tr><td>Drill library curation (week 1 spike, weeks 2–6 maintenance)</td><td>4 hours</td><td>EUR 60/hr (coach rate)</td><td>EUR 240</td><td>ASSUMPTION: coach hourly rate for content work is in the EUR 40–80 range based on Spanish padel coach prices (<a href="https://topadel.eu/which-city-to-choose-padel-camp/" rel="noopener" target="_blank">ToPadel reference</a>). VERIFIED that prices are in this band, the exact EUR 60 mid-point is an assumption.</td></tr>
+<tr><td>Coach panel honorarium (3–5 coaches × EUR 50/week stipend)</td><td>4 coaches</td><td>EUR 50/coach/week</td><td>EUR 200</td><td>ASSUMPTION; aligned with Section E coach co-creation contract.</td></tr>
+<tr><td>Player incentives (free or discounted match credit)</td><td>30 players × EUR 5/week</td><td></td><td>EUR 150</td><td>ASSUMPTION; sized to the lower end of Spanish per-session cost.</td></tr>
+<tr><td>Tooling and software (cloud office, video, signed PDF)</td><td>flat</td><td>flat</td><td>EUR 50</td><td>ASSUMPTION.</td></tr>
+<tr><td>Contingency</td><td>10% of above</td><td></td><td>EUR 102</td><td>ASSUMPTION.</td></tr>
+<tr><td><strong>Total weekly burn</strong></td><td></td><td></td><td><strong>EUR 1,124</strong></td><td>Below the EUR 2,000/week cap.</td></tr>
+</tbody></table></div>
+<p><strong>Math sanity check.</strong> Six-week pilot total: 6 × EUR 1,124 = <strong>EUR 6,744</strong>. Below the EUR 12,000 implied ceiling (6 × EUR 2,000). Headroom of ~EUR 5,250 is reserved for unforeseen tagger overflow and for hardware spikes if club-camera fallback is needed.</p>
+<p>---</p>
+<h2>E. The "No Domain Expertise" Insurance Policy</h2>
+<p>The candidate is not a padel player. Every shortcut a domain expert would take by reflex must be replaced by an explicit contract. The four mechanisms below are non-negotiable; absence of any one collapses the credibility of the loop.</p>
+<h3>1. Coach co-creation contract (sample terms)</h3>
+<p>A short engagement letter signed with each coach panel member at week 0:</p>
+<ul class="crisp">
+<li><strong>Scope.</strong> The coach commits to (i) attending one 60-minute weekly co-design session, (ii) reviewing the shot taxonomy and drill library with veto rights on coaching content, (iii) filing outcome tags for ≥70% of recaps where their student is the recipient, (iv) sitting for one 30-minute JTBD interview at week 0 and one at week 6.</li>
+<li><strong>Compensation.</strong> EUR 50/week stipend during the pilot (Section D) plus a signed letter of recommendation; equity is not promised in the pilot phase per <code>CLAUDE.md → MUST NOT promise budgets, timelines, or headcount</code>.</li>
+<li><strong>Veto rights.</strong> The coach has explicit veto rights on (a) any shot taxonomy label, (b) any drill prescription, (c) any phrasing in the recap that touches coaching content. Veto is binary; the candidate does not negotiate it.</li>
+<li><strong>Mutual termination.</strong> Either party can exit at the end of any week with no penalty and no exclusivity obligation.</li>
+</ul>
+<h3>2. Shadowing schedule</h3>
+<p>The candidate observes ≥2 training sessions per week at the partner academy, on different coaches, for the full duration of the pilot. Total: 12 sessions minimum across 6 weeks. Note-taking is structured against the loop's three stages (what was measured, what insight surfaced, what training change followed). This is the cheapest way for a non-domain founder to internalise tacit knowledge — it does not replace coach veto rights, it earns the right to ask better questions.</p>
+<h3>3. Player JTBD interview cadence</h3>
+<ul class="crisp">
+<li><strong>Sample size.</strong> 8 plateau-stuck regulars (SEG-001) plus 4 newly-ranked competitors (SEG-002), per <code>06_red_team.json → kill_experiment_for_pipeline_risk</code>: <code>Run JTBD interviews with 8 plateau-stuck regulars and ask explicitly whether 'rating that travels' or 'drill prescription' was the precipitating switch</code>.</li>
+<li><strong>Cadence.</strong> One interview at week 0 (pre-loop), one at week 6 (post-loop). Interview script anchored on the AJTBD canonical glossary at <code>vendored/zamesin-product-os/_glossary.md</code>. Interviews are recorded and quote IDs feed back into <code>evidence/<run-id>/</code>.</li>
+</ul>
+<h3>4. Decision veto rights for domain experts</h3>
+<p>Beyond the per-coach contract veto, two additional structural vetoes apply:</p>
+<ul class="crisp">
+<li><strong>Shot taxonomy lock.</strong> No taxonomy change ships without sign-off from at least one coach who has filed ≥10 hours of tagging time. Locks the moat-relevant labelling to domain-validated content.</li>
+<li><strong>Recap content review.</strong> No recap goes to a player without a coach having read at least one recap from that week's batch. This addresses the <code>06_red_team.json → SEG-003.failure_modes[FM-5]</code> refusal risk by making the coach a co-signer of every recap, not a bypassed peer.</li>
+</ul>
+<p>---</p>
+<h2>F. Failure Modes — Ranked by Probability × Impact</h2>
+<p>Five failure modes, each scored on probability (1 = unlikely, 5 = certain in this category) and impact (1 = bruise, 5 = pilot dies). Ranked by P × I.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Failure mode</th><th>Prob</th><th>Impact</th><th>P×I</th><th>Detection</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Recap is sent but never read</strong> (engagement death)</td><td>4</td><td>5</td><td>20</td><td>Recap-open rate <30% over 2 weeks (kill criterion in Section D). Email/PDF tracking pixel or unique read URL per recap.</td><td>(a) Tighten the trigger language to partner-comparison framing per <code>06_red_team.json → SEG-001.failure_modes[FM-3]</code>; (b) move recap delivery from email to WhatsApp where local read rates dominate; (c) couple recap to a coach 1:1 — the coach is the delivery channel.</td></tr>
+<tr><td>2</td><td><strong>Coach refuses any tool the student also touches</strong> (<code>06_red_team.json → SEG-003.strongest_reason_false_segment</code>)</td><td>4</td><td>5</td><td>20</td><td>Coach outcome-tag rate <50% sustained over 2 weeks despite reminders. Anonymous coach exit-interview at week 3.</td><td>(a) Coach-only mode by default — the player never sees the recap unless the coach forwards it; (b) recap framed as the coach's artefact, not the platform's; (c) coach co-creation contract veto rights (Section E).</td></tr>
+<tr><td>3</td><td><strong>Insight too generic to be actionable</strong> (commodity content)</td><td>3</td><td>5</td><td>15</td><td>Drill-acknowledgement rate <20% sustained. Coach NPS on recap content <0.</td><td>(a) The shot-taxonomy lock in Section E forces depth; (b) the drill library is curated by domain coaches, not by the candidate; (c) at week 2, the operator runs a 5-recap blind test where coaches rate generic-vs-specific — anything below "specific" is rebuilt.</td></tr>
+<tr><td>4</td><td><strong>Camera/phone occlusion in indoor clubs</strong></td><td>4</td><td>3</td><td>12</td><td>Tagging rejection rate >25% on ingest (rallies that cannot be reliably bounded). Verified failure case: at default Joao-M-Silva pipeline batch sizes, occlusion lifts VRAM pressure (<a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">source</a>).</td><td>(a) A fixed-camera position protocol (behind one baseline, 2.5 m height, 30° tilt) supplied as a one-page PDF to the club; (b) a fallback tag mode for low-confidence rallies (<code>unknown_outcome</code>) that the human resolves rather than discards; (c) club-camera vendor fallback (<a href="https://www.eyeson.sport/en/eyes-on-padel/" rel="noopener" target="_blank">Eyes On Padel</a>) only if the pilot escapes phone-only by week 4.</td></tr>
+<tr><td>5</td><td><strong>Rating drift across clubs</strong> (federation effect failure)</td><td>3</td><td>4</td><td>12</td><td>Out of scope for the single-club pilot but tracked as a forward-flag — once two clubs are in the loop, the same player's rating must not drift more than 5% across clubs in a 14-day window.</td><td>(a) Single-club scope holds for 4–6 weeks; (b) the rating spec is published as a fixed schema per <code>09_moat_audit.json → VM-001.next_90_days</code>: <code>publish the shot taxonomy as the schema VM-011 will adopt</code>; (c) cross-club expansion is gated on <code>VM-002</code> LOIs (<code>Sign two regional FIP-affiliated organisers to a 30-day bracket trial</code>).</td></tr>
+</tbody></table></div>
+<p><strong>Most probable single failure:</strong> mode #1, recap engagement death. Detection is fast (one week), mitigation is structural (move the delivery channel from a candidate-owned email to a coach-owned conversation), and the loop has one clean fallback before it has to be redesigned.</p>
+<p>---</p>
+<h2>Decision the candidate should ask the interviewer to clarify</h2>
+<blockquote>Is the operating model expected to compound the <strong>B2B2C coach co-pilot</strong> (CC-2 chain in <code>05_jobs_graph.json</code>) before or after the <strong>B2C plateau-stuck regular</strong> loop is monetised? The MVP loop above can serve either path, but the kill criteria, recruitment ratios, and coach contract terms tilt differently. Coach-first locks the switching-cost moat (<code>VM-004</code>) earlier; player-first compounds the data moat (<code>VM-001</code>) earlier. Both are defensible; both cannot be the lead motion.</blockquote>
+<p>---</p>
+<h2>Data gaps</h2>
+<ul class="crisp">
+<li>Specific Padelytics, Hudl-Iberia, or peer freelance tagger hourly rate — assumed at EUR 18/hr based on European sport-analyst band; not verified against a primary source. <code>data_gaps</code>.</li>
+<li>Specific cloud GPU EUR/hr quote for an 8 GB VRAM tier — assumed at EUR 0.50/hr; not verified. <code>data_gaps</code>.</li>
+<li>Specific Marty Cagan SVPG verbatim quote on concierge-vs-Wizard distinction — sourced via SVPG body of work and secondary summaries; primary verbatim not extracted. <code>data_gaps</code>.</li>
+<li>Specific average academy size (number of coaches per padel academy in Spain/Italy) — only one verified anchor (the Marbella M3 academy with 25 M3-certified coaches). <code>data_gaps</code> for a representative distribution.</li>
+<li>Specific Padelytics pricing tier — undisclosed on landing per <code>04_peer_cards/padelytics.json</code>. <code>data_gaps</code>.</li>
+</ul>
+<p>---</p>
+<h2>Verified sources used in this brief (count: 11 distinct URLs)</h2>
+<ol class="crisp">
+<li>https://github.com/Joao-M-Silva/padel_analytics — open-source padel CV pipeline (feasibility anchor).</li>
+<li>https://www.ycombinator.com/blog/ask-yc-upfront-technical-investments — Y Combinator on Wizard of Oz approach.</li>
+<li>https://www.nngroup.com/articles/wizard-of-oz/ — Nielsen Norman Group definition of Wizard of Oz method.</li>
+<li>https://www.svpg.com/the-two-core-competencies/ — Marty Cagan / SVPG canonical body of work.</li>
+<li>https://www.hudl.com/products/assist — Hudl Assist product surface.</li>
+<li>https://www.hudl.com/products/assist/faq — Hudl Assist FAQ on tagging methods and SLA.</li>
+<li>https://www.hudl.com/blog/ai-volleyball — Hudl computer-vision automation in volleyball.</li>
+<li>https://www.coach-logic.com/ — CoachLogic platform claims (verified 2026-05-03 as the canonical CoachLogic domain via curl HEAD/GET).</li>
+<li>https://m3padelacademy.com/en/m3-coach/ — M3 Padel Academy, Marbella (25 coaches, 300 groups/year).</li>
+<li>https://topadel.eu/which-city-to-choose-padel-camp/ — Spanish padel coaching prices reference.</li>
+<li>https://www.eyeson.sport/en/eyes-on-padel/ — Eyes On Padel (club-camera vendor fallback).</li>
+</ol>
+<p>Plus internal evidence references (verified during prior pipeline runs):</p>
+<ul class="crisp">
+<li><code>evidence/20260501T135005Z/05_jobs_graph.json</code></li>
+<li><code>evidence/20260501T135005Z/06_red_team.json</code></li>
+<li><code>evidence/20260501T135005Z/08_value_mechanics/VM-001.json</code>, <code>VM-003.json</code>, <code>VM-004.json</code></li>
+<li><code>evidence/20260501T135005Z/09_moat_audit.json</code></li>
+<li><code>evidence/20260501T135005Z/03_peers_dedup.json</code></li>
+<li><code>evidence/20260501T135005Z/04_peer_cards/joao_silva_padel_analytics.json</code>, <code>padelytics.json</code>, <code>coachseek.json</code></li>
+</ul>
+
+<footer>
+  <p>Apache 2.0 licensed · This page is part of the Product Lead interview pack — evidence base lives in <code>reports/interview_pack/evidence/</code> in the repository.</p>
+</footer>
+</div>
+
+<footer class="author-foot" role="contentinfo">
+  <div class="author-shell">
+    <div class="author-line">
+      <span class="who">By <strong>Alexandr Valuev</strong></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/valuev/" rel="me noopener" target="_blank">LinkedIn</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://t.me/ASNKT" rel="me noopener" target="_blank">Telegram</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">GitHub repository</a>
+    </div>
+    <div class="author-fingerprint">
+      <span>Run <code>20260501T135005Z</code></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Apache 2.0</span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Models: Claude Opus 4.7 + Sonnet 4.6 + Haiku 4.5 · Perplexity Sonar (pro / deep / reasoning) · Alibaba Tongyi 30B (free)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

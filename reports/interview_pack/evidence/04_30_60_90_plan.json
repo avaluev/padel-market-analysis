@@ -1,0 +1,580 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "04_30_60_90_plan",
+  "title": "30-60-90 Day Plan — Product Lead, Padel AI Platform",
+  "voice": "third_person_capability_conditional",
+  "language": "en",
+  "audience": "screening interview panel",
+  "candidate_profile": {
+    "strengths": [
+      "Product strategy",
+      "Research operations",
+      "JTBD interviewing",
+      "Hypothesis-driven roadmapping"
+    ],
+    "domain_gap": "Zero playing-level expertise in padel; mitigated by advisory coach pool and JTBD interviews with rated competitors and certified coaches."
+  },
+  "context_anchors": {
+    "beachhead": ["ES", "IT", "RU/CIS direct-channel"],
+    "product_shape": "Subscription B2C with B2B2C hedge; smartphone-only capture; AI/CV stack on top of an OSS baseline.",
+    "passing_segments": ["SEG-001", "SEG-002", "SEG-003"],
+    "killed_segments": ["SEG-004", "SEG-006"],
+    "merge_segments": ["SEG-005 → SEG-001"],
+    "critical_chain": "CC-1 (rating-clarity backbone): SUB-001a → SUB-001b → SUB-001c → JS-001",
+    "evidence_sources_consumed": [
+      "evidence/20260501T135005Z/05_jobs_graph.json",
+      "evidence/20260501T135005Z/06_red_team.json",
+      "evidence/20260501T135005Z/10_monetization.json",
+      "evidence/20260501T135005Z/11_gtm.json",
+      "evidence/20260501T135005Z/13_capability_map.json",
+      "evidence/20260501T135005Z/15_market_size.json"
+    ]
+  },
+  "phases": {
+    "phase_a_days_0_30": {
+      "title": "Discovery and anchor",
+      "objectives": [
+        "Establish a documented mental model of the rating-clarity backbone (CC-1) and the coach-renewal chain (CC-2) before touching scope.",
+        "Validate or kill the top-10 hypotheses inherited from prior research without re-running existing work.",
+        "Stand up the JTBD interview cohort across the three PASS segments.",
+        "Scope a single-club manual MVP loop without launching it."
+      ],
+      "stakeholders": [
+        {
+          "role": "Founder / CEO",
+          "cadence": "Weekly 1:1 plus async written brief.",
+          "purpose": "Strategic alignment, kill-experiment authority, pricing signoff."
+        },
+        {
+          "role": "Engineering lead",
+          "cadence": "Weekly synchronous + standing async channel.",
+          "purpose": "Capture-pipeline reliability, instrumentation spec ownership.",
+          "phrasing": "The role would coordinate with eng as currently staffed; no headcount asks during the first 30 days."
+        },
+        {
+          "role": "Design lead (or contractor)",
+          "cadence": "Bi-weekly working session.",
+          "purpose": "Recap card UX, partner-share surface, share-link semantics."
+        },
+        {
+          "role": "Operations / community",
+          "cadence": "Weekly check-in.",
+          "purpose": "Direct-readership newsletter cadence, CIS Telegram group operation, club outreach scheduling."
+        },
+        {
+          "role": "Advisory coach pool (3–5 padel professionals)",
+          "cadence": "Two structured sessions in month 1; on-call thereafter.",
+          "purpose": "Substitute for candidate domain gap; ground-truth shot taxonomy and drill prescriptions; review pilot recaps."
+        }
+      ],
+      "jtbd_interview_cohort": {
+        "size": 20,
+        "composition": [
+          {
+            "segment_id": "SEG-001",
+            "label": "Plateau-stuck regular",
+            "count": 12,
+            "verdict": "pass_with_caveats",
+            "source": "evidence/20260501T135005Z/06_red_team.json#SEG-001",
+            "interview_focus": "Switch trigger calibration: separate self-perceived plateau from partner-comparison loss; confirm alternatives_hired set (Padelytics, Clutch, club camera, paid coach)."
+          },
+          {
+            "segment_id": "SEG-002",
+            "label": "Newly-ranked competitor",
+            "count": 4,
+            "verdict": "pass",
+            "source": "evidence/20260501T135005Z/06_red_team.json#SEG-002",
+            "interview_focus": "Tournament-loss → reach-for-tool latency; rating-portability willingness across federation, Premier Padel, and derived sources."
+          },
+          {
+            "segment_id": "SEG-003",
+            "label": "Club coach (B2B2C)",
+            "count": 4,
+            "verdict": "pass_with_caveats",
+            "source": "evidence/20260501T135005Z/06_red_team.json#SEG-003",
+            "interview_focus": "Renewal-conversation pain; refusal patterns on tools the student touches; LTV math on coach-affiliate channel.",
+            "recruitment_channel": "FEP (https://www.fep.es/) and FITP (https://www.fitp.it/) chapters."
+          }
+        ],
+        "explicit_exclusions": [
+          {
+            "segment_id": "SEG-004",
+            "reason": "Killed by Phase 06 red team — venue-size descriptor, fold operator interactions into coach segment."
+          },
+          {
+            "segment_id": "SEG-006",
+            "reason": "Killed by Phase 06 red team — life-situation label without verified switch trigger."
+          },
+          {
+            "segment_id": "SEG-005",
+            "reason": "Merge into SEG-001 per Phase 06 recommendation."
+          }
+        ]
+      },
+      "evidence_audit": {
+        "review_targets": [
+          "Top-10 hypotheses listed in this artifact's hypothesis_backlog.",
+          "Peer-card data in evidence/20260501T135005Z/04_peer_cards/.",
+          "Jobs graph critical chains CC-1 and CC-2 (evidence/20260501T135005Z/05_jobs_graph.json)."
+        ],
+        "kill_or_keep_outputs": [
+          "Annotated hypothesis backlog with status: keep / kill / promote-to-experiment.",
+          "Killed hypotheses move to a graveyard log; reactivation requires new evidence."
+        ]
+      },
+      "single_club_pilot_scoping": {
+        "status": "scoped_only_not_launched",
+        "deliverables": [
+          "Pilot brief: target club profile (Madrid or Barcelona, 4–8 courts, 1 coach champion).",
+          "Manual loop diagram: capture → tag → recap → drill → next session.",
+          "Reliability thresholds for graduating each step out of manual ops.",
+          "Privacy / consent flow draft (GDPR baseline, 152-FZ flagged for Russian-language path)."
+        ]
+      },
+      "output_artifacts": [
+        "Validated AJTBD canvas per PASS segment.",
+        "Prioritised hypothesis backlog (this document section D).",
+        "PRD outline for the manual MVP loop.",
+        "Instrumentation spec covering match-upload, share, partner-invite, and recap-acknowledgement events.",
+        "Stakeholder map and cadence document.",
+        "Risk register v1 (this document section F)."
+      ]
+    },
+    "phase_b_days_31_60": {
+      "title": "Manual MVP and pricing test",
+      "objectives": [
+        "Run the manual measurement → insight → training loop in one club end-to-end without productising any step.",
+        "Run the WTP smoke test in Spanish and Russian against the EUR 7.99 anchor.",
+        "Begin the first 4-week retention cohort (week 5–8 of pilot).",
+        "Make the first kill/keep call against segment-level evidence."
+      ],
+      "manual_mvp_loop": {
+        "description": "The role would coordinate the pilot personally for week 1 of execution: clubs film matches on a tripod-mounted phone; the OSS baseline (Joao-M-Silva/padel_analytics) auto-tags shots; the candidate plus advisory coach review three matches per pilot user; a recap card and a two-drill prescription get sent to the player and copied to the coach before the next booking.",
+        "oss_anchor": "https://github.com/Joao-M-Silva/padel_analytics",
+        "instrumentation_events": [
+          "match_uploaded",
+          "match_tagged",
+          "recap_sent",
+          "recap_opened",
+          "drill_acknowledged",
+          "coach_outcome_tag"
+        ],
+        "instrumentation_events_removed_per_red_team_high_1": [
+          "share_clicked",
+          "partner_invited",
+          "partner_activated"
+        ],
+        "instrumentation_events_out_of_scope_note": "Pair-share viral mechanics (share_clicked, partner_invited, partner_activated) are explicitly out of scope for the 90-day window. The manual MVP loop in 03_mvp_loop_design.md is single-player → coach. Pair-share viral surface requires a Stage 2.5 build that is not part of this manual pilot.",
+        "reliability_gates_to_productise": [
+          "Tagging step graduates to product when human-correction rate ≤ 15% across 50 matches.",
+          "Recap template graduates when ≥ 70% of recaps require zero advisory coach edits.",
+          "Drill prescription graduates when ≥ 60% of recaps result in a logged drill within seven days."
+        ]
+      },
+      "wtp_smoke_test": {
+        "design": "Two landing pages — Spanish (es.padelaicoach.example) and Russian (ru.padelaicoach.example) — each with a fake-door 'request a padel rating' CTA priced at EUR 7.99/month and the rouble-equivalent (RUB 499/month direct-channel pricing per evidence/20260501T135005Z/10_monetization.json).",
+        "primary_metric": "Free-to-paid intent conversion within the first 30 days of activation.",
+        "anchor_threshold": {
+          "kill_threshold_pct": 4,
+          "target_threshold_pct": 8,
+          "source": "evidence/20260501T135005Z/10_monetization.json#wtp_test",
+          "internal_synthesised_threshold": "Internal threshold synthesised from Foundry CRO 2026 5-9% free-to-paid range: at EUR 7.99/month, ≥8% paid conversion within three matches is keep; <4% triggers hedge model (B2B coach SaaS). The EUR 7.99 anchor and the three-match window are internal product policy, not Foundry-published thresholds.",
+          "foundry_cro_underlying_range_only": "5-9% free-to-paid within 30 days",
+          "foundry_cro_underlying_quote": "Foundry CRO 2026 free-to-paid 5-9% within 30 days (verbatim quote sits in evidence/02_subscription_economics.json B_funnel_benchmarks.F4_free_to_paid)",
+          "source_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+          "red_team_fix_note": "Per red-team HIGH-2: removed quotation marks. Cite Foundry CRO ONLY for the 5-9% range with the verbatim quote already in 02 evidence."
+        },
+        "secondary_metrics": [
+          "CTR on padel community channels (≥ 6% per Phase 06 SEG-001 kill experiment).",
+          "Direct-traffic share of beta sign-ups (target ≥ 40% within 8 weeks per evidence/20260501T135005Z/11_gtm.json#CH-001)."
+        ],
+        "kill_decision_logic": "If WTP < 4% after 4 weeks AND direct-traffic share < 25%, the hedge model (B2B coach SaaS at EUR 19–29 per coach per month) becomes primary; the role would draft the pivot memo for founder signoff."
+      },
+      "first_retention_cohort": {
+        "start_week": 5,
+        "duration_weeks": 4,
+        "segment": "SEG-001 + SEG-002 mixed.",
+        "primary_metric": "Weekly active uploaders with ≥ 1 acknowledged insight per week.",
+        "leading_indicator": "Recap-acknowledgement rate by week 2."
+      },
+      "output_artifacts": [
+        "Pilot weekly review packet (one-pager + recap exemplars).",
+        "Conversion-curve dashboard (free → activated → paid) updated weekly.",
+        "First kill/keep memo on segments and pricing tier.",
+        "Retention cohort dashboard wired to Mixpanel-or-equivalent (engineering-staffed; no new tooling spend assumed)."
+      ]
+    },
+    "phase_c_days_61_90": {
+      "title": "Productisation and channel",
+      "objectives": [
+        "Pull the manual steps that meet reliability thresholds into product surface.",
+        "Open a second club pilot to test transferability of the pilot recipe.",
+        "Run the first paid-acquisition test against a capped budget.",
+        "Decide between FIP integration vs derived-only on the rating path."
+      ],
+      "productisation_targets": [
+        {
+          "step": "Recap card generation",
+          "promote_if": "≥ 70% of recaps require zero advisory coach edits during phase B.",
+          "source": "evidence/20260501T135005Z/13_capability_map.json#VM-001"
+        },
+        {
+          "step": "Drill prescription template",
+          "promote_if": "≥ 10% of free uploads convert to a drill plan acknowledgement.",
+          "source": "evidence/20260501T135005Z/13_capability_map.json#VM-003"
+        },
+        {
+          "step": "Coach outcome capture",
+          "promote_if": "≥ 70% of recaps closed with a coach-filed outcome tag in phase B.",
+          "source": "evidence/20260501T135005Z/13_capability_map.json#VM-004"
+        }
+      ],
+      "post_pilot_exploration_only_not_a_90_day_target": [
+        {
+          "step": "Partner-share surface",
+          "exploration_metric_only": "Pair-level surface drives ≥ 1.5x sharing rate vs single-user baseline.",
+          "source": "evidence/20260501T135005Z/13_capability_map.json#VM-005",
+          "rationale_for_exclusion": "The manual MVP in 03 does not generate the pair-viral data needed to evaluate this gate inside 90 days; gating it inside this plan would be a sequencing error. Per red-team HIGH-1: explicitly out of scope for the 90-day window."
+        }
+      ],
+      "second_club_pilot": {
+        "purpose": "Test transferability without the candidate's hands on the wheel.",
+        "geo_target": "Italy (Milan or Rome) to stress-test localisation.",
+        "kill_metric": "If second-club week-4 cohort retention < 60% of first-club benchmark, the manual loop is over-fit to the original club; the role would pause Italy expansion and document the gap."
+      },
+      "first_paid_acquisition_test": {
+        "channels": [
+          {
+            "channel": "Meta (Instagram + Facebook) — Spanish-language padel creatives",
+            "cac_anchor_usd": 94,
+            "source_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+            "source": "evidence/20260501T135005Z/10_monetization.json#unit_economics_assumptions"
+          },
+          {
+            "channel": "Apple Search Ads (App Store)",
+            "cac_anchor_usd": 4.7,
+            "source_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+            "source": "evidence/20260501T135005Z/11_gtm.json#CH-008"
+          }
+        ],
+        "budget_phrasing": "The role would propose a capped test budget at the lower bound of CAC × intended cohort size; exact figure pending founder signoff. No fixed budget is committed in this plan.",
+        "kill_metric": "Paid CAC > 3x organic CAC after 4 weeks (per evidence/20260501T135005Z/13_capability_map.json#CH-008)."
+      },
+      "rating_platform_decision_memo": {
+        "options": [
+          "Option A — FIP organiser integration (CH-003): partner-dependent, two LOIs targeted in 6 weeks; gated on regional FIP-affiliated organisers.",
+          "Option B — Derived-only rating: ship the rating model on smartphone footage and expose a public profile that links out from Playtomic / MATCHi (PLG-004 in evidence/20260501T135005Z/11_gtm.json)."
+        ],
+        "decision_criteria": [
+          "If ≥ 2 LOIs signed by week 12, pursue Option A in parallel with B.",
+          "If 0 LOIs by week 12, default to Option B and revisit federation integration after the rating reaches ≥ 5,000 active rated players in ≥ 3 cities (expansion threshold per evidence/20260501T135005Z/10_monetization.json#expansion_thresholds)."
+        ]
+      },
+      "output_artifacts": [
+        "Roadmap for next 90 days (days 91–180).",
+        "GTM dashboard (channel mix, CAC, payback period, direct-traffic share).",
+        "Decision memo on rating-platform path (FIP integration vs derived-only).",
+        "Productisation log: which manual steps graduated, which stayed manual, why."
+      ]
+    }
+  },
+  "hypothesis_backlog": [
+    {
+      "id": "H-01",
+      "phase": "A",
+      "hypothesis": "Plateau-stuck regulars convert on partner-comparison triggers, not self-perceived plateau.",
+      "metric": "% of SEG-001 interviewees citing a partner-driven event vs internal feeling.",
+      "threshold": "≥ 60% partner-driven trigger.",
+      "timeline": "By day 21.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-001"
+    },
+    {
+      "id": "H-02",
+      "phase": "A",
+      "hypothesis": "Newly-ranked competitors will accept a derived rating if it travels across cities and clubs.",
+      "metric": "% of SEG-002 interviewees willing to display derived rating publicly.",
+      "threshold": "≥ 50%.",
+      "timeline": "By day 21.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-002"
+    },
+    {
+      "id": "H-03",
+      "phase": "A",
+      "hypothesis": "Club coaches will use the recap pack at renewal conversations.",
+      "metric": "Coaches confirming intent to attach recap to renewal conversation.",
+      "threshold": "≥ 3 of 4 interviewed coaches.",
+      "timeline": "By day 28.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-003"
+    },
+    {
+      "id": "H-04",
+      "phase": "B",
+      "hypothesis": "Free-to-paid conversion at EUR 7.99/month (ES + IT) meets the internal-synthesised kill threshold of ≥ 8% within three matches.",
+      "metric": "WTP smoke-test conversion rate (Spanish + Italian landing). Russian smoke-test runs as a fact-finding test, not a kill gate, because paid Meta and ASA are unavailable in the Russian channel mix per evidence/02 RU Direct-channel scenario.",
+      "threshold": "ES + IT: ≥ 8% paid conversion (kill below 4%). RU: fact-finding only — clearable thresholds are organic-only since paid channels are structurally null.",
+      "timeline": "Days 31–60 (4-week test window).",
+      "source": "evidence/20260501T135005Z/10_monetization.json#wtp_test; internal-synthesised threshold per red-team HIGH-2 fix",
+      "red_team_demote_note": "Per red-team HIGH-3: H-04 retains the kill gate for ES + IT. The RU smoke-test is demoted to fact-finding because the Russian channel mix is structurally constrained — paid Meta and ASA unavailable, so a kill threshold below 4% paid conversion would force the channel to fall back to organic-only, which is what the unit economics already validate (LTV:CAC organic = 5.32 in evidence/02 RU scenario)."
+    },
+    {
+      "id": "H-05",
+      "phase": "B",
+      "hypothesis": "Direct-readership newsletter owns the audience: ≥ 40% of beta sign-ups arrive via direct traffic within 8 weeks.",
+      "metric": "Direct-traffic share of beta sign-ups.",
+      "threshold": "≥ 40% by week 8.",
+      "timeline": "Days 14–60.",
+      "source": "evidence/20260501T135005Z/11_gtm.json#CH-001"
+    },
+    {
+      "id": "H-06",
+      "phase": "B",
+      "hypothesis": "Recap-acknowledgement is a 4-week leading indicator of weekly active retention.",
+      "metric": "Recap-open rate by week 2 vs week-4 weekly active.",
+      "threshold": "Anchor — to be validated in week 5 cohort. No external benchmark; flagged as data gap.",
+      "timeline": "Week 5–8.",
+      "source": "data_gap; instrumentation spec from Phase A."
+    },
+    {
+      "id": "H-07",
+      "phase": "B",
+      "hypothesis": "Coach-filed outcome tag rate stays ≥ 70% across the pilot cohort once weekly reminders are removed.",
+      "metric": "Coach outcome-tag rate, weeks 5-8 of pilot, no reminder cadence.",
+      "threshold": "≥ 70%.",
+      "timeline": "Days 45–60.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#VM-004; evidence/20260501T135005Z/06_red_team.json#SEG-003",
+      "red_team_replacement_note": "Per red-team HIGH-1: original H-07 (pair-share viral lift) replaced with a different testable hypothesis. Pair-share viral mechanics are deferred to post-pilot exploration."
+    },
+    {
+      "id": "H-08",
+      "phase": "C",
+      "hypothesis": "The pilot recipe transfers to a second club without candidate hands-on operation.",
+      "metric": "Second-club week-4 cohort retention vs first-club benchmark.",
+      "threshold": "≥ 60% of first-club benchmark.",
+      "timeline": "Days 61–90.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#CH-002"
+    },
+    {
+      "id": "H-09",
+      "phase": "C",
+      "hypothesis": "Paid acquisition CAC stays within 3x organic CAC during the first paid test.",
+      "metric": "Blended paid CAC (Meta + ASA) vs organic CAC anchor.",
+      "threshold": "Paid CAC ≤ 3x organic CAC.",
+      "timeline": "Days 61–90.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#CH-008; Foundry CRO 2026 (https://foundrycro.com/blog/cac-benchmarks-2026/)."
+    },
+    {
+      "id": "H-10",
+      "phase": "C",
+      "hypothesis": "FIP-affiliated regional organisers will sign ≥ 2 LOIs within 6 weeks of structured outreach.",
+      "metric": "Signed LOIs.",
+      "threshold": "≥ 2.",
+      "timeline": "Days 49–90.",
+      "source": "evidence/20260501T135005Z/11_gtm.json#CH-003"
+    },
+    {
+      "id": "H-11",
+      "phase": "C",
+      "hypothesis": "Localised cohort (Spanish + Russian) retains ≥ 1.3x English baseline through week 3.",
+      "metric": "Week-3 retention (localised vs English).",
+      "threshold": "≥ 1.3x.",
+      "timeline": "Days 61–90.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#VM-008"
+    },
+    {
+      "id": "H-12",
+      "phase": "C",
+      "hypothesis": "Coach-driven student sign-ups carry a 90-day retention bonus over self-served sign-ups.",
+      "metric": "Day-90 retention (coach-driven cohort vs self-served cohort).",
+      "threshold": "Anchor — to be validated against first cohort closing day 120; flagged as data gap.",
+      "timeline": "Anchor — first read at day 120.",
+      "source": "evidence/20260501T135005Z/11_gtm.json#CH-007"
+    }
+  ],
+  "metric_tree": {
+    "north_star": {
+      "metric": "Rated players completing 90-day retention with ≥ 1 weekly insight.",
+      "rationale": "Combines retention and product engagement; aligns with subscription business and CC-1 (rating-clarity backbone).",
+      "benchmark_status": "Anchor — to be validated in week 13 cohort; no public peer benchmark."
+    },
+    "input_metrics": [
+      {
+        "metric": "Weekly match uploads per active user",
+        "purpose": "Volume input to the rating model and the recap pipeline.",
+        "benchmark_status": "data_gap"
+      },
+      {
+        "metric": "Recap-acknowledgement rate",
+        "purpose": "Leading indicator of insight delivery.",
+        "benchmark_status": "data_gap"
+      },
+      {
+        "metric": "Partner-invite activation rate",
+        "purpose": "PLG loop strength (PLG-002).",
+        "benchmark_status": "Threshold ≥ 25% per evidence/20260501T135005Z/11_gtm.json#PLG-002."
+      },
+      {
+        "metric": "Direct-traffic share of sign-ups",
+        "purpose": "Audience ownership.",
+        "benchmark_status": "Threshold ≥ 40% per evidence/20260501T135005Z/11_gtm.json#CH-001."
+      },
+      {
+        "metric": "Free-to-paid conversion within 30 days",
+        "purpose": "Subscription monetisation primary input.",
+        "benchmark_status": "Range 5–9% per Foundry CRO 2026 (https://foundrycro.com/blog/cac-benchmarks-2026/)."
+      }
+    ],
+    "output_metrics": [
+      {
+        "metric": "Monthly churn (B2C paid)",
+        "purpose": "Subscription health.",
+        "benchmark_status": "Range 6–9% in months 1–3 per evidence/20260501T135005Z/10_monetization.json#unit_economics_assumptions."
+      },
+      {
+        "metric": "12-month retention (paid)",
+        "purpose": "LTV anchor.",
+        "benchmark_status": "Range 35–45% — flagged as gap in evidence/20260501T135005Z/10_monetization.json."
+      },
+      {
+        "metric": "ARPU paid",
+        "purpose": "Revenue density.",
+        "benchmark_status": "EUR 7–9 anchor per evidence/20260501T135005Z/10_monetization.json#geo_price_localization."
+      },
+      {
+        "metric": "LTV:CAC ratio",
+        "purpose": "Channel investment guardrail.",
+        "benchmark_status": "≥ 3:1 organic, ≥ 1:1 paid (paid is test-only) per evidence/20260501T135005Z/10_monetization.json#unit_economics_assumptions."
+      }
+    ],
+    "guardrail_metrics": [
+      {
+        "metric": "Tagging human-correction rate",
+        "purpose": "Reliability gate before productisation.",
+        "benchmark_status": "Anchor — to be validated in pilot weeks 5–8; threshold ≤ 15% of matches."
+      },
+      {
+        "metric": "Privacy / consent compliance signals",
+        "purpose": "GDPR + 152-FZ guardrail (Russian-language path).",
+        "benchmark_status": "Binary — pass/fail review by external counsel before paid acquisition test."
+      }
+    ]
+  },
+  "risk_register": [
+    {
+      "rank": 1,
+      "risk_id": "R-01",
+      "description": "OSS capture pipeline (Joao-M-Silva/padel_analytics) cannot reach acceptable accuracy on representative club video sample.",
+      "probability": "medium",
+      "impact": "critical",
+      "score_label": "high",
+      "trigger_to_escalate": "≥ 25% of pilot matches require manual re-tagging at week 4; OR shot-classification accuracy < 70% on a 50-match validation set.",
+      "mitigation": "Run accuracy validation in week 1 of phase A on existing club footage; if below threshold, the role would pause productisation work and route to engineering for OSS-fork or model-swap path before any pilot launch.",
+      "owner_pattern": "PM coordinates; engineering owns accuracy work; advisory coach owns ground-truth labelling.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#VM-001"
+    },
+    {
+      "rank": 2,
+      "risk_id": "R-02",
+      "description": "WTP test fails the kill threshold (< 4% paid conversion) and the direct-channel audience does not materialise (< 25% direct-traffic share).",
+      "probability": "medium",
+      "impact": "critical",
+      "score_label": "high",
+      "trigger_to_escalate": "WTP < 4% AND direct-traffic share < 25% by week 8 of phase B.",
+      "mitigation": "Pre-drafted pivot memo to hedge model (B2B coach SaaS at EUR 19–29 / coach / month) ready for founder signoff before week 8; segment recruitment expanded to SEG-003 in parallel.",
+      "owner_pattern": "PM owns memo; founder owns decision; ops owns coach recruitment.",
+      "source": "evidence/20260501T135005Z/10_monetization.json#wtp_test; evidence/20260501T135005Z/11_gtm.json#CH-001"
+    },
+    {
+      "rank": 3,
+      "risk_id": "R-03",
+      "description": "Coach-renewal chain (CC-2) collapses because coaches refuse any tool the student also touches.",
+      "probability": "medium",
+      "impact": "high",
+      "score_label": "high",
+      "trigger_to_escalate": "≥ 5 of 8 coaches in pilot decline shared-tool model; coach-driven handoff rate < 5% by week 8.",
+      "mitigation": "Split product surface: coach-only dashboard (no student access) becomes a separate SKU; SEG-003 narrows to coach-only; B2B2C distribution claim retired with red-team-style memo.",
+      "owner_pattern": "PM owns SKU split; advisory coach pool owns the refusal-pattern interview; design owns coach-only surface.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-003; evidence/20260501T135005Z/13_capability_map.json#VM-004"
+    },
+    {
+      "rank": 4,
+      "risk_id": "R-04",
+      "description": "Privacy / regulatory drag on the Russian-language path (152-FZ on-device requirement) blocks the direct channel and the WTP test.",
+      "probability": "low_to_medium",
+      "impact": "high",
+      "score_label": "medium_high",
+      "trigger_to_escalate": "External counsel flags hosting pattern as non-compliant; OR Telegram bot path rejected for the channel.",
+      "mitigation": "On-device inference path (VM-010) scoped in phase A as a parallel track; Russian-language WTP variant runs as a Telegram-flow CTA without external links if web path is gated; counsel review booked for week 2.",
+      "owner_pattern": "PM owns scoping; engineering owns on-device pipeline; ops owns Telegram bot operation; external counsel owns sign-off.",
+      "source": "evidence/20260501T135005Z/13_capability_map.json#VM-010; evidence/20260501T135005Z/11_gtm.json#CH-006"
+    },
+    {
+      "rank": 5,
+      "risk_id": "R-05",
+      "description": "Candidate domain gap (zero playing experience) leads to flawed interview design or bad recap content; advisory coach pool fails to scale.",
+      "probability": "medium",
+      "impact": "medium",
+      "score_label": "medium",
+      "trigger_to_escalate": "Two consecutive recap exemplars rejected by advisory coach pool; OR JTBD interviews surface frame-mismatch language (candidate using terminology no rated player recognises).",
+      "mitigation": "Advisory coach pool secured as paid retainer in week 1 of phase A; candidate sits in on coach-led drill sessions in weeks 2–3 to absorb shot taxonomy; every recap card reviewed by coach pool until reliability gate met.",
+      "owner_pattern": "PM owns retainer setup; advisory coach pool owns content review; founder owns ratification.",
+      "source": "candidate_profile in this artifact"
+    }
+  ],
+  "verified_urls": [
+    {
+      "url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "purpose": "OSS feasibility anchor for capture-then-tag pipeline.",
+      "source": "evidence/20260501T135005Z/05_jobs_graph.json#evidence_basis"
+    },
+    {
+      "url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "purpose": "CAC benchmarks for organic, paid, ASO, community, affiliate channels.",
+      "source": "evidence/20260501T135005Z/10_monetization.json#unit_economics_assumptions"
+    },
+    {
+      "url": "https://www.padelfip.com/world-padel-report-2025/",
+      "purpose": "Italy court count growth (12.9% YoY 2025); Spain 17,300 courts; SAM basis.",
+      "source": "evidence/20260501T135005Z/15_market_size.json"
+    },
+    {
+      "url": "https://playtomic.com/global-padel-report",
+      "purpose": "Active player benchmarks; SOM low-end basis.",
+      "source": "evidence/20260501T135005Z/15_market_size.json"
+    },
+    {
+      "url": "https://www.fep.es/",
+      "purpose": "Spanish federation chapter for coach recruitment.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-003"
+    },
+    {
+      "url": "https://www.fitp.it/",
+      "purpose": "Italian federation chapter for coach recruitment.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-003"
+    },
+    {
+      "url": "https://www.padelytics.ai/",
+      "purpose": "Counter-example: existing match-level analysis vendor selling to plateau players.",
+      "source": "evidence/20260501T135005Z/06_red_team.json#SEG-001"
+    },
+    {
+      "url": "https://www.hudl.com/products",
+      "purpose": "Coach co-pilot analogue from adjacent sports.",
+      "source": "evidence/20260501T135005Z/05_jobs_graph.json#evidence_basis"
+    },
+    {
+      "url": "https://www.strava.com/premium",
+      "purpose": "B2C subscription pricing anchor (USD 11.99/month).",
+      "source": "evidence/20260501T135005Z/10_monetization.json#price_benchmarks"
+    },
+    {
+      "url": "https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744",
+      "purpose": "Adjacent AI-fitness ceiling sizing.",
+      "source": "evidence/20260501T135005Z/15_market_size.json"
+    }
+  ],
+  "definition_of_done": {
+    "phase_a": "AJTBD canvas validated for SEG-001/002/003; hypothesis backlog promoted; PRD outline reviewed by eng lead; instrumentation spec reviewed by eng lead; no headcount committed.",
+    "phase_b": "Pilot ran 4 weeks end-to-end; WTP smoke test result on file with kill/keep memo; first retention cohort live; segment-level kill/keep memo signed by founder.",
+    "phase_c": "Reliability-gated steps shipped to product surface; second-club pilot live; paid-acquisition test results on file; rating-platform decision memo signed by founder; 90-day roadmap published."
+  }
+}

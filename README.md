@@ -31,8 +31,10 @@ The case study is real: a strategic brief on the [Padel AI Coach opportunity](re
 | **[Evidence Map](reports/final/evidence-map.html)** | Source-trace; verbatim quotes for every claim | ~42 KB |
 | **[Methodology](reports/final/methodology.html)** | The pipeline itself — architecture, models, gates | ~30 KB |
 | **[Index / Landing](reports/final/index.html)** | Public entry point | ~3 KB |
+| **[Interview Pack](reports/final/interview-pack/index.html)** | Six evidence-driven deliverables (competitor brief, subscription economics, MVP loop, 30-60-90 plan, JD coverage, model provenance) | 7 HTML pages |
+| **[Quality Bar](QUALITY_BAR.md)** | Single source of truth for hard rules, citation taxonomy, voice, and per-artifact gates that every agent obeys | one MD |
 
-Total bundle: 4 HTML files, zero JS dependencies, zero external resources. Loads under 50 KB gzip.
+Total bundle: 11 HTML pages plus one quality-bar contract. Zero JS dependencies. Loads under 60 KB gzip per page.
 
 ---
 

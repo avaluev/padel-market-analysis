@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0",
+  "deliverable_id": "02_subscription_economics",
+  "title": "Subscription Economics & Funnel Brief — Padel AI Coach",
+  "produced_at": "2026-05-03",
+  "voice": "third_person_professional",
+  "language": "en",
+  "scope": "JD requirements: unit economics, funnels, retention, LTV/CAC, subscription product experience.",
+  "calculation_method": "python_explicit (arithmetic in pricing_scenarios is reproducible by reviewer)",
+  "primary_evidence_files": [
+    "evidence/20260501T135005Z/10_monetization.json",
+    "evidence/20260501T135005Z/11_gtm.json",
+    "evidence/20260501T135005Z/15_market_size.json",
+    "evidence/20260501T135005Z/03_peers_dedup.json",
+    "evidence/20260501T135005Z/06_red_team.json"
+  ],
+
+  "A_pricing_anchors": [
+    {
+      "vendor": "Strava",
+      "tier": "Premium (monthly)",
+      "price_usd_monthly": 11.99,
+      "price_usd_annual": 79.99,
+      "vertical": "fitness",
+      "evidence_status": "VERIFIED",
+      "source_url": "https://www.strava.com/pricing",
+      "verified_quote": "Strava Premium $11.99 per month or $79.99 per year",
+      "verified_quote_word_count": 9,
+      "verification_method": "WebSearch 2026-05-03 cross-checked aggregator listings strava.com/pricing",
+      "secondary_source_url": "https://getpulsesignal.com/pricing/strava",
+      "rationale_for_padel": "Anchor for B2C sport-tech freemium; closest social-graph + segmentation analogue."
+    },
+    {
+      "vendor": "Whoop",
+      "tier": "One / Peak / Life",
+      "price_usd_annual": [199, 239, 359],
+      "price_usd_monthly_billed_existing": [25, 30, 40],
+      "vertical": "fitness_wearable",
+      "evidence_status": "VERIFIED",
+      "captured_on": "2026-05-03",
+      "reverify_sla_days": 7,
+      "screenshot_artefact": "screenshots/whoop.png",
+      "source_url": "https://www.whoop.com/us/en/membership/",
+      "verified_quote": "WHOOP One $199 / Peak $239 / Life $359 per year",
+      "verified_quote_word_count": 11,
+      "verification_method": "WebSearch 2026-05-03 cross-checked support.whoop.com/Membership-Pricing",
+      "secondary_source_url": "https://support.whoop.com/s/article/Membership-Pricing",
+      "rationale_for_padel": "Annual-only billing maximises commitment; padel pre-pay annual could replicate this anchor.",
+      "reverify_risk": "WHOOP 5.0 launched in Q2 2025 introduced new tier names (Performance / Peak / Life). If the One tier disappears from the public membership surface, this pricing row needs immediate re-verification against the screenshot baseline."
+    },
+    {
+      "vendor": "SwingVision",
+      "tier": "Pro",
+      "price_usd_monthly": 14.99,
+      "price_usd_annual": 179.99,
+      "vertical": "racket_sport_cv",
+      "evidence_status": "VERIFIED",
+      "source_url": "https://swing.vision/subscribe",
+      "verified_quote": "SwingVision Pro $14.99 per month or $179.99 per year",
+      "verified_quote_word_count": 9,
+      "verification_method": "WebSearch 2026-05-03; aggregator confirmation",
+      "secondary_source_url": "https://www.tennisnerd.net/news/try-swingvision-for-free/24680",
+      "rationale_for_padel": "Closest racket-sport CV analogue; sets ceiling for padel premium pricing in EUR/USD."
+    },
+    {
+      "vendor": "Hudl",
+      "tier": "Assist (Club Football, Your Games)",
+      "price_usd_per_team_per_season": 250,
+      "price_usd_per_team_per_season_high_tier": 1700,
+      "vertical": "sport_tech_b2b",
+      "evidence_status": "VERIFIED",
+      "source_url": "https://www.hudl.com/pricing/assist/football",
+      "verified_quote": "Your Games at $250 per team per season",
+      "verified_quote_word_count": 8,
+      "verification_method": "WebSearch 2026-05-03 hudl.com/pricing/assist",
+      "rationale_for_padel": "B2B per-team-per-season anchor; informs hedge-model coach co-pilot pricing if B2C WTP fails."
+    },
+    {
+      "vendor": "Clutch",
+      "tier": "Club camera tier",
+      "price_eur_monthly_per_club": 53,
+      "price_usd_monthly_per_club_estimate": 58,
+      "vertical": "padel_club_camera",
+      "evidence_status": "INFERRED",
+      "source_url": "https://www.clutchapp.io/",
+      "verified_quote": "(Sonar paraphrase, not vendor-page verbatim)",
+      "verified_quote_word_count": 5,
+      "verification_method": "Inherited from evidence/10_monetization.json captured during 20260501T135005Z run; pricing page exists at clutchapp.io/pricing but the EUR 53/month figure is a Sonar paraphrase, not a vendor-page screenshot.",
+      "secondary_source_url": "https://www.clutchapp.io/pricing",
+      "data_gap": "Live page does not surface tier price; figure is from prior Sonar paraphrase only — tagged INFERRED rather than VERIFIED.",
+      "rationale_for_padel": "Direct padel competitor; club-side hardware-anchored pricing — non-comparable to B2C app."
+    },
+    {
+      "vendor": "Wingfield",
+      "tier": "Software & Service Plan (per court)",
+      "price_eur_monthly_per_court": 70,
+      "price_eur_one_time_hardware": 6999,
+      "vertical": "padel_tennis_court_camera",
+      "evidence_status": "VERIFIED_AGGREGATOR",
+      "source_url": "https://www.wingfield.io/en/products",
+      "verified_quote": "Software & Service Plan costs €70/month per court",
+      "verified_quote_word_count": 7,
+      "verification_method": "WebSearch 2026-05-03 — aggregator captured price; vendor product page lists 'Prices on request'",
+      "secondary_source_url": "https://declom.com/wingfield",
+      "rationale_for_padel": "Hardware-locked pricing; sets per-court B2B floor independent of player B2C pricing."
+    },
+    {
+      "vendor": "MATCHi",
+      "tier": "Business (per court)",
+      "price_eur_monthly_per_court": 107,
+      "price_usd_monthly_per_court_estimate": 116,
+      "vertical": "padel_booking_saas",
+      "evidence_status": "INFERRED",
+      "source_url": "https://matchi.com/",
+      "verified_quote": "(Sonar paraphrase, not vendor-page verbatim)",
+      "verified_quote_word_count": 5,
+      "verification_method": "Inherited from evidence/10_monetization.json prior run; live page no longer surfaces standard rate card. The EUR 107/month figure is a Sonar paraphrase, not a vendor-page screenshot.",
+      "data_gap": "Live page does not republish per-court rate; figure is from prior Sonar paraphrase only — tagged INFERRED rather than VERIFIED.",
+      "rationale_for_padel": "Booking-side incumbent; B2B floor for any tournament/club integration revenue line."
+    },
+    {
+      "vendor": "Playtomic",
+      "tier": "Manager Standard / Professional / Champion",
+      "price_usd_monthly_per_club_standard": 37,
+      "price_usd_monthly_per_club_professional": 109.08,
+      "price_usd_monthly_per_club_champion": 274,
+      "vertical": "padel_booking_saas",
+      "evidence_status": "VERIFIED",
+      "source_url": "https://playtomic.com/pricing",
+      "verified_quote": "Standard $37 / Professional $109.08 / Champion $274 monthly",
+      "verified_quote_word_count": 8,
+      "verification_method": "WebSearch 2026-05-03 cross-checked products.playtomic.io/playtomic-manager",
+      "secondary_source_url": "https://products.playtomic.io/playtomic-manager/pricing-2/",
+      "rationale_for_padel": "Strongest B2B incumbent reference for tiered SaaS bundling; 7.4x spread Standard→Champion suggests upsell elasticity."
+    }
+  ],
+
+  "B_funnel_benchmarks": {
+    "stages": [
+      {
+        "stage_id": "F0_awareness",
+        "name": "Awareness (impression to landing-page visit)",
+        "benchmark_pct": null,
+        "benchmark_status": "ABSENT",
+        "data_gap": "No padel-specific awareness conversion data published; CPM proxies only.",
+        "comment": "Use Foundry CRO 2026 CPM inflation 20% YoY as cost proxy; conversion rate is channel-specific."
+      },
+      {
+        "stage_id": "F1_landing_to_install",
+        "name": "Landing page → app install / signup",
+        "benchmark_pct": 6.6,
+        "benchmark_status": "VERIFIED",
+        "source_url": "https://foundrycro.com/blog/landing-page-conversion-rate-benchmarks-2026/",
+        "verified_quote": "median landing page conversion rate is 6.6% across industries",
+        "comment": "Median across industries; SaaS 3.8%, events/entertainment 12.3%."
+      },
+      {
+        "stage_id": "F2_install_to_activation",
+        "name": "Install → activation event (first match captured)",
+        "benchmark_pct_low": 30,
+        "benchmark_pct_high": 50,
+        "benchmark_status": "VERIFIED",
+        "source_url": "https://kirro.io/mobile-app-conversion-rate",
+        "verified_quote": "onboarding conversion install to activation 30-50% considered healthy",
+        "comment": "Activation defined here as first match video captured + first insight delivered.",
+        "padel_specific_friction": "Phone-camera capture protocol (mount, angle, height) is the dominant drop-off risk per peer cards (Padelytics, Eyes On Padel)."
+      },
+      {
+        "stage_id": "F3_activation_to_first_insight",
+        "name": "First match captured → first insight delivered",
+        "benchmark_pct": null,
+        "benchmark_status": "INFERRED",
+        "comment": "No published benchmark; padel CV pipelines (Joao-M-Silva/padel_analytics) confirm technical feasibility but conversion-loss not measured.",
+        "instrumentation_target": "Track latency capture→insight; aim ≤24h to keep momentum.",
+        "data_gap": "Padel-specific install→insight conversion is unpublished; first-party benchmark required."
+      },
+      {
+        "stage_id": "F4_free_to_paid",
+        "name": "Free user → first paid month (within 30 days of activation)",
+        "benchmark_pct_low": 5,
+        "benchmark_pct_high": 9,
+        "benchmark_status": "VERIFIED",
+        "source_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "verified_quote": "Foundry CRO 2026 free-to-paid 5-9% within 30 days",
+        "comment": "Inherited from evidence/10_monetization.json unit_economics_assumptions.",
+        "kill_threshold": "Below 4% triggers hedge model per evidence/10_monetization.json wtp_test."
+      },
+      {
+        "stage_id": "F4b_freemium_app_paid",
+        "name": "Freemium app — overall download to paid subscriber",
+        "benchmark_pct": 1.7,
+        "benchmark_pct_excellent": 2.5,
+        "benchmark_status": "VERIFIED",
+        "source_url": "https://kirro.io/mobile-app-conversion-rate",
+        "verified_quote": "download-to-paid-subscriber conversion averages 1.7% — 2.5% excellent",
+        "comment": "Confirms Foundry CRO 5-9% figure refers to activated users, not raw downloads."
+      },
+      {
+        "stage_id": "F5_30day_to_90day_retention",
+        "name": "First paid month → 90-day retention (paid)",
+        "benchmark_pct_low": 50,
+        "benchmark_pct_high": 60,
+        "benchmark_status": "INFERRED",
+        "source_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "verified_quote": "12-month retention 35-45% sport-tech B2C benchmark range",
+        "derivation_explicit": "monthly churn ≤7% → 90-day survival = (1 − 0.07)^3 ≈ 80% upper-bound; 50-60% is the conservative lower-band reflecting padel-specific seasonality risk (FM-103). The 35-45% Foundry CRO benchmark is a 12-month figure, not a 90-day figure; the 50-60% band is INFERRED from the underlying churn rate, not a Foundry-published benchmark.",
+        "comment": "Lower-band band reflects padel-specific seasonality risk (FM-103).",
+        "data_gap": "Padel-specific 90-day paid retention is unpublished; nearest analogue is Strava social-fitness retention claims. Tag changed from VERIFIED_INHERITED to INFERRED to match red-team feedback."
+      }
+    ],
+    "monthly_churn_inputs": {
+      "b2c_paid_months_1_to_3": "6-9%",
+      "b2c_paid_months_1_to_3_source": "Sport-tech B2C benchmark per Strava and Whoop public communications, captured in evidence/10_monetization.json",
+      "strava_retention_signal_url": "https://www.businessofapps.com/data/strava-statistics/",
+      "strava_retention_quote": "Strava bucks broader app churn via social-fitness flywheel"
+    }
+  },
+
+  "C_ltv_cac_math": {
+    "formula_reference": {
+      "ltv_simple": "LTV = ARPU_monthly * average_lifetime_months",
+      "average_lifetime_months": "1 / monthly_churn_rate",
+      "ltv_cac_ratio": "LTV / blended_CAC",
+      "calculation_method": "python_explicit",
+      "all_currency_normalised_to_eur": true,
+      "fx_rates_used": {
+        "usd_per_eur": 1.085,
+        "fx_rate_source": "ECB indicative rate range Q1-Q2 2026; sensitivity not material at single decimal of LTV ratio.",
+        "fx_status": "INFERRED"
+      }
+    },
+    "scenarios": [
+      {
+        "scenario_id": "lean_pt_eur_649",
+        "label": "Lean — Portugal anchor EUR 6.49/month",
+        "arpu_eur_monthly": 6.49,
+        "arpu_source": "evidence/10_monetization.json geo_price_localization PT row",
+        "monthly_churn_pct": 8,
+        "monthly_churn_source": "Mid-range of 6-9% sport-tech B2C; assumption_strength: anchored",
+        "average_lifetime_months_calc": "1 / 0.08 = 12.5",
+        "average_lifetime_months": 12.5,
+        "ltv_eur_calc": "6.49 * 12.5 = 81.13",
+        "ltv_eur": 81.13,
+        "blended_cac_eur": {
+          "organic_newsletter_eur": 11.06,
+          "organic_newsletter_calc": "USD 12 / 1.085 = 11.06",
+          "organic_newsletter_source": "https://foundrycro.com/blog/cac-benchmarks-2026/ — newsletter benchmark USD 12",
+          "paid_meta_eur": 86.64,
+          "paid_meta_calc": "USD 94 / 1.085 = 86.64",
+          "paid_meta_source": "https://foundrycro.com/blog/cac-benchmarks-2026/ — Meta benchmark USD 94",
+          "affiliate_coach_eur": 138.25,
+          "affiliate_coach_calc": "USD 150 / 1.085 = 138.25",
+          "affiliate_coach_source": "evidence/11_gtm.json CH-007 USD 150 coach affiliate"
+        },
+        "ltv_cac_ratio": {
+          "organic": 7.34,
+          "organic_calc": "81.13 / 11.06 = 7.34",
+          "paid": 0.94,
+          "paid_calc": "81.13 / 86.64 = 0.94",
+          "affiliate": 0.59,
+          "affiliate_calc": "81.13 / 138.25 = 0.59"
+        },
+        "guardrail_status": {
+          "organic_meets_3to1": true,
+          "paid_meets_1to1": false,
+          "affiliate_meets_3to1": false
+        },
+        "assumption_strength": "anchored"
+      },
+      {
+        "scenario_id": "anchor_es_eur_799",
+        "label": "Anchor — Spain/Italy/EUR EUR 7.99/month",
+        "arpu_eur_monthly": 7.99,
+        "arpu_source": "evidence/10_monetization.json geo_price_localization ES row",
+        "monthly_churn_pct": 7,
+        "monthly_churn_source": "Mid-range with mild retention boost from primary-geo language fit; assumption_strength: inferred",
+        "average_lifetime_months_calc": "1 / 0.07 = 14.29",
+        "average_lifetime_months": 14.29,
+        "ltv_eur_calc": "7.99 * 14.29 = 114.16",
+        "ltv_eur": 114.16,
+        "blended_cac_eur": {
+          "organic_newsletter_eur": 11.06,
+          "paid_meta_eur": 86.64,
+          "affiliate_coach_eur": 138.25
+        },
+        "ltv_cac_ratio": {
+          "organic": 10.32,
+          "organic_calc": "114.16 / 11.06 = 10.32",
+          "paid": 1.32,
+          "paid_calc": "114.16 / 86.64 = 1.32",
+          "affiliate": 0.83,
+          "affiliate_calc": "114.16 / 138.25 = 0.83"
+        },
+        "guardrail_status": {
+          "organic_meets_3to1": true,
+          "paid_meets_1to1": true,
+          "affiliate_meets_3to1": false
+        },
+        "assumption_strength": "anchored"
+      },
+      {
+        "scenario_id": "premium_ae_aed_49",
+        "label": "Premium — UAE AED 49/month",
+        "arpu_aed_monthly": 49.0,
+        "arpu_eur_monthly_calc": "AED 49 * EUR 0.249 = EUR 12.20",
+        "arpu_eur_monthly": 12.20,
+        "arpu_source": "evidence/10_monetization.json geo_price_localization AE row; FX AED→EUR ECB indicative",
+        "monthly_churn_pct": 6,
+        "monthly_churn_source": "Premium-tier audiences typically churn lower; assumption_strength: inferred",
+        "average_lifetime_months_calc": "1 / 0.06 = 16.67",
+        "average_lifetime_months": 16.67,
+        "ltv_eur_calc": "12.20 * 16.67 = 203.37",
+        "ltv_eur": 203.37,
+        "blended_cac_eur": {
+          "organic_newsletter_eur": 11.06,
+          "paid_meta_eur_uae_uplift": 121.29,
+          "paid_meta_uae_uplift_calc": "USD 94 base * 1.4 UAE premium / 1.085 = 121.29 (Python-recomputed from 121.66 to fix arithmetic per red-team MEDIUM-1)",
+          "paid_meta_uae_uplift_source": "INFERRED — UAE digital media premium per evidence/12_geo.json AE assumptions",
+          "affiliate_coach_eur": 138.25
+        },
+        "ltv_cac_ratio": {
+          "organic": 18.39,
+          "organic_calc": "203.37 / 11.06 = 18.39",
+          "paid": 1.68,
+          "paid_calc": "203.37 / 121.29 = 1.68",
+          "affiliate": 1.47,
+          "affiliate_calc": "203.37 / 138.25 = 1.47"
+        },
+        "guardrail_status": {
+          "organic_meets_3to1": true,
+          "paid_meets_1to1": true,
+          "affiliate_meets_3to1": false
+        },
+        "assumption_strength": "inferred"
+      }
+    ],
+    "scenarios_appendix_ru_direct_channel": {
+      "scenario_id": "ru_direct_channel_rub_499",
+      "label": "RU Direct-channel — RUB 499/month (PPP-indexed EUR 5.0)",
+      "arpu_rub_monthly": 499,
+      "arpu_eur_monthly_calc": "RUB 499 * 0.55 PPP index ≈ EUR 5.0",
+      "arpu_eur_monthly": 5.0,
+      "arpu_source": "evidence/20260501T135005Z/10_monetization.json:140-142 — 0.55 PPP index applied",
+      "monthly_churn_pct": 8.5,
+      "monthly_churn_source": "Upper-band of sport-tech B2C 6-9% range; assumption_strength: inferred — no Strava-class flywheel data exists for Russian-speaking padel.",
+      "average_lifetime_months_calc": "1 / 0.085 = 11.76",
+      "average_lifetime_months": 11.76,
+      "ltv_eur_calc": "5.0 * 11.76 = 58.82",
+      "ltv_eur": 58.82,
+      "blended_cac_eur": {
+        "organic_telegram_newsletter_eur": 11.06,
+        "organic_telegram_newsletter_calc": "USD 12 / 1.085 = 11.06 — Foundry CRO 2026 baseline carried forward as proxy; no Russia-specific CAC benchmark available",
+        "organic_telegram_newsletter_source": "https://foundrycro.com/blog/cac-benchmarks-2026/ (proxy)",
+        "paid_meta_eur": null,
+        "paid_meta_data_gap": "Meta is unavailable in the Russian advertising channel mix at this date.",
+        "apple_search_ads_eur": null,
+        "apple_search_ads_data_gap": "Apple Search Ads Russian payment rails are constrained at this date."
+      },
+      "ltv_cac_ratio": {
+        "organic": 5.32,
+        "organic_calc": "58.82 / 11.06 = 5.32",
+        "paid_meta": null,
+        "apple_search_ads": null
+      },
+      "guardrail_status": {
+        "organic_meets_3to1": true,
+        "paid_meets_1to1": null,
+        "affiliate_meets_3to1": null
+      },
+      "channel_constraint": "Telegram-only; per evidence/20260501T135005Z/11_gtm.json#CH-006 the channel reduces to Telegram newsletter plus organic Telegram-bot distribution.",
+      "data_gaps": [
+        "Russia-specific CAC benchmark; Foundry CRO USD 12 figure is a proxy.",
+        "Meta and Apple Search Ads unavailable in this market — paid CAC math is structurally null."
+      ],
+      "assumption_strength": "inferred",
+      "h_04_implication": "RU LTV:CAC organic = 5.32 clears the 3:1 SaaS guardrail at honest 8.5% churn. H-04 in 04_30_60_90_plan.md remains as a smoke-test hypothesis (not a kill gate) because the Russian channel-mix is structurally constrained — paid Meta and ASA are unavailable, so a kill threshold below 4% paid conversion would force the channel to fall back to organic-only, which is the only mode the unit economics validate."
+    },
+    "sensitivity_analysis": {
+      "base_case_anchor_es_eur_799": {
+        "arpu_eur": 7.99,
+        "monthly_churn_pct": 7,
+        "ltv_eur": 114.16,
+        "ltv_cac_organic": 10.32,
+        "ltv_cac_paid": 1.32,
+        "ltv_cac_affiliate": 0.83
+      },
+      "best_case_low_churn_high_organic_share": {
+        "monthly_churn_pct": 5,
+        "average_lifetime_months_calc": "1 / 0.05 = 20.0",
+        "ltv_eur_calc": "7.99 * 20.0 = 159.80",
+        "ltv_eur": 159.80,
+        "ltv_cac_organic_calc": "159.80 / 11.06 = 14.45",
+        "ltv_cac_organic": 14.45,
+        "ltv_cac_paid_calc": "159.80 / 86.64 = 1.84",
+        "ltv_cac_paid": 1.84,
+        "assumption_strength": "inferred"
+      },
+      "worst_case_high_churn_low_arpu_pt": {
+        "arpu_eur": 6.49,
+        "monthly_churn_pct": 10,
+        "average_lifetime_months_calc": "1 / 0.10 = 10.0",
+        "ltv_eur_calc": "6.49 * 10.0 = 64.90",
+        "ltv_eur": 64.90,
+        "ltv_cac_organic_calc": "64.90 / 11.06 = 5.87",
+        "ltv_cac_organic": 5.87,
+        "ltv_cac_paid_calc": "64.90 / 86.64 = 0.75",
+        "ltv_cac_paid": 0.75,
+        "assumption_strength": "inferred"
+      }
+    },
+    "interpretation": {
+      "headline": "Organic newsletter / community-led acquisition is the only channel that clears the 3:1 LTV:CAC guardrail in every scenario. Paid Meta is a net-positive only above the EUR 7.99 anchor and at churn ≤7%. Affiliate coach acquisition is below 1:1 across all scenarios — coach affiliate must be retained as a B2B2C funnel, not a B2C CAC line.",
+      "implication": "Channel mix discipline matters more than absolute pricing. The published Foundry CRO USD 12 newsletter CAC is the channel that bends the LTV:CAC math; everything else is a hedge."
+    }
+  },
+
+  "D_retention_levers": [
+    {
+      "rank": 1,
+      "lever_id": "RL-001",
+      "name": "Pair-anchored progress (rating-with-partner)",
+      "mechanism": "Rating updates only after both partners' uploads; the partner becomes a retention asset, not a feature.",
+      "peer_proof": {
+        "primary_analogue": "Strava clubs and segments",
+        "primary_analogue_url": "https://www.strava.com/pricing",
+        "primary_analogue_quote": "Strava social-fitness flywheel converts engagement into retention",
+        "primary_analogue_source": "https://www.businessofapps.com/data/strava-statistics/",
+        "padel_evidence_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "padel_evidence_role": "Demonstrates technical feasibility of pair-anchored events"
+      },
+      "evidence_tag": "INFERRED",
+      "instrumentation_metric": "% of paid users with a paired partner active in last 30 days",
+      "kill_threshold": "<40% of paid users have an active paired partner at month 3 → retention will collapse"
+    },
+    {
+      "rank": 2,
+      "lever_id": "RL-002",
+      "name": "Drill prescription tied to last match",
+      "mechanism": "Each match recap closes with one drill prescription. The drill is the bridge between insight and next session.",
+      "peer_proof": {
+        "primary_analogue": "Whoop strain coaching / recovery prescriptions",
+        "primary_analogue_url": "https://wellness.alibaba.com/fitlife/whoop-membership-pricing-guide",
+        "primary_analogue_quote": "Whoop personalises strain and recovery guidance per member",
+        "primary_analogue_source_caveat": "third-party paraphrase of Whoop coaching surface — actual quote is from an Alibaba-hosted wellness affiliate page, not the Whoop vendor page. The whoop.com/us/en/membership/ surface is the vendor reference but does not contain this verbatim phrasing.",
+        "vendor_surface_url": "https://www.whoop.com/us/en/membership/",
+        "padel_evidence_url": "https://www.padelytics.ai/",
+        "padel_evidence_role": "Padelytics positions match-level breakdowns; prescription layer is the unbuilt extension"
+      },
+      "evidence_tag": "INFERRED",
+      "instrumentation_metric": "% of recaps that lead to a drill check-off within 14 days",
+      "kill_threshold": "<15% drill engagement → recap is a vanity surface, not a behaviour driver"
+    },
+    {
+      "rank": 3,
+      "lever_id": "RL-003",
+      "name": "Streak / weekly cadence",
+      "mechanism": "Weekly tactical recap newsletter + in-app weekly digest with a visible streak counter that resets on missed weeks.",
+      "peer_proof": {
+        "primary_analogue": "Duolingo streak system",
+        "primary_analogue_url": "https://blog.duolingo.com/how-duolingo-streak-builds-habit/",
+        "primary_analogue_quote": "Learners with 7-day streaks 2.4x more likely to return next day",
+        "primary_analogue_source": "https://www.trypropel.ai/resources/duolingo-customer-retention-strategy",
+        "padel_evidence_url": "https://www.businessofapps.com/data/strava-statistics/",
+        "padel_evidence_role": "Strava 14B kudos in 2025 evidences social streak compounding"
+      },
+      "evidence_tag": "INFERRED",
+      "instrumentation_metric": "% of paid users on a 4+ week streak",
+      "kill_threshold": "<20% sustained streak share → cadence is decorative, not addictive"
+    },
+    {
+      "rank": 4,
+      "lever_id": "RL-004",
+      "name": "Pre-match habit trigger",
+      "mechanism": "Push notification 30 minutes before a booked court (deep-linked to Playtomic/MATCHi calendar) prompting capture setup checklist.",
+      "peer_proof": {
+        "primary_analogue": "Headspace habit triggers (calendar-anchored mindfulness prompts)",
+        "primary_analogue_url": "https://www.headspace.com/",
+        "primary_analogue_quote": "Headspace anchors meditation habit to calendar trigger windows",
+        "primary_analogue_source": "INFERRED — habit-formation literature",
+        "padel_evidence_url": "https://playtomic.io/blog",
+        "padel_evidence_role": "Playtomic exposes booking metadata; trigger surface is reachable via deep link"
+      },
+      "evidence_tag": "INFERRED",
+      "instrumentation_metric": "% of booked sessions that result in a capture",
+      "kill_threshold": "<25% capture-on-booked-session → the trigger is wrong or capture friction is too high",
+      "data_gap": "Headspace habit-trigger literature cited generally; specific Headspace retention numbers not in this run."
+    },
+    {
+      "rank": 5,
+      "lever_id": "RL-005",
+      "name": "Coach handoff for student dashboard",
+      "mechanism": "Player can route weekly recap pack to a coach. Coach uses it at renewal conversation. Coach becomes a retention bias for the player.",
+      "peer_proof": {
+        "primary_analogue": "Hudl Assist coach-driven distribution",
+        "primary_analogue_url": "https://www.hudl.com/products/assist",
+        "primary_analogue_quote": "Hudl Assist subscriptions sold per team per season",
+        "primary_analogue_source": "evidence/10_monetization.json",
+        "padel_evidence_url": "https://www.coach-logic.com/",
+        "padel_evidence_role": "CoachLogic LMS for coaches; documented switching cost"
+      },
+      "evidence_tag": "VERIFIED_INHERITED",
+      "instrumentation_metric": "% of player uploads opting into coach handoff",
+      "kill_threshold": "<5% handoff rate → coach co-pilot path becomes coach-only per evidence/11_gtm.json PLG-005"
+    },
+    {
+      "rank": 6,
+      "lever_id": "RL-006",
+      "name": "Public rating asset (SEO-indexable profile)",
+      "mechanism": "Each paid user gets an indexable public rating page; loss of subscription means loss of public-facing rating credibility.",
+      "peer_proof": {
+        "primary_analogue": "Strava public profile",
+        "primary_analogue_url": "https://www.strava.com/",
+        "primary_analogue_quote": "Strava public profile compounds athlete identity over time",
+        "primary_analogue_source": "https://www.businessofapps.com/data/strava-statistics/",
+        "padel_evidence_url": "https://padelboard.app/",
+        "padel_evidence_role": "Padelboard demonstrates leaderboard appetite in Nordic markets"
+      },
+      "evidence_tag": "INFERRED",
+      "instrumentation_metric": "% of paid users with public profile views ≥10/month",
+      "kill_threshold": "<10% organic profile traffic → identity flywheel is not engaging"
+    }
+  ],
+
+  "E_subscription_playbook": [
+    {
+      "lesson_id": "PB-001",
+      "lesson": "Anchor commitment with annual prepay; resist rolling-monthly billing",
+      "source_vendor": "Whoop",
+      "source_url": "https://support.whoop.com/s/article/Membership-Pricing",
+      "source_quote": "WHOOP does not offer rolling monthly subscription pay annually",
+      "mechanism": "Annual prepay forces user to skip the cancel-after-month-1 default; LTV anchors at full year.",
+      "padel_application": "Offer EUR 79/year vs EUR 7.99/month. Surface the annual saving (17% discount) at first paywall."
+    },
+    {
+      "lesson_id": "PB-002",
+      "lesson": "Make the daily streak visible at every entry point",
+      "source_vendor": "Duolingo",
+      "source_url": "https://blog.duolingo.com/how-duolingo-streak-builds-habit/",
+      "source_quote": "Streaks reinforce a daily lesson loop with immediate reward",
+      "mechanism": "Visible streak compounds psychological cost of breaking a habit.",
+      "padel_application": "Weekly streak (not daily — padel cadence is weekly). Reset visible 24h before expiry; recovery via single uploaded match."
+    },
+    {
+      "lesson_id": "PB-003",
+      "lesson": "Convert the social graph into the retention engine",
+      "source_vendor": "Strava",
+      "source_url": "https://www.businessofapps.com/data/strava-statistics/",
+      "source_quote": "Strava 2.23% interaction rate 14B kudos given in 2025",
+      "mechanism": "Friends provide free retention signal; cancellation cost rises with social ties.",
+      "padel_application": "Pair-anchored progress (RL-001) — partner becomes a retention asset; both lose progress on cancel."
+    },
+    {
+      "lesson_id": "PB-004",
+      "lesson": "Tie subscription to a measurable outcome the user controls",
+      "source_vendor": "SwingVision",
+      "source_url": "https://swing.vision/subscribe",
+      "source_quote": "SwingVision Pro $14.99 per month or $179.99 per year",
+      "mechanism": "Outcomes (line calls, scores) are tangible and paid value is unambiguous.",
+      "padel_application": "Rating delta per month is the headline KPI surfaced in the recap; subscription is the mechanism that produces the delta."
+    },
+    {
+      "lesson_id": "PB-005",
+      "lesson": "Use coach as an unpaid distribution channel that increases switching cost",
+      "source_vendor": "Hudl",
+      "source_url": "https://www.hudl.com/products/assist",
+      "source_quote": "Hudl Assist subscriptions sold per team per season",
+      "mechanism": "Coach owns the workflow; player follows the coach; switching the player out forces coach buy-in.",
+      "padel_application": "PLG-005 coach handoff per evidence/11_gtm.json. Coach reputation graph (community_surfaces) is the moat."
+    }
+  ],
+
+  "F_failure_modes": [
+    {
+      "failure_id": "FM-101",
+      "name": "Capture friction kills activation",
+      "description": "Phone-camera capture protocol (mount, angle, height, lighting) drops install→activation below the 30% sport-tech floor.",
+      "diagnostic_signal": "F2 install→first-match-captured < 25% within 7 days",
+      "kill_experiment": "Ship two onboarding variants: (A) phone-mount tutorial video + checklist; (B) club-camera fallback via Eyes On Padel partnership. A/B 200 installs in Spain over 4 weeks. Variant winning ≥35% activation continues.",
+      "timeline_weeks": 4,
+      "evidence_basis_url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "verification_method": "INFERRED from peer-card friction discussion in evidence/04_peer_cards/"
+    },
+    {
+      "failure_id": "FM-102",
+      "name": "Rating becomes commodity (federation publishes free)",
+      "description": "If FIP/national federations publish a free derived rating, the paid rating loses its credibility moat. Premier Padel adjacency makes this credible within 18 months.",
+      "diagnostic_signal": "Federation announces derived rating OR Playtomic ships derived levels; paid conversion drops 30%+ in 8 weeks",
+      "kill_experiment": "Run a structured survey of 200 Playtomic / MATCHi power users in Spain + Italy: 'If your booking app published a derived rating, would respondents still pay EUR 7.99 for the alternative product?' Threshold: ≥30% retain WTP.",
+      "timeline_weeks": 6,
+      "evidence_basis_url": "https://premierpadel.com/",
+      "verification_method": "INFERRED from evidence/06_red_team.json SEG-002 strongest_reason_false_segment"
+    },
+    {
+      "failure_id": "FM-103",
+      "name": "Churn after season-end (Q4 collapse)",
+      "description": "Padel is outdoor-skewed in Iberia; winter players migrate or pause. October-March monthly churn could spike 2-3x baseline.",
+      "diagnostic_signal": "Month-over-month paid churn jumps from 7% (base) to ≥14% in October",
+      "kill_experiment": "Instrument Q4 churn cohort by geography. If Iberia spikes, ship indoor-court partnership content + winter rating-prep drill series. Re-measure at 8 weeks.",
+      "timeline_weeks": 8,
+      "evidence_basis_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "verification_method": "INFERRED — seasonality risk per FIP regional data; not isolated in current evidence run.",
+      "data_gap": "Padel-specific seasonal churn elasticity is unpublished; this is the most urgent first-party measurement."
+    }
+  ],
+
+  "data_gaps": [
+    {
+      "id": "DG-01",
+      "field": "B_funnel_benchmarks.F3_activation_to_first_insight",
+      "reason": "No published padel-specific benchmark for capture→insight conversion rate."
+    },
+    {
+      "id": "DG-02",
+      "field": "B_funnel_benchmarks.F5_30day_to_90day_retention",
+      "reason": "Tag demoted from VERIFIED_INHERITED to INFERRED per red-team MEDIUM-2; the 50-60% 90-day band is derived from monthly churn (1-0.07)^3, not directly published. Padel-specific 90-day paid retention remains unpublished."
+    },
+    {
+      "id": "DG-03",
+      "field": "A_pricing_anchors.Clutch.price_eur_monthly_per_club",
+      "reason": "Live clutchapp.io/pricing did not surface monthly figure in 2026-05 verification; tag demoted from VERIFIED_INTERNAL_CAPTURE to INFERRED per red-team HIGH-4 — figure is a Sonar paraphrase, not a vendor-page screenshot."
+    },
+    {
+      "id": "DG-04",
+      "field": "A_pricing_anchors.MATCHi.price_eur_monthly_per_court",
+      "reason": "Live matchi.com no longer publishes per-court Business tier rate card; tag demoted from VERIFIED_INTERNAL_CAPTURE to INFERRED per red-team HIGH-4 — figure is a Sonar paraphrase, not a vendor-page screenshot."
+    },
+    {
+      "id": "DG-05",
+      "field": "F_failure_modes.FM-103.churn_seasonal_elasticity",
+      "reason": "Padel-specific Q4 paid-churn data is unpublished. Most urgent first-party measurement before scaling Iberia paid acquisition.",
+      "criticality": "HIGHEST"
+    },
+    {
+      "id": "DG-06",
+      "field": "C_ltv_cac_math.fx_rates_used",
+      "reason": "FX rates EUR/USD/AED inferred from ECB indicative ranges; not material at one-decimal LTV ratio precision but should be re-validated at financial close."
+    },
+    {
+      "id": "DG-07",
+      "field": "C_ltv_cac_math.scenarios_appendix_ru_direct_channel.cac_stack",
+      "reason": "Russia-specific CAC benchmark is unpublished; the USD 12 organic newsletter figure is carried forward from Foundry CRO 2026 as a proxy. Meta and Apple Search Ads are structurally unavailable in the Russian channel-mix at this date — paid CAC math is null, not low."
+    },
+    {
+      "id": "DG-08",
+      "field": "A_pricing_anchors.Whoop.tier_set",
+      "reason": "WHOOP 5.0 launched in Q2 2025 introduced new tier names. The One/Peak/Life set captured 2026-05-03 may be re-released or re-tiered; weekly re-verification SLA documented. Screenshot artefact at screenshots/whoop.png is the captured baseline."
+    }
+  ],
+
+  "verified_url_count_distinct": 14,
+  "verified_url_list_distinct": [
+    "https://www.strava.com/pricing",
+    "https://www.whoop.com/us/en/membership/",
+    "https://swing.vision/subscribe",
+    "https://www.hudl.com/pricing/assist/football",
+    "https://www.clutchapp.io/",
+    "https://www.wingfield.io/en/products",
+    "https://matchi.com/",
+    "https://playtomic.com/pricing",
+    "https://foundrycro.com/blog/cac-benchmarks-2026/",
+    "https://foundrycro.com/blog/landing-page-conversion-rate-benchmarks-2026/",
+    "https://kirro.io/mobile-app-conversion-rate",
+    "https://blog.duolingo.com/how-duolingo-streak-builds-habit/",
+    "https://www.businessofapps.com/data/strava-statistics/",
+    "https://github.com/Joao-M-Silva/padel_analytics"
+  ]
+}

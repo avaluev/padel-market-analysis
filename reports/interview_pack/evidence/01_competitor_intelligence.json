@@ -1,0 +1,653 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "01_competitor_intelligence",
+  "generated_at": "2026-05-03",
+  "source_run_id": "20260501T135005Z",
+  "voice": "third_person_professional",
+  "language": "en",
+  "method": "Selection from 28 verified peers in evidence/20260501T135005Z/03_peers_dedup.json. Threat ranking weights three signals: (1) overlap with the smartphone-only AI-coaching wedge defined in evidence/20260501T135005Z/09_moat_audit.json (VM-001), (2) installed footprint and traction signal, (3) capacity to expand the wedge through adjacent moves (network, integration, distribution). Live verification of pricing and value-prop quotes performed via WebFetch on 2026-05-03 against vendor pages.",
+
+  "selection_rationale": {
+    "candidate_pool_size": 28,
+    "selection_filter": "Direct rivals to the smartphone-only padel AI coaching wedge OR adjacent players whose footprint can collapse the wedge in 18 months.",
+    "rejected_with_reason": [
+      {
+        "id": "padelplay",
+        "reason": "Hardware-bundled racket sensor; conversion friction is structurally higher than smartphone-only path. Less near-term threat than camera-system rivals."
+      },
+      {
+        "id": "spash",
+        "reason": "Pure B2B club analytics; structurally cannot pull a player from the smartphone path without a partnered club. Tracked in adjacency, not as top-3 threat."
+      },
+      {
+        "id": "wingfield",
+        "reason": "Tennis-first equal-treatment of padel per vendor page; padel-specific shot taxonomy is shallower. Tracked in adjacency."
+      },
+      {
+        "id": "playsight",
+        "reason": "Enterprise-led distribution channel inside Slinger Bag group; padel coaching depth lags dedicated peers per peer card. Treated as graveyard pivot signal."
+      },
+      {
+        "id": "matchi",
+        "reason": "Booking network without a coaching surface. Treated as adjacent rating-platform player."
+      },
+      {
+        "id": "hudl",
+        "reason": "Cross-sport SaaS without padel-specific tagging vocabulary; coach-led, not consumer-led. Tracked in adjacency."
+      }
+    ]
+  },
+
+  "top_threats": [
+    {
+      "rank": 1,
+      "id": "padelytics",
+      "name": "Padelytics",
+      "url": "https://www.padelytics.ai/",
+      "archetype": "product_app",
+      "moat_class": "data",
+      "threat_score": 9,
+      "threat_rationale": "Most direct overlap with the smartphone-only padel AI coaching wedge. Sells to the three audiences the candidate wedge reaches (players, clubs, streaming). Iberian and LATAM footprint matches the planned beachhead in evidence/20260501T135005Z/12_geo.json. Builds the same data flywheel.",
+      "positioning": "Padel-native AI analytics product spanning amateur players, club programmes, and streaming surfaces in one funnel.",
+      "primary_value_prop": "AI video analysis converting padel match footage into shot-level statistics and tactical breakdowns.",
+      "verified_quote": {
+        "text": "YOUR GAME, PERFECTED. AI-POWERED PADEL ANALYTICS AT YOUR FINGERTIPS",
+        "word_count": 8,
+        "source_url": "https://www.padelytics.ai/",
+        "verified_at": "2026-05-03"
+      },
+      "supporting_quote": {
+        "text": "padel players, clubs and streaming platforms",
+        "word_count": 5,
+        "source_url": "https://www.padelytics.ai/",
+        "verified_at": "2026-05-03"
+      },
+      "pricing": {
+        "model": "subscription",
+        "price_anchor_usd": null,
+        "price_anchor_eur": null,
+        "tier_disclosed_publicly": false,
+        "verified_quote": null,
+        "source_url": "https://www.padelytics.ai/",
+        "verified_at": "2026-05-03",
+        "data_gap": "Public pricing tiers not disclosed on the homepage; needs vendor follow-up. Confirmed gap on second-pass web search 2026-05-03."
+      },
+      "customer_segment_served_well": "Iberian and LATAM intermediate-to-advanced amateur players who already record matches and want post-game shot-level breakdowns, plus padel clubs running coaching programmes that need a streaming and analytics layer in one funnel.",
+      "geo_presence": ["ES", "PT", "AR", "MX"],
+      "geo_presence_source_url": "https://www.padelytics.ai/",
+      "blind_spots": [
+        {
+          "id": "B-PADELYTICS-1",
+          "label": "No cross-club rating spine",
+          "reasoning": "Vendor sells single-match analysis but has no documented cross-club, cross-organiser rating that travels with the player. The cross-club rating gate (VM-002 in evidence/20260501T135005Z/09_moat_audit.json) requires a network mechanic Padelytics has not staked. A new entrant that lands a tournament-organiser LOI before Padelytics moves owns the rating spine.",
+          "moat_class_unaddressed": "network",
+          "evidence_url": "https://www.padelytics.ai/"
+        },
+        {
+          "id": "B-PADELYTICS-2",
+          "label": "Anglo-European pricing posture without local-language distribution",
+          "reasoning": "Vendor page is English-led with Spanish reach via club logos but does not run a multilingual editorial cadence. The distribution-as-moat thesis in evidence/20260501T135005Z/11_gtm.json hinges on a directly-reached Spanish + Russian newsletter that Padelytics does not currently operate. A new entrant with a localised cadence can compound audience without paid acquisition.",
+          "moat_class_unaddressed": "distribution",
+          "evidence_url": "https://playtomic.com/global-padel-report"
+        },
+        {
+          "id": "B-PADELYTICS-3",
+          "label": "Pricing opacity blocks viral pair-share loop",
+          "reasoning": "No public pricing means no per-user share-with-partner conversion path. The PLG-002 pair invite loop in evidence/20260501T135005Z/11_gtm.json depends on a frictionless paid tier exposed during the share moment. Padelytics structurally optimises for a club-led sales motion, not a viral pair conversion, so a smartphone-first entrant can convert pairs faster.",
+          "moat_class_unaddressed": "network",
+          "evidence_url": "https://www.padelytics.ai/"
+        },
+        {
+          "id": "B-PADELYTICS-4",
+          "label": "No regulated-geography on-device path documented",
+          "reasoning": "Vendor page does not describe a 152-FZ-compliant on-device pipeline for Russian-language and CIS markets. The CH-006 Telegram channel and on-device pipeline documented in evidence/20260501T135005Z/11_gtm.json open a Russian-language pocket Padelytics is structurally absent from.",
+          "moat_class_unaddressed": "regulatory",
+          "evidence_url": "https://www.padelytics.ai/"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "clutch",
+      "name": "Clutch",
+      "url": "https://www.clutchapp.io/",
+      "archetype": "club_camera_system",
+      "moat_class": "switching_cost",
+      "threat_score": 8,
+      "threat_rationale": "Highest installed-club threat in the camera category. Per peer card the vendor is active in ES, UK, and UAE — three of four geographies in the candidate beachhead path. Each installed court entrenches a club into a hardware-plus-app habit that competes for the same coach-renewal conversation.",
+      "positioning": "Always-on club camera that automates match recording and highlight generation, with player feed riding on the club install.",
+      "primary_value_prop": "Club-installed camera with automatic match recording, highlights, and player-level performance feed.",
+      "verified_quote": {
+        "text": "The AI Camera for Padel | Automated Highlights & Analytics",
+        "word_count": 9,
+        "source_url": "https://www.clutchapp.io/",
+        "verified_at": "2026-05-03"
+      },
+      "pricing": {
+        "model": "subscription",
+        "price_anchor_eur": 53.0,
+        "price_anchor_usd": 58.0,
+        "billing_unit": "per_club_per_month",
+        "tier_disclosed_publicly": false,
+        "evidence_status": "INFERRED",
+        "verified_quote": {
+          "text": "(Sonar paraphrase, not vendor-page verbatim)",
+          "word_count": 5,
+          "source_url": "https://www.clutchapp.io/",
+          "verified_at": "2026-05"
+        },
+        "source": "Captured in evidence/20260501T135005Z/10_monetization.json price_benchmarks; price_anchor labelled 'around EUR 53/month per club tier per Sonar pricing capture'. The number is a Sonar paraphrase, not a verbatim screenshot of a clutchapp.io price card.",
+        "source_url": "https://www.clutchapp.io/",
+        "verified_at": "2026-05-03",
+        "data_gap": "Per-court hardware install cost not disclosed publicly per peer card. Tier number itself is Sonar-paraphrased."
+      },
+      "customer_segment_served_well": "Club operators running 4-12 courts in Spain, the UK, and the UAE who want a one-stop highlight-and-analytics layer that members can reach through a club-branded app, with no requirement for member smartphone capture.",
+      "geo_presence": ["ES", "UK", "UAE"],
+      "geo_presence_source_url": "https://www.clutchapp.io/",
+      "blind_spots": [
+        {
+          "id": "B-CLUTCH-1",
+          "label": "Hardware capex anchors the moat to the venue",
+          "reasoning": "Switching cost compounds at the club level, not the player level. Per peer card the per-court install is undisclosed but exists; once a player leaves the club, the data trail ends. A smartphone-first entrant who captures the player relationship outside the club venue inherits the longitudinal record Clutch cannot port between venues.",
+          "moat_class_unaddressed": "data",
+          "evidence_url": "https://www.clutchapp.io/"
+        },
+        {
+          "id": "B-CLUTCH-2",
+          "label": "No travelling-player rating across venues",
+          "reasoning": "Footage stays inside the host club's account, mirroring the gap documented for Eyes On Padel in evidence/20260501T135005Z/04_peer_cards/eyes_on_padel.json. Cross-club rating that travels with the player is the network-effect moat (VM-002) Clutch is structurally absent from. A new entrant that builds the rating spine across organisers can plug into Clutch venues without displacing them.",
+          "moat_class_unaddressed": "network",
+          "evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+        },
+        {
+          "id": "B-CLUTCH-3",
+          "label": "Coach-renewal narrative is venue-bound",
+          "reasoning": "Coach co-pilot value (VM-004) requires a coach-to-student handoff that survives outside the club. Clutch optimises for the venue contract, so the coach-student renewal conversation depends on whichever venue the coach happens to be teaching at. A smartphone-first entrant gives coaches a graph that travels with the coach, breaking Clutch's venue gravity.",
+          "moat_class_unaddressed": "switching_cost",
+          "evidence_url": "https://www.clutchapp.io/"
+        },
+        {
+          "id": "B-CLUTCH-4",
+          "label": "B2B sales cycle slows player conversion",
+          "reasoning": "Vendor enters players only after a venue contract closes. Per evidence/20260501T135005Z/11_gtm.json the candidate's CH-001 newsletter and CH-005 Reddit/Discord paths can convert individual players in days, while a club-deployment cycle measured in weeks-to-months. Velocity asymmetry favours a direct-to-player wedge in markets where Clutch has not yet signed a club.",
+          "moat_class_unaddressed": "distribution",
+          "evidence_url": "https://www.clutchapp.io/"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "playtomic",
+      "name": "Playtomic",
+      "url": "https://playtomic.io/blog",
+      "archetype": "matchmaking_app",
+      "moat_class": "network",
+      "threat_score": 8,
+      "threat_rationale": "Largest documented padel booking network in 2025 reports per peer card. The booking-network gravity puts Playtomic one product release from publishing a derived rating that crushes any standalone rating product. Treat as the network-incumbent threat: not a direct AI-coach rival today, but the rival most able to add a coaching-shaped feature on top of an existing distribution.",
+      "positioning": "Booking-and-matchmaking network that owns the player-to-court relationship across 12+ countries, with a club SaaS sold via four published tiers.",
+      "primary_value_prop": "Court booking and matchmaking network connecting players to clubs and partners across multiple countries.",
+      "verified_quote": {
+        "text": "Flexible plans that adapt to your needs",
+        "word_count": 7,
+        "source_url": "https://playtomic.com/pricing",
+        "verified_at": "2026-05-03"
+      },
+      "pricing": {
+        "model": "freemium",
+        "player_tier": "free",
+        "club_tiers_named": ["Standard", "Professional", "Champion", "Master"],
+        "tier_disclosed_publicly": true,
+        "price_disclosed_publicly": true,
+        "evidence_status": "VERIFIED",
+        "verified_quote": {
+          "text": "Standard $37 / Professional $109.08 / Champion $274 monthly",
+          "word_count": 8,
+          "source_url": "https://products.playtomic.io/playtomic-manager/pricing-2/",
+          "verified_at": "2026-05-03"
+        },
+        "tier_pricing_usd": {
+          "standard_monthly": 37,
+          "professional_monthly": 109.08,
+          "champion_monthly": 274
+        },
+        "source_url": "https://playtomic.com/pricing",
+        "secondary_source_url": "https://products.playtomic.io/playtomic-manager/pricing-2/",
+        "verified_at": "2026-05-03",
+        "data_gap": "Individual tier breakdown not displayed on the pricing landing without account creation, but per-tier monthly figures are surfaced on products.playtomic.io/playtomic-manager."
+      },
+      "customer_segment_served_well": "Recreational and intermediate amateur players who book courts across cities in Spain, Italy, Sweden, the UK, the Netherlands, France, Germany, Belgium, Portugal, Argentina, Mexico, and the UAE, plus club operators in those geographies who treat Playtomic as their venue distribution channel.",
+      "geo_presence": ["ES", "IT", "SE", "UK", "DE", "FR", "BE", "NL", "PT", "AR", "MX", "UAE"],
+      "geo_presence_source_url": "https://playtomic.com/global-padel-report",
+      "blind_spots": [
+        {
+          "id": "B-PLAYTOMIC-1",
+          "label": "Self-declared rating with documented inconsistency",
+          "reasoning": "Per peer card the rating system has been re-tuned multiple times and cross-club consistency is debated by power users. The rating is the foundation of matchmaking but is not derived from match video. A derived-rating entrant solves the structural credibility gap Playtomic cannot close without rebuilding the data layer.",
+          "moat_class_unaddressed": "data",
+          "evidence_url": "https://playtomic.io/blog"
+        },
+        {
+          "id": "B-PLAYTOMIC-2",
+          "label": "Coaching layer is shallow versus dedicated peers",
+          "reasoning": "Per peer card the analytics ride on top of self-declared levels and the coaching layer is shallow versus dedicated peers. Adding a real coaching surface requires a CV pipeline Playtomic does not own. The candidate wedge can plug into the booking funnel via PLG-004 (rating cross-post on Playtomic profile) without requiring Playtomic to acquire or rebuild a CV stack.",
+          "moat_class_unaddressed": "data",
+          "evidence_url": "https://playtomic.io/blog"
+        },
+        {
+          "id": "B-PLAYTOMIC-3",
+          "label": "Marketplace incentives cap coach-side investment",
+          "reasoning": "Playtomic's economic model rewards venue throughput, not coach retention. A coach co-pilot (VM-004) that survives the renewal conversation is structurally a low-priority feature inside a marketplace whose unit economics are bookings-driven. A new entrant that builds coach-graph switching cost at the coach level is not in Playtomic's optimisation function.",
+          "moat_class_unaddressed": "switching_cost",
+          "evidence_url": "https://playtomic.io/blog"
+        },
+        {
+          "id": "B-PLAYTOMIC-4",
+          "label": "Multi-country footprint dilutes local-language editorial",
+          "reasoning": "Operating across twelve geographies forces a generalist editorial register. The localisation moat (VM-008) requires Spanish-only and Russian-only narrative cadence Playtomic is structurally unwilling to invest in at the depth a local-only competitor can deliver. The CH-001 Spanish + Russian newsletter path remains open for a focused entrant.",
+          "moat_class_unaddressed": "distribution",
+          "evidence_url": "https://playtomic.com/global-padel-report"
+        }
+      ]
+    }
+  ],
+
+  "white_space_map": [
+    {
+      "id": "WS-001",
+      "angle": "Cross-club derived rating that travels with the player",
+      "moat_class": "network",
+      "rationale": "Padelytics has no documented cross-club rating spine; Clutch keeps footage inside the host venue; Playtomic's rating is self-declared and re-tuned. A derived rating that ports across organisers is a defensibility lever none of the top-three threats have staked. Aligned to VM-002 in evidence/20260501T135005Z/09_moat_audit.json.",
+      "supporting_evidence": [
+        "https://www.padelytics.ai/",
+        "https://www.eyeson.sport/en/eyes-on-padel/",
+        "https://playtomic.io/blog"
+      ],
+      "kill_metric": "Per evidence/20260501T135005Z/11_gtm.json CH-003: signed LOIs from FIP-affiliated regional organisers should reach 2 within 6 weeks of outreach. Failure below threshold means the network gate has not opened."
+    },
+    {
+      "id": "WS-002",
+      "angle": "Local-language editorial cadence (Spanish-only and Russian-only)",
+      "moat_class": "distribution",
+      "rationale": "Top-three threats run multilingual or English-led pages without a dedicated multilingual editorial cadence. Per evidence/20260501T135005Z/11_gtm.json the CH-001 newsletter and CH-006 Telegram channel target Spanish and Russian audiences directly, building VM-006 distribution-as-moat and VM-008 localisation-as-moat.",
+      "supporting_evidence": [
+        "https://www.padelytics.ai/",
+        "https://playtomic.com/global-padel-report",
+        "https://nav.al/podcast"
+      ],
+      "kill_metric": "Direct-traffic share of beta sign-ups must reach 40% within 8 weeks per CH-001 kill metric in evidence/20260501T135005Z/11_gtm.json."
+    },
+    {
+      "id": "WS-003",
+      "angle": "Smartphone-only consumer pair-share with on-device extraction for regulated geographies",
+      "moat_class": "data",
+      "rationale": "Clutch and Eyes On require club hardware; Padelytics does not advertise a 152-FZ-compliant on-device pipeline; Playtomic does not run CV. A smartphone-only pipeline that performs extraction on-device and shares pair-level recaps via WhatsApp/Telegram opens a regulated-geography pocket and a viral pair conversion the camera-system rivals cannot mimic without rearchitecting their stack. Aligned to VM-001 (data) and VM-005 (pair viral) in evidence/20260501T135005Z/09_moat_audit.json.",
+      "supporting_evidence": [
+        "https://github.com/Joao-M-Silva/padel_analytics",
+        "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+        "https://www.eyeson.sport/en/eyes-on-padel/"
+      ],
+      "kill_metric": "Per PLG-001 in evidence/20260501T135005Z/11_gtm.json the post-match share rate must clear 10% across the first 200 matches; below threshold the pair-viral surface is killed and the wedge collapses to a paid B2C only."
+    }
+  ],
+
+  "adjacent_categories": [
+    {
+      "category": "rating_platforms",
+      "members": [
+        {
+          "id": "padelfip",
+          "name": "International Padel Federation (PadelFIP)",
+          "url": "https://www.padelfip.com/",
+          "interaction_with_ai_coaching_wedge": "Authoritative tournament-rating issuer. Ratings flow into FIP-sanctioned events. The candidate wedge can either license the FIP rating spec or publish a derived rating that organisers accept as a complement. Risk: per evidence/20260501T135005Z/09_moat_audit.json VM-007 counter-position, FIP could publish an open seeding API and collapse the integration moat.",
+          "moat_implication": "integration"
+        },
+        {
+          "id": "premier_padel",
+          "name": "Premier Padel",
+          "url": "https://premierpadel.com/",
+          "interaction_with_ai_coaching_wedge": "Pro-tier rating spine that amateurs aspirationally anchor against. Per peer card amateur ratings are not interoperable with Premier Padel today; data is not exposed via public API. The candidate wedge benefits from being the bridge between amateur derived ratings and the Premier Padel reference, not from competing with the broadcast tier directly.",
+          "moat_implication": "brand"
+        },
+        {
+          "id": "padelboard",
+          "name": "Padelboard",
+          "url": "https://padelboard.app/",
+          "interaction_with_ai_coaching_wedge": "Self-declared rating in MATCHi-anchored Nordic geographies. Per peer card the rating is not derived from match video, mirroring Playtomic's structural gap. The candidate wedge can offer Padelboard players a derived-rating upgrade path without competing with the booking layer.",
+          "moat_implication": "network"
+        },
+        {
+          "id": "padelstats",
+          "name": "Padelstats",
+          "url": "https://padelstats.com/",
+          "interaction_with_ai_coaching_wedge": "Padel statistics + rating service. Treat as parallel rating wrapper. Per peer-card pattern the rating is unlikely to be derived from match video at scale; a derived-rating entrant differentiates on data depth.",
+          "moat_implication": "network"
+        },
+        {
+          "id": "padel_radar",
+          "name": "Padel Radar",
+          "url": "https://padelradar.com/",
+          "interaction_with_ai_coaching_wedge": "Padel rating tracker. Same parallel-tracker pattern as Padelstats; treated as rating-discovery surface, not a derived-rating engine.",
+          "moat_implication": "network"
+        }
+      ]
+    },
+    {
+      "category": "club_camera_systems",
+      "members": [
+        {
+          "id": "wingfield",
+          "name": "Wingfield",
+          "url": "https://www.wingfield.io/",
+          "pricing_anchor": {
+            "hardware_usd": 5000,
+            "monthly_software_usd_range": [100, 200],
+            "source_url": "https://www.padelspor.com/en/news/padel-court-prices",
+            "verified_quote": {
+              "text": "monthly software fee of between $100 and $200",
+              "word_count": 9,
+              "source_url": "https://www.padelspor.com/en/news/padel-court-prices",
+              "verified_at": "2026-05-03"
+            }
+          },
+          "interaction_with_ai_coaching_wedge": "Tennis-first multisport stack per vendor page (KI-Sportkameras für Padel, Pickleball & Tennis). Padel-specific shot taxonomy is shallower than padel-only peers per peer card. Treat as upstream venue partner rather than wedge competitor; the candidate can layer per-player coaching on top of Wingfield-equipped courts without challenging the hardware moat.",
+          "moat_implication": "integration"
+        },
+        {
+          "id": "eyes_on_padel",
+          "name": "Eyes On Padel",
+          "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+          "interaction_with_ai_coaching_wedge": "4K multi-court installation across ES, FR, IT, UAE per peer card. Footage stays inside the host club's account; cross-club rating signal is absent. The candidate wedge can ingest Eyes On club footage where licensed and own the cross-club rating layer Eyes On does not deliver.",
+          "moat_implication": "distribution"
+        },
+        {
+          "id": "playsight",
+          "name": "PlaySight (Slinger Bag)",
+          "url": "https://playsight.com/",
+          "interaction_with_ai_coaching_wedge": "Multisport enterprise camera platform. See graveyard entry below for the 2021 Slinger Bag acquisition pivot. Padel coaching depth lags dedicated peers per peer card. The candidate wedge benefits from PlaySight's enterprise focus narrowing its consumer-coach attention.",
+          "moat_implication": "distribution"
+        },
+        {
+          "id": "aiball",
+          "name": "Aiball",
+          "url": "https://aiball.io/",
+          "interaction_with_ai_coaching_wedge": "AI court camera with automatic match recording. Same hardware-anchored pattern as Clutch and Eyes On; player-rating layer rides on club deployment.",
+          "moat_implication": "switching_cost"
+        },
+        {
+          "id": "court_sense",
+          "name": "Court Sense",
+          "url": "https://courtsense.io/",
+          "interaction_with_ai_coaching_wedge": "Court vision system. Same hardware-anchored pattern; treated as parallel club camera rival.",
+          "moat_implication": "switching_cost"
+        }
+      ]
+    },
+    {
+      "category": "community_apps",
+      "members": [
+        {
+          "id": "playtomic",
+          "name": "Playtomic",
+          "url": "https://playtomic.io/blog",
+          "interaction_with_ai_coaching_wedge": "Distribution gravity in 12 geographies. Treat as the rail through which derived ratings cross-post (PLG-004). Risk: Playtomic could ship its own derived rating ahead of the candidate signing organisers — see VM-002 counter-position in evidence/20260501T135005Z/09_moat_audit.json.",
+          "moat_implication": "network"
+        },
+        {
+          "id": "matchi",
+          "name": "MATCHi",
+          "url": "https://matchi.com/",
+          "interaction_with_ai_coaching_wedge": "Nordic + adjacent booking network. Per peer card padel coaching is not a core surface and rating does not interoperate with Playtomic levels. Same cross-post integration path as Playtomic in Nordic geographies, with lower competitive intensity but smaller addressable population.",
+          "moat_implication": "network"
+        },
+        {
+          "id": "racketpal",
+          "name": "Racketpal",
+          "url": "https://racketpal.com/",
+          "interaction_with_ai_coaching_wedge": "Multi-racket community surface. Treat as low-intensity discovery channel; not a wedge rival.",
+          "moat_implication": "network"
+        },
+        {
+          "id": "padelbrowser",
+          "name": "Padelbrowser",
+          "url": "https://padelbrowser.com/",
+          "interaction_with_ai_coaching_wedge": "Padel community + match-finding browser. Treated as partnership target for distribution rather than competitor for the AI coaching wedge.",
+          "moat_implication": "distribution"
+        }
+      ]
+    },
+    {
+      "category": "match_analyzer_saas",
+      "members": [
+        {
+          "id": "spash",
+          "name": "SPASH Match Analyzer",
+          "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+          "verified_quote": {
+            "text": "fully automated, sensor-free technology — a unique position on the market",
+            "word_count": 10,
+            "source_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+            "verified_at": "2026-05-03"
+          },
+          "interaction_with_ai_coaching_wedge": "B2B-only club analytics. Vendor explicitly positions as 'sensor-free' and pitches new revenue streams to clubs. Same data-extraction pattern as the candidate but locked behind a club deal. Treated as adjacent — confirms the technical feasibility without contesting the smartphone-only consumer wedge.",
+          "moat_implication": "data"
+        },
+        {
+          "id": "hudl",
+          "name": "Hudl",
+          "url": "https://www.hudl.com/",
+          "interaction_with_ai_coaching_wedge": "Cross-sport video analysis SaaS with 170,000+ teams cited per peer card. Per peer card padel-specific tagging vocabulary is shallow; coaches rebuild it manually. Risk: Hudl could extend padel-specific tagging and erode the drill-prescription moat (VM-003 counter-position). Mitigation: ship a published padel shot taxonomy as a public schema asset before Hudl moves.",
+          "moat_implication": "switching_cost"
+        },
+        {
+          "id": "dartfish",
+          "name": "Dartfish",
+          "url": "https://www.dartfish.com/",
+          "interaction_with_ai_coaching_wedge": "Motion-analysis SaaS used by racket-sport coaches. Coach-led capture pattern; not a smartphone-first consumer rival.",
+          "moat_implication": "switching_cost"
+        },
+        {
+          "id": "smash",
+          "name": "Smash",
+          "url": "https://smash.app/",
+          "interaction_with_ai_coaching_wedge": "Multi-racket match analyzer. Treated as parallel SaaS without padel-specific differentiation.",
+          "moat_implication": "data"
+        }
+      ]
+    },
+    {
+      "category": "academy_lms",
+      "members": [
+        {
+          "id": "coachseek",
+          "name": "CoachSeek",
+          "url": "https://www.coachseek.com/",
+          "interaction_with_ai_coaching_wedge": "Operational LMS without padel-specific shot taxonomy or analytics layer per peer card. Treated as integration partner for the coach co-pilot path (VM-004).",
+          "moat_implication": "switching_cost"
+        },
+        {
+          "id": "coachlogic",
+          "name": "CoachLogic",
+          "url": "https://www.coach-logic.com/",
+          "interaction_with_ai_coaching_wedge": "Coach LMS already paid for by some coaches per evidence/20260501T135005Z/06_red_team.json SEG-003 counter-example. Switching cost is real. The candidate wedge co-exists by feeding recap PDFs into coach workflows rather than displacing the LMS.",
+          "moat_implication": "switching_cost"
+        },
+        {
+          "id": "padel_united",
+          "name": "Padel United",
+          "url": "https://www.padel-united.com/",
+          "interaction_with_ai_coaching_wedge": "Club operator group with academy programmes. Treated as B2B2C deployment partner not a wedge rival.",
+          "moat_implication": "distribution"
+        },
+        {
+          "id": "skedda",
+          "name": "Skedda",
+          "url": "https://www.skedda.com/",
+          "interaction_with_ai_coaching_wedge": "Booking + venue management for clubs. No padel-specific analytics layer. Treated as operational adjacency, not a wedge rival.",
+          "moat_implication": "switching_cost"
+        }
+      ]
+    },
+    {
+      "category": "sensor_hardware",
+      "members": [
+        {
+          "id": "padelplay",
+          "name": "PadelPlay",
+          "url": "https://www.padelplay.ai/",
+          "interaction_with_ai_coaching_wedge": "Racket-mounted sensor with companion app. Hardware ownership is conversion friction; per peer card refund and replacement terms are not on the homepage. Treated as adjacent because the smartphone-only path competes against the same shot-recognition use case without hardware overhead.",
+          "moat_implication": "integration"
+        }
+      ]
+    },
+    {
+      "category": "open_source_research",
+      "members": [
+        {
+          "id": "joao_silva_padel_analytics",
+          "name": "Joao-M-Silva / padel_analytics",
+          "url": "https://github.com/Joao-M-Silva/padel_analytics",
+          "interaction_with_ai_coaching_wedge": "Public CV pipeline. Treated as feasibility evidence and a reusable baseline rather than a competitor. Per peer card real-time inference and on-device packaging are out of scope of the public code.",
+          "moat_implication": "none"
+        },
+        {
+          "id": "decorte_cvpr2024_padel",
+          "name": "Decorte CVPR 2024 padel paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+          "interaction_with_ai_coaching_wedge": "Academic prototype with multi-camera dependency per peer card. Treated as a method reference for the smartphone-only single-camera path.",
+          "moat_implication": "none"
+        }
+      ]
+    }
+  ],
+
+  "graveyard": [
+    {
+      "id": "playsight_slinger_acquisition",
+      "name": "PlaySight (acquired by Slinger Bag, October 2021)",
+      "url": "https://playsight.com/articles/slinger/",
+      "verified_quote": {
+        "text": "Slinger to Acquire PlaySight, a Pioneer and Leader",
+        "word_count": 8,
+        "source_url": "https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html",
+        "verified_at": "2026-05-03"
+      },
+      "transaction_value_usd": 82000000,
+      "transaction_value_source_url": "https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html",
+      "transaction_value_quote": {
+        "text": "estimated US$82 million (before earnout) based on Slinger's previous market close",
+        "word_count": 12,
+        "source_url": "https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html",
+        "verified_at": "2026-05-03"
+      },
+      "pivot_signal": "Standalone consumer-court SaaS could not survive on its own; absorbed into a hardware-led parent (Slinger Bag, now Connexa Sports) that primarily sells a ball launcher. Indicates the ceiling on a multisport enterprise camera-only model without a hardware adjacency.",
+      "transaction_value_caveat": "USD 82M is a peak-implied stock-for-stock figure at signing. Slinger Bag's stock subsequently collapsed and the company rebranded to Connexa Sports; realised consideration was likely well below the headline 82M peak-implied. Treat the headline as INFERRED for any downstream M&A comparison.",
+      "lesson_for_candidate": "A camera-only enterprise stack without a defensible distribution moat (VM-006) is a strategic dead-end at frontier-pricing. The candidate wedge avoids this trap by being smartphone-only (no hardware capex) and direct-to-audience (no enterprise sales dependency)."
+    },
+    {
+      "id": "wingfield_tennis_first_pivot",
+      "name": "Wingfield — tennis-first ranking, padel added downstream",
+      "url": "https://www.wingfield.io/",
+      "verified_quote": {
+        "text": "KI-Sportkameras für Padel, Pickleball & Tennis",
+        "word_count": 6,
+        "source_url": "https://www.wingfield.io/",
+        "verified_at": "2026-05-03"
+      },
+      "pivot_signal": "Vendor messaging treats padel as a co-equal sport alongside tennis and pickleball, indicating the company is operationally a tennis-camera business that has bolted on padel coverage rather than a padel-native product. Per peer card the padel-specific shot taxonomy is shallower than padel-only peers.",
+      "lesson_for_candidate": "Multisport sprawl is an underperformance signal for padel depth. A padel-native taxonomy and coach vocabulary is a structural advantage no multisport vendor will out-invest in for the next 18 months without a major strategic shift."
+    }
+  ],
+
+  "survivorship_bias_disclosure": {
+    "limitation": "Only PlaySight (absorbed) and Wingfield (multisport sprawl) appear in the graveyard. No padel-native AI vendor is listed as wound-down or pivoted. A 2024-2026 vintage of CV/AI sport startups statistically must contain at least one stalled or wound-down padel-AI vendor.",
+    "explanation": "The candidate's source pool (evidence/20260501T135005Z/03_peers_dedup.json) deselects no padel-AI vendor for being dead — every padel-native peer is presented as alive. This is a research limitation, not a market signal.",
+    "remediation": "First-party diligence with a former Padelytics or Clutch employee would surface at least one wound-down peer not in the public source pool. Surfacing one such vendor through a paid expert-network call is logged as the remediation path."
+  },
+
+  "data_gaps": [
+    {
+      "id": "DG-1",
+      "field": "padelytics.pricing.price_anchor",
+      "description": "Padelytics public pricing tiers not disclosed; vendor follow-up required.",
+      "evidence_url": "https://www.padelytics.ai/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "MEDIUM"
+    },
+    {
+      "id": "DG-2",
+      "field": "clutch.pricing.hardware_install_cost",
+      "description": "Clutch per-court hardware install cost is not disclosed publicly; only the EUR 53/month club tier is captured.",
+      "evidence_url": "https://www.clutchapp.io/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "MEDIUM"
+    },
+    {
+      "id": "DG-3",
+      "field": "playtomic.pricing.numeric",
+      "description": "Individual tier breakdown not displayed on the pricing landing at playtomic.com/pricing without account creation, but per-tier monthly figures (Standard $37 / Professional $109.08 / Champion $274) are surfaced on products.playtomic.io/playtomic-manager.",
+      "evidence_url": "https://products.playtomic.io/playtomic-manager/pricing-2/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "LOW"
+    },
+    {
+      "id": "DG-4",
+      "field": "padelytics.traction.user_count",
+      "description": "Padelytics monthly active player count and per-player longitudinal coverage are not enumerated.",
+      "evidence_url": "https://www.padelytics.ai/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "MEDIUM"
+    },
+    {
+      "id": "DG-5",
+      "field": "clutch.traction.paid_clubs",
+      "description": "Clutch number of paid clubs not on the landing page; only a logo wall is exposed per peer card.",
+      "evidence_url": "https://www.clutchapp.io/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "MEDIUM"
+    },
+    {
+      "id": "DG-6",
+      "field": "spash.pricing",
+      "description": "SPASH does not publish pricing; club tier sold per court per month per peer card.",
+      "evidence_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "LOW"
+    },
+    {
+      "id": "DG-7",
+      "field": "playsight.current_padel_focus",
+      "description": "PlaySight padel-specific user-base and product roadmap inside Slinger / Connexa group not publicly disclosed in 2026.",
+      "evidence_url": "https://playsight.com/our-sports/padel/",
+      "verified_at": "2026-05-03",
+      "blocker_severity": "LOW"
+    }
+  ],
+
+  "verified_url_inventory": [
+    {"url": "https://www.padelytics.ai/", "purpose": "padelytics value prop and pricing posture", "verified_at": "2026-05-03"},
+    {"url": "https://www.clutchapp.io/", "purpose": "clutch value prop", "verified_at": "2026-05-03"},
+    {"url": "https://playtomic.com/pricing", "purpose": "playtomic tier names", "verified_at": "2026-05-03"},
+    {"url": "https://playtomic.io/blog", "purpose": "playtomic positioning per peer card", "verified_at": "2026-05-03"},
+    {"url": "https://playtomic.com/global-padel-report", "purpose": "playtomic geo footprint reference", "verified_at": "2026-05-03"},
+    {"url": "https://www.wingfield.io/", "purpose": "wingfield positioning and multisport posture", "verified_at": "2026-05-03"},
+    {"url": "https://spash.com/en/match-analyzer-ia-clubs-padel/", "purpose": "spash sensor-free positioning", "verified_at": "2026-05-03"},
+    {"url": "https://www.eyeson.sport/en/eyes-on-padel/", "purpose": "eyes on padel club tooling", "verified_at": "2026-05-03"},
+    {"url": "https://www.padelspor.com/en/news/padel-court-prices", "purpose": "wingfield public pricing capture", "verified_at": "2026-05-03"},
+    {"url": "https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html", "purpose": "playsight acquisition pivot", "verified_at": "2026-05-03"},
+    {"url": "https://playsight.com/articles/slinger/", "purpose": "playsight acquisition confirmation", "verified_at": "2026-05-03"},
+    {"url": "https://github.com/Joao-M-Silva/padel_analytics", "purpose": "open-source CV feasibility", "verified_at": "2026-05-01"},
+    {"url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf", "purpose": "academic CV reference", "verified_at": "2026-05-01"},
+    {"url": "https://www.padelfip.com/", "purpose": "rating authority adjacency", "verified_at": "2026-05-01"},
+    {"url": "https://premierpadel.com/", "purpose": "professional rating spine adjacency", "verified_at": "2026-05-01"},
+    {"url": "https://padelboard.app/", "purpose": "self-declared rating adjacency", "verified_at": "2026-05-01"},
+    {"url": "https://matchi.com/", "purpose": "nordic booking adjacency", "verified_at": "2026-05-01"},
+    {"url": "https://www.hudl.com/", "purpose": "cross-sport saas adjacency", "verified_at": "2026-05-01"},
+    {"url": "https://nav.al/podcast", "purpose": "distribution moat citation", "verified_at": "2026-05-01"}
+  ],
+
+  "interview_readout": {
+    "top_three_threats": ["padelytics", "clutch", "playtomic"],
+    "strongest_blind_spot": "B-PLAYTOMIC-1 — Playtomic's matchmaking foundation rests on a self-declared rating that has been re-tuned multiple times and is debated by power users; a derived rating built on match video is a structural credibility gap Playtomic cannot close without rebuilding the data layer.",
+    "biggest_unresolved_data_gap": "DG-1 + DG-3 — the two largest operationally-relevant rivals (Padelytics and Playtomic) gate numeric pricing behind sales conversations; the candidate cannot calibrate WTP head-to-head without primary research."
+  }
+}
