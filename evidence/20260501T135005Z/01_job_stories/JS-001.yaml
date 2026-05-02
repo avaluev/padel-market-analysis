@@ -1,0 +1,32 @@
+job_id: 'JS-001'
+name: 'Get a defensible padel rating without paying a coach'
+when_situation: 'After losing a series of matches to a regular partner whose claimed rating outpaces the player, the player searches for a numeric rating that survives outside the home club.'
+psychological_state: 'Embarrassed in front of a fixed peer group; doubts on whether the perceived skill gap is real or a streak.'
+motivation: 'Stop being outranked in conversation by a partner with a self-declared score, and decide whether the next investment is a coach or competition.'
+expected_outcome: 'A persistent skill rating updated each match that other clubs and partners accept as legitimate.'
+higher_level_job: 'Spend disposable sport budget on the move with the highest expected return on enjoyment and progression.'
+emotional_payoff: 'Stop hedging answers when partners ask the player''s level.'
+segment_hint: 'plateau-stuck regular and newly-ranked competitor'
+alternatives_hired:
+  - 'Self-declared level on Playtomic / MATCHi profile (https://playtomic.io/blog, https://matchi.com/)'
+  - 'Padelytics or Clutch score from a single recorded match (https://www.padelytics.ai/, https://www.clutchapp.io/)'
+  - 'Federation amateur tournament result as a proxy'
+alternatives_fired:
+  - 'Paid coach assessment after one session — costs scale, signal does not transfer between clubs.'
+outcomes:
+  - name: 'Rating travels across clubs and partners'
+    importance_1_10: 9
+    satisfaction_1_10: 3
+    notes: 'Self-declared Playtomic / MATCHi levels are inconsistent; an out-of-club partner is not bound to honor them.'
+  - name: 'Rating updates after every match without manual entry'
+    importance_1_10: 8
+    satisfaction_1_10: 2
+    notes: 'Most peers stop logging matches after week two; the rating staleness undermines credibility.'
+past_tense_evidence:
+  - 'Plateau symptoms documented in the 2025 FIP World Padel Report — see https://www.padelfip.com/world-padel-report-2025/'
+  - 'Spanish 109,040 federation licensees in 2024 (https://www.padelfip.com/2025/02/padel-in-spain-growth-in-courts-and-player-licenses-in-2024-morcillo-these-results-reflect-the-hard-work-of-recent-years/) — most lack a rating outside official tournaments.'
+confidence: 0.35
+source: 'assumption'
+gaps_to_probe_next:
+  - 'Survey 12 plateau-stuck regulars on whether a smartphone-derived rating would change their playing decisions.'
+  - 'Falsification path: if ≥40% of recent switchers cite cost rather than transferability, rebuild around B2B coach access.'

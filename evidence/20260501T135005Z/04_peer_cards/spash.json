@@ -1,0 +1,26 @@
+{
+  "id": "spash",
+  "name": "SPASH Match Analyzer",
+  "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+  "archetype": "match_analyzer_saas",
+  "value_prop": "AI match analyzer aimed at padel clubs that turns raw video into 20+ statistics and rally markers.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "club tier sold per court per month",
+    "source_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Vendor markets to clubs, no public install count",
+    "geo_presence": [
+      "ES"
+    ],
+    "evidence_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+  },
+  "moat_class": "data",
+  "moat_evidence_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+  "gaps": [
+    "Public install count, churn, and pricing tiers not disclosed.",
+    "Dependence on club hardware partners narrows reachability of independent players."
+  ],
+  "verification_status": "VERIFIED"
+}

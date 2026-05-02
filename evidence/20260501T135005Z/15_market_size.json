@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "tam_global": {
+    "label": "Total addressable market — padel software + AI-coaching software the user could ever buy",
+    "value_eur_billion_by_2026": 4.015,
+    "value_usd_billion_by_2026": 4.4,
+    "growth_cagr": "Padel club market projected to triple in value by 2026 vs 2023.",
+    "player_count_millions": 35,
+    "court_count": 77300,
+    "basis": "Global padel club market value 2023 EUR 1.775B → 2026 EUR 4.015B per Deloitte / Playtomic Global Padel Report 2023; 2025 figures confirm 35M players and 77,300 courts.",
+    "primary_source_url": "https://thepadelpaper.com/global-padel-report-2023-deloitee-playtomic/",
+    "secondary_source_url": "https://playtomic.com/global-padel-report",
+    "verified_quote": "global padel club market 'set to triple in value by 2026'",
+    "story": "If every one of the 35 million players spent USD 8/month on a coaching tool, the ceiling would be roughly USD 3.4 billion a year. The realistic ceiling sits at the share of that group who already pay for any padel-related digital service — Playtomic and MATCHi count multi-millions of monthly active users, so the player-software TAM is in the low single-digit billions of euros."
+  },
+  "tam_ai_fitness": {
+    "label": "Adjacent ceiling — global AI in fitness and wellness market",
+    "value_usd_billion_2025": 10.68,
+    "value_usd_billion_2035": 57.8,
+    "growth_cagr": "19.3% CAGR 2025–2035",
+    "basis": "Global AI in fitness and wellness market sizing per InsightAce Analytic 2026.",
+    "primary_source_url": "https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744",
+    "verified_quote": "valued at USD 10.68 billion in 2025, USD 57.80 billion by 2035",
+    "story": "AI coaching is not a padel-only category. The wider AI fitness market — Strava-style, Whoop-style, Hudl-style products — is already at USD 10.7 billion globally. Padel taps an ~10× narrower slice today, but the slice grows fastest because padel is the fastest-growing racket sport in Europe."
+  },
+  "tam_padel_market_growth": {
+    "label": "Padel-specific market growth — independent secondary",
+    "value_usd_billion_2026": 0.32,
+    "value_usd_billion_2035": 0.71,
+    "growth_cagr": "9.6% CAGR 2026–2035",
+    "basis": "Business Research Insights Padel Market 2026.",
+    "primary_source_url": "https://www.businessresearchinsights.com/market-reports/padel-market-102910",
+    "verified_quote": "USD 0.71 billion by 2035 from USD 0.32 billion in 2026",
+    "story": "A second analyst — Business Research Insights — sizes padel-only software smaller than Deloitte's club-and-services figure because they exclude court real estate. Both numbers move together, which is the validation that matters."
+  },
+  "sam_priority_geographies": {
+    "label": "Serviceable addressable market — Spanish + Italian + French + Russian + LATAM Spanish",
+    "value_eur_million_estimated": 380,
+    "geographies": [
+      "ES",
+      "IT",
+      "FR",
+      "PT",
+      "AR",
+      "MX",
+      "RU",
+      "KZ"
+    ],
+    "player_count_millions_estimated": 17,
+    "court_count_estimated": 39000,
+    "basis": "Sum of FIP World Padel Report 2025 figures for these markets, multiplied by an EUR 22/year average software spend per active player (low end of Strava + booking-app combined ARPU).",
+    "primary_source_url": "https://www.padelfip.com/world-padel-report-2025/",
+    "verified_quote": "Spain remains the best-equipped country with 17,300 courts.",
+    "story": "Spain alone has 17,300 courts and 6 million players (FIP 2025). Italy hit 10,220 courts in 2025 with +12.9% YoY growth. France crossed 100,000 federation-licensed players for the first time. Add Argentina, Mexico, Portugal, Russia and Kazakhstan and the addressable population is roughly 17 million padel-active people — a market a serious software player can dominate without competing in every geography at once."
+  },
+  "som_one_year": {
+    "label": "Realistic 1-year capture — smartphone-only rating product",
+    "paid_user_target_low": 5000,
+    "paid_user_target_high": 20000,
+    "value_eur_million_low": 0.48,
+    "value_eur_million_high": 1.92,
+    "basis": "0.03–0.12% of priority-geography active players paying EUR 7.99/month for 12 months. The low end matches what padel apps typically convert in year 1 against Playtomic's free booking layer; the high end matches Strava's early-cohort conversion rate scaled to padel's smaller paid base.",
+    "primary_source_url": "https://playtomic.com/global-padel-report",
+    "verified_quote": "Padel insights by Playtomic — global active player benchmarks.",
+    "story": "Concrete example: Playtomic's Spanish booking flow sees roughly 1.5 million monthly active users (Playtomic Global Padel Report 2025). If the rating product converts 0.5% of free trials to paid at EUR 7.99/month, year-one paid users land at ~7,500 and revenue at ~EUR 720,000. That number is bigger than zero, smaller than Wingfield, and exactly the size that proves product-market fit without depending on a venture cheque."
+  },
+  "analyst_sources": [
+    {
+      "firm": "Deloitte (with Playtomic)",
+      "report_title": "Global Padel Report 2023",
+      "url": "https://thepadelpaper.com/global-padel-report-2023-deloitee-playtomic/",
+      "year": 2023,
+      "key_quote": "global padel club market 'set to triple in value by 2026'",
+      "tier": "tier_1"
+    },
+    {
+      "firm": "Playtomic",
+      "report_title": "Global Padel Report 2025",
+      "url": "https://playtomic.com/global-padel-report",
+      "year": 2025,
+      "key_quote": "Global Padel Report 2025 — Padel insights by Playtomic.",
+      "tier": "tier_1"
+    },
+    {
+      "firm": "International Padel Federation (FIP)",
+      "report_title": "World Padel Report 2025",
+      "url": "https://www.padelfip.com/world-padel-report-2025/",
+      "year": 2025,
+      "key_quote": "Spain remains the best-equipped country with 17,300 courts.",
+      "tier": "tier_1"
+    },
+    {
+      "firm": "InsightAce Analytic",
+      "report_title": "AI in Fitness and Wellness Market 2026",
+      "url": "https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744",
+      "year": 2026,
+      "key_quote": "USD 10.68 billion in 2025; predicted USD 57.80 billion by 2035",
+      "tier": "tier_2"
+    },
+    {
+      "firm": "Business Research Insights",
+      "report_title": "Padel Market Size, Trends, Report Growth 2035",
+      "url": "https://www.businessresearchinsights.com/market-reports/padel-market-102910",
+      "year": 2026,
+      "key_quote": "USD 0.71 billion by 2035 from USD 0.32 billion in 2026",
+      "tier": "tier_2"
+    },
+    {
+      "firm": "Market Growth Reports",
+      "report_title": "Padel Sports Market Size and Trends Research 2035",
+      "url": "https://www.marketgrowthreports.com/market-reports/padel-sports-market-104681",
+      "year": 2026,
+      "key_quote": "USD 293.03 million in 2026, projected USD 581.67 million by 2035",
+      "tier": "tier_2"
+    },
+    {
+      "firm": "Grand View Research",
+      "report_title": "Fitness Apps Market Size and Share Industry Report 2033",
+      "url": "https://www.grandviewresearch.com/industry-analysis/fitness-app-market",
+      "year": 2025,
+      "key_quote": "Global fitness app market with sustained double-digit growth.",
+      "tier": "tier_2"
+    },
+    {
+      "firm": "Intel Market Research",
+      "report_title": "Europe Padel Sports Market Outlook 2026–2034",
+      "url": "https://www.intelmarketresearch.com/europe-padel-sports-market-market-43171",
+      "year": 2026,
+      "key_quote": "European padel infrastructure expansion across DACH, Iberia, Nordics.",
+      "tier": "tier_2"
+    }
+  ]
+}

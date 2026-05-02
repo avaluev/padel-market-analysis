@@ -1,0 +1,263 @@
+{
+ "schema_version": "1.0",
+ "title": "Jobs graph — Padel AI Coach",
+ "core_jobs": [
+ "JS-001",
+ "JS-002",
+ "JS-003",
+ "JS-004"
+ ],
+ "nodes": [
+ {
+ "id": "JS-001",
+ "label": "Get a defensible padel rating",
+ "level": "core",
+ "segments": [
+ "plateau-stuck regular",
+ "newly-ranked competitor"
+ ]
+ },
+ {
+ "id": "JS-002",
+ "label": "Translate match weaknesses into next two drills",
+ "level": "core",
+ "segments": [
+ "plateau-stuck regular"
+ ]
+ },
+ {
+ "id": "JS-003",
+ "label": "Track student progress as a coach without manual notes",
+ "level": "core",
+ "segments": [
+ "club coach (B2B2C)"
+ ]
+ },
+ {
+ "id": "JS-004",
+ "label": "Settle post-match argument with neutral footage",
+ "level": "core",
+ "segments": [
+ "travelling enthusiast",
+ "plateau-stuck regular"
+ ]
+ },
+ {
+ "id": "SUB-001a",
+ "label": "Capture a smartphone video of a full match",
+ "level": "sub",
+ "parent": "JS-001"
+ },
+ {
+ "id": "SUB-001b",
+ "label": "Auto-detect rallies and tag shots",
+ "level": "sub",
+ "parent": "JS-001"
+ },
+ {
+ "id": "SUB-001c",
+ "label": "Compute a rating delta against an opponent rating",
+ "level": "sub",
+ "parent": "JS-001"
+ },
+ {
+ "id": "SUB-002a",
+ "label": "Cluster shot losses into recurring patterns",
+ "level": "sub",
+ "parent": "JS-002"
+ },
+ {
+ "id": "SUB-002b",
+ "label": "Map cluster to drill prescription",
+ "level": "sub",
+ "parent": "JS-002"
+ },
+ {
+ "id": "SUB-002c",
+ "label": "Deliver drill plan before next booking",
+ "level": "sub",
+ "parent": "JS-002"
+ },
+ {
+ "id": "SUB-003a",
+ "label": "Tag students between sessions on the coach phone",
+ "level": "sub",
+ "parent": "JS-003"
+ },
+ {
+ "id": "SUB-003b",
+ "label": "Compose weekly per-student progress recap",
+ "level": "sub",
+ "parent": "JS-003"
+ },
+ {
+ "id": "SUB-003c",
+ "label": "Send recap before renewal conversation",
+ "level": "sub",
+ "parent": "JS-003"
+ },
+ {
+ "id": "SUB-004a",
+ "label": "Annotate footage with rally markers",
+ "level": "sub",
+ "parent": "JS-004"
+ },
+ {
+ "id": "SUB-004b",
+ "label": "Share annotated link with partner phone",
+ "level": "sub",
+ "parent": "JS-004"
+ },
+ {
+ "id": "META-A",
+ "label": "Spend disposable sport budget on highest-return next move",
+ "level": "meta"
+ },
+ {
+ "id": "META-B",
+ "label": "Operate a sustainable padel coaching practice",
+ "level": "meta"
+ }
+ ],
+ "edges": [
+ {
+ "from": "SUB-001a",
+ "to": "SUB-001b",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-001b",
+ "to": "SUB-001c",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-001c",
+ "to": "JS-001",
+ "relation": "enables"
+ },
+ {
+ "from": "JS-001",
+ "to": "META-A",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-001b",
+ "to": "SUB-002a",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-002a",
+ "to": "SUB-002b",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-002b",
+ "to": "SUB-002c",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-002c",
+ "to": "JS-002",
+ "relation": "enables"
+ },
+ {
+ "from": "JS-002",
+ "to": "META-A",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-003a",
+ "to": "SUB-003b",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-003b",
+ "to": "SUB-003c",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-003c",
+ "to": "JS-003",
+ "relation": "enables"
+ },
+ {
+ "from": "JS-003",
+ "to": "META-B",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-001a",
+ "to": "SUB-004a",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-004a",
+ "to": "SUB-004b",
+ "relation": "enables"
+ },
+ {
+ "from": "SUB-004b",
+ "to": "JS-004",
+ "relation": "enables"
+ },
+ {
+ "from": "JS-001",
+ "to": "JS-002",
+ "relation": "alternates"
+ },
+ {
+ "from": "JS-001",
+ "to": "JS-003",
+ "relation": "alternates"
+ },
+ {
+ "from": "JS-002",
+ "to": "JS-003",
+ "relation": "triggers"
+ },
+ {
+ "from": "JS-004",
+ "to": "JS-001",
+ "relation": "triggers"
+ },
+ {
+ "from": "SUB-001b",
+ "to": "JS-003",
+ "relation": "enables"
+ }
+ ],
+ "critical_chains": [
+ {
+ "id": "CC-1",
+ "name": "Rating-clarity backbone",
+ "nodes": [
+ "SUB-001a",
+ "SUB-001b",
+ "SUB-001c",
+ "JS-001"
+ ],
+ "rationale": "If smartphone video capture, rally and shot tagging, and rating delta computation cannot reach acceptable accuracy, every downstream Core Job (drill prescription, coach co-pilot, post-match review) loses its anchor signal."
+ },
+ {
+ "id": "CC-2",
+ "name": "Coach renewal chain",
+ "nodes": [
+ "SUB-003a",
+ "SUB-003b",
+ "SUB-003c",
+ "JS-003",
+ "META-B"
+ ],
+ "rationale": "The B2B2C revenue line collapses if any link from in-session tagging to renewal-time recap fails — coaches cite the missing recap as the renewal-conversation failure mode."
+ }
+ ],
+ "abcd_analysis": {
+ "verdict": "Invest in CC-1 first; CC-2 is gated on CC-1 working at smartphone-only fidelity. JS-004 is a marketing surface, not a critical chain on its own.",
+ "rationale": "Per ABCD critical-chain analysis (https://github.com/Joao-M-Silva/padel_analytics — feasibility anchor), polishing JS-002 drill prescription before CC-1 stabilises produces a local optimum that the rating chain undermines."
+ },
+ "evidence_basis": [
+ "Peer cards under evidence/<run-id>/04_peer_cards/ — Padelytics, Clutch, Eyes On Padel, SPASH, Wingfield, PlaySight all rely on capture-then-tag pipelines that match SUB-001a → SUB-001b → SUB-001c.",
+ "Open-source baseline at https://github.com/Joao-M-Silva/padel_analytics demonstrates that the SUB-001 chain is technically feasible without GPU spend.",
+ "Hudl's product surface (https://www.hudl.com/products) shows that coach co-pilot workflows depend on the tag stream being there in the first place."
+ ]
+}

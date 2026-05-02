@@ -1,0 +1,45 @@
+{
+  "mechanic_id": "VM-009",
+  "name": "Open-source release of an inert component",
+  "moat_class": "brand",
+  "thesis": "Releasing an inert engineering component (court calibration, shot taxonomy spec) builds developer credibility without giving away the data flywheel.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Brand authority among technical adjacents",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Engineering team releases the court-calibration component on GitHub.",
+    "Padel CV community references it in their README.",
+    "Players hear the brand mentioned at federation meetings.",
+    "Brand feels independent of any single peer.",
+    "Brand becomes the default citation in adjacent products."
+  ],
+  "defensibility": {
+    "reasoning": "Brand-as-moat is fragile alone; the component's openness is a cheap signal that the team has technical credibility, supporting the data and distribution gates."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Joao-M-Silva/padel_analytics (https://github.com/Joao-M-Silva/padel_analytics) shows a public CV pipeline already attracts attention."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "A larger lab forks the component and out-promotes the candidate."
+  },
+  "rice": {
+    "reach_0_10": 3,
+    "impact_0_3": 1,
+    "confidence_0_100": 50,
+    "effort_person_weeks": 3,
+    "score": 50.0
+  },
+  "kill_experiment": {
+    "description": "Publish the open-source component; track GitHub stars, forks, and citations.",
+    "success_threshold": "≥50 stars and ≥3 citations within four weeks.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [],
+    "stack_fit": "GitHub release; team-led developer outreach."
+  }
+}

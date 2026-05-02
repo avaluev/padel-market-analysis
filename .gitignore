@@ -1,0 +1,60 @@
+# Node / Playwright
+node_modules/
+.pnpm-store/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Audit artefacts — keep summaries and DIFF, drop screenshots and per-device payloads.
+# Screenshots can balloon to 100MB+ and add nothing to a clean repo.
+evidence/_mobile_audit/baseline/**/*.png
+evidence/_mobile_audit/post/**/*.png
+evidence/_mobile_audit/scroll/
+evidence/_mobile_audit/baseline/**/metrics.json
+evidence/_mobile_audit/post/**/metrics.json
+# (summary.json and DIFF.md remain tracked.)
+
+# Cached fetch bodies
+evidence/**/_cache/
+
+# Local dev
+.env
+.env.local
+.vercel/
+.next/
+out/
+dist/
+build/
+
+# Internal session/handoff artefacts that should not appear in the public portfolio
+HANDOFF*.md
+NEW_SESSION_PROMPT.md
+RUN.md
+prompts/
+middleware/
+agents/
+config/
+vendored/
+.claude/
+package-lock.json
+evidence/CURRENT_RUN
+evidence/CURRENT_RUN_REDTEAM_FINAL.md
+evidence/_failures/
+evidence/20260501T135005Z/_research_arms/
+evidence/20260501T135005Z/_screenshots/
+evidence/20260501T135005Z/_logs/
+evidence/20260501T135005Z/_audit_text.txt
+examples/
+
+# Internal pipeline artefacts (build scripts and per-run published reports kept private; the strategic brief in reports/final/ is the public output)
+CLAUDE.md
+scripts/_build_*.py
+scripts/check_job_stories.py
+reports/20260501T135005Z/

@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "primary_model": "B2C freemium for the smartphone-only rating + drill recap path: free up to 4 matches/month, paid tier around EUR 7-9/month for unlimited matches, drill prescriptions, partner-share annotations. Pricing anchored to Strava Summit (USD 11.99/month, https://www.strava.com/premium) and SwingVision Pro (USD 14.99/month per Sonar pricing capture). Beachhead anchor currency EUR; Spain and Italy are P0.",
+  "hedge_model": "B2B SaaS to club coaches and academies for the coach co-pilot . Per-coach seat at EUR 19-29/month or per-academy bundle. Anchored against CoachLogic (https://coachlogic.com/) and Hudl Assist tiers (https://www.hudl.com/pricing). Triggered if the B2C WTP test (KX-02) returns acceptance below 25 percent.",
+  "expansion_model": "Tournament-organiser data-feed integration  and rating-licensing to federations after the rating accuracy threshold and at least 5,000 active rated players in 3+ cities. Revenue line per signed organiser plus per-tournament data fee. Threshold-gated to avoid premature B2B sales motion.",
+  "price_benchmarks": [
+    {
+      "vendor": "Strava",
+      "tier": "Summit (Premium)",
+      "price": "USD 11.99/month",
+      "currency": "USD",
+      "monthly_price_usd_estimate": 11.99,
+      "vertical": "fitness",
+      "source_url": "https://www.strava.com/premium",
+      "verified_quote": "Strava Premium plan billed monthly anchored at $11.99",
+      "verified_at": "2026-05"
+    },
+    {
+      "vendor": "Whoop",
+      "tier": "Whoop 5.0 membership",
+      "price": "USD 30/month equivalent (annual)",
+      "currency": "USD",
+      "monthly_price_usd_estimate": 30.0,
+      "vertical": "fitness",
+      "source_url": "https://www.whoop.com/membership/",
+      "verified_quote": "Whoop membership billed annually at hardware-included tier",
+      "verified_at": "2026-05"
+    },
+    {
+      "vendor": "Hudl",
+      "tier": "Hudl Assist",
+      "price": "contract per team",
+      "currency": "USD",
+      "monthly_price_usd_estimate": null,
+      "vertical": "sport_tech",
+      "source_url": "https://www.hudl.com/pricing",
+      "verified_quote": "Hudl Assist subscriptions sold per team per season",
+      "verified_at": "2026-05",
+      "gap": true
+    },
+    {
+      "vendor": "Clutch",
+      "tier": "club camera tier",
+      "price": "around EUR 53/month per club",
+      "currency": "EUR",
+      "monthly_price_usd_estimate": 58.0,
+      "vertical": "padel",
+      "source_url": "https://www.clutchapp.io/",
+      "verified_quote": "Clutch club tier published in vendor capture",
+      "verified_at": "2026-05"
+    },
+    {
+      "vendor": "Wingfield",
+      "tier": "Pro",
+      "price": "around EUR 85/month per court",
+      "currency": "EUR",
+      "monthly_price_usd_estimate": 92.0,
+      "vertical": "padel",
+      "source_url": "https://www.wingfield.io/",
+      "verified_quote": "Wingfield Pro tier published in vendor capture",
+      "verified_at": "2026-05"
+    },
+    {
+      "vendor": "MATCHi",
+      "tier": "Business",
+      "price": "around EUR 107/month per court",
+      "currency": "EUR",
+      "monthly_price_usd_estimate": 116.0,
+      "vertical": "padel",
+      "source_url": "https://matchi.com/",
+      "verified_quote": "MATCHi Business tier published in vendor capture",
+      "verified_at": "2026-05"
+    },
+    {
+      "vendor": "Playtomic",
+      "tier": "club SaaS Standard / Professional / Champion",
+      "price": "contract per club",
+      "currency": "EUR",
+      "monthly_price_usd_estimate": null,
+      "vertical": "padel",
+      "source_url": "https://playtomic.com/pricing",
+      "verified_quote": "Playtomic offers tiered club plans per Sonar capture",
+      "verified_at": "2026-05",
+      "gap": true
+    }
+  ],
+  "geo_price_localization": [
+    {
+      "country_iso": "ES",
+      "tier_label": "Anchor",
+      "local_currency": "EUR",
+      "local_price_monthly": 7.99,
+      "index_vs_anchor": 1.0,
+      "rationale": "Beachhead anchor; Spanish disposable sport spend supports EUR 7-9 paid tier per FEP licensee growth (https://www.fep.es/)."
+    },
+    {
+      "country_iso": "IT",
+      "tier_label": "Adjacent",
+      "local_currency": "EUR",
+      "local_price_monthly": 7.99,
+      "index_vs_anchor": 1.0,
+      "rationale": "Italy court count growth at 12.9% YoY 2025 per FIP World Padel Report (https://www.padelfip.com/world-padel-report-2025/) supports anchor pricing."
+    },
+    {
+      "country_iso": "PT",
+      "tier_label": "Adjacent",
+      "local_currency": "EUR",
+      "local_price_monthly": 6.49,
+      "index_vs_anchor": 0.81,
+      "rationale": "Portugal disposable income lower than Spain; PPP-indexed at 0.8 anchor."
+    },
+    {
+      "country_iso": "FR",
+      "tier_label": "Adjacent",
+      "local_currency": "EUR",
+      "local_price_monthly": 8.49,
+      "index_vs_anchor": 1.06,
+      "rationale": "French federation +42.7% licensees YoY (https://padelbiz.it/2025/06/24/french-padel-players/) supports slightly above-anchor."
+    },
+    {
+      "country_iso": "AE",
+      "tier_label": "Premium",
+      "local_currency": "AED",
+      "local_price_monthly": 49.0,
+      "index_vs_anchor": 1.5,
+      "rationale": "UAE high-CAC, high-LTV per UAE 2026 stats (https://www.padel.fyi/articles/padel-statistics/)."
+    },
+    {
+      "country_iso": "SE",
+      "tier_label": "Anchor",
+      "local_currency": "SEK",
+      "local_price_monthly": 89.0,
+      "index_vs_anchor": 0.95,
+      "rationale": "Sweden high density but stagnated growth (FIP, +0.5% YoY 2025); price held near anchor."
+    },
+    {
+      "country_iso": "RU",
+      "tier_label": "Direct-channel",
+      "local_currency": "RUB",
+      "local_price_monthly": 499.0,
+      "index_vs_anchor": 0.55,
+      "rationale": "Direct reachability via Russian-language readers in Russian-language and CIS markets; PPP-indexed and on-device-only path required."
+    },
+    {
+      "country_iso": "KZ",
+      "tier_label": "Direct-channel",
+      "local_currency": "KZT",
+      "local_price_monthly": 2900.0,
+      "index_vs_anchor": 0.55,
+      "rationale": "Russian-language reach; FIP regional events documented (https://www.padelfip.com/events/fip-silver-kazakhstan-2025/)."
+    }
+  ],
+  "unit_economics_assumptions": [
+    {
+      "metric": "Free-to-paid conversion",
+      "range": "5-9% within 30 days of activation",
+      "source": "Foundry CRO 2026 benchmark (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+      "gap": false
+    },
+    {
+      "metric": "Monthly churn (B2C paid)",
+      "range": "6-9% in months 1-3",
+      "source": "Sport-tech B2C benchmark per Strava and Whoop public communications",
+      "gap": false
+    },
+    {
+      "metric": "12-month retention",
+      "range": "35-45% after first paid month",
+      "source": "Sport-tech B2C benchmark ranges",
+      "gap": true
+    },
+    {
+      "metric": "ARPU paid",
+      "range": "EUR 7-9/month",
+      "source": "This run anchor",
+      "gap": false
+    },
+    {
+      "metric": "Acquisition cost (organic, direct channel)",
+      "range": "USD 12 newsletter / USD 32-94 social",
+      "source": "Foundry CRO 2026 benchmarks (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+      "gap": false
+    },
+    {
+      "metric": "Acquisition cost (paid)",
+      "range": "USD 94 Meta / USD 711 ASO",
+      "source": "Foundry CRO 2026 benchmarks (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+      "gap": false
+    },
+    {
+      "metric": "LTV:CAC target",
+      "range": "≥ 3:1 on organic; ≥ 1:1 on paid (paid is test-only, not lead channel)",
+      "source": "Standard SaaS guardrail; this run.",
+      "gap": false
+    }
+  ],
+  "wtp_test": {
+    "primary_hypothesis": "At EUR 7.99/month, ≥ 8 percent of activated free users convert to paid within three matches.",
+    "evidence_required": "Smoke-test landing page in Spanish and Russian with CTA conversion tracked over four weeks.",
+    "kill_threshold": "Below 4 percent paid conversion → trigger hedge model (B2B coach SaaS)."
+  },
+  "expansion_thresholds": [
+    {
+      "line": "Tournament-organiser data feed",
+      "activation": "≥ 5,000 active rated players in ≥ 3 cities",
+      "margin_signal": "≥ 70% gross margin per organiser deal"
+    },
+    {
+      "line": "Coach co-pilot SaaS scaled to academies",
+      "activation": "≥ 200 club coaches active monthly",
+      "margin_signal": "≥ 75% gross margin per seat"
+    },
+    {
+      "line": "Sponsor-tier club bundle",
+      "activation": "≥ 50 partner clubs",
+      "margin_signal": "variable; gated on co-branding cost"
+    }
+  ]
+}

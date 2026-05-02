@@ -1,0 +1,48 @@
+{
+  "mechanic_id": "VM-004",
+  "name": "Coach co-pilot that survives the renewal conversation",
+  "moat_class": "switching_cost",
+  "thesis": "Each between-session tag a coach files becomes part of the renewal-conversation artifact. Coaches do not export the artifact when they leave.",
+  "targets": {
+    "core_job_id": "JS-003",
+    "unmet_outcome": "Per-student delta surfaced without manual data entry",
+    "segment_id": "SEG-003"
+  },
+  "experience_sketch": [
+    "Coach taps quick tags on the phone after each lesson.",
+    "App auto-composes a weekly per-student recap.",
+    "Coach sends recap before the renewal conversation.",
+    "Coach feels the renewal pitch is data-led, not vibe-led.",
+    "Coach is reluctant to migrate because the recap history lives inside the tool."
+  ],
+  "defensibility": {
+    "reasoning": "Coach workflow embedment is the canonical switching-cost moat — Hudl (https://www.hudl.com/products) demonstrates this in adjacent sports."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "CoachLogic (https://coachlogic.com/) sells a generic LMS; padel-specific tagging vocabulary is shallow."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Hudl extends padel-specific tagging vocabulary or partners with a club camera vendor."
+  },
+  "rice": {
+    "reach_0_10": 4,
+    "impact_0_3": 3,
+    "confidence_0_100": 50,
+    "effort_person_weeks": 10,
+    "score": 60.0
+  },
+  "kill_experiment": {
+    "description": "Pilot the dashboard with 8 coaches recruited via FEP (https://www.fep.es/) and FITP (https://www.fitp.it/) chapters.",
+    "success_threshold": "≥3 coaches send a recap to a student during the pilot.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001",
+      "VM-003"
+    ],
+    "stack_fit": "Coach phone capture + Sonnet narrative composition + Haiku summary."
+  }
+}

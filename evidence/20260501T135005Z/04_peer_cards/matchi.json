@@ -1,0 +1,30 @@
+{
+  "id": "matchi",
+  "name": "MATCHi",
+  "url": "https://matchi.com/",
+  "archetype": "matchmaking_app",
+  "value_prop": "Nordic court booking network for racket sports including padel, with operator tools for clubs.",
+  "pricing": {
+    "model": "freemium",
+    "price_anchor": "free for players; SaaS to clubs",
+    "source_url": "https://matchi.com/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Active in Nordic and adjacent markets",
+    "geo_presence": [
+      "SE",
+      "FI",
+      "DK",
+      "NO",
+      "NL"
+    ],
+    "evidence_url": "https://matchi.com/"
+  },
+  "moat_class": "network",
+  "moat_evidence_url": "https://matchi.com/",
+  "gaps": [
+    "Padel coaching specifically is not a core product surface.",
+    "Cross-network rating signal does not interoperate with Playtomic levels."
+  ],
+  "verification_status": "VERIFIED"
+}

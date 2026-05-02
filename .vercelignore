@@ -1,0 +1,15 @@
+# Vercel only deploys reports/final/ as the static output directory.
+# These directories should not be uploaded to Vercel even though they're tracked in git.
+node_modules/
+evidence/
+scripts/
+.claude/
+.github/
+prompts/
+config/
+middleware/
+vendored/
+agents/
+examples/
+*.md
+!reports/final/README.md

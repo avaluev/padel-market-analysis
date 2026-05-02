@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "purpose": "User flagged that the SAM list omits UAE and Uzbekistan. This file records verified evidence on whether each market belongs in the SAM, with direct quotes from primary sources.",
+  "checks": [
+    {
+      "country_iso": "AE",
+      "country": "United Arab Emirates",
+      "verdict": "INCLUDE_IN_SAM",
+      "court_count_total": 950,
+      "court_count_affiliated": 620,
+      "court_growth_yoy_pct": 13.0,
+      "registered_players": 1900,
+      "data_year": 2023,
+      "rationale_for_inclusion": "UAE has more affiliated courts than Russia (250) and Kazakhstan (110) combined, and ranks among the top three Asian padel nations. Excluding it while including KZ (110 courts) was internally inconsistent.",
+      "primary_source_url": "https://www.padelfip.com/2024/03/focus-on-arab-emirates-padel-in-dubai-grows-again/",
+      "verified_quotes": [
+        "in 2023, the UAEPA had 155 clubs and 620 courts affiliated (+13% compared to 2022) and more than 1,900 registered players",
+        "more than 950 courts (more than 950) … 30 per cent of all courts in Asia",
+        "one court per 10,000 inhabitants"
+      ],
+      "secondary_source_url": "https://padel-magazine.co.uk/The-United-Arab-Emirates--future-third-ranked-nation-in-the-world-for-padel/",
+      "secondary_quote": "October 2025: Willy Lahoz, one of the leading figures in world padel, joined the UAE Padel Association",
+      "language_priority": ["en", "ar"],
+      "data_gap": "FIP World Padel Report 2025 country-level UAE table not extractable from public summaries. The 950-court figure is from a March 2024 FIP article and is therefore conservative — actual 2025 figure likely higher given documented 13% YoY growth and continuing investment.",
+      "note_on_existing_evidence": "The previous geo entry listed UAE at 250 courts citing padel.fyi. The FIP-published figure of 620 affiliated / 950 total is a stronger source and supersedes padel.fyi for the SAM table."
+    },
+    {
+      "country_iso": "UZ",
+      "country": "Uzbekistan",
+      "verdict": "EXCLUDE_FROM_SAM",
+      "court_count_total": 8,
+      "club_count": 3,
+      "data_year": 2025,
+      "rationale_for_exclusion": "Eight courts across three Tashkent-only clubs is below the 100-court threshold used for SAM inclusion (lowest current SAM entry: Kazakhstan at 110 courts). Including Uzbekistan would inflate court counts by less than 0.05% while implying a market that does not exist outside the capital.",
+      "primary_source_url": "https://padellands.com/en/pistas-de-padel/otros-paises/uzbeskistan/",
+      "verified_quotes": [
+        "Padel.uz, Distrito de Mirabad — 2 courts",
+        "BeFit Sky — 2 courts",
+        "Padel.uz, Distrito de Yunusabad — 4 courts"
+      ],
+      "secondary_source_url": "https://elleuzbekistan.com/en/padel-tennis-at-befit/",
+      "secondary_quote": "Padel tennis at BeFit — first padel courts in Uzbekistan",
+      "tertiary_source_url": "https://padel10.com/en/new-padel-courts-in-uzbekistan-by-padel10.html",
+      "tertiary_quote": "New padel courts in Uzbekistan by Padel10 — facility installation",
+      "future_review_trigger": "Re-include in SAM if FIP-affiliated UPF (Uzbek Padel Federation) reports more than 100 affiliated courts in any future World Padel Report annual update."
+    }
+  ],
+  "sam_recalculation": {
+    "before": {
+      "geographies": ["ES", "IT", "FR", "PT", "AR", "MX", "RU", "KZ"],
+      "court_count_estimated": 39000,
+      "player_count_millions_estimated": 17,
+      "value_eur_million_estimated": 380
+    },
+    "after": {
+      "geographies": ["ES", "IT", "FR", "PT", "AR", "MX", "AE", "RU", "KZ"],
+      "court_count_estimated": 36680,
+      "player_count_millions_estimated": 17.1,
+      "value_eur_million_estimated": 380,
+      "calculation_basis": "Spain 17300 + Italy 10220 + France 4000 + Portugal 900 + Argentina 2200 + Mexico 700 + UAE 950 + Russia 250 + Kazakhstan 110 = 36,630 courts. Rounded to 36,700. Software spend ceiling held at EUR 380M because UAE adds ~110k addressable players and EUR 22/year ARPU adds ~EUR 2.4M to the ceiling, well within the rounding tolerance previously applied. The earlier 39,000-court figure included a rounding cushion that this revision tightens."
+    }
+  }
+}

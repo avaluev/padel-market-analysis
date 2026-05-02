@@ -1,0 +1,320 @@
+[
+  {
+    "id": "padelytics",
+    "name": "Padelytics",
+    "url": "https://www.padelytics.ai/",
+    "category": "core_competitor",
+    "note": "Direct competitor — AI video analysis for padel.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "clutch",
+    "name": "Clutch",
+    "url": "https://www.clutchapp.io/",
+    "category": "club_camera_system",
+    "note": "Club camera + automatic match recording.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padelplay",
+    "name": "PadelPlay",
+    "url": "https://www.padelplay.ai/",
+    "category": "sensor_hardware",
+    "note": "Racket-mounted sensor and companion app.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "eyes_on_padel",
+    "name": "Eyes On Padel",
+    "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+    "category": "club_camera_system",
+    "note": "Multi-court camera installation for clubs.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "spash",
+    "name": "SPASH Match Analyzer",
+    "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+    "category": "match_analyzer_saas",
+    "note": "AI match analyzer aimed at padel clubs.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "joao_silva_padel_analytics",
+    "name": "Joao-M-Silva / padel_analytics",
+    "url": "https://github.com/Joao-M-Silva/padel_analytics",
+    "category": "open_source",
+    "note": "Public CV pipeline — anchor reference for solo build feasibility.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "paradigma_case_study",
+    "name": "Paradigma — Padel CV case study",
+    "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+    "category": "consultancy_case_study",
+    "note": "Engineering write-up of a CV subsystem for racket sports.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padelfip",
+    "name": "International Padel Federation (PadelFIP)",
+    "url": "https://www.padelfip.com/",
+    "category": "rating_platform",
+    "note": "Global rating + rankings authority; substitute for HYYN.AI dead anchor.",
+    "arms": [
+      "anchor",
+      "perplexity/sonar-deep-research",
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "playtomic",
+    "name": "Playtomic",
+    "url": "https://playtomic.io/blog",
+    "category": "community_app",
+    "note": "Padel booking + community network; partner to clubs.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "matchi",
+    "name": "MATCHi",
+    "url": "https://matchi.com/",
+    "category": "community_app",
+    "note": "Nordic court booking network; padel + tennis.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padel_united",
+    "name": "Padel United",
+    "url": "https://www.padel-united.com/",
+    "category": "academy",
+    "note": "Padel club operator group with academy programs.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "wingfield",
+    "name": "Wingfield",
+    "url": "https://www.wingfield.io/",
+    "category": "club_camera_system",
+    "note": "AI tracking camera system for padel and tennis courts.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "dartfish",
+    "name": "Dartfish",
+    "url": "https://www.dartfish.com/",
+    "category": "match_analyzer_saas",
+    "note": "Motion-analysis SaaS used by racket-sport coaches.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "aiball",
+    "name": "Aiball",
+    "url": "https://aiball.io/",
+    "category": "club_camera_system",
+    "note": "AI court camera with automatic match recording.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padelbrowser",
+    "name": "Padelbrowser",
+    "url": "https://padelbrowser.com/",
+    "category": "community_app",
+    "note": "Padel community + match-finding browser.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padelboard",
+    "name": "Padelboard",
+    "url": "https://padelboard.app/",
+    "category": "rating_platform",
+    "note": "Rating and matchmaking app aligned with MATCHi.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "coachlogic",
+    "name": "CoachLogic",
+    "url": "https://coachlogic.com/",
+    "category": "academy",
+    "note": "Coach LMS for sport academies; adjacent to padel coach co-pilot.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padelstats",
+    "name": "Padelstats",
+    "url": "https://padelstats.com/",
+    "category": "rating_platform",
+    "note": "Padel statistics + rating service.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "racketpal",
+    "name": "Racketpal",
+    "url": "https://racketpal.com/",
+    "category": "community_app",
+    "note": "Match-finding community for racket sports including padel.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "padel_radar",
+    "name": "Padel Radar",
+    "url": "https://padelradar.com/",
+    "category": "rating_platform",
+    "note": "Padel rating tracker.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "court_sense",
+    "name": "Court Sense",
+    "url": "https://courtsense.io/",
+    "category": "club_camera_system",
+    "note": "Court vision system for racket sports.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "smash",
+    "name": "Smash",
+    "url": "https://smash.app/",
+    "category": "match_analyzer_saas",
+    "note": "Match analyzer for racket sports.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "playsight",
+    "name": "PlaySight",
+    "url": "https://playsight.com/",
+    "category": "club_camera_system",
+    "note": "Multi-sport AI camera and analytics platform.",
+    "arms": [
+      "perplexity/sonar-pro",
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "premier_padel",
+    "name": "Premier Padel",
+    "url": "https://premierpadel.com/",
+    "category": "rating_platform",
+    "note": "Top professional circuit; rating spine for tournament integration.",
+    "arms": [
+      "perplexity/sonar-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "hudl",
+    "name": "Hudl",
+    "url": "https://www.hudl.com/",
+    "category": "match_analyzer_saas",
+    "note": "Sport video analysis SaaS used by clubs and academies.",
+    "arms": [
+      "perplexity/sonar-reasoning-pro"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "decorte_cvpr2024_padel",
+    "name": "Decorte CVPR 2024 — Multi-modal hit detection in padel",
+    "url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+    "category": "research_prototype",
+    "note": "CVPR 2024 workshop padel paper.",
+    "arms": [
+      "validation_loop_2"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "skedda",
+    "name": "Skedda",
+    "url": "https://www.skedda.com/",
+    "category": "club_management_software",
+    "note": "Booking + venue management for clubs (incl. padel).",
+    "arms": [
+      "validation_loop_2"
+    ],
+    "verification_status": "VERIFIED"
+  },
+  {
+    "id": "coachseek",
+    "name": "CoachSeek",
+    "url": "https://www.coachseek.com/",
+    "category": "academy_lms",
+    "note": "Coach academy management platform.",
+    "arms": [
+      "validation_loop_2"
+    ],
+    "verification_status": "VERIFIED"
+  }
+]

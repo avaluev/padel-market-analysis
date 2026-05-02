@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-008",
+  "name": "Local-language coaching narrative for non-English markets",
+  "moat_class": "distribution",
+  "thesis": "First-language tactical narratives in Spanish, Italian, and Russian capture attention before the global English-first competitors localise.",
+  "targets": {
+    "core_job_id": "JS-002",
+    "unmet_outcome": "Reach in non-English padel markets",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Player receives the recap in their first language.",
+    "Phrasing matches the in-club coaching vocabulary.",
+    "Player shares the recap with a club partner who reads the same language.",
+    "Partner feels the tool fits their court conversation.",
+    "Both share with the next pair without translation friction."
+  ],
+  "defensibility": {
+    "reasoning": "Localised content + linguistic distribution channel is a Naval distribution gate; English-first competitors cannot match cadence."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Italy passes 10,220 courts (FIP World Padel Report 2025 — https://www.padelfip.com/2025/06/the-padel-boom-shows-no-signs-of-stopping-italy-surpasses-10000-courts-second-only-to-spain/), French federation tops 100,000 licensees (https://padelbiz.it/2025/06/24/french-padel-players/)."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Padelytics or Wingfield localise faster than the candidate scales."
+  },
+  "rice": {
+    "reach_0_10": 7,
+    "impact_0_3": 2,
+    "confidence_0_100": 55,
+    "effort_person_weeks": 4,
+    "score": 192.5
+  },
+  "kill_experiment": {
+    "description": "Translate the recap into Spanish and Russian; test cohort retention against English-only baseline.",
+    "success_threshold": "Localised cohort retains ≥1.3x English baseline through week three.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-006"
+    ],
+    "stack_fit": "OpenRouter Haiku for translation; Sonnet for tactical phrasing review."
+  }
+}

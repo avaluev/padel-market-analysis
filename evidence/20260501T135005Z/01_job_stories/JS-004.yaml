@@ -1,0 +1,32 @@
+job_id: 'JS-004'
+name: 'Settle the post-match argument with a partner using neutral footage'
+when_situation: 'After a heated post-match discussion where the partner blamed the loss on the user, both players search for a neutral way to revisit the rallies before the next booking.'
+psychological_state: 'Resentful but invested in continuing the partnership; wants to convert the argument into a learnable artifact.'
+motivation: 'Replace memory-based debate with timestamped, replayable evidence both can scrub through.'
+expected_outcome: 'A shared review timeline annotated with key rallies and decisions, accessible by both players on their phones.'
+higher_level_job: 'Preserve a long-running padel partnership through honest after-match review rather than blame attribution.'
+emotional_payoff: 'Walk away from the argument confident the next session is rebooted on facts.'
+segment_hint: 'travelling enthusiast and plateau-stuck regular'
+alternatives_hired:
+  - 'Phone recorded from a bag at the side of the court'
+  - 'Club''s Eyes On Padel or PlaySight footage shared by URL (https://www.eyeson.sport/en/eyes-on-padel/, https://playsight.com/)'
+  - 'Padelytics shared match link (https://www.padelytics.ai/)'
+alternatives_fired:
+  - 'Verbal recall over a beer — failure mode: details disagree and the conversation ends without resolution.'
+outcomes:
+  - name: 'Shared, scrubbable timeline annotated with rally events'
+    importance_1_10: 8
+    satisfaction_1_10: 3
+    notes: 'Existing footage is shareable but not annotated; players still argue over which point mattered.'
+  - name: 'Both partners feel ownership of the review'
+    importance_1_10: 7
+    satisfaction_1_10: 2
+    notes: 'Single-account tools default to one viewer; two-player annotation is rare in padel-specific products.'
+past_tense_evidence:
+  - 'Eyes On Padel and PlaySight both expose match footage by URL (https://www.eyeson.sport/en/eyes-on-padel/, https://playsight.com/) — neither offers shared annotation primitives.'
+  - 'Open-source padel CV pipeline shows the technical feasibility of timestamped events (https://github.com/Joao-M-Silva/padel_analytics).'
+confidence: 0.3
+source: 'assumption'
+gaps_to_probe_next:
+  - 'Interview 5 fixed-partnership pairs about their post-match ritual; ask whether shared annotation would have changed the next booking.'
+  - 'Falsification path: if pairs prefer single-player footage and private annotation, fold this into JS-002.'

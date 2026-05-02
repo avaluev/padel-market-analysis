@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-006",
+  "name": "Distribution-as-moat through directly-reached audience asset",
+  "moat_class": "distribution",
+  "thesis": "Direct relationship with a multilingual padel audience — newsletter, Telegram, podcast — captures attention upstream of Playtomic, MATCHi, and paid channels.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Reach players before the first booking",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Player joins the direct-readership newsletter from a Spanish or Russian-language post.",
+    "Newsletter consistently delivers a tactical insight.",
+    "Newsletter announces a match-rating beta with a free recap.",
+    "Player feels the brand is independent of any club.",
+    "Player invites a partner directly through the newsletter forward."
+  ],
+  "defensibility": {
+    "reasoning": "Direct-to-user attention is not a platform feature; the audience does not depend on a gatekeeper. Naval distribution gate."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Newsletter CAC anchored at $12 per Foundry CRO benchmark vs $94 for Meta and $711 for ASO (https://foundrycro.com/blog/cac-benchmarks-2026/)."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Padel media (Padel Business Magazine) fences the audience with a paywall."
+  },
+  "rice": {
+    "reach_0_10": 8,
+    "impact_0_3": 2,
+    "confidence_0_100": 55,
+    "effort_person_weeks": 4,
+    "score": 220.0
+  },
+  "kill_experiment": {
+    "description": "Launch a Spanish-language and a Russian-language newsletter; compare the share of bookings driven by direct-traffic referers.",
+    "success_threshold": "≥40% of beta sign-ups arrive via direct traffic from owned channels.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001"
+    ],
+    "stack_fit": "Owned newsletter platform; editorial cadence."
+  }
+}

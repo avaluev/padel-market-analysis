@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-002",
+  "name": "Cross-club rating that travels with the player",
+  "moat_class": "network",
+  "thesis": "Rating value compounds with every additional club and tournament that accepts it as the seeding signal — non-linear with users.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Rating accepted at any club",
+    "segment_id": "SEG-002"
+  },
+  "experience_sketch": [
+    "Player joins a tournament in a different city.",
+    "Tournament organiser imports the rating via a single link.",
+    "Seeding placed on the imported rating; bracket order is published.",
+    "Player feels recognised across clubs without re-proving level.",
+    "Other tournament organisers see the standardised export and request the same."
+  ],
+  "defensibility": {
+    "reasoning": "Each new club or organiser increases the value to existing players — and increases the cost of leaving. Network effect grows as Σ(clubs × players)."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Premier Padel rating system documented at https://premierpadel.com/ has authority but no amateur interoperability."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Playtomic could publish their own derived-rating spec and out-distribute the candidate."
+  },
+  "rice": {
+    "reach_0_10": 6,
+    "impact_0_3": 3,
+    "confidence_0_100": 40,
+    "effort_person_weeks": 18,
+    "score": 40.0
+  },
+  "kill_experiment": {
+    "description": "Sign letters of intent with two FIP-affiliated regional organisers in Spain or Italy to import a candidate rating into a single bracket.",
+    "success_threshold": "Two organisers commit to a 30-day bracket trial.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001"
+    ],
+    "stack_fit": "Tournament-organiser portal CRUD; data feed exposed via signed JSON."
+  }
+}

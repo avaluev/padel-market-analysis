@@ -1,0 +1,45 @@
+{
+ "schema_version": "1.0",
+ "stage": "understanding",
+ "rationale": "The padel coaching strategic question sits in the Understanding stage of the strategic question because the candidate product, segment, and moat are not yet locked. The market has visible early entrants (Padelytics, Clutch, PadelPlay, Eyes On Padel, SPASH, Wingfield, PlaySight) but no winner-take-most player, no stable player rating standard outside FIP-tournament licensees, and unresolved questions on whether the lead Job-To-Be-Done is rating-clarity, drill-prescription, or coach-co-pilot. Awareness has happened: padel reached 35M+ players and 77,000 courts globally per the FIP World Padel Report 2025 and Playtomic Global Padel Report 2025. Readiness has not started: no segment is validated through ≥6 JTBD interviews, no value mechanic is killed against the Naval filter, and the moat thesis is still a hypothesis, not a verified asset. Understanding therefore prescribes interview-led segmentation, value-mechanic generation, and a Naval-style defensibility audit before any roadmap or kill-decision.",
+ "entry_signals": [
+ "Awareness signals confirmed: 77,300 courts globally per FIP World Padel Report 2025 (https://www.padelfip.com/world-padel-report-2025/) and 35M+ active players per the Playtomic Global Padel Report 2025 (https://playtomic.com/global-padel-report).",
+ "Multiple peer products exist with material traction (Padelytics, Clutch, Eyes On Padel, SPASH) but the segment, mechanic, and moat are not yet locked across the run's evidence."
+ ],
+ "exit_signals": [
+ "≥3 segments survive the realness checklist with named alternatives_hired, switch trigger, and constraint, recorded under evidence/<run-id>/05_jobs_graph.json and the segment YAML files.",
+ "Each lead value mechanic carries a Naval-style audit verdict (≥1 mechanic killed or demoted) at evidence/<run-id>/09_moat_audit.json with paraphrase or primary URLs at nav.al cited.",
+ "USP ≤30 words drafted at evidence/<run-id>/canonical_brief.json with a falsifiable kill experiment naming the prompt that runs it."
+ ],
+ "risks": [
+ "Risk of treating the FIP and Playtomic infrastructure data as proof of consumer demand for an AI coach — court counts measure venue capex, not coaching willingness-to-pay.",
+ "Risk of selecting the rating-clarity job (JS-001) when the durable moat sits in the coach co-pilot job (JS-003); rating tooling is more replicable by an LLM-wrapper than coach workflow embedment.",
+ "Risk of pricing benchmarks anchoring against PlaySight or Wingfield club hardware, when the candidate plans a smartphone-only path that competes on a different cost base."
+ ],
+ "kill_experiments": [
+ {
+ "id": "KX-01",
+ "hypothesis": "A smartphone-only video pipeline can extract a usable padel skill rating without club camera dependency.",
+ "kill_criterion": "Reproduction of Joao-M-Silva/padel_analytics into a working end-to-end pipeline takes more than 80 person-hours on a single laptop.",
+ "evidence_required": "Capability-map row tagged ship_solo with a reproducible install log; Phase 13 capability matrix.",
+ "where_runs": "Prompt 13 capability map and Phase 04 peer-card data flywheel scoring.",
+ "timeline_weeks": 2
+ },
+ {
+ "id": "KX-02",
+ "hypothesis": "Padel players accept a smartphone-derived numeric rating as their public skill score — instead of self-declared Playtomic / MATCHi level — when matched to peers.",
+ "kill_criterion": "Less than 25% accept rate when surveyed against the user's own self-assessed level after three sample matches.",
+ "evidence_required": "Smoke-test landing page with fake-door 'request a padel rating' CTA in two priority geographies.",
+ "where_runs": "Prompt 11 PLG loops design plus Prompt 14 USP test.",
+ "timeline_weeks": 2
+ },
+ {
+ "id": "KX-03",
+ "hypothesis": "Club coaches will pilot a between-session per-student dashboard if it cuts manual prep below 10 minutes per student.",
+ "kill_criterion": "Fewer than 3 of 8 invited Spanish or Italian coaches complete a one-week pilot.",
+ "evidence_required": "Recruitment via Spanish padel federation chapters (https://www.fep.es/) and Italian FITP padel network (https://www.fitp.it/) with letter-of-intent depth only.",
+ "where_runs": "Prompt 07 interview guide and Prompt 13 capability matrix coach-co-pilot row.",
+ "timeline_weeks": 2
+ }
+ ]
+}

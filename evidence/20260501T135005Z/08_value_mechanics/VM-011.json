@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-011",
+  "name": "Open-data export for academies — lock-in via tooling, not data hoarding",
+  "moat_class": "learning_curve",
+  "thesis": "Academies adopt the candidate's drill and tag taxonomy; staff training compounds the cost of switching tools without the candidate hoarding the underlying data.",
+  "targets": {
+    "core_job_id": "JS-003",
+    "unmet_outcome": "Academy-wide tagging convergence",
+    "segment_id": "SEG-003"
+  },
+  "experience_sketch": [
+    "Academy adopts the tagging schema across coaches.",
+    "New coach hires train against the schema.",
+    "Performance reviews cite the schema directly.",
+    "Academy feels the schema is the standard.",
+    "Switching to a competitor demands re-training every coach."
+  ],
+  "defensibility": {
+    "reasoning": "Learning curve becomes the lock-in; data exports remain free, so the candidate cannot be accused of vendor capture."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Padel United (https://www.padel-united.com/about) and similar club groups document the staffing scale that benefits from a single schema."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "A club federation publishes a competing free schema."
+  },
+  "rice": {
+    "reach_0_10": 3,
+    "impact_0_3": 2,
+    "confidence_0_100": 40,
+    "effort_person_weeks": 4,
+    "score": 60.0
+  },
+  "kill_experiment": {
+    "description": "Pilot the schema with a single multi-court academy; measure coach onboarding time before vs after.",
+    "success_threshold": "New-coach onboarding cut by 30 percent within four weeks.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-004"
+    ],
+    "stack_fit": "Schema definition document; cross-coach training assets."
+  }
+}

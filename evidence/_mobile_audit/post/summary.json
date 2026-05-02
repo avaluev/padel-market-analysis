@@ -1,0 +1,382 @@
+[
+  {
+    "device": "iphone-13",
+    "page": "reports/final/padel-ai-coach-research.html",
+    "label": "post",
+    "navMs": 72,
+    "metrics": {
+      "ttfb": 0.40000009536743164,
+      "domContentLoaded": 70.69999980926514,
+      "loadEvent": 70.69999980926514,
+      "fcp": 76,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 54104,
+      "viewportWidth": 390,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Strategic Brief",
+      "linkCount": 166,
+      "imageCount": 0,
+      "tableCount": 20,
+      "tooSmallTaps": 28,
+      "tooSmallStandaloneTaps": 55,
+      "standaloneTapCount": 101
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:55:57.368Z"
+  },
+  {
+    "device": "pixel-7",
+    "page": "reports/final/padel-ai-coach-research.html",
+    "label": "post",
+    "navMs": 13,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 6.400000095367432,
+      "loadEvent": 12.800000190734863,
+      "fcp": 40,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 53261,
+      "viewportWidth": 412,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Strategic Brief",
+      "linkCount": 166,
+      "imageCount": 0,
+      "tableCount": 20,
+      "tooSmallTaps": 30,
+      "tooSmallStandaloneTaps": 55,
+      "standaloneTapCount": 101
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:00.080Z"
+  },
+  {
+    "device": "iphone-se",
+    "page": "reports/final/padel-ai-coach-research.html",
+    "label": "post",
+    "navMs": 14,
+    "metrics": {
+      "ttfb": 0.09999990463256836,
+      "domContentLoaded": 6.599999904632568,
+      "loadEvent": 13,
+      "fcp": 40,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 59664,
+      "viewportWidth": 320,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Strategic Brief",
+      "linkCount": 166,
+      "imageCount": 0,
+      "tableCount": 20,
+      "tooSmallTaps": 29,
+      "tooSmallStandaloneTaps": 55,
+      "standaloneTapCount": 101
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:02.462Z"
+  },
+  {
+    "device": "ipad-mini",
+    "page": "reports/final/padel-ai-coach-research.html",
+    "label": "post",
+    "navMs": 13,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 6.299999713897705,
+      "loadEvent": 13,
+      "fcp": 48,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 50997,
+      "viewportWidth": 768,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Strategic Brief",
+      "linkCount": 166,
+      "imageCount": 0,
+      "tableCount": 20,
+      "tooSmallTaps": 35,
+      "tooSmallStandaloneTaps": 65,
+      "standaloneTapCount": 101
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:05.415Z"
+  },
+  {
+    "device": "desktop-1280",
+    "page": "reports/final/padel-ai-coach-research.html",
+    "label": "post",
+    "navMs": 14,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 6.199999809265137,
+      "loadEvent": 12.799999713897705,
+      "fcp": 48,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 33200,
+      "viewportWidth": 1280,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Strategic Brief",
+      "linkCount": 166,
+      "imageCount": 0,
+      "tableCount": 20,
+      "tooSmallTaps": 113,
+      "tooSmallStandaloneTaps": 83,
+      "standaloneTapCount": 101
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:06.965Z"
+  },
+  {
+    "device": "iphone-13",
+    "page": "reports/final/evidence-map.html",
+    "label": "post",
+    "navMs": 10,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 5.300000190734863,
+      "loadEvent": 10,
+      "fcp": 28,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 14642,
+      "viewportWidth": 390,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Evidence Map",
+      "linkCount": 88,
+      "imageCount": 0,
+      "tableCount": 5,
+      "tooSmallTaps": 33,
+      "tooSmallStandaloneTaps": 30,
+      "standaloneTapCount": 43
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:08.578Z"
+  },
+  {
+    "device": "pixel-7",
+    "page": "reports/final/evidence-map.html",
+    "label": "post",
+    "navMs": 11,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 5.099999904632568,
+      "loadEvent": 10.099999904632568,
+      "fcp": 28,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 14340,
+      "viewportWidth": 412,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Evidence Map",
+      "linkCount": 88,
+      "imageCount": 0,
+      "tableCount": 5,
+      "tooSmallTaps": 35,
+      "tooSmallStandaloneTaps": 30,
+      "standaloneTapCount": 43
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:10.016Z"
+  },
+  {
+    "device": "iphone-se",
+    "page": "reports/final/evidence-map.html",
+    "label": "post",
+    "navMs": 22,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 22.300000190734863,
+      "loadEvent": 22.40000009536743,
+      "fcp": 28,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 16458,
+      "viewportWidth": 320,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Evidence Map",
+      "linkCount": 88,
+      "imageCount": 0,
+      "tableCount": 5,
+      "tooSmallTaps": 26,
+      "tooSmallStandaloneTaps": 30,
+      "standaloneTapCount": 43
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:11.182Z"
+  },
+  {
+    "device": "ipad-mini",
+    "page": "reports/final/evidence-map.html",
+    "label": "post",
+    "navMs": 11,
+    "metrics": {
+      "ttfb": 0.09999990463256836,
+      "domContentLoaded": 5,
+      "loadEvent": 10.199999809265137,
+      "fcp": 32,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 13913,
+      "viewportWidth": 768,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Evidence Map",
+      "linkCount": 88,
+      "imageCount": 0,
+      "tableCount": 5,
+      "tooSmallTaps": 36,
+      "tooSmallStandaloneTaps": 39,
+      "standaloneTapCount": 43
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:12.580Z"
+  },
+  {
+    "device": "desktop-1280",
+    "page": "reports/final/evidence-map.html",
+    "label": "post",
+    "navMs": 11,
+    "metrics": {
+      "ttfb": 0,
+      "domContentLoaded": 5.199999809265137,
+      "loadEvent": 10.299999713897705,
+      "fcp": 32,
+      "lcp": null,
+      "cls": 0,
+      "transferBytes": 0,
+      "docHeight": 9804,
+      "viewportWidth": 1280,
+      "horizontalOverflow": false,
+      "fontsLoaded": true,
+      "heading": "Padel AI Coach — Evidence Map",
+      "linkCount": 88,
+      "imageCount": 0,
+      "tableCount": 5,
+      "tooSmallTaps": 67,
+      "tooSmallStandaloneTaps": 39,
+      "standaloneTapCount": 43
+    },
+    "consoleErrors": [
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      },
+      {
+        "type": "warning",
+        "text": "Deprecated API for given entry type."
+      }
+    ],
+    "requestFailures": [],
+    "capturedAt": "2026-05-02T17:56:13.446Z"
+  }
+]

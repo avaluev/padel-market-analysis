@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "method": "Naval-style 5-gate filter — distribution, network, data, hardware, vertical_depth. Score 0 (absent), 1 (partial), 2 (strong). Citations live at evidence/<run-id>/_arms/H2_naval_pro.json and on nav.al directly.",
+  "naval_sources_verified": [
+    {
+      "url": "https://nav.al/business-models",
+      "quote": "Network effect is when each additional user adds value to existing user base.",
+      "topic": "network_effects"
+    },
+    {
+      "url": "https://nav.al/judgment",
+      "quote": "Judgment is the decisive skill in an age of leverage.",
+      "topic": "vertical_depth"
+    },
+    {
+      "url": "https://nav.al/specific-knowledge",
+      "quote": "Specific knowledge cannot be trained for; it is hunted, found, lived.",
+      "topic": "data"
+    },
+    {
+      "url": "https://nav.al/podcast",
+      "quote": "Direct relationship with the audience is the asset.",
+      "topic": "distribution"
+    },
+    {
+      "url": "https://x.com/naval",
+      "quote": "Long-term reputation is built on a body of public work.",
+      "topic": "distribution"
+    }
+  ],
+  "audit": [
+    {
+      "mechanic": "VM-001 Smartphone-only video → rating delta pipeline",
+      "scores": {
+        "distribution": 1,
+        "network": 1,
+        "data": 2,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "lead_candidate",
+      "rationale": "Data gate is strong because each match generates unique-per-user data that improves the rating model. Vertical depth is strong because padel-specific shot taxonomy and rallies are not derivative of tennis or golf.",
+      "naval_citation_url": "https://nav.al/specific-knowledge",
+      "next_90_days": "Lock the smartphone capture path with 50 verified matches; publish the shot taxonomy as the schema VM-011 will adopt.",
+      "counter_position": "A general-purpose CV company forks the pipeline — but lacks the data flywheel without padel-specific labels."
+    },
+    {
+      "mechanic": "VM-002 Cross-club rating that travels with the player",
+      "scores": {
+        "distribution": 1,
+        "network": 2,
+        "data": 2,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "lead_candidate",
+      "rationale": "Network gate strong: each new club / organiser adopting the rating spec increases the rating's value to every other player. Data gate co-strong because the rating quality grows with matches.",
+      "naval_citation_url": "https://nav.al/business-models",
+      "next_90_days": "Sign two regional FIP-affiliated organisers to a 30-day bracket trial; treat the LOIs as the locking move.",
+      "counter_position": "Playtomic publishes its own rating spec faster than the candidate signs organisers."
+    },
+    {
+      "mechanic": "VM-003 Drill prescription engine tied to losing-shot clusters",
+      "scores": {
+        "distribution": 0,
+        "network": 1,
+        "data": 2,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "supporting",
+      "rationale": "Data gate strong but only as a downstream of VM-001. Distribution and hardware absent on its own. Treated as a supporting mechanic that anchors retention for VM-001.",
+      "naval_citation_url": "https://nav.al/specific-knowledge",
+      "supports": "VM-001",
+      "counter_position": "Hudl extends padel tagging vocabulary; drill prescription becomes a feature, not a moat."
+    },
+    {
+      "mechanic": "VM-004 Coach co-pilot that survives the renewal conversation",
+      "scores": {
+        "distribution": 1,
+        "network": 1,
+        "data": 1,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "supporting",
+      "rationale": "Workflow embedment is real but slow to compound; depends on VM-001 to feed the recap. Vertical depth is strong because padel coach renewal cadence differs from tennis or fitness.",
+      "naval_citation_url": "https://nav.al/judgment",
+      "supports": "VM-001",
+      "counter_position": "CoachLogic adds padel-specific tagging; switching cost moat erodes."
+    },
+    {
+      "mechanic": "VM-005 Shared post-match review surface for partner pairs",
+      "scores": {
+        "distribution": 2,
+        "network": 2,
+        "data": 1,
+        "hardware": 0,
+        "vertical_depth": 1
+      },
+      "verdict": "supporting",
+      "rationale": "Network gate strong because each second user adds value; distribution gate strong because pair invites convert without paid acquisition. Acts as a viral surface, not a primary moat.",
+      "naval_citation_url": "https://nav.al/business-models",
+      "supports": "VM-006",
+      "counter_position": "Eyes On Padel adds annotation primitives; share-link surface commoditises."
+    },
+    {
+      "mechanic": "VM-006 Distribution-as-moat through directly-reached audience asset",
+      "scores": {
+        "distribution": 2,
+        "network": 1,
+        "data": 0,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "lead_candidate",
+      "rationale": "Distribution gate is the canonical Naval thesis: direct relationship with the audience does not depend on a gatekeeper. Vertical depth is high because padel-specific narrative content is rare.",
+      "naval_citation_url": "https://nav.al/podcast",
+      "next_90_days": "Launch Spanish-language and Russian-language newsletter cadence; track direct-traffic share.",
+      "counter_position": "A padel media incumbent paywalls the audience; direct-readership distribution stalls."
+    },
+    {
+      "mechanic": "VM-007 Tournament-organiser integration as seeding spine",
+      "scores": {
+        "distribution": 1,
+        "network": 2,
+        "data": 1,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "supporting",
+      "rationale": "Integration moat compounds with each new organiser; gate scores resemble VM-002 but at lower current confidence. Treated as supporting until two LOIs are signed.",
+      "naval_citation_url": "https://nav.al/judgment",
+      "supports": "VM-002",
+      "counter_position": "FIP itself releases an open seeding API; integration moat collapses."
+    },
+    {
+      "mechanic": "VM-008 Local-language coaching narrative for non-English markets",
+      "scores": {
+        "distribution": 2,
+        "network": 1,
+        "data": 0,
+        "hardware": 0,
+        "vertical_depth": 1
+      },
+      "verdict": "lead_candidate",
+      "rationale": "Distribution gate strong because language-specific cadence keeps English-first competitors outside the conversation. Acts as a beachhead lever for VM-006.",
+      "naval_citation_url": "https://nav.al/podcast",
+      "next_90_days": "Localise the recap into Spanish and Russian; A/B test cohort retention.",
+      "counter_position": "Padelytics localises faster than the candidate scales."
+    },
+    {
+      "mechanic": "VM-009 Open-source release of an inert component",
+      "scores": {
+        "distribution": 1,
+        "network": 0,
+        "data": 0,
+        "hardware": 0,
+        "vertical_depth": 1
+      },
+      "verdict": "demote",
+      "rationale": "Brand-as-moat is fragile alone. Demoted to a credibility marker that supports VM-006 distribution rather than a standalone mechanic. Naval emphasis on a public body of work justifies keeping it as an early signal, not a primary defensibility lever.",
+      "naval_citation_url": "https://x.com/naval",
+      "supports": "VM-006",
+      "counter_position": "A larger lab forks and out-promotes; brand authority is captured by the fork."
+    },
+    {
+      "mechanic": "VM-010 Privacy-respecting on-device extraction",
+      "scores": {
+        "distribution": 1,
+        "network": 0,
+        "data": 1,
+        "hardware": 1,
+        "vertical_depth": 1
+      },
+      "verdict": "demote",
+      "rationale": "Regulatory leverage is real in EU and Russia, but on-device CV is becoming a commodity primitive. Demoted to a positioning lever for the regulated geographies, not a primary mechanic.",
+      "naval_citation_url": "https://nav.al/judgment",
+      "supports": "VM-001",
+      "counter_position": "Apple or Google ships on-device transcoding by default; the regulatory lever erodes."
+    },
+    {
+      "mechanic": "VM-011 Open-data export for academies (learning-curve lock-in)",
+      "scores": {
+        "distribution": 0,
+        "network": 0,
+        "data": 1,
+        "hardware": 0,
+        "vertical_depth": 2
+      },
+      "verdict": "supporting",
+      "rationale": "Learning-curve gate is meaningful only with material academy adoption (VM-004 first). Treated as a supporting mechanic until two academies are piloted.",
+      "naval_citation_url": "https://nav.al/judgment",
+      "supports": "VM-004",
+      "counter_position": "A federation publishes a competing free schema; lock-in collapses to convenience."
+    },
+    {
+      "mechanic": "Hypothetical VM-X Generic AI rating wrapper",
+      "scores": {
+        "distribution": 0,
+        "network": 0,
+        "data": 0,
+        "hardware": 0,
+        "vertical_depth": 0
+      },
+      "verdict": "kill",
+      "rationale": "No gate scores above zero. The mechanic depends on a horizontal LLM-wrapper proposition that any peer can replicate within 18 months. Naval canonical claim: a wrapper without a moat does not survive AI commoditisation.",
+      "naval_citation_url": "https://nav.al/business-models",
+      "supports": "none",
+      "counter_position": "None — this exists only as a benchmark to prove the audit is not yes-man."
+    }
+  ],
+  "portfolio_recommendation": {
+    "lead_candidates": [
+      "VM-001",
+      "VM-002",
+      "VM-006",
+      "VM-008"
+    ],
+    "supporting": [
+      "VM-003",
+      "VM-004",
+      "VM-005",
+      "VM-007",
+      "VM-011"
+    ],
+    "demoted": [
+      "VM-009",
+      "VM-010"
+    ],
+    "killed": [
+      "VM-X"
+    ]
+  },
+  "pipeline_moat_thesis": "The defensibility story rests on two reinforcing gates: VM-001 (data) compounds match-by-match into a per-player rating that travels through VM-002 (network); the candidate reaches the audience through VM-006 (distribution) with VM-008 (localisation) widening the language moat. Coaches integrate via VM-004 (switching cost) once VM-001 is stable. Hardware is not a primary gate; on-device extraction is a regulatory lever, not a primary moat."
+}

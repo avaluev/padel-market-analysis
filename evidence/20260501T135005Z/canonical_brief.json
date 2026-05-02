@@ -1,0 +1,336 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260501T135005Z",
+  "produced_at": "2026-05-01T14:30Z",
+  "vision_frame": {
+    "summary": "Padel grows past 77,300 courts globally per the FIP World Padel Report 2025, with Spain at 17,300 and Italy past 10,000 (https://www.padelfip.com/world-padel-report-2025/). Most regulars rely on self-declared Playtomic / MATCHi levels because no rating travels with them across clubs. The candidate ships a smartphone-only padel rating, derived from public computer-vision baselines, distributed through directly-reached multilingual channels, and embedded in coach renewal workflows so the data flywheel compounds rather than restarts at every club."
+  },
+  "top_moves": [
+    {
+      "move": "Ship a smartphone-only rating MVP from the open-source padel computer-vision pipeline",
+      "reason": "Locks the data gate inside the solo-execution band — the team can validate this without a club partner."
+    },
+    {
+      "move": "Sign two FIP-affiliated regional organisers to a 30-day bracket trial",
+      "reason": "Locks the network gate by proving the rating travels across tournaments, not only across players."
+    },
+    {
+      "move": "Launch a Spanish and a Russian editorial cadence",
+      "reason": "Locks the distribution gate with directly-reached readers at roughly USD 12 acquisition cost (Foundry CRO 2026)."
+    }
+  ],
+  "ajtbd": {
+    "headline_job": "Get a rating that travels with the player",
+    "evidence_anchor": "https://www.padelfip.com/world-padel-report-2025/",
+    "jobs": [
+      {
+        "summary": "Get a defensible padel rating without paying a coach",
+        "switch_trigger": "Lost a match to a regular partner with a higher self-declared score",
+        "expected_outcome": "Persistent skill rating updated each match, accepted by other clubs",
+        "segment_hint": "plateau-stuck regular and newly-ranked competitor",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/"
+      },
+      {
+        "summary": "Translate match weaknesses into next two drills",
+        "switch_trigger": "Same shot decides three matches the wrong way",
+        "expected_outcome": "Two prioritized drills before the next session",
+        "segment_hint": "plateau-stuck regular",
+        "evidence_url": "https://www.padelytics.ai/"
+      },
+      {
+        "summary": "Track student progress as a coach without manual notes",
+        "switch_trigger": "High-paying student leaves the academy for an instrumented competitor",
+        "expected_outcome": "Weekly per-student progress recap before renewal",
+        "segment_hint": "club coach",
+        "evidence_url": "https://www.hudl.com/products/assist"
+      },
+      {
+        "summary": "Settle post-match argument with neutral footage",
+        "switch_trigger": "Partner blames the loss on the user",
+        "expected_outcome": "Shared annotated review timeline accessible to both",
+        "segment_hint": "travelling enthusiast",
+        "evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+      }
+    ]
+  },
+  "aura_thesis": {
+    "stage": "understanding",
+    "evidence_anchor": "https://playtomic.com/global-padel-report",
+    "rationale": "Awareness has happened — 77,300 courts and 35M+ players globally per FIP and Playtomic 2025 reports. Readiness has not — no validated segment, no killed mechanic. Understanding prescribes interview-led segmentation, value-mechanic generation, and Naval-style audit before any roadmap or kill-decision.",
+    "entry_signals": [
+      "Multiple peer products with material traction; segment, mechanic, and moat not yet locked.",
+      "Awareness signals confirmed at the 77,300-court / 35M-player scale per FIP World Padel Report 2025."
+    ],
+    "exit_signals": [
+      "At least three audiences survive the realness test with a named alternative-hired tool and a discrete switch trigger.",
+      "Every lead defensibility bet carries a verdict against the five gates; at least one bet is killed or demoted.",
+      "A one-line proposition under 30 words is on file, with the observable that would prove it wrong already named."
+    ]
+  },
+  "segments": {
+    "primary_name": "Plateau-stuck regular",
+    "evidence_anchor": "https://www.padelytics.ai/",
+    "rows": [
+      {
+        "name": "Plateau-stuck regular",
+        "core_job": "Get a defensible padel rating",
+        "verdict": "pass_with_caveats",
+        "verdict_class": "inferred",
+        "critical_chain": "Rating-clarity backbone"
+      },
+      {
+        "name": "Newly-ranked competitor",
+        "core_job": "Get a defensible padel rating",
+        "verdict": "pass",
+        "verdict_class": "verified",
+        "critical_chain": "Rating-clarity backbone"
+      },
+      {
+        "name": "Club coach",
+        "core_job": "Track student progress without manual notes",
+        "verdict": "pass_with_caveats",
+        "verdict_class": "inferred",
+        "critical_chain": "Coach renewal chain"
+      },
+      {
+        "name": "Club operator",
+        "core_job": "Differentiate against neighbouring clubs",
+        "verdict": "fail",
+        "verdict_class": "absent",
+        "critical_chain": "none"
+      },
+      {
+        "name": "Travelling enthusiast",
+        "core_job": "Get a rating that travels",
+        "verdict": "pass_with_caveats",
+        "verdict_class": "inferred",
+        "critical_chain": "Rating-clarity backbone"
+      },
+      {
+        "name": "Injury-aware returning player",
+        "core_job": "Movement-load monitoring",
+        "verdict": "false_segment",
+        "verdict_class": "absent",
+        "critical_chain": "none"
+      }
+    ]
+  },
+  "value_mechanics": {
+    "headline_moat": "data + network",
+    "evidence_anchor": "https://nav.al/business-models",
+    "lead_candidates_human": [
+      "Smartphone-only video to rating delta",
+      "Cross-club rating that travels with the player",
+      "Directly-reached audience asset",
+      "Local-language coaching recap"
+    ],
+    "supporting_human": [
+      "Drill prescription tied to losing-shot clusters",
+      "Coach co-pilot that survives renewal",
+      "Pair-level shared review surface",
+      "Tournament-organiser integration",
+      "Open-data export for academies"
+    ],
+    "demoted_human": [
+      "Open-source release of an inert component",
+      "Privacy-respecting on-device extraction"
+    ],
+    "killed_human": [
+      "Generic AI rating wrapper"
+    ],
+    "rationale": "Smartphone-only video compounds match-by-match into a per-player rating; the cross-club rating turns that into a network asset; a directly-reached audience keeps the relationship outside any platform gatekeeper; local-language recap widens the language moat."
+  },
+  "monetization": {
+    "primary_model": "B2C freemium for the smartphone-only rating + drill recap path; paid tier ~EUR 7.99/month anchored against Strava Summit and SwingVision Pro.",
+    "primary_anchor_url": "https://www.strava.com/premium",
+    "hedge_model": "B2B SaaS to club coaches and academies for the coach co-pilot at EUR 19-29/month per seat, anchored against CoachLogic and Hudl Assist.",
+    "hedge_anchor_url": "https://www.hudl.com/pricing",
+    "expansion_model": "Tournament-organiser data feed and rating licensing to federations after ≥5,000 active rated players in ≥3 cities.",
+    "expansion_anchor_url": "https://www.padelfip.com/calendar-fip-championships/"
+  },
+  "gtm": {
+    "evidence_anchor": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+    "top_channels": [
+      {
+        "id": "CH-001",
+        "name": "Directly-reached multilingual newsletter",
+        "cac": "USD 12",
+        "moat": "distribution",
+        "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+      },
+      {
+        "id": "CH-002",
+        "name": "Padel club partnership pilot",
+        "cac": "USD 150",
+        "moat": "switching_cost",
+        "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+      },
+      {
+        "id": "CH-003",
+        "name": "Tournament-organiser integration",
+        "cac": "USD 500",
+        "moat": "integration",
+        "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+      }
+    ],
+    "owned_audience": "Spanish-language and Russian-language padel readers reached through the direct-readership newsletter and Telegram digest.",
+    "owned_asset": "Founder cadence of localised tactical recaps — body of public work that does not depend on a platform gatekeeper."
+  },
+  "geo": {
+    "evidence_anchor": "https://www.padelfip.com/world-padel-report-2025/",
+    "P0": [
+      "ES",
+      "RU"
+    ],
+    "P1": [
+      "IT",
+      "FR",
+      "PT",
+      "KZ"
+    ],
+    "P2": [
+      "SE",
+      "NL",
+      "BE",
+      "FI",
+      "AR"
+    ],
+    "P3": [
+      "AE",
+      "US",
+      "UK",
+      "DE",
+      "MX",
+      "BR"
+    ],
+    "deferred": [],
+    "rationale": "Spain anchors absolute volume; Russia / CIS leverages direct reachability advantage with on-device pipeline for 152-FZ compliance."
+  },
+  "capability_map": {
+    "evidence_anchor": "https://github.com/Joao-M-Silva/padel_analytics",
+    "ship_solo_count": 5,
+    "ship_solo_with_apis_count": 5,
+    "requires_partner_count": 4,
+    "requires_capital_count": 2,
+    "requires_team_count": 1,
+    "lead_mechanic_band": "ship_solo (VM-001) → ship_solo_with_apis (VM-002, VM-003)"
+  },
+  "triz": {
+    "contradiction": "The user wants an objective skill rating without the cost or social awkwardness of a formal rating event, yet existing tools either provide rich ungraded analytics or rigid graded rankings without analytics.",
+    "resolution": "Decouple the rating signal from the rating event by deriving the rating from match video the player already records, then pipe it into the workflows (drill prescription, coach renewal, tournament seeding) where the rating must travel."
+  },
+  "retention_drivers": [
+    {
+      "driver": "Rating that travels across clubs",
+      "mechanism": "Each match updates the rating; cross-club acceptance compounds value.",
+      "evidence_class": "data flywheel"
+    },
+    {
+      "driver": "Drill prescription tied to losing-shot cluster",
+      "mechanism": "Player books the next session against a specific weakness, not a generic warm-up.",
+      "evidence_class": "closed feedback loop"
+    },
+    {
+      "driver": "Pair-level shared review",
+      "mechanism": "Two-player annotation surfaces seed invite-driven retention.",
+      "evidence_class": "network effect"
+    },
+    {
+      "driver": "Coach renewal recap",
+      "mechanism": "Coach embeds the recap into renewal-conversation rituals; switching cost compounds.",
+      "evidence_class": "workflow embedment"
+    }
+  ],
+  "risks": [
+    {
+      "risk": "Playtomic embeds CV-derived rating inside booking flow before candidate ships MVP",
+      "trigger": "Playtomic Global Padel Report (https://playtomic.com/global-padel-report) cites a derived-rating method, or feature appears in production",
+      "pivot": "Compress to coach co-pilot (the coach co-pilot) and Russian-language CIS beachhead; treat consumer rating play as competitive surrender."
+    },
+    {
+      "risk": "Padelytics or Wingfield ships smartphone-only rating before the candidate",
+      "trigger": "Either peer announces a smartphone capture flow with a verified rating delta",
+      "pivot": "Compress to coach co-pilot (the coach co-pilot) and Russian-language CIS beachhead while peers fight in ES/IT."
+    },
+    {
+      "risk": "Direct-readership newsletter direct-traffic share fails the distribution-moat test",
+      "trigger": "Direct-traffic share of beta sign-ups remains below 25 percent at week 8",
+      "pivot": "Drop the directly-reached audience asset to a supporting role; promote the cross-club rating and the tournament-organiser integration as the primary bets."
+    },
+    {
+      "risk": "Cross-club adoption stalls without FIP / Playtomic mandate",
+      "trigger": "Fewer than 40 percent of recorded matches include both players in the app at week 12",
+      "pivot": "Pivot from consumer rating to coach co-pilot (the coach co-pilot) where the network is intra-academy, not inter-club."
+    },
+    {
+      "risk": "FIP releases an open seeding API",
+      "trigger": "FIP integration changelog shows a public seeding API",
+      "pivot": "Pivot from the tournament-organiser integration moat to the cross-club network moat with rating quality as the differentiator."
+    },
+    {
+      "risk": "On-device CV becomes commodity",
+      "trigger": "Apple or Google ships system-level on-device CV for video apps",
+      "pivot": "Drop the on-device pipeline demote; double down on the directly-reached audience and the local-language recap."
+    }
+  ],
+  "differentiation_table": [
+    {
+      "peer": "Padelytics",
+      "peer_angle": "AI video analysis aimed at clubs and players",
+      "differentiated_angle": "Smartphone-only rating that travels across clubs without club camera dependency"
+    },
+    {
+      "peer": "Clutch",
+      "peer_angle": "Club camera with ranking and matchmaking layer",
+      "differentiated_angle": "Directly-reached distribution + cross-club rating, not club-bound"
+    },
+    {
+      "peer": "PadelPlay",
+      "peer_angle": "Racket-mounted sensor + companion app",
+      "differentiated_angle": "Smartphone-only path; no hardware purchase required"
+    },
+    {
+      "peer": "Eyes On Padel",
+      "peer_angle": "Multi-court camera installation for clubs",
+      "differentiated_angle": "Player-side rating layer that operates without club hardware"
+    },
+    {
+      "peer": "SPASH",
+      "peer_angle": "AI match analyzer for padel clubs",
+      "differentiated_angle": "Rating that travels across clubs and tournaments, not stranded inside the club account"
+    },
+    {
+      "peer": "Playtomic",
+      "peer_angle": "Booking + matchmaking + self-declared levels",
+      "differentiated_angle": "Match-derived rating replaces self-declared level; cross-posts back to Playtomic profile"
+    },
+    {
+      "peer": "Wingfield",
+      "peer_angle": "AI camera tracking system for tennis + padel",
+      "differentiated_angle": "Padel-first taxonomy and language coverage; smartphone-only path"
+    },
+    {
+      "peer": "PlaySight",
+      "peer_angle": "Multi-sport AI camera for premium clubs",
+      "differentiated_angle": "Consumer-first rating + distribution moat in non-English markets"
+    },
+    {
+      "peer": "Premier Padel",
+      "peer_angle": "Top professional circuit and brand authority",
+      "differentiated_angle": "Amateur rating that interoperates with the FIP-anchored seeding spine"
+    },
+    {
+      "peer": "Hudl",
+      "peer_angle": "Sport video analysis SaaS for coaches across sports",
+      "differentiated_angle": "Padel-specific shot taxonomy + coach renewal recap built in"
+    }
+  ],
+  "kill_experiments_summary": [
+    "Smartphone-only rating MVP: reproduce open-source pipeline within 80 person-hours.",
+    "Smoke-test rating CTA in Spanish + Russian; ≥6% CTR on padel community channels.",
+    "Coach pilot: ≥3 of 8 coaches send a recap to a student during a one-week pilot.",
+    "Tournament integration: ≥2 LOIs with FIP-affiliated organisers within 6 weeks."
+  ],
+  "usp": "Padel regulars get a skill rating that follows them between clubs and tournaments, derived from a phone-recorded match and embedded in the coach renewal conversation.",
+  "usp_falsifier": "If the direct-readership newsletter direct-traffic share remains below 25 percent of beta sign-ups after eight weeks, the distribution moat in the USP is not real and the USP must be rewritten."
+}

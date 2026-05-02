@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "capabilities": [
+    {
+      "capability": "Smartphone match capture pipeline",
+      "type": "value_mechanic",
+      "item_id": "VM-001",
+      "band": "ship_solo",
+      "oss_anchor": "Joao-M-Silva/padel_analytics",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet + Haiku swarm",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "50 matches ingested with shot-level tagging from a phone-recorded clip",
+      "kill_signal": "OSS pipeline cannot reach acceptable accuracy on a representative club video sample"
+    },
+    {
+      "capability": "Cross-club rating computation",
+      "type": "value_mechanic",
+      "item_id": "VM-002",
+      "band": "ship_solo_with_apis",
+      "oss_anchor": "Joao-M-Silva/padel_analytics",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "api": "OpenRouter inference API",
+      "api_url": "https://openrouter.ai/api/v1/models",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "Two organiser LOIs with imported rating in a bracket",
+      "kill_signal": "No regional organiser commits to a 30-day data-flow trial"
+    },
+    {
+      "capability": "Drill prescription engine",
+      "type": "value_mechanic",
+      "item_id": "VM-003",
+      "band": "ship_solo_with_apis",
+      "oss_anchor": "Joao-M-Silva/padel_analytics",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "api": "OpenRouter inference API",
+      "api_url": "https://openrouter.ai/api/v1/models",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku swarm",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "10% of free uploads convert to a drill plan acknowledgement",
+      "kill_signal": "Drill prescription does not move the user's losing shot inside three sessions"
+    },
+    {
+      "capability": "Coach co-pilot dashboard",
+      "type": "value_mechanic",
+      "item_id": "VM-004",
+      "band": "ship_solo_with_apis",
+      "oss_anchor": "Hudl Assist concept reference",
+      "oss_anchor_url": "https://www.hudl.com/products",
+      "api": "OpenRouter inference API",
+      "api_url": "https://openrouter.ai/api/v1/models",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "3 of 8 coaches send a recap to a student during the pilot",
+      "kill_signal": "Coaches refuse any tool the student also touches"
+    },
+    {
+      "capability": "Pair-level shared review surface",
+      "type": "value_mechanic",
+      "item_id": "VM-005",
+      "band": "ship_solo",
+      "oss_anchor": "Joao-M-Silva/padel_analytics",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "Pair-level surface drives ≥1.5x sharing rate vs single-user baseline",
+      "kill_signal": "Less than 25 percent invite activation"
+    },
+    {
+      "capability": "Direct-readership newsletter (multilingual)",
+      "type": "channel",
+      "item_id": "CH-001",
+      "band": "ship_solo",
+      "oss_anchor": "Open-source newsletter platform — Buttondown / Listmonk",
+      "oss_anchor_url": "https://github.com/knadh/listmonk",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "≥40% direct-traffic share of beta sign-ups within 8 weeks",
+      "kill_signal": "Direct-traffic share below 25% after 8 weeks"
+    },
+    {
+      "capability": "Padel club partnership pilot",
+      "type": "channel",
+      "item_id": "CH-002",
+      "band": "requires_partner",
+      "api": "Partner club CRUD",
+      "api_url": "https://playtomic.io/blog",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "Two partner clubs renewing pilot to paid",
+      "kill_signal": "No partner club renews after 90-day pilot"
+    },
+    {
+      "capability": "Tournament-organiser integration",
+      "type": "channel",
+      "item_id": "CH-003",
+      "band": "requires_partner",
+      "api": "FIP organiser data feed",
+      "api_url": "https://www.padelfip.com/calendar-fip-championships/",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "Two LOIs with regional FIP-affiliated organisers",
+      "kill_signal": "Zero LOIs after eight weeks of outreach"
+    },
+    {
+      "capability": "Telegram CIS bot",
+      "type": "channel",
+      "item_id": "CH-006",
+      "band": "ship_solo",
+      "oss_anchor": "python-telegram-bot",
+      "oss_anchor_url": "https://github.com/python-telegram-bot/python-telegram-bot",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "≥1,000 weekly active subscribers within 12 weeks",
+      "kill_signal": "Below 200 active subscribers after 12 weeks"
+    },
+    {
+      "capability": "Spanish + Russian recap localisation",
+      "type": "value_mechanic",
+      "item_id": "VM-008",
+      "band": "ship_solo_with_apis",
+      "api": "OpenRouter Haiku translation",
+      "api_url": "https://openrouter.ai/api/v1/models",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "Localised cohort retains ≥1.3x English baseline through week 3",
+      "kill_signal": "Localised cohort retention drops below English baseline"
+    },
+    {
+      "capability": "On-device CV extraction (152-FZ / GDPR friendly)",
+      "type": "value_mechanic",
+      "item_id": "VM-010",
+      "band": "requires_capital",
+      "oss_anchor": "Apple CoreML padel-specific model",
+      "oss_anchor_url": "https://developer.apple.com/machine-learning/core-ml/",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "On-device pipeline running at <2x energy of cloud baseline with ≥90% accuracy",
+      "kill_signal": "Energy or thermal cost exceeds two-times cloud baseline"
+    },
+    {
+      "capability": "Research / data flywheel anchor model training",
+      "type": "value_mechanic",
+      "item_id": "VM-DEEP",
+      "band": "requires_capital",
+      "oss_anchor": "Joao-M-Silva/padel_analytics",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "GPU training run",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "In-house padel shot model with measurable accuracy lift over OSS baseline",
+      "kill_signal": "GPU spend exceeds budget threshold without measurable lift"
+    },
+    {
+      "capability": "Open-source release of court-calibration component",
+      "type": "value_mechanic",
+      "item_id": "VM-009",
+      "band": "ship_solo",
+      "oss_anchor": "Public GitHub release",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Haiku",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "≥50 GitHub stars + ≥3 third-party citations within 4 weeks",
+      "kill_signal": "Below 10 stars and zero citations after 4 weeks"
+    },
+    {
+      "capability": "Coach affiliate roster (FEP + FITP)",
+      "type": "channel",
+      "item_id": "CH-007",
+      "band": "requires_partner",
+      "api": "Federation chapter outreach",
+      "api_url": "https://www.fep.es/",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "3 coaches retain ≥3 students through 4-week pilot",
+      "kill_signal": "Below 1 coach completing the pilot"
+    },
+    {
+      "capability": "Apple Search Ads paid-acquisition test",
+      "type": "channel",
+      "item_id": "CH-008",
+      "band": "ship_solo_with_apis",
+      "api": "Apple Search Ads API",
+      "api_url": "https://searchads.apple.com/",
+      "compute_pattern": {
+        "planning": "Sonnet",
+        "execution": "Sonnet",
+        "verification": "Sonnet"
+      },
+      "first_observable_output": "≥6% paid conversion within 7 days of install",
+      "kill_signal": "Paid CAC > 3x organic CAC after 4 weeks"
+    },
+    {
+      "capability": "Licensed clinician for injury-load model",
+      "type": "value_mechanic",
+      "item_id": "VM-INJURY",
+      "band": "requires_team",
+      "oss_anchor": "None directly applicable",
+      "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "clinician collaboration",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "Clinician-validated training-load taxonomy",
+      "kill_signal": "Clinician partner not secured within 90 days"
+    },
+    {
+      "capability": "Premium club integration (PlaySight class clubs)",
+      "type": "channel",
+      "item_id": "CH-PREM",
+      "band": "requires_partner",
+      "api": "PlaySight integration",
+      "api_url": "https://playsight.com/",
+      "compute_pattern": {
+        "planning": "Opus extended thinking",
+        "execution": "Sonnet",
+        "verification": "Opus extended thinking"
+      },
+      "first_observable_output": "One UAE or US partner club running an imported rating bracket",
+      "kill_signal": "No premium partner agrees to a 30-day pilot"
+    }
+  ]
+}

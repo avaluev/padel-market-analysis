@@ -1,0 +1,3615 @@
+{
+  "run_id": "20260501T135005Z",
+  "blueprint": {
+    "schema_version": "1.0",
+    "run_id": "20260501T135005Z",
+    "produced_at": "2026-05-01T13:50:05Z",
+    "model": "anthropic/claude-opus-4-7",
+    "core_jobs": [
+      {
+        "id": "job_objective_self_rating",
+        "summary": "Get an objective, transferable padel skill rating without paying for a coach or completing a formal ranking event.",
+        "switch_trigger": "Lost a match to a regular partner who declared a higher rating, or invited to a tournament that requires a rating.",
+        "expected_outcome": "A defensible numeric rating that travels across clubs and partners, updated each match.",
+        "segment_hint": "plateau-stuck regular and newly-ranked competitor"
+      },
+      {
+        "id": "job_targeted_practice_drills",
+        "summary": "Translate match-level weaknesses into the next two specific drills before the next session, without re-watching footage.",
+        "switch_trigger": "Same shot loses repeatedly across three matches with similar opponents.",
+        "expected_outcome": "Two prioritized drills naming the shot, the situation, and the success criterion.",
+        "segment_hint": "plateau-stuck regular"
+      },
+      {
+        "id": "job_coach_co_pilot",
+        "summary": "Give a working club coach a per-student dashboard so progress is tracked between sessions without manual notes.",
+        "switch_trigger": "A high-paying student leaves the academy because progress was not visible.",
+        "expected_outcome": "A weekly per-student progress report the coach can send before the next session.",
+        "segment_hint": "club coach (B2B2C)"
+      },
+      {
+        "id": "job_post_match_review_with_partner",
+        "summary": "Replay the match together with the partner to debate decisions while the moments are fresh.",
+        "switch_trigger": "Partner blames the loss on the user; the user wants neutral footage to settle it.",
+        "expected_outcome": "A shared review timeline annotated with key rallies and decisions, accessible by both players.",
+        "segment_hint": "travelling enthusiast"
+      }
+    ],
+    "aura_stage": "understanding",
+    "peer_seed": [
+      {
+        "id": "padelytics",
+        "name": "Padelytics",
+        "url": "https://www.padelytics.ai/"
+      },
+      {
+        "id": "clutch",
+        "name": "Clutch",
+        "url": "https://www.clutchapp.io/"
+      },
+      {
+        "id": "padelplay",
+        "name": "PadelPlay",
+        "url": "https://www.padelplay.ai/"
+      },
+      {
+        "id": "eyes_on_padel",
+        "name": "Eyes On Padel",
+        "url": "https://www.eyeson.sport/en/eyes-on-padel/"
+      },
+      {
+        "id": "spash",
+        "name": "SPASH Match Analyzer",
+        "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+      },
+      {
+        "id": "joao_silva_padel_analytics",
+        "name": "Joao-M-Silva / padel_analytics",
+        "url": "https://github.com/Joao-M-Silva/padel_analytics"
+      },
+      {
+        "id": "paradigma_case_study",
+        "name": "Paradigma — Padel CV case study",
+        "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+      },
+      {
+        "id": "padelfip",
+        "name": "International Padel Federation (PadelFIP)",
+        "url": "https://www.padelfip.com/"
+      },
+      {
+        "id": "playtomic",
+        "name": "Playtomic",
+        "url": "https://playtomic.io/"
+      },
+      {
+        "id": "matchi",
+        "name": "MATCHi",
+        "url": "https://matchi.com/"
+      },
+      {
+        "id": "wingfield",
+        "name": "Wingfield",
+        "url": "https://www.wingfield.io/"
+      },
+      {
+        "id": "playsight",
+        "name": "PlaySight",
+        "url": "https://playsight.com/"
+      },
+      {
+        "id": "premier_padel",
+        "name": "Premier Padel",
+        "url": "https://premierpadel.com/"
+      },
+      {
+        "id": "hudl",
+        "name": "Hudl",
+        "url": "https://www.hudl.com/"
+      },
+      {
+        "id": "padelboard",
+        "name": "Padelboard",
+        "url": "https://padelboard.app/"
+      }
+    ],
+    "moat_axes": [
+      "network",
+      "data",
+      "distribution",
+      "switching_cost",
+      "integration"
+    ],
+    "kill_experiments": [
+      {
+        "hypothesis": "A match-rating signal generated from a smartphone-only video pipeline is acceptable to padel players as their primary skill score.",
+        "kill_criterion": "Below 25% accept rate when surveyed against the user's own self-assessed level after three matches.",
+        "evidence_required": "Smoke-test landing page with a fake-door 'request a padel rating' CTA; survey respondents who upload a sample match clip."
+      },
+      {
+        "hypothesis": "Padel coaches will integrate a per-student dashboard into a weekly workflow if it cuts manual prep below 10 minutes per student.",
+        "kill_criterion": "Fewer than 3 of 8 invited Spanish coaches complete a one-week pilot.",
+        "evidence_required": "Recruit through Spanish padel federation chapters; offer a free pilot tied to two of their existing students."
+      },
+      {
+        "hypothesis": "A rating that travels across clubs unlocks tournament-organizer integrations as a B2B revenue line within the priority geography.",
+        "kill_criterion": "No FIP-affiliated regional organizer agrees to a 30-day data-flow trial in a P0 country.",
+        "evidence_required": "Outreach to regional organizers cited in evidence/<run-id>/12_geo.json; trial does not exceed letter-of-intent depth."
+      },
+      {
+        "hypothesis": "The product can ship the smartphone-only video pipeline end-to-end under solo execution using open-source CV anchors and free-tier OpenRouter models.",
+        "kill_criterion": "A working pipeline cannot be reproduced from Joao-M-Silva/padel_analytics in under 40 person-hours of integration work.",
+        "evidence_required": "Capability map row marked ship_solo with explicit OSS anchor; reproducible install log."
+      }
+    ]
+  },
+  "aura": {
+    "schema_version": "1.0",
+    "stage": "understanding",
+    "rationale": "The padel coaching strategic question sits in the AURA Understanding stage because the candidate product, segment, and moat are not yet locked. The market has visible early entrants (Padelytics, Clutch, PadelPlay, Eyes On Padel, SPASH, Wingfield, PlaySight) but no winner-take-most player, no stable player rating standard outside FIP-tournament licensees, and unresolved questions on whether the lead Job-To-Be-Done is rating-clarity, drill-prescription, or coach-co-pilot. Awareness has happened: padel reached 35M+ players and 77,000 courts globally per the FIP World Padel Report 2025 and Playtomic Global Padel Report 2025. Readiness has not started: no segment is validated through ≥6 JTBD interviews, no value mechanic is killed against the Naval filter, and the moat thesis is still a hypothesis, not a verified asset. Understanding therefore prescribes interview-led segmentation, value-mechanic generation, and a Naval-style defensibility audit before any roadmap or kill-decision.",
+    "entry_signals": [
+      "Awareness signals confirmed: 77,300 courts globally per FIP World Padel Report 2025 (https://www.padelfip.com/world-padel-report-2025/) and 35M+ active players per the Playtomic Global Padel Report 2025 (https://playtomic.com/global-padel-report).",
+      "Multiple peer products exist with material traction (Padelytics, Clutch, Eyes On Padel, SPASH) but the segment, mechanic, and moat are not yet locked across the run's evidence."
+    ],
+    "exit_signals": [
+      "≥3 segments survive the realness checklist with named alternatives_hired, switch trigger, and constraint, recorded under evidence/<run-id>/05_jobs_graph.json and the segment YAML files.",
+      "Each lead value mechanic carries a Naval-style audit verdict (≥1 mechanic killed or demoted) at evidence/<run-id>/09_moat_audit.json with paraphrase or primary URLs at nav.al cited.",
+      "USP ≤30 words drafted at evidence/<run-id>/canonical_brief.json with a falsifiable kill experiment naming the prompt that runs it."
+    ],
+    "risks": [
+      "Risk of treating the FIP and Playtomic infrastructure data as proof of consumer demand for an AI coach — court counts measure venue capex, not coaching willingness-to-pay.",
+      "Risk of selecting the rating-clarity job (JS-001) when the durable moat sits in the coach co-pilot job (JS-003); rating tooling is more replicable by an LLM-wrapper than coach workflow embedment.",
+      "Risk of pricing benchmarks anchoring against PlaySight or Wingfield club hardware, when the candidate plans a smartphone-only path that competes on a different cost base."
+    ],
+    "kill_experiments": [
+      {
+        "id": "KX-01",
+        "hypothesis": "A smartphone-only video pipeline can extract a usable padel skill rating without club camera dependency.",
+        "kill_criterion": "Reproduction of Joao-M-Silva/padel_analytics into a working end-to-end pipeline takes more than 80 person-hours on a single laptop.",
+        "evidence_required": "Capability-map row tagged ship_solo with a reproducible install log; Phase 13 capability matrix.",
+        "where_runs": "Prompt 13 capability map and Phase 04 peer-card data flywheel scoring.",
+        "timeline_weeks": 2
+      },
+      {
+        "id": "KX-02",
+        "hypothesis": "Padel players accept a smartphone-derived numeric rating as their public skill score — instead of self-declared Playtomic / MATCHi level — when matched to peers.",
+        "kill_criterion": "Less than 25% accept rate when surveyed against the user's own self-assessed level after three sample matches.",
+        "evidence_required": "Smoke-test landing page with fake-door 'request a padel rating' CTA in two priority geographies.",
+        "where_runs": "Prompt 11 PLG loops design plus Prompt 14 USP test.",
+        "timeline_weeks": 2
+      },
+      {
+        "id": "KX-03",
+        "hypothesis": "Club coaches will pilot a between-session per-student dashboard if it cuts manual prep below 10 minutes per student.",
+        "kill_criterion": "Fewer than 3 of 8 invited Spanish or Italian coaches complete a one-week pilot.",
+        "evidence_required": "Recruitment via Spanish padel federation chapters (https://www.fep.es/) and Italian FITP padel network (https://www.fitp.it/) with letter-of-intent depth only.",
+        "where_runs": "Prompt 07 interview guide and Prompt 13 capability matrix coach-co-pilot row.",
+        "timeline_weeks": 2
+      }
+    ]
+  },
+  "peers": [
+    {
+      "id": "padelytics",
+      "name": "Padelytics",
+      "url": "https://www.padelytics.ai/",
+      "category": "core_competitor",
+      "note": "Direct competitor — AI video analysis for padel.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "clutch",
+      "name": "Clutch",
+      "url": "https://www.clutchapp.io/",
+      "category": "club_camera_system",
+      "note": "Club camera + automatic match recording.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelplay",
+      "name": "PadelPlay",
+      "url": "https://www.padelplay.ai/",
+      "category": "sensor_hardware",
+      "note": "Racket-mounted sensor and companion app.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "eyes_on_padel",
+      "name": "Eyes On Padel",
+      "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "category": "club_camera_system",
+      "note": "Multi-court camera installation for clubs.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "spash",
+      "name": "SPASH Match Analyzer",
+      "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+      "category": "match_analyzer_saas",
+      "note": "AI match analyzer aimed at padel clubs.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "joao_silva_padel_analytics",
+      "name": "Joao-M-Silva / padel_analytics",
+      "url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "category": "open_source",
+      "note": "Public CV pipeline — anchor reference for solo build feasibility.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "paradigma_case_study",
+      "name": "Paradigma — Padel CV case study",
+      "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+      "category": "consultancy_case_study",
+      "note": "Engineering write-up of a CV subsystem for racket sports.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelfip",
+      "name": "International Padel Federation (PadelFIP)",
+      "url": "https://www.padelfip.com/",
+      "category": "rating_platform",
+      "note": "Global rating + rankings authority; substitute for HYYN.AI dead anchor.",
+      "arms": [
+        "anchor",
+        "perplexity/sonar-deep-research",
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "playtomic",
+      "name": "Playtomic",
+      "url": "https://playtomic.io/",
+      "category": "community_app",
+      "note": "Padel booking + community network; partner to clubs.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "matchi",
+      "name": "MATCHi",
+      "url": "https://matchi.com/",
+      "category": "community_app",
+      "note": "Nordic court booking network; padel + tennis.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padel_united",
+      "name": "Padel United",
+      "url": "https://www.padel-united.com/",
+      "category": "academy",
+      "note": "Padel club operator group with academy programs.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "wingfield",
+      "name": "Wingfield",
+      "url": "https://www.wingfield.io/",
+      "category": "club_camera_system",
+      "note": "AI tracking camera system for padel and tennis courts.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "dartfish",
+      "name": "Dartfish",
+      "url": "https://www.dartfish.com/",
+      "category": "match_analyzer_saas",
+      "note": "Motion-analysis SaaS used by racket-sport coaches.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "aiball",
+      "name": "Aiball",
+      "url": "https://aiball.io/",
+      "category": "club_camera_system",
+      "note": "AI court camera with automatic match recording.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelbrowser",
+      "name": "Padelbrowser",
+      "url": "https://padelbrowser.com/",
+      "category": "community_app",
+      "note": "Padel community + match-finding browser.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelboard",
+      "name": "Padelboard",
+      "url": "https://padelboard.app/",
+      "category": "rating_platform",
+      "note": "Rating and matchmaking app aligned with MATCHi.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "coachlogic",
+      "name": "CoachLogic",
+      "url": "https://coachlogic.com/",
+      "category": "academy",
+      "note": "Coach LMS for sport academies; adjacent to padel coach co-pilot.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelstats",
+      "name": "Padelstats",
+      "url": "https://padelstats.com/",
+      "category": "rating_platform",
+      "note": "Padel statistics + rating service.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "racketpal",
+      "name": "Racketpal",
+      "url": "https://racketpal.com/",
+      "category": "community_app",
+      "note": "Match-finding community for racket sports including padel.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padel_radar",
+      "name": "Padel Radar",
+      "url": "https://padelradar.com/",
+      "category": "rating_platform",
+      "note": "Padel rating tracker.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "court_sense",
+      "name": "Court Sense",
+      "url": "https://courtsense.io/",
+      "category": "club_camera_system",
+      "note": "Court vision system for racket sports.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "smash",
+      "name": "Smash",
+      "url": "https://smash.app/",
+      "category": "match_analyzer_saas",
+      "note": "Match analyzer for racket sports.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "playsight",
+      "name": "PlaySight",
+      "url": "https://playsight.com/",
+      "category": "club_camera_system",
+      "note": "Multi-sport AI camera and analytics platform.",
+      "arms": [
+        "perplexity/sonar-pro",
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "premier_padel",
+      "name": "Premier Padel",
+      "url": "https://premierpadel.com/",
+      "category": "rating_platform",
+      "note": "Top professional circuit; rating spine for tournament integration.",
+      "arms": [
+        "perplexity/sonar-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "hudl",
+      "name": "Hudl",
+      "url": "https://www.hudl.com/",
+      "category": "match_analyzer_saas",
+      "note": "Sport video analysis SaaS used by clubs and academies.",
+      "arms": [
+        "perplexity/sonar-reasoning-pro"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "decorte_cvpr2024_padel",
+      "name": "Decorte CVPR 2024 — Multi-modal hit detection in padel",
+      "url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+      "category": "research_prototype",
+      "note": "CVPR 2024 workshop padel paper.",
+      "arms": [
+        "validation_loop_2"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "skedda",
+      "name": "Skedda",
+      "url": "https://www.skedda.com/",
+      "category": "club_management_software",
+      "note": "Booking + venue management for clubs (incl. padel).",
+      "arms": [
+        "validation_loop_2"
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "coachseek",
+      "name": "CoachSeek",
+      "url": "https://www.coachseek.com/",
+      "category": "academy_lms",
+      "note": "Coach academy management platform.",
+      "arms": [
+        "validation_loop_2"
+      ],
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "peer_cards": [
+    {
+      "id": "clutch",
+      "name": "Clutch",
+      "url": "https://www.clutchapp.io/",
+      "archetype": "club_camera_system",
+      "value_prop": "Club-installed camera with automatic match recording, highlights, and player-level performance feed.",
+      "pricing": {
+        "model": "subscription",
+        "price_anchor": "€53/month per club tier per Sonar pricing capture",
+        "source_url": "https://www.clutchapp.io/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Active in Spanish and UK clubs per landing page",
+        "geo_presence": [
+          "ES",
+          "UK",
+          "UAE"
+        ],
+        "evidence_url": "https://www.clutchapp.io/"
+      },
+      "moat_class": "switching_cost",
+      "moat_evidence_url": "https://www.clutchapp.io/",
+      "gaps": [
+        "Number of paid clubs not on the landing page; only a logo wall is exposed.",
+        "Hardware install cost per court not disclosed publicly."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "coachseek",
+      "name": "CoachSeek",
+      "url": "https://www.coachseek.com/",
+      "archetype": "academy_lms",
+      "value_prop": "Coaching-academy management platform used by sport academies including racket-sport coaches for scheduling and student tracking.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "per-coach monthly tier published on pricing page",
+        "source_url": "https://www.coachseek.com/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Used by sport coaching businesses across multiple sports",
+        "geo_presence": [
+          "NZ",
+          "AU",
+          "US",
+          "UK"
+        ],
+        "evidence_url": "https://www.coachseek.com/"
+      },
+      "moat_class": "switching_cost",
+      "moat_evidence_url": "https://www.coachseek.com/",
+      "gaps": [
+        "No padel-specific tagging or shot taxonomy.",
+        "Tooling is operational; no rating or analytics layer."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "decorte_cvpr2024_padel",
+      "name": "Decorte CVPR 2024 — Multi-modal hit detection in padel",
+      "url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+      "archetype": "research_prototype",
+      "value_prop": "CVPR 2024 workshop paper presenting multi-modal hit detection and positional analysis for padel matches.",
+      "pricing": {
+        "model": "free_open_source",
+        "price_anchor": "academic publication; method is reproducible",
+        "source_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Cited in computer-vision-in-sports literature",
+        "geo_presence": [
+          "global"
+        ],
+        "evidence_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf"
+      },
+      "moat_class": "none",
+      "moat_evidence_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+      "gaps": [
+        "Academic prototype; not a productised offering.",
+        "Method requires multi-camera setup not available to amateur players."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "eyes_on_padel",
+      "name": "Eyes On Padel",
+      "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "archetype": "club_camera_system",
+      "value_prop": "Multi-court camera installation that records every match for shareable highlights, with optional analytics layer for clubs.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "per-court installation fee plus monthly per-court SaaS",
+        "source_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Eyes On reports installation across European padel and tennis clubs",
+        "geo_presence": [
+          "ES",
+          "FR",
+          "IT",
+          "UAE"
+        ],
+        "evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+      },
+      "moat_class": "distribution",
+      "moat_evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/",
+      "gaps": [
+        "Player-side analytics layer is shallower than dedicated coaching tools.",
+        "Cross-club rating signal is absent; footage stays inside the host club's account."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "hudl",
+      "name": "Hudl",
+      "url": "https://www.hudl.com/",
+      "archetype": "match_analyzer_saas",
+      "value_prop": "Sport video analysis SaaS used by clubs and academies across multiple sports including racket sports.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "published Hudl Assist plans starting around USD per team",
+        "source_url": "https://www.hudl.com/pricing"
+      },
+      "traction_signal": {
+        "users_or_clubs": "170,000+ teams cited on Hudl marketing pages",
+        "geo_presence": [
+          "US",
+          "UK",
+          "ES",
+          "IT",
+          "AR"
+        ],
+        "evidence_url": "https://www.hudl.com/products"
+      },
+      "moat_class": "switching_cost",
+      "moat_evidence_url": "https://www.hudl.com/products",
+      "gaps": [
+        "Padel-specific tagging vocabulary is shallow; coaches rebuild it manually.",
+        "Tooling assumes coach-led capture rather than smartphone-only consumer flows."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "joao_silva_padel_analytics",
+      "name": "Joao-M-Silva / padel_analytics",
+      "url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "archetype": "open_source",
+      "value_prop": "Open-source padel computer-vision pipeline tracking ball, players, and court positions for self-hosted analytics.",
+      "pricing": {
+        "model": "free_open_source",
+        "price_anchor": "MIT-style open-source license",
+        "source_url": "https://github.com/Joao-M-Silva/padel_analytics"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Public GitHub stars and forks",
+        "geo_presence": [
+          "global"
+        ],
+        "evidence_url": "https://github.com/Joao-M-Silva/padel_analytics"
+      },
+      "moat_class": "none",
+      "moat_evidence_url": "https://github.com/Joao-M-Silva/padel_analytics",
+      "gaps": [
+        "Repository is a research baseline, not a productised offering.",
+        "Real-time inference and on-device packaging are out of scope of the public code."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "matchi",
+      "name": "MATCHi",
+      "url": "https://matchi.com/",
+      "archetype": "matchmaking_app",
+      "value_prop": "Nordic court booking network for racket sports including padel, with operator tools for clubs.",
+      "pricing": {
+        "model": "freemium",
+        "price_anchor": "free for players; SaaS to clubs",
+        "source_url": "https://matchi.com/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Active in Nordic and adjacent markets",
+        "geo_presence": [
+          "SE",
+          "FI",
+          "DK",
+          "NO",
+          "NL"
+        ],
+        "evidence_url": "https://matchi.com/"
+      },
+      "moat_class": "network",
+      "moat_evidence_url": "https://matchi.com/",
+      "gaps": [
+        "Padel coaching specifically is not a core product surface.",
+        "Cross-network rating signal does not interoperate with Playtomic levels."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelboard",
+      "name": "Padelboard",
+      "url": "https://padelboard.app/",
+      "archetype": "rating_system_authority",
+      "value_prop": "Padel rating and matchmaking surface aligned with MATCHi, exposing ladders and player profiles.",
+      "pricing": {
+        "model": "freemium",
+        "price_anchor": "free tier with paid premium ladder features",
+        "source_url": "https://padelboard.app/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Nordic and UK ladders",
+        "geo_presence": [
+          "SE",
+          "UK",
+          "NL"
+        ],
+        "evidence_url": "https://padelboard.app/"
+      },
+      "moat_class": "network",
+      "moat_evidence_url": "https://padelboard.app/",
+      "gaps": [
+        "Rating signal is self-declared at sign-up; not derived from match video.",
+        "Coverage is concentrated in MATCHi-anchored geographies."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelplay",
+      "name": "PadelPlay",
+      "url": "https://www.padelplay.ai/",
+      "archetype": "sensor_hardware",
+      "value_prop": "Racket-mounted sensor combined with a companion app delivering shot recognition and tactical recommendations.",
+      "pricing": {
+        "model": "hardware_plus_service",
+        "price_anchor": "hardware bundle plus subscription tier",
+        "source_url": "https://www.padelplay.ai/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Direct-to-consumer hardware presale",
+        "geo_presence": [
+          "ES",
+          "IT"
+        ],
+        "evidence_url": "https://www.padelplay.ai/"
+      },
+      "moat_class": "integration",
+      "moat_evidence_url": "https://www.padelplay.ai/",
+      "gaps": [
+        "Dependency on hardware ownership creates conversion friction; refund and replacement terms not on the homepage.",
+        "Sample size of recorded sensor data and accuracy benchmarks not published."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "padelytics",
+      "name": "Padelytics",
+      "url": "https://www.padelytics.ai/",
+      "archetype": "product_app",
+      "value_prop": "AI video analysis converting padel match footage into shot-level statistics and tactical breakdowns for clubs and players.",
+      "pricing": {
+        "model": "subscription",
+        "price_anchor": "undisclosed monthly tier",
+        "source_url": "https://www.padelytics.ai/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Multiple Iberian and LATAM clubs cited on landing page",
+        "geo_presence": [
+          "ES",
+          "PT",
+          "AR",
+          "MX"
+        ],
+        "evidence_url": "https://www.padelytics.ai/"
+      },
+      "moat_class": "data",
+      "moat_evidence_url": "https://www.padelytics.ai/",
+      "gaps": [
+        "Public pricing tiers not disclosed on the homepage; needs a vendor follow-up.",
+        "Match dataset size and per-player longitudinal coverage is not enumerated."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "paradigma_case_study",
+      "name": "Paradigma — Padel CV case study",
+      "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+      "archetype": "consultancy_case_study",
+      "value_prop": "Engineering write-up of a CV subsystem for racket sports, useful as feasibility evidence for solo-execution paths.",
+      "pricing": {
+        "model": "unknown",
+        "price_anchor": "engineering services pricing not on the page",
+        "source_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Single named case study",
+        "geo_presence": [
+          "ES"
+        ],
+        "evidence_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+      },
+      "moat_class": "none",
+      "moat_evidence_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+      "gaps": [
+        "The page sells a service, not a product, so traction signals do not transfer.",
+        "Dataset, accuracy and runtime targets are not disclosed in the public case write-up."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "playsight",
+      "name": "PlaySight",
+      "url": "https://playsight.com/",
+      "archetype": "club_camera_system",
+      "value_prop": "Multi-sport AI camera and analytics platform with padel deployments in premium clubs.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "enterprise per-court SaaS; not disclosed publicly",
+        "source_url": "https://playsight.com/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Cited in MENA and US club deployments",
+        "geo_presence": [
+          "US",
+          "UAE",
+          "ES"
+        ],
+        "evidence_url": "https://playsight.com/"
+      },
+      "moat_class": "distribution",
+      "moat_evidence_url": "https://playsight.com/",
+      "gaps": [
+        "Pricing is not disclosed; channel is enterprise-led.",
+        "Padel coaching depth lags dedicated padel-only products."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "playtomic",
+      "name": "Playtomic",
+      "url": "https://playtomic.io/",
+      "archetype": "matchmaking_app",
+      "value_prop": "Court booking and matchmaking network connecting players to clubs and partners across multiple countries.",
+      "pricing": {
+        "model": "freemium",
+        "price_anchor": "free for players; B2B SaaS to clubs (Standard/Professional/Champion tiers)",
+        "source_url": "https://playtomic.com/pricing"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Cited as the largest padel booking network in 2025 reports",
+        "geo_presence": [
+          "ES",
+          "IT",
+          "SE",
+          "UK",
+          "DE",
+          "FR",
+          "BE",
+          "NL",
+          "PT",
+          "AR",
+          "MX",
+          "UAE"
+        ],
+        "evidence_url": "https://playtomic.com/global-padel-report"
+      },
+      "moat_class": "network",
+      "moat_evidence_url": "https://playtomic.com/global-padel-report",
+      "gaps": [
+        "Coaching layer is shallow versus dedicated peers; analytics ride on top of self-declared levels.",
+        "Player rating system has been re-tuned multiple times; cross-club consistency is debated by power users."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "premier_padel",
+      "name": "Premier Padel",
+      "url": "https://premierpadel.com/",
+      "archetype": "rating_system_authority",
+      "value_prop": "Top professional circuit producing the rating spine that amateurs and tournaments aspirationally anchor against.",
+      "pricing": {
+        "model": "unknown",
+        "price_anchor": "sponsorship and broadcast revenue model",
+        "source_url": "https://premierpadel.com/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "FIP-sanctioned global circuit",
+        "geo_presence": [
+          "global"
+        ],
+        "evidence_url": "https://premierpadel.com/"
+      },
+      "moat_class": "brand",
+      "moat_evidence_url": "https://premierpadel.com/",
+      "gaps": [
+        "Amateur ratings are not interoperable with the Premier Padel professional system today.",
+        "Tournament data is broadcast-grade but not exposed via a public API for amateur products."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "skedda",
+      "name": "Skedda",
+      "url": "https://www.skedda.com/",
+      "archetype": "club_management_software",
+      "value_prop": "Booking and venue-management software used by sport clubs including padel courts for member-side booking.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "per-venue monthly tiers published on pricing page",
+        "source_url": "https://www.skedda.com/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Used by 5,000+ venues globally including racket-sport facilities",
+        "geo_presence": [
+          "US",
+          "UK",
+          "ES",
+          "AU"
+        ],
+        "evidence_url": "https://www.skedda.com/"
+      },
+      "moat_class": "switching_cost",
+      "moat_evidence_url": "https://www.skedda.com/",
+      "gaps": [
+        "No padel-specific analytics layer; coaching capabilities are absent.",
+        "Mostly a horizontal venue-booking tool; rating signal is not derived."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "spash",
+      "name": "SPASH Match Analyzer",
+      "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+      "archetype": "match_analyzer_saas",
+      "value_prop": "AI match analyzer aimed at padel clubs that turns raw video into 20+ statistics and rally markers.",
+      "pricing": {
+        "model": "B2B_seat",
+        "price_anchor": "club tier sold per court per month",
+        "source_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Vendor markets to clubs, no public install count",
+        "geo_presence": [
+          "ES"
+        ],
+        "evidence_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+      },
+      "moat_class": "data",
+      "moat_evidence_url": "https://spash.com/en/match-analyzer-ia-clubs-padel/",
+      "gaps": [
+        "Public install count, churn, and pricing tiers not disclosed.",
+        "Dependence on club hardware partners narrows reachability of independent players."
+      ],
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "wingfield",
+      "name": "Wingfield",
+      "url": "https://www.wingfield.io/",
+      "archetype": "club_camera_system",
+      "value_prop": "Court-installed AI camera tracking ball, players, and shots for racket-sport clubs with companion player-facing app.",
+      "pricing": {
+        "model": "hardware_plus_service",
+        "price_anchor": "€85/month per court tier per Sonar pricing capture",
+        "source_url": "https://www.wingfield.io/"
+      },
+      "traction_signal": {
+        "users_or_clubs": "Hundreds of installed courts in DACH and Iberia",
+        "geo_presence": [
+          "DE",
+          "ES",
+          "CH",
+          "AT"
+        ],
+        "evidence_url": "https://www.wingfield.io/"
+      },
+      "moat_class": "integration",
+      "moat_evidence_url": "https://www.wingfield.io/",
+      "gaps": [
+        "Vendor primarily targets tennis; padel-specific shot taxonomy is shallower than padel-only peers.",
+        "Player-facing rating layer rides on club deployment rather than a smartphone-only path."
+      ],
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "jobs_graph": {
+    "schema_version": "1.0",
+    "title": "Jobs graph — Padel AI Coach",
+    "core_jobs": [
+      "JS-001",
+      "JS-002",
+      "JS-003",
+      "JS-004"
+    ],
+    "nodes": [
+      {
+        "id": "JS-001",
+        "label": "Get a defensible padel rating",
+        "level": "core",
+        "segments": [
+          "plateau-stuck regular",
+          "newly-ranked competitor"
+        ]
+      },
+      {
+        "id": "JS-002",
+        "label": "Translate match weaknesses into next two drills",
+        "level": "core",
+        "segments": [
+          "plateau-stuck regular"
+        ]
+      },
+      {
+        "id": "JS-003",
+        "label": "Track student progress as a coach without manual notes",
+        "level": "core",
+        "segments": [
+          "club coach (B2B2C)"
+        ]
+      },
+      {
+        "id": "JS-004",
+        "label": "Settle post-match argument with neutral footage",
+        "level": "core",
+        "segments": [
+          "travelling enthusiast",
+          "plateau-stuck regular"
+        ]
+      },
+      {
+        "id": "SUB-001a",
+        "label": "Capture a smartphone video of a full match",
+        "level": "sub",
+        "parent": "JS-001"
+      },
+      {
+        "id": "SUB-001b",
+        "label": "Auto-detect rallies and tag shots",
+        "level": "sub",
+        "parent": "JS-001"
+      },
+      {
+        "id": "SUB-001c",
+        "label": "Compute a rating delta against an opponent rating",
+        "level": "sub",
+        "parent": "JS-001"
+      },
+      {
+        "id": "SUB-002a",
+        "label": "Cluster shot losses into recurring patterns",
+        "level": "sub",
+        "parent": "JS-002"
+      },
+      {
+        "id": "SUB-002b",
+        "label": "Map cluster to drill prescription",
+        "level": "sub",
+        "parent": "JS-002"
+      },
+      {
+        "id": "SUB-002c",
+        "label": "Deliver drill plan before next booking",
+        "level": "sub",
+        "parent": "JS-002"
+      },
+      {
+        "id": "SUB-003a",
+        "label": "Tag students between sessions on the coach phone",
+        "level": "sub",
+        "parent": "JS-003"
+      },
+      {
+        "id": "SUB-003b",
+        "label": "Compose weekly per-student progress recap",
+        "level": "sub",
+        "parent": "JS-003"
+      },
+      {
+        "id": "SUB-003c",
+        "label": "Send recap before renewal conversation",
+        "level": "sub",
+        "parent": "JS-003"
+      },
+      {
+        "id": "SUB-004a",
+        "label": "Annotate footage with rally markers",
+        "level": "sub",
+        "parent": "JS-004"
+      },
+      {
+        "id": "SUB-004b",
+        "label": "Share annotated link with partner phone",
+        "level": "sub",
+        "parent": "JS-004"
+      },
+      {
+        "id": "META-A",
+        "label": "Spend disposable sport budget on highest-return next move",
+        "level": "meta"
+      },
+      {
+        "id": "META-B",
+        "label": "Operate a sustainable padel coaching practice",
+        "level": "meta"
+      }
+    ],
+    "edges": [
+      {
+        "from": "SUB-001a",
+        "to": "SUB-001b",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-001b",
+        "to": "SUB-001c",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-001c",
+        "to": "JS-001",
+        "relation": "enables"
+      },
+      {
+        "from": "JS-001",
+        "to": "META-A",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-001b",
+        "to": "SUB-002a",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-002a",
+        "to": "SUB-002b",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-002b",
+        "to": "SUB-002c",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-002c",
+        "to": "JS-002",
+        "relation": "enables"
+      },
+      {
+        "from": "JS-002",
+        "to": "META-A",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-003a",
+        "to": "SUB-003b",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-003b",
+        "to": "SUB-003c",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-003c",
+        "to": "JS-003",
+        "relation": "enables"
+      },
+      {
+        "from": "JS-003",
+        "to": "META-B",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-001a",
+        "to": "SUB-004a",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-004a",
+        "to": "SUB-004b",
+        "relation": "enables"
+      },
+      {
+        "from": "SUB-004b",
+        "to": "JS-004",
+        "relation": "enables"
+      },
+      {
+        "from": "JS-001",
+        "to": "JS-002",
+        "relation": "alternates"
+      },
+      {
+        "from": "JS-001",
+        "to": "JS-003",
+        "relation": "alternates"
+      },
+      {
+        "from": "JS-002",
+        "to": "JS-003",
+        "relation": "triggers"
+      },
+      {
+        "from": "JS-004",
+        "to": "JS-001",
+        "relation": "triggers"
+      },
+      {
+        "from": "SUB-001b",
+        "to": "JS-003",
+        "relation": "enables"
+      }
+    ],
+    "critical_chains": [
+      {
+        "id": "CC-1",
+        "name": "Rating-clarity backbone",
+        "nodes": [
+          "SUB-001a",
+          "SUB-001b",
+          "SUB-001c",
+          "JS-001"
+        ],
+        "rationale": "If smartphone video capture, rally and shot tagging, and rating delta computation cannot reach acceptable accuracy, every downstream Core Job (drill prescription, coach co-pilot, post-match review) loses its anchor signal."
+      },
+      {
+        "id": "CC-2",
+        "name": "Coach renewal chain",
+        "nodes": [
+          "SUB-003a",
+          "SUB-003b",
+          "SUB-003c",
+          "JS-003",
+          "META-B"
+        ],
+        "rationale": "The B2B2C revenue line collapses if any link from in-session tagging to renewal-time recap fails — coaches cite the missing recap as the renewal-conversation failure mode."
+      }
+    ],
+    "abcd_analysis": {
+      "verdict": "Invest in CC-1 first; CC-2 is gated on CC-1 working at smartphone-only fidelity. JS-004 is a marketing surface, not a critical chain on its own.",
+      "rationale": "By ABCD critical-chain analysis (https://github.com/Joao-M-Silva/padel_analytics — feasibility anchor), polishing JS-002 drill prescription before CC-1 stabilises produces a local optimum that the rating chain undermines."
+    },
+    "evidence_basis": [
+      "Peer cards under evidence/<run-id>/04_peer_cards/ — Padelytics, Clutch, Eyes On Padel, SPASH, Wingfield, PlaySight all rely on capture-then-tag pipelines that match SUB-001a → SUB-001b → SUB-001c.",
+      "Open-source baseline at https://github.com/Joao-M-Silva/padel_analytics demonstrates that the SUB-001 chain is technically feasible without GPU spend.",
+      "Hudl's product surface (https://www.hudl.com/products) shows that coach co-pilot workflows depend on the tag stream being there in the first place."
+    ]
+  },
+  "red_team": {
+    "schema_version": "1.0",
+    "method": "segment-stress-test (https://github.com/Joao-M-Silva/padel_analytics serves as feasibility evidence; peer cards in evidence/<run-id>/04_peer_cards/ supply counter-examples).",
+    "summary": {
+      "ran_against": [
+        "SEG-001",
+        "SEG-002",
+        "SEG-003",
+        "SEG-004",
+        "SEG-005",
+        "SEG-006"
+      ],
+      "non_pass_count": 3
+    },
+    "verdicts": [
+      {
+        "segment_id": "SEG-001",
+        "name": "The plateau-stuck regular",
+        "verdict": "pass_with_caveats",
+        "failure_modes": [
+          {
+            "code": "FM-3",
+            "mode": "missing_trigger",
+            "evidence": "\"Skill stagnation\" is a feeling, not an event. Caveat tightens the trigger to: lost a match against a regular partner whose self-declared rating outpaces this player."
+          },
+          {
+            "code": "FM-7",
+            "mode": "vanity_moat",
+            "evidence": "Generic match video accumulates, but unless tied to a per-player longitudinal record (CC-1), the data does not improve the rating model."
+          }
+        ],
+        "counter_examples": [
+          "Padelytics (https://www.padelytics.ai/) sells match-level analysis to plateau players today; the trigger that converts them is partner-driven, not internal stagnation.",
+          "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) provides club-side highlights that satisfy the curiosity layer without prompting a rating purchase."
+        ],
+        "strongest_reason_false_segment": "If the trigger is partner comparison rather than self-perceived plateau, the segment overlaps with the newly-ranked competitor; merging risk is real.",
+        "strongest_reason_real": "The alternatives_hired list is concrete (Padelytics, Clutch, club camera, paid coach), not invented; the segment is reachable through padel-specific community channels.",
+        "recommendation": "keep",
+        "kill_experiments": [
+          {
+            "experiment": "smoke-test 'request a padel rating' fake-door landing in Spain and Italy",
+            "threshold": "≥6% CTR on padel community channels (Reddit, club newsletters)",
+            "timeline_weeks": 2
+          }
+        ]
+      },
+      {
+        "segment_id": "SEG-002",
+        "name": "The newly-ranked competitor",
+        "verdict": "pass",
+        "failure_modes": [
+          {
+            "code": "none",
+            "mode": "none",
+            "evidence": "Trigger (tournament loss) is event-based; alternatives are concrete (federation result, paid coach assessment)."
+          }
+        ],
+        "counter_examples": [
+          "Premier Padel rating (https://premierpadel.com/) does not interoperate with amateur products today, so the unmet outcome is real."
+        ],
+        "strongest_reason_false_segment": "If the player's federation already publishes a rating per tournament, the unmet outcome shrinks to convenience rather than transferability.",
+        "strongest_reason_real": "Tournament-loss → reach-for-tool is a recurring switch trigger documented in club coach interviews.",
+        "recommendation": "keep"
+      },
+      {
+        "segment_id": "SEG-003",
+        "name": "The club coach (B2B2C)",
+        "verdict": "pass_with_caveats",
+        "failure_modes": [
+          {
+            "code": "FM-5",
+            "mode": "unreachable_affordably",
+            "evidence": "Coaches are slow to convert and CAC anchors are unknown; depending on coach affiliate (foundrycro.com benchmark CAC=$150 for affiliate channels) leaves the segment economic-margin-thin until LTV math is verified."
+          }
+        ],
+        "counter_examples": [
+          "Hudl (https://www.hudl.com/) sells to coaches across multiple sports but its padel-specific tagging is shallow, leaving room — and risk.",
+          "CoachLogic (https://coachlogic.com/) offers a coach LMS that some coaches already pay for; switching cost is real."
+        ],
+        "strongest_reason_false_segment": "Coaches sometimes refuse any tool the student also touches; if that refusal dominates, the segment splits into coach-only vs B2B2C and the latter shrinks.",
+        "strongest_reason_real": "The renewal-conversation pain is documented across multiple peer cards; the trigger (lost student) is event-based.",
+        "recommendation": "keep",
+        "kill_experiments": [
+          {
+            "experiment": "recruit 8 coaches via FEP (https://www.fep.es/) and FITP (https://www.fitp.it/) chapters and run a 1-week pilot",
+            "threshold": "≥3 coaches submit a recap; ≥1 sends it to a student",
+            "timeline_weeks": 2
+          }
+        ]
+      },
+      {
+        "segment_id": "SEG-004",
+        "name": "The club operator (B2B)",
+        "verdict": "fail",
+        "failure_modes": [
+          {
+            "code": "FM-1",
+            "mode": "demographic_in_disguise",
+            "evidence": "\"Manages 4–12 courts\" is a venue-size descriptor; differentiation does not predict Core Job behavior the way a switch trigger does."
+          },
+          {
+            "code": "FM-2",
+            "mode": "one_job_multiple_segments",
+            "evidence": "Operator job 'differentiate against the local club' overlaps with the coach segment's renewal job; mechanics needed are nearly identical."
+          }
+        ],
+        "counter_examples": [
+          "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) sells to operators today; the moat lives in the camera install, not the analytics — separate game from a coaching co-pilot."
+        ],
+        "strongest_reason_false_segment": "Operator economics are dominated by court hardware capex and bookings throughput; AI coaching is a feature, not a primary purchase.",
+        "strongest_reason_real": "Some operators do buy analytics dashboards, but the value is bookings retention, not coaching depth.",
+        "recommendation": "kill",
+        "kill_experiments": [
+          {
+            "experiment": "none — fold operator interactions into coach segment until evidence justifies a separate canvas",
+            "threshold": "n/a",
+            "timeline_weeks": 0
+          }
+        ]
+      },
+      {
+        "segment_id": "SEG-005",
+        "name": "The travelling enthusiast",
+        "verdict": "pass_with_caveats",
+        "failure_modes": [
+          {
+            "code": "FM-4",
+            "mode": "no_real_alternative",
+            "evidence": "\"No consistent rating across cities\" is true but most travelling players hire Playtomic/MATCHi self-declared levels — competing against an alternative rather than a missing one."
+          }
+        ],
+        "counter_examples": [
+          "Playtomic (https://playtomic.io/) and MATCHi (https://matchi.com/) cover cross-club bookings; their self-declared levels are the alternative, not nothing."
+        ],
+        "strongest_reason_false_segment": "Travelling enthusiasts are a thin slice of paid users; reachability through founder channel could be cheap but the segment may be too small to anchor monetisation.",
+        "strongest_reason_real": "Tournament invitations across cities are an event-based trigger; ratings that travel meaningfully solve the unmet outcome.",
+        "recommendation": "merge with SEG-001",
+        "kill_experiments": [
+          {
+            "experiment": "survey existing Playtomic / MATCHi power users on whether they would switch their public rating from self-declared to derived",
+            "threshold": "≥30% prefer derived",
+            "timeline_weeks": 2
+          }
+        ]
+      },
+      {
+        "segment_id": "SEG-006",
+        "name": "The injury-aware returning player",
+        "verdict": "false_segment",
+        "failure_modes": [
+          {
+            "code": "FM-1",
+            "mode": "demographic_in_disguise",
+            "evidence": "\"Returning after injury\" is a life-situation label; the Core Job (movement quality monitoring) does not yet have a documented switch trigger or named alternative."
+          },
+          {
+            "code": "FM-7",
+            "mode": "vanity_moat",
+            "evidence": "Injury-load modelling without longitudinal sensor data risks fabricating a moat where the data accumulation does not yet exist."
+          }
+        ],
+        "counter_examples": [
+          "Whoop (https://www.whoop.com/membership/) covers movement-load monitoring across sports; padel-specific load modelling is under-evidenced in peer cards."
+        ],
+        "strongest_reason_false_segment": "Without a verified switch trigger or specific alternative_hired, the segment is a feature wishlist rather than a real Core Job.",
+        "strongest_reason_real": "There is plausible demand long-term, but the kill experiment needs to come before the segment is treated as real.",
+        "recommendation": "kill",
+        "kill_experiments": [
+          {
+            "experiment": "defer; revisit only if Phase 09 audit promotes the injury-load value mechanic above the rating chain",
+            "threshold": "n/a until evidence appears",
+            "timeline_weeks": 0
+          }
+        ]
+      }
+    ],
+    "pipeline_level_risk": "If SEG-001 and SEG-005 collapse into a single segment, the beachhead becomes more concentrated — a positive — but the GTM channel ranking must follow the rating-clarity job, not the travelling-enthusiast story.",
+    "kill_experiment_for_pipeline_risk": "Run JTBD interviews with 8 plateau-stuck regulars and ask explicitly whether 'rating that travels' or 'drill prescription' was the precipitating switch — Phase 07 owns this experiment."
+  },
+  "value_mechanics": [
+    {
+      "mechanic_id": "VM-001",
+      "name": "Smartphone-only video → rating delta pipeline",
+      "moat_class": "data",
+      "thesis": "Each match yields a structured shot-and-position record that compounds into a per-player longitudinal rating other clubs accept.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Rating travels across clubs and partners",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Player records the match with a phone propped on the bag.",
+        "App ingests video, segments rallies, tags shots and court positions.",
+        "Rating delta computed against opponent's rating; rating updated.",
+        "Player feels validated when the rating reflects what the partner already saw.",
+        "Player shares the rating link with a new partner before the next booking."
+      ],
+      "defensibility": {
+        "reasoning": "The data is unique per use, reusable across users, and the rating model improves with every match. This is the canonical Naval data-gate."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Spain alone has 6M players against 109,040 federation licensees per FIP World Padel Report 2025 (https://www.padelfip.com/world-padel-report-2025/) — vast unrated population."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Padelytics or Clutch deepens longitudinal rating before the candidate hits scale."
+      },
+      "rice": {
+        "reach_0_10": 7,
+        "impact_0_3": 3,
+        "confidence_0_100": 55,
+        "effort_person_weeks": 12,
+        "score": 96.25
+      },
+      "kill_experiment": {
+        "description": "Reproduce the open-source baseline at https://github.com/Joao-M-Silva/padel_analytics into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits.",
+        "success_threshold": "Rating delta correlates with self-assessed level r ≥ 0.55 across 50 matches.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-002",
+          "VM-003"
+        ],
+        "stack_fit": "OpenRouter Claude Sonnet 4.6 for tagging, Claude Haiku 4.5 for batch processing, free-tier Tongyi for ablations."
+      }
+    },
+    {
+      "mechanic_id": "VM-002",
+      "name": "Cross-club rating that travels with the player",
+      "moat_class": "network",
+      "thesis": "Rating value compounds with every additional club and tournament that accepts it as the seeding signal — non-linear with users.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Rating accepted at any club",
+        "segment_id": "SEG-002"
+      },
+      "experience_sketch": [
+        "Player joins a tournament in a different city.",
+        "Tournament organiser imports the rating via a single link.",
+        "Seeding placed on the imported rating; bracket order is published.",
+        "Player feels recognised across clubs without re-proving level.",
+        "Other tournament organisers see the standardised export and request the same."
+      ],
+      "defensibility": {
+        "reasoning": "Each new club or organiser increases the value to existing players — and increases the cost of leaving. Network effect grows as Σ(clubs × players)."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Premier Padel rating system documented at https://premierpadel.com/ has authority but no amateur interoperability."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Playtomic could publish their own derived-rating spec and out-distribute the candidate."
+      },
+      "rice": {
+        "reach_0_10": 6,
+        "impact_0_3": 3,
+        "confidence_0_100": 40,
+        "effort_person_weeks": 18,
+        "score": 40.0
+      },
+      "kill_experiment": {
+        "description": "Sign letters of intent with two FIP-affiliated regional organisers in Spain or Italy to import a candidate rating into a single bracket.",
+        "success_threshold": "Two organisers commit to a 30-day bracket trial.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001"
+        ],
+        "stack_fit": "Tournament-organiser portal CRUD; data feed exposed via signed JSON."
+      }
+    },
+    {
+      "mechanic_id": "VM-003",
+      "name": "Drill prescription engine tied to losing-shot clusters",
+      "moat_class": "data",
+      "thesis": "Each labelled losing-shot cluster across users improves the drill mapping; drill prescriptions become the cheapest way to convert a rating insight into court time.",
+      "targets": {
+        "core_job_id": "JS-002",
+        "unmet_outcome": "Drill prescription tied to actual losing shot",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Match recap surfaces the recurring losing shot.",
+        "App proposes two drills with the situation, the success criterion, and the partner role.",
+        "Player books the drill into the next session.",
+        "Player feels the next session is no longer a generic warm-up.",
+        "Player rates whether the drill moved the outcome — feedback loop closes."
+      ],
+      "defensibility": {
+        "reasoning": "Drill-to-outcome data accumulates per match across the user base, improving the prescription as the corpus grows. Naval data gate scoring is medium without VM-001."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Padelytics positions match-level breakdowns as the core promise — see https://www.padelytics.ai/ . Drill prescription is the unmet outcome above raw breakdowns."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Coach LMS vendors (CoachLogic) layer drill prescription as a coach add-on."
+      },
+      "rice": {
+        "reach_0_10": 6,
+        "impact_0_3": 2,
+        "confidence_0_100": 50,
+        "effort_person_weeks": 8,
+        "score": 75.0
+      },
+      "kill_experiment": {
+        "description": "Run a smoke-test in Spanish padel community channels offering personalized drill prescription after a free match upload.",
+        "success_threshold": "≥10% of uploads convert to drill plan acknowledgement within seven days.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001"
+        ],
+        "stack_fit": "Drill library curated from public padel coach content; tagged against shot taxonomy."
+      }
+    },
+    {
+      "mechanic_id": "VM-004",
+      "name": "Coach co-pilot that survives the renewal conversation",
+      "moat_class": "switching_cost",
+      "thesis": "Each between-session tag a coach files becomes part of the renewal-conversation artifact. Coaches do not export the artifact when they leave.",
+      "targets": {
+        "core_job_id": "JS-003",
+        "unmet_outcome": "Per-student delta surfaced without manual data entry",
+        "segment_id": "SEG-003"
+      },
+      "experience_sketch": [
+        "Coach taps quick tags on the phone after each lesson.",
+        "App auto-composes a weekly per-student recap.",
+        "Coach sends recap before the renewal conversation.",
+        "Coach feels the renewal pitch is data-led, not vibe-led.",
+        "Coach is reluctant to migrate because the recap history lives inside the tool."
+      ],
+      "defensibility": {
+        "reasoning": "Coach workflow embedment is the canonical switching-cost moat — Hudl (https://www.hudl.com/products) demonstrates this in adjacent sports."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "CoachLogic (https://coachlogic.com/) sells a generic LMS; padel-specific tagging vocabulary is shallow."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Hudl extends padel-specific tagging vocabulary or partners with a club camera vendor."
+      },
+      "rice": {
+        "reach_0_10": 4,
+        "impact_0_3": 3,
+        "confidence_0_100": 50,
+        "effort_person_weeks": 10,
+        "score": 60.0
+      },
+      "kill_experiment": {
+        "description": "Pilot the dashboard with 8 coaches recruited via FEP (https://www.fep.es/) and FITP (https://www.fitp.it/) chapters.",
+        "success_threshold": "≥3 coaches send a recap to a student during the pilot.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001",
+          "VM-003"
+        ],
+        "stack_fit": "Coach phone capture + Claude Sonnet 4.6 narrative composition + Claude Haiku 4.5 summary."
+      }
+    },
+    {
+      "mechanic_id": "VM-005",
+      "name": "Shared post-match review surface for partner pairs",
+      "moat_class": "network",
+      "thesis": "A pair-level annotated review surface turns one user into two and seeds invite-driven distribution.",
+      "targets": {
+        "core_job_id": "JS-004",
+        "unmet_outcome": "Both partners feel ownership of the review",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Player tags rallies and decisions while watching the recap.",
+        "Partner receives a link with the same timeline.",
+        "Both add comments anchored to timestamps.",
+        "Both feel the review is mutual, not one-sided.",
+        "Both invite a second pair into the same surface for the next match."
+      ],
+      "defensibility": {
+        "reasoning": "Each second user adds value to the first — a textbook Naval network gate."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) and PlaySight (https://playsight.com/) expose footage but not shared annotation primitives."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Existing camera vendors add comment threads to their share links."
+      },
+      "rice": {
+        "reach_0_10": 7,
+        "impact_0_3": 2,
+        "confidence_0_100": 40,
+        "effort_person_weeks": 6,
+        "score": 93.33
+      },
+      "kill_experiment": {
+        "description": "A/B test pair-level vs single-user share flow on next-week active users.",
+        "success_threshold": "Pair-level surface drives ≥1.5x sharing rate vs single-user.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001"
+        ],
+        "stack_fit": "Share-link architecture; partner identity reconciliation."
+      }
+    },
+    {
+      "mechanic_id": "VM-006",
+      "name": "Distribution-as-moat through founder-owned audience asset",
+      "moat_class": "distribution",
+      "thesis": "Direct relationship with a multilingual padel audience — newsletter, Telegram, podcast — captures attention upstream of Playtomic, MATCHi, and paid channels.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Reach players before the first booking",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Player joins the founder-owned newsletter from a Spanish or Russian-language post.",
+        "Newsletter consistently delivers a tactical insight.",
+        "Newsletter announces a match-rating beta with a free recap.",
+        "Player feels the brand is independent of any club.",
+        "Player invites a partner directly through the newsletter forward."
+      ],
+      "defensibility": {
+        "reasoning": "Direct-to-user attention is not a platform feature; the audience does not depend on a gatekeeper. Naval distribution gate."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Newsletter CAC anchored at $12 per Foundry CRO benchmark vs $94 for Meta and $711 for ASO (https://foundrycro.com/blog/cac-benchmarks-2026/)."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Padel media (Padel Business Magazine) fences the audience with a paywall."
+      },
+      "rice": {
+        "reach_0_10": 8,
+        "impact_0_3": 2,
+        "confidence_0_100": 55,
+        "effort_person_weeks": 4,
+        "score": 220.0
+      },
+      "kill_experiment": {
+        "description": "Launch a Spanish-language and a Russian-language newsletter; compare the share of bookings driven by direct-traffic referers.",
+        "success_threshold": "≥40% of beta sign-ups arrive via direct traffic from owned channels.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001"
+        ],
+        "stack_fit": "Owned newsletter platform; founder content cadence."
+      }
+    },
+    {
+      "mechanic_id": "VM-007",
+      "name": "Tournament-organiser integration that becomes the seeding spine",
+      "moat_class": "integration",
+      "thesis": "Once a regional organiser uses the rating to seed a bracket, the cost of switching to another rating spec is operational, not commercial.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Tournament rating that interoperates",
+        "segment_id": "SEG-002"
+      },
+      "experience_sketch": [
+        "Organiser imports the rating via a single signed JSON link.",
+        "Bracket auto-seeds against the imported rating.",
+        "Officials run the day with the imported rating live.",
+        "Organiser feels the day required less manual seeding work.",
+        "Organiser anchors next quarter's brackets on the imported rating."
+      ],
+      "defensibility": {
+        "reasoning": "Operational switching cost — once seedings are automated, removing the integration is a manual reset that organisers will refuse."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "FIP calendar (https://www.padelfip.com/calendar-fip-championships/) shows hundreds of regional opportunities annually."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "FIP releases an open seeding API; integration moat collapses."
+      },
+      "rice": {
+        "reach_0_10": 4,
+        "impact_0_3": 3,
+        "confidence_0_100": 35,
+        "effort_person_weeks": 12,
+        "score": 35.0
+      },
+      "kill_experiment": {
+        "description": "Sign two letters of intent with FIP regional organisers; ship a one-court demo bracket.",
+        "success_threshold": "Bracket runs without manual override.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001",
+          "VM-002"
+        ],
+        "stack_fit": "Signed JSON export; OAuth-style organiser portal."
+      }
+    },
+    {
+      "mechanic_id": "VM-008",
+      "name": "Local-language coaching narrative for non-English markets",
+      "moat_class": "distribution",
+      "thesis": "First-language tactical narratives in Spanish, Italian, and Russian capture attention before the global English-first competitors localise.",
+      "targets": {
+        "core_job_id": "JS-002",
+        "unmet_outcome": "Reach in non-English padel markets",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Player receives the recap in their first language.",
+        "Phrasing matches the in-club coaching vocabulary.",
+        "Player shares the recap with a club partner who reads the same language.",
+        "Partner feels the tool fits their court conversation.",
+        "Both share with the next pair without translation friction."
+      ],
+      "defensibility": {
+        "reasoning": "Localised content + linguistic distribution channel is a Naval distribution gate; English-first competitors cannot match cadence."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Italy passes 10,220 courts (FIP World Padel Report 2025 — https://www.padelfip.com/2025/06/the-padel-boom-shows-no-signs-of-stopping-italy-surpasses-10000-courts-second-only-to-spain/), French federation tops 100,000 licensees (https://padelbiz.it/2025/06/24/french-padel-players/)."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Padelytics or Wingfield localise faster than the candidate scales."
+      },
+      "rice": {
+        "reach_0_10": 7,
+        "impact_0_3": 2,
+        "confidence_0_100": 55,
+        "effort_person_weeks": 4,
+        "score": 192.5
+      },
+      "kill_experiment": {
+        "description": "Translate the recap into Spanish and Russian; test cohort retention against English-only baseline.",
+        "success_threshold": "Localised cohort retains ≥1.3x English baseline through week three.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-006"
+        ],
+        "stack_fit": "OpenRouter Claude Haiku 4.5 for translation; Claude Sonnet 4.6 for tactical phrasing review."
+      }
+    },
+    {
+      "mechanic_id": "VM-009",
+      "name": "Open-source release of an inert component",
+      "moat_class": "brand",
+      "thesis": "Releasing an inert engineering component (court calibration, shot taxonomy spec) builds developer credibility without giving away the data flywheel.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Brand authority among technical adjacents",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Engineering team releases the court-calibration component on GitHub.",
+        "Padel CV community references it in their README.",
+        "Players hear the brand mentioned at federation meetings.",
+        "Brand feels independent of any single peer.",
+        "Brand becomes the default citation in adjacent products."
+      ],
+      "defensibility": {
+        "reasoning": "Brand-as-moat is fragile alone; the component's openness is a cheap signal that the team has technical credibility, supporting the data and distribution gates."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Joao-M-Silva/padel_analytics (https://github.com/Joao-M-Silva/padel_analytics) shows a public CV pipeline already attracts attention."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "A larger lab forks the component and out-promotes the candidate."
+      },
+      "rice": {
+        "reach_0_10": 3,
+        "impact_0_3": 1,
+        "confidence_0_100": 50,
+        "effort_person_weeks": 3,
+        "score": 50.0
+      },
+      "kill_experiment": {
+        "description": "Publish the open-source component; track GitHub stars, forks, and citations.",
+        "success_threshold": "≥50 stars and ≥3 citations within four weeks.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [],
+        "stack_fit": "GitHub release; founder-led developer outreach."
+      }
+    },
+    {
+      "mechanic_id": "VM-010",
+      "name": "Privacy-respecting on-device extraction for high-end users",
+      "moat_class": "regulatory",
+      "thesis": "Local-first extraction in regions with strict consumer-data rules (EU GDPR, Russia 152-FZ) lets the candidate operate where peers stall on cross-border data flow.",
+      "targets": {
+        "core_job_id": "JS-001",
+        "unmet_outcome": "Privacy-respecting rating in regulated markets",
+        "segment_id": "SEG-001"
+      },
+      "experience_sketch": [
+        "Player processes the match locally on a recent smartphone.",
+        "Only the rating delta is uploaded; raw video stays on-device.",
+        "Player feels personal data has not left the phone.",
+        "Player chooses the candidate over peers that require server upload.",
+        "Player promotes the privacy stance inside their club."
+      ],
+      "defensibility": {
+        "reasoning": "Regulatory gate — the cost of compliance is non-trivial for global peers, and local-first extraction scales without that overhead."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Russian 152-FZ and EU GDPR set explicit cross-border constraints; detailed by FIP regulatory references on regional events (https://www.padelfip.com/events/fip-silver-kazakhstan-2025/)."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "Apple or Google enables on-device transcoding for video apps as a default; on-device CV becomes a commodity."
+      },
+      "rice": {
+        "reach_0_10": 4,
+        "impact_0_3": 2,
+        "confidence_0_100": 35,
+        "effort_person_weeks": 12,
+        "score": 23.33
+      },
+      "kill_experiment": {
+        "description": "Ship an on-device pilot for an iPhone 14 or newer; measure energy and accuracy against the cloud baseline.",
+        "success_threshold": "On-device runs at less than 2x energy of cloud baseline with accuracy ≥90 percent.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-001"
+        ],
+        "stack_fit": "Core ML / TFLite; OpenRouter Claude Haiku 4.5 for on-device prompt evaluation."
+      }
+    },
+    {
+      "mechanic_id": "VM-011",
+      "name": "Open-data export for academies — lock-in via tooling, not data hoarding",
+      "moat_class": "learning_curve",
+      "thesis": "Academies adopt the candidate's drill and tag taxonomy; staff training compounds the cost of switching tools without the candidate hoarding the underlying data.",
+      "targets": {
+        "core_job_id": "JS-003",
+        "unmet_outcome": "Academy-wide tagging convergence",
+        "segment_id": "SEG-003"
+      },
+      "experience_sketch": [
+        "Academy adopts the tagging schema across coaches.",
+        "New coach hires train against the schema.",
+        "Performance reviews cite the schema directly.",
+        "Academy feels the schema is the standard.",
+        "Switching to a competitor demands re-training every coach."
+      ],
+      "defensibility": {
+        "reasoning": "Learning curve becomes the lock-in; data exports remain free, so the candidate cannot be accused of vendor capture."
+      },
+      "evidence": {
+        "interview_quote_ids": [],
+        "quant_signal": "Padel United (https://www.padel-united.com/about) and similar club groups document the staffing scale that benefits from a single schema."
+      },
+      "risks": {
+        "false_segment_risk": false,
+        "counter_mechanic": "A club federation publishes a competing free schema."
+      },
+      "rice": {
+        "reach_0_10": 3,
+        "impact_0_3": 2,
+        "confidence_0_100": 40,
+        "effort_person_weeks": 4,
+        "score": 60.0
+      },
+      "kill_experiment": {
+        "description": "Pilot the schema with a single multi-court academy; measure coach onboarding time before vs after.",
+        "success_threshold": "New-coach onboarding cut by 30 percent within four weeks.",
+        "timeline_weeks": 2
+      },
+      "dependencies": {
+        "other_mechanics_required": [
+          "VM-004"
+        ],
+        "stack_fit": "Schema definition document; cross-coach training assets."
+      }
+    }
+  ],
+  "moat_audit": {
+    "schema_version": "1.0",
+    "method": "Naval-style 5-gate filter — distribution, network, data, hardware, vertical_depth. Score 0 (absent), 1 (partial), 2 (strong). Citations live at evidence/<run-id>/_arms/H2_naval_pro.json and on nav.al directly.",
+    "naval_sources_verified": [
+      {
+        "url": "https://nav.al/business-models",
+        "quote": "Network effect is when each additional user adds value to existing user base.",
+        "topic": "network_effects"
+      },
+      {
+        "url": "https://nav.al/judgment",
+        "quote": "Judgment is the decisive skill in an age of leverage.",
+        "topic": "vertical_depth"
+      },
+      {
+        "url": "https://nav.al/specific-knowledge",
+        "quote": "Specific knowledge cannot be trained for; it is hunted, found, lived.",
+        "topic": "data"
+      },
+      {
+        "url": "https://nav.al/podcast",
+        "quote": "Direct relationship with the audience is the asset.",
+        "topic": "distribution"
+      },
+      {
+        "url": "https://x.com/naval",
+        "quote": "Long-term reputation is built on a body of public work.",
+        "topic": "distribution"
+      }
+    ],
+    "audit": [
+      {
+        "mechanic": "VM-001 Smartphone-only video → rating delta pipeline",
+        "scores": {
+          "distribution": 1,
+          "network": 1,
+          "data": 2,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "lead_candidate",
+        "rationale": "Data gate is strong because each match generates unique-per-user data that improves the rating model. Vertical depth is strong because padel-specific shot taxonomy and rallies are not derivative of tennis or golf.",
+        "naval_citation_url": "https://nav.al/specific-knowledge",
+        "next_90_days": "Lock the smartphone capture path with 50 verified matches; publish the shot taxonomy as the schema VM-011 will adopt.",
+        "counter_position": "A general-purpose CV company forks the pipeline — but lacks the data flywheel without padel-specific labels."
+      },
+      {
+        "mechanic": "VM-002 Cross-club rating that travels with the player",
+        "scores": {
+          "distribution": 1,
+          "network": 2,
+          "data": 2,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "lead_candidate",
+        "rationale": "Network gate strong: each new club / organiser adopting the rating spec increases the rating's value to every other player. Data gate co-strong because the rating quality grows with matches.",
+        "naval_citation_url": "https://nav.al/business-models",
+        "next_90_days": "Sign two regional FIP-affiliated organisers to a 30-day bracket trial; treat the LOIs as the locking move.",
+        "counter_position": "Playtomic publishes its own rating spec faster than the candidate signs organisers."
+      },
+      {
+        "mechanic": "VM-003 Drill prescription engine tied to losing-shot clusters",
+        "scores": {
+          "distribution": 0,
+          "network": 1,
+          "data": 2,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "supporting",
+        "rationale": "Data gate strong but only as a downstream of VM-001. Distribution and hardware absent on its own. Treated as a supporting mechanic that anchors retention for VM-001.",
+        "naval_citation_url": "https://nav.al/specific-knowledge",
+        "supports": "VM-001",
+        "counter_position": "Hudl extends padel tagging vocabulary; drill prescription becomes a feature, not a moat."
+      },
+      {
+        "mechanic": "VM-004 Coach co-pilot that survives the renewal conversation",
+        "scores": {
+          "distribution": 1,
+          "network": 1,
+          "data": 1,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "supporting",
+        "rationale": "Workflow embedment is real but slow to compound; depends on VM-001 to feed the recap. Vertical depth is strong because padel coach renewal cadence differs from tennis or fitness.",
+        "naval_citation_url": "https://nav.al/judgment",
+        "supports": "VM-001",
+        "counter_position": "CoachLogic adds padel-specific tagging; switching cost moat erodes."
+      },
+      {
+        "mechanic": "VM-005 Shared post-match review surface for partner pairs",
+        "scores": {
+          "distribution": 2,
+          "network": 2,
+          "data": 1,
+          "hardware": 0,
+          "vertical_depth": 1
+        },
+        "verdict": "supporting",
+        "rationale": "Network gate strong because each second user adds value; distribution gate strong because pair invites convert without paid acquisition. Acts as a viral surface, not a primary moat.",
+        "naval_citation_url": "https://nav.al/business-models",
+        "supports": "VM-006",
+        "counter_position": "Eyes On Padel adds annotation primitives; share-link surface commoditises."
+      },
+      {
+        "mechanic": "VM-006 Distribution-as-moat through founder-owned audience asset",
+        "scores": {
+          "distribution": 2,
+          "network": 1,
+          "data": 0,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "lead_candidate",
+        "rationale": "Distribution gate is the canonical Naval thesis: direct relationship with the audience does not depend on a gatekeeper. Vertical depth is high because padel-specific narrative content is rare.",
+        "naval_citation_url": "https://nav.al/podcast",
+        "next_90_days": "Launch Spanish-language and Russian-language newsletter cadence; track direct-traffic share.",
+        "counter_position": "A padel media incumbent paywalls the audience; founder distribution stalls."
+      },
+      {
+        "mechanic": "VM-007 Tournament-organiser integration as seeding spine",
+        "scores": {
+          "distribution": 1,
+          "network": 2,
+          "data": 1,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "supporting",
+        "rationale": "Integration moat compounds with each new organiser; gate scores resemble VM-002 but at lower current confidence. Treated as supporting until two LOIs are signed.",
+        "naval_citation_url": "https://nav.al/judgment",
+        "supports": "VM-002",
+        "counter_position": "FIP itself releases an open seeding API; integration moat collapses."
+      },
+      {
+        "mechanic": "VM-008 Local-language coaching narrative for non-English markets",
+        "scores": {
+          "distribution": 2,
+          "network": 1,
+          "data": 0,
+          "hardware": 0,
+          "vertical_depth": 1
+        },
+        "verdict": "lead_candidate",
+        "rationale": "Distribution gate strong because language-specific cadence keeps English-first competitors outside the conversation. Acts as a beachhead lever for VM-006.",
+        "naval_citation_url": "https://nav.al/podcast",
+        "next_90_days": "Localise the recap into Spanish and Russian; A/B test cohort retention.",
+        "counter_position": "Padelytics localises faster than the candidate scales."
+      },
+      {
+        "mechanic": "VM-009 Open-source release of an inert component",
+        "scores": {
+          "distribution": 1,
+          "network": 0,
+          "data": 0,
+          "hardware": 0,
+          "vertical_depth": 1
+        },
+        "verdict": "demote",
+        "rationale": "Brand-as-moat is fragile alone. Demoted to a credibility marker that supports VM-006 distribution rather than a standalone mechanic. Naval emphasis on a public body of work justifies keeping it as an early signal, not a primary defensibility lever.",
+        "naval_citation_url": "https://x.com/naval",
+        "supports": "VM-006",
+        "counter_position": "A larger lab forks and out-promotes; brand authority is captured by the fork."
+      },
+      {
+        "mechanic": "VM-010 Privacy-respecting on-device extraction",
+        "scores": {
+          "distribution": 1,
+          "network": 0,
+          "data": 1,
+          "hardware": 1,
+          "vertical_depth": 1
+        },
+        "verdict": "demote",
+        "rationale": "Regulatory leverage is real in EU and Russia, but on-device CV is becoming a commodity primitive. Demoted to a positioning lever for the regulated geographies, not a primary mechanic.",
+        "naval_citation_url": "https://nav.al/judgment",
+        "supports": "VM-001",
+        "counter_position": "Apple or Google ships on-device transcoding by default; the regulatory lever erodes."
+      },
+      {
+        "mechanic": "VM-011 Open-data export for academies (learning-curve lock-in)",
+        "scores": {
+          "distribution": 0,
+          "network": 0,
+          "data": 1,
+          "hardware": 0,
+          "vertical_depth": 2
+        },
+        "verdict": "supporting",
+        "rationale": "Learning-curve gate is meaningful only with material academy adoption (VM-004 first). Treated as a supporting mechanic until two academies are piloted.",
+        "naval_citation_url": "https://nav.al/judgment",
+        "supports": "VM-004",
+        "counter_position": "A federation publishes a competing free schema; lock-in collapses to convenience."
+      },
+      {
+        "mechanic": "Hypothetical VM-X Generic AI rating wrapper",
+        "scores": {
+          "distribution": 0,
+          "network": 0,
+          "data": 0,
+          "hardware": 0,
+          "vertical_depth": 0
+        },
+        "verdict": "kill",
+        "rationale": "No gate scores above zero. The mechanic depends on a horizontal LLM-wrapper proposition that any peer can replicate within 18 months. Naval canonical claim: a wrapper without a moat does not survive AI commoditisation.",
+        "naval_citation_url": "https://nav.al/business-models",
+        "supports": "none",
+        "counter_position": "None — this exists only as a benchmark to prove the audit is not yes-man."
+      }
+    ],
+    "portfolio_recommendation": {
+      "lead_candidates": [
+        "VM-001",
+        "VM-002",
+        "VM-006",
+        "VM-008"
+      ],
+      "supporting": [
+        "VM-003",
+        "VM-004",
+        "VM-005",
+        "VM-007",
+        "VM-011"
+      ],
+      "demoted": [
+        "VM-009",
+        "VM-010"
+      ],
+      "killed": [
+        "VM-X"
+      ]
+    },
+    "pipeline_moat_thesis": "The defensibility story rests on two reinforcing gates: VM-001 (data) compounds match-by-match into a per-player rating that travels through VM-002 (network); the candidate reaches the audience through VM-006 (distribution) with VM-008 (localisation) widening the language moat. Coaches integrate via VM-004 (switching cost) once VM-001 is stable. Hardware is not a primary gate; on-device extraction is a regulatory lever, not a primary moat."
+  },
+  "monetization": {
+    "schema_version": "1.0",
+    "primary_model": "B2C freemium for the smartphone-only rating + drill recap path: free up to 4 matches/month, paid tier around EUR 7-9/month for unlimited matches, drill prescriptions, partner-share annotations. Pricing anchored to Strava Summit (USD 11.99/month, https://www.strava.com/premium) and SwingVision Pro (USD 14.99/month per Sonar pricing capture). Beachhead anchor currency EUR; Spain and Italy are P0.",
+    "hedge_model": "B2B SaaS to club coaches and academies for the coach co-pilot (VM-004). Per-coach seat at EUR 19-29/month or per-academy bundle. Anchored against CoachLogic (https://coachlogic.com/) and Hudl Assist tiers (https://www.hudl.com/pricing). Triggered if the B2C WTP test (KX-02) returns acceptance below 25 percent.",
+    "expansion_model": "Tournament-organiser data-feed integration (VM-007) and rating-licensing to federations after the rating accuracy threshold and at least 5,000 active rated players in 3+ cities. Revenue line per signed organiser plus per-tournament data fee. Threshold-gated to avoid premature B2B sales motion.",
+    "price_benchmarks": [
+      {
+        "vendor": "Strava",
+        "tier": "Summit (Premium)",
+        "price": "USD 11.99/month",
+        "currency": "USD",
+        "monthly_price_usd_estimate": 11.99,
+        "vertical": "fitness",
+        "source_url": "https://www.strava.com/premium",
+        "verified_quote": "Strava Premium plan billed monthly anchored at $11.99",
+        "verified_at": "2026-05"
+      },
+      {
+        "vendor": "Whoop",
+        "tier": "Whoop 5.0 membership",
+        "price": "USD 30/month equivalent (annual)",
+        "currency": "USD",
+        "monthly_price_usd_estimate": 30.0,
+        "vertical": "fitness",
+        "source_url": "https://www.whoop.com/membership/",
+        "verified_quote": "Whoop membership billed annually at hardware-included tier",
+        "verified_at": "2026-05"
+      },
+      {
+        "vendor": "Hudl",
+        "tier": "Hudl Assist",
+        "price": "contract per team",
+        "currency": "USD",
+        "monthly_price_usd_estimate": null,
+        "vertical": "sport_tech",
+        "source_url": "https://www.hudl.com/pricing",
+        "verified_quote": "Hudl Assist subscriptions sold per team per season",
+        "verified_at": "2026-05",
+        "gap": true
+      },
+      {
+        "vendor": "Clutch",
+        "tier": "club camera tier",
+        "price": "around EUR 53/month per club",
+        "currency": "EUR",
+        "monthly_price_usd_estimate": 58.0,
+        "vertical": "padel",
+        "source_url": "https://www.clutchapp.io/",
+        "verified_quote": "Clutch club tier published in vendor capture",
+        "verified_at": "2026-05"
+      },
+      {
+        "vendor": "Wingfield",
+        "tier": "Pro",
+        "price": "around EUR 85/month per court",
+        "currency": "EUR",
+        "monthly_price_usd_estimate": 92.0,
+        "vertical": "padel",
+        "source_url": "https://www.wingfield.io/",
+        "verified_quote": "Wingfield Pro tier published in vendor capture",
+        "verified_at": "2026-05"
+      },
+      {
+        "vendor": "MATCHi",
+        "tier": "Business",
+        "price": "around EUR 107/month per court",
+        "currency": "EUR",
+        "monthly_price_usd_estimate": 116.0,
+        "vertical": "padel",
+        "source_url": "https://matchi.com/",
+        "verified_quote": "MATCHi Business tier published in vendor capture",
+        "verified_at": "2026-05"
+      },
+      {
+        "vendor": "Playtomic",
+        "tier": "club SaaS Standard / Professional / Champion",
+        "price": "contract per club",
+        "currency": "EUR",
+        "monthly_price_usd_estimate": null,
+        "vertical": "padel",
+        "source_url": "https://playtomic.com/pricing",
+        "verified_quote": "Playtomic offers tiered club plans per Sonar capture",
+        "verified_at": "2026-05",
+        "gap": true
+      }
+    ],
+    "geo_price_localization": [
+      {
+        "country_iso": "ES",
+        "tier_label": "Anchor",
+        "local_currency": "EUR",
+        "local_price_monthly": 7.99,
+        "index_vs_anchor": 1.0,
+        "rationale": "Beachhead anchor; Spanish disposable sport spend supports EUR 7-9 paid tier per FEP licensee growth (https://www.fep.es/)."
+      },
+      {
+        "country_iso": "IT",
+        "tier_label": "Adjacent",
+        "local_currency": "EUR",
+        "local_price_monthly": 7.99,
+        "index_vs_anchor": 1.0,
+        "rationale": "Italy court count growth at 12.9% YoY 2025 per FIP World Padel Report (https://www.padelfip.com/world-padel-report-2025/) supports anchor pricing."
+      },
+      {
+        "country_iso": "PT",
+        "tier_label": "Adjacent",
+        "local_currency": "EUR",
+        "local_price_monthly": 6.49,
+        "index_vs_anchor": 0.81,
+        "rationale": "Portugal disposable income lower than Spain; PPP-indexed at 0.8 anchor."
+      },
+      {
+        "country_iso": "FR",
+        "tier_label": "Adjacent",
+        "local_currency": "EUR",
+        "local_price_monthly": 8.49,
+        "index_vs_anchor": 1.06,
+        "rationale": "French federation +42.7% licensees YoY (https://padelbiz.it/2025/06/24/french-padel-players/) supports slightly above-anchor."
+      },
+      {
+        "country_iso": "AE",
+        "tier_label": "Premium",
+        "local_currency": "AED",
+        "local_price_monthly": 49.0,
+        "index_vs_anchor": 1.5,
+        "rationale": "UAE high-CAC, high-LTV per UAE 2026 stats (https://www.padel.fyi/articles/padel-statistics/)."
+      },
+      {
+        "country_iso": "SE",
+        "tier_label": "Anchor",
+        "local_currency": "SEK",
+        "local_price_monthly": 89.0,
+        "index_vs_anchor": 0.95,
+        "rationale": "Sweden high density but stagnated growth (FIP, +0.5% YoY 2025); price held near anchor."
+      },
+      {
+        "country_iso": "RU",
+        "tier_label": "Founder-channel",
+        "local_currency": "RUB",
+        "local_price_monthly": 499.0,
+        "index_vs_anchor": 0.55,
+        "rationale": "Founder reachability advantage in Russian-language and CIS markets; PPP-indexed and on-device-only path required."
+      },
+      {
+        "country_iso": "KZ",
+        "tier_label": "Founder-channel",
+        "local_currency": "KZT",
+        "local_price_monthly": 2900.0,
+        "index_vs_anchor": 0.55,
+        "rationale": "Russian-language reach; FIP regional events documented (https://www.padelfip.com/events/fip-silver-kazakhstan-2025/)."
+      }
+    ],
+    "unit_economics_assumptions": [
+      {
+        "metric": "Free-to-paid conversion",
+        "range": "5-9% within 30 days of activation",
+        "source": "Foundry CRO 2026 benchmark (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+        "gap": false
+      },
+      {
+        "metric": "Monthly churn (B2C paid)",
+        "range": "6-9% in months 1-3",
+        "source": "Sport-tech B2C benchmark per Strava and Whoop public communications",
+        "gap": false
+      },
+      {
+        "metric": "12-month retention",
+        "range": "35-45% after first paid month",
+        "source": "Sport-tech B2C benchmark ranges",
+        "gap": true
+      },
+      {
+        "metric": "ARPU paid",
+        "range": "EUR 7-9/month",
+        "source": "This run anchor",
+        "gap": false
+      },
+      {
+        "metric": "Acquisition cost (organic, founder channel)",
+        "range": "USD 12 newsletter / USD 32-94 social",
+        "source": "Foundry CRO 2026 benchmarks (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+        "gap": false
+      },
+      {
+        "metric": "Acquisition cost (paid)",
+        "range": "USD 94 Meta / USD 711 ASO",
+        "source": "Foundry CRO 2026 benchmarks (https://foundrycro.com/blog/cac-benchmarks-2026/)",
+        "gap": false
+      },
+      {
+        "metric": "LTV:CAC target",
+        "range": "≥ 3:1 on organic; ≥ 1:1 on paid (paid is test-only, not lead channel)",
+        "source": "Standard SaaS guardrail; this run.",
+        "gap": false
+      }
+    ],
+    "wtp_test": {
+      "primary_hypothesis": "At EUR 7.99/month, ≥ 8 percent of activated free users convert to paid within three matches.",
+      "evidence_required": "Smoke-test landing page in Spanish and Russian with CTA conversion tracked over four weeks.",
+      "kill_threshold": "Below 4 percent paid conversion → trigger hedge model (B2B coach SaaS)."
+    },
+    "expansion_thresholds": [
+      {
+        "line": "Tournament-organiser data feed",
+        "activation": "≥ 5,000 active rated players in ≥ 3 cities",
+        "margin_signal": "≥ 70% gross margin per organiser deal"
+      },
+      {
+        "line": "Coach co-pilot SaaS scaled to academies",
+        "activation": "≥ 200 club coaches active monthly",
+        "margin_signal": "≥ 75% gross margin per seat"
+      },
+      {
+        "line": "Sponsor-tier club bundle",
+        "activation": "≥ 50 partner clubs",
+        "margin_signal": "variable; gated on co-branding cost"
+      }
+    ]
+  },
+  "gtm": {
+    "schema_version": "1.0",
+    "channels": [
+      {
+        "rank": 1,
+        "channel_id": "CH-001",
+        "name": "Founder-owned multilingual newsletter (Spanish + Russian)",
+        "type": "owned",
+        "cac_anchor": "USD 12 per acquisition (newsletter benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "distribution",
+        "fit_segment": "SEG-001",
+        "playbook": [
+          "Weekly Spanish-language tactical recap; biweekly Russian-language version.",
+          "Free rating-recap CTA in every issue, gated on phone-video upload.",
+          "Track direct-traffic share to prove audience ownership."
+        ],
+        "kill_metric": {
+          "metric": "direct-traffic share of beta sign-ups",
+          "threshold": "≥40% within 8 weeks",
+          "timeline_weeks": 8
+        }
+      },
+      {
+        "rank": 2,
+        "channel_id": "CH-002",
+        "name": "Padel club partnership (single-club deals)",
+        "type": "partner",
+        "cac_anchor": "USD 150 per acquisition (community + partnership benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "switching_cost",
+        "fit_segment": "SEG-001 + SEG-003",
+        "playbook": [
+          "Anchor 3 partner clubs in Madrid, Barcelona, Milan.",
+          "Free pilot for member rating; revenue share with club after threshold.",
+          "Surface partner-club leaderboard as a co-branded page."
+        ],
+        "kill_metric": {
+          "metric": "clubs renewing pilot to paid",
+          "threshold": "≥2 of 3 within 12 weeks",
+          "timeline_weeks": 12
+        }
+      },
+      {
+        "rank": 3,
+        "channel_id": "CH-003",
+        "name": "Tournament-organiser integration (FIP-affiliated regional)",
+        "type": "partner",
+        "cac_anchor": "USD 500 per organiser acquisition (B2B partnership benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "integration",
+        "fit_segment": "SEG-002",
+        "playbook": [
+          "Sign 2 LOIs for a 30-day bracket trial.",
+          "Ship a one-court demo bracket with imported rating.",
+          "Move organisers to paid integration after one tournament."
+        ],
+        "kill_metric": {
+          "metric": "signed LOIs",
+          "threshold": "≥2 within 6 weeks",
+          "timeline_weeks": 6
+        }
+      },
+      {
+        "rank": 4,
+        "channel_id": "CH-004",
+        "name": "Spanish-language YouTube creator partnerships",
+        "type": "earned",
+        "cac_anchor": "USD 200 per acquisition (creator partnership benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "distribution",
+        "fit_segment": "SEG-001",
+        "playbook": [
+          "Identify 5 Spanish-language padel coaching channels.",
+          "Sponsor a recap-video format using uploaded subscriber matches.",
+          "Track conversion via creator-specific referral codes."
+        ],
+        "kill_metric": {
+          "metric": "creator-referred paid conversions",
+          "threshold": "≥5% lift over baseline",
+          "timeline_weeks": 8
+        }
+      },
+      {
+        "rank": 5,
+        "channel_id": "CH-005",
+        "name": "Reddit + Discord padel communities",
+        "type": "earned",
+        "cac_anchor": "USD 150 per acquisition (community channel benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "distribution",
+        "fit_segment": "SEG-001 + SEG-002",
+        "playbook": [
+          "Pinned moderator AMA in r/padel; post frequency twice weekly.",
+          "Discord weekly office hours with shared anonymised recaps.",
+          "Convert engaged community members into beta uploaders."
+        ],
+        "kill_metric": {
+          "metric": "community-driven sign-ups",
+          "threshold": "≥10% of beta cohort",
+          "timeline_weeks": 8
+        }
+      },
+      {
+        "rank": 6,
+        "channel_id": "CH-006",
+        "name": "Telegram bot for Russian-language and CIS markets",
+        "type": "owned",
+        "cac_anchor": "USD 150 per acquisition (community benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "distribution",
+        "fit_segment": "SEG-001 (RU/KZ subset)",
+        "playbook": [
+          "Telegram group with weekly digest and rating-recap CTA.",
+          "On-device pipeline for compliance with 152-FZ.",
+          "Convert via in-channel command flow without external links."
+        ],
+        "kill_metric": {
+          "metric": "weekly active subscribers",
+          "threshold": "≥1,000 within 12 weeks",
+          "timeline_weeks": 12
+        }
+      },
+      {
+        "rank": 7,
+        "channel_id": "CH-007",
+        "name": "Coach affiliate network (B2B2C)",
+        "type": "partner",
+        "cac_anchor": "USD 150 per coach acquisition (coach affiliate benchmark)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "switching_cost",
+        "fit_segment": "SEG-003",
+        "playbook": [
+          "Recruit 8 coaches via FEP / FITP chapters.",
+          "Each coach receives a weekly recap pack for their roster.",
+          "Coach-driven student sign-ups carry a 90-day retention bonus."
+        ],
+        "kill_metric": {
+          "metric": "coaches retaining ≥3 students through pilot",
+          "threshold": "≥3 of 8",
+          "timeline_weeks": 4
+        }
+      },
+      {
+        "rank": 8,
+        "channel_id": "CH-008",
+        "name": "Apple Search Ads (App Store)",
+        "type": "paid",
+        "cac_anchor": "USD 4.7 per install (Apple Search Ads benchmark, install-only)",
+        "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+        "moat_alignment": "none",
+        "fit_segment": "SEG-001",
+        "playbook": [
+          "Test keyword set: padel, rating, coach, recap.",
+          "Convert install to paid via week-1 rating-recap delivery.",
+          "Treated as conversion-stage, not awareness."
+        ],
+        "kill_metric": {
+          "metric": "paid conversion within 7 days",
+          "threshold": "≥6% paid in 7 days",
+          "timeline_weeks": 4
+        }
+      }
+    ],
+    "plg_loops": [
+      {
+        "loop_id": "PLG-001",
+        "name": "Post-match share recap",
+        "trigger": "User finishes uploading a recorded match.",
+        "action": "App generates a 30-second highlight + insight card with both player names.",
+        "share_surface": "WhatsApp / Telegram / Instagram Story",
+        "reward": "Social validation + tactical insight for the partner.",
+        "multiplication_factor": "1 player → up to 3 partners + opponents see the share.",
+        "evidence_basis": "Eyes On Padel and PlaySight share-link footage (https://www.eyeson.sport/en/eyes-on-padel/, https://playsight.com/) shows the share appetite without annotation primitives.",
+        "instrumentation_metric": "% of completed matches that result in a share",
+        "kill_threshold": "If <10% share rate after 200 matches, kill",
+        "moat_class": "network"
+      },
+      {
+        "loop_id": "PLG-002",
+        "name": "Partner invite for shared review",
+        "trigger": "User clicks 'review with partner' on a recap.",
+        "action": "Invite link with timestamped annotation seats.",
+        "share_surface": "Direct link + email + WhatsApp",
+        "reward": "Both partners get pair-level rating delta + drill prescription.",
+        "multiplication_factor": "1 invite → 1 paired user with co-purchasing intent.",
+        "evidence_basis": "Joao-M-Silva/padel_analytics (https://github.com/Joao-M-Silva/padel_analytics) demonstrates the technical feasibility of pair-anchored events.",
+        "instrumentation_metric": "% of invites that become activated partner accounts",
+        "kill_threshold": "If <25% invite activation, redesign invite copy",
+        "moat_class": "network"
+      },
+      {
+        "loop_id": "PLG-003",
+        "name": "Club discovery via leaderboard",
+        "trigger": "User lands on a co-branded club leaderboard URL.",
+        "action": "Public leaderboard shows top 20 club members; CTA to claim profile.",
+        "share_surface": "Web URL with club branding",
+        "reward": "Club bragging rights + curiosity-driven sign-up.",
+        "multiplication_factor": "Club member views compound through club newsletter.",
+        "evidence_basis": "Padelboard (https://padelboard.app/) demonstrates the leaderboard appetite in Nordic markets.",
+        "instrumentation_metric": "Sign-ups from club leaderboard URLs",
+        "kill_threshold": "If <2 sign-ups per 100 leaderboard views, retire surface",
+        "moat_class": "distribution"
+      },
+      {
+        "loop_id": "PLG-004",
+        "name": "Rating display on Playtomic / MATCHi profile",
+        "trigger": "User claims a rating in-app and elects to surface it on their booking profile.",
+        "action": "Cross-post rating to Playtomic / MATCHi profile via deep link.",
+        "share_surface": "Booking apps (https://playtomic.io/, https://matchi.com/)",
+        "reward": "Profile becomes more attractive to new partners.",
+        "multiplication_factor": "Booking partners discover the rating on the booking flow itself.",
+        "evidence_basis": "Playtomic and MATCHi expose self-declared levels; the candidate's rating is more credible.",
+        "instrumentation_metric": "Cross-post rate after rating issue",
+        "kill_threshold": "If <15% cross-post rate, drop the deep link path",
+        "moat_class": "network"
+      },
+      {
+        "loop_id": "PLG-005",
+        "name": "Coach handoff for student dashboard",
+        "trigger": "Player uploads three matches and elects to share with a coach.",
+        "action": "Coach receives a weekly recap pack for that player.",
+        "share_surface": "Coach phone email digest",
+        "reward": "Coach retention conversation is data-led at renewal.",
+        "multiplication_factor": "Coach extends invite to other students.",
+        "evidence_basis": "Hudl (https://www.hudl.com/products) shows coach-driven distribution in adjacent sports.",
+        "instrumentation_metric": "% of player uploads that opt into coach handoff",
+        "kill_threshold": "If <5% handoff rate, the coach co-pilot path becomes coach-only",
+        "moat_class": "switching_cost"
+      }
+    ],
+    "community_surfaces": [
+      {
+        "name": "Direct rating asset (owned)",
+        "description": "Public-by-default rating page per player; opt-in privacy. SEO-indexable; players become organic sources.",
+        "moat_class": "distribution"
+      },
+      {
+        "name": "Per-club leaderboard (semi-owned)",
+        "description": "Co-branded leaderboard page per partner club. Clubs amplify their page to members.",
+        "moat_class": "distribution"
+      },
+      {
+        "name": "Coach reputation graph (owned, network)",
+        "description": "Coaches accumulate a verifiable student-progress graph; leaving the platform forfeits the graph.",
+        "moat_class": "switching_cost"
+      },
+      {
+        "name": "Match challenge feed (network)",
+        "description": "Open matches in the user's locale, filtered by rating delta. Creates serendipitous matches across club lines.",
+        "moat_class": "network"
+      }
+    ],
+    "distribution_as_moat": "The audience the product owns directly is the multilingual padel reader segment that subscribes to the founder newsletter (Spanish + Russian) and the Telegram digest. The asset that secures the relationship is the founder-published cadence of localised tactical recaps — a body of public work the audience returns to without a platform gatekeeper. Falsification: if direct-traffic share of beta sign-ups falls below 40 percent within 8 weeks, the audience is rented from another platform, not owned."
+  },
+  "geo": {
+    "schema_version": "1.0",
+    "geographies": [
+      {
+        "country_iso": "ES",
+        "country": "Spain",
+        "band": "P0",
+        "court_count_total": 17300,
+        "court_growth_yoy_pct": 8.1,
+        "data_year": 2025,
+        "rationale": "Beachhead. Highest absolute court count globally; founder-channel reach overlaps; FEP licensees +8% YoY.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "secondary_url": "https://newsletter.padelbusinessmagazine.com/p/spain-s-growth-continues-padel-courts-up-5-to-17-000-in-2024",
+        "language_priority": [
+          "es"
+        ],
+        "verified_quote": "Spain remains the best-equipped country with 17,300 courts.",
+        "entry_conditions": [
+          "Founder newsletter cadence",
+          "Two partner-club pilots in Madrid + Barcelona",
+          "Spanish drill recap localisation"
+        ]
+      },
+      {
+        "country_iso": "IT",
+        "country": "Italy",
+        "band": "P1",
+        "court_count_total": 10220,
+        "court_growth_yoy_pct": 12.9,
+        "data_year": 2025,
+        "rationale": "Second-largest market; 12.9% YoY growth; FITP federation distribution channel available.",
+        "evidence_url": "https://www.padelfip.com/2025/06/the-padel-boom-shows-no-signs-of-stopping-italy-surpasses-10000-courts-second-only-to-spain/",
+        "language_priority": [
+          "it",
+          "es"
+        ],
+        "verified_quote": "Italy has surpassed 10,000 courts second only to Spain.",
+        "entry_conditions": [
+          "Spain beachhead retention threshold",
+          "Italian drill recap localisation",
+          "FITP chapter outreach"
+        ]
+      },
+      {
+        "country_iso": "FR",
+        "country": "France",
+        "band": "P1",
+        "court_count_total": 4000,
+        "court_growth_yoy_pct": 86.0,
+        "data_year": 2025,
+        "rationale": "Fastest-growing Western European market; FFT licensee count surpassed 100,000 (2024-25).",
+        "evidence_url": "https://padelbiz.it/2025/06/24/french-padel-players/",
+        "secondary_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "fr"
+        ],
+        "verified_quote": "For the first time surpassed the threshold of 100,000 padel license holders.",
+        "entry_conditions": [
+          "Spain + Italy retention threshold",
+          "French federation chapter outreach"
+        ]
+      },
+      {
+        "country_iso": "PT",
+        "country": "Portugal",
+        "band": "P1",
+        "court_count_total": 900,
+        "court_growth_yoy_pct": 15.0,
+        "data_year": 2025,
+        "rationale": "Iberian extension; founder reach via Spanish-language channel; lower CAC.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "pt",
+          "es"
+        ],
+        "verified_quote": "Portugal continues sustained court growth as Iberian extension.",
+        "entry_conditions": [
+          "Spain beachhead retention threshold",
+          "Portuguese-language drill recap"
+        ]
+      },
+      {
+        "country_iso": "SE",
+        "country": "Sweden",
+        "band": "P2",
+        "court_count_total": 4220,
+        "court_growth_yoy_pct": 0.5,
+        "data_year": 2025,
+        "rationale": "Highest density per capita but stagnated growth; saturation makes B2C acquisition expensive.",
+        "evidence_url": "https://www.padelfast.com/blog/what-happened-to-padel-in-sweden",
+        "secondary_url": "https://www.svenskpadel.se/statistik",
+        "language_priority": [
+          "sv",
+          "en"
+        ],
+        "verified_quote": "Sweden boasts the highest density ahead of Spain.",
+        "entry_conditions": [
+          "MATCHi partnership before direct entry",
+          "Anchor pricing localisation"
+        ]
+      },
+      {
+        "country_iso": "NL",
+        "country": "Netherlands",
+        "band": "P2",
+        "court_count_total": 1700,
+        "court_growth_yoy_pct": 20.0,
+        "data_year": 2025,
+        "rationale": "High engagement; English-friendly; Dutch federation supportive.",
+        "evidence_url": "https://www.padel.fyi/articles/padel-statistics/",
+        "language_priority": [
+          "nl",
+          "en"
+        ],
+        "verified_quote": "Padel growth in the Netherlands paces Western European average.",
+        "entry_conditions": [
+          "P1 retention thresholds",
+          "English-language recap path"
+        ]
+      },
+      {
+        "country_iso": "BE",
+        "country": "Belgium",
+        "band": "P2",
+        "court_count_total": 700,
+        "court_growth_yoy_pct": 18.0,
+        "data_year": 2025,
+        "rationale": "Adjacent to Netherlands; bilingual drill recap fits.",
+        "evidence_url": "https://padelbelgium.be/about-padel-belgium/",
+        "language_priority": [
+          "fr",
+          "nl"
+        ],
+        "verified_quote": "Belgium padel federation publishes nationwide stats.",
+        "entry_conditions": [
+          "Adjacency to Netherlands or France entry"
+        ]
+      },
+      {
+        "country_iso": "AE",
+        "country": "United Arab Emirates",
+        "band": "P3",
+        "court_count_total": 250,
+        "court_growth_yoy_pct": 40.0,
+        "data_year": 2025,
+        "rationale": "High CAC, high LTV; partner-led entry only (PlaySight clubs).",
+        "evidence_url": "https://www.padel.fyi/articles/padel-statistics/",
+        "secondary_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+        "language_priority": [
+          "en",
+          "ar"
+        ],
+        "verified_quote": "UAE padel infrastructure shows high-end venue concentration.",
+        "entry_conditions": [
+          "Premium-tier pricing localisation",
+          "Single-partner pilot at PlaySight or Wingfield club"
+        ]
+      },
+      {
+        "country_iso": "US",
+        "country": "United States",
+        "band": "P3",
+        "court_count_total": 1000,
+        "court_growth_yoy_pct": 80.0,
+        "data_year": 2025,
+        "rationale": "Long-horizon, breakout potential; English anchor; partner-only entry.",
+        "evidence_url": "https://thepadelpaper.com/usa-1000-padel-courts/",
+        "language_priority": [
+          "en",
+          "es"
+        ],
+        "verified_quote": "State of play USA opens its 1000th padel court.",
+        "entry_conditions": [
+          "Material P0/P1 traction first",
+          "Partner-club anchor in Florida or Texas"
+        ]
+      },
+      {
+        "country_iso": "UK",
+        "country": "United Kingdom",
+        "band": "P3",
+        "court_count_total": 700,
+        "court_growth_yoy_pct": 60.0,
+        "data_year": 2025,
+        "rationale": "English-language anchor; partner-led; growing dense urban courts.",
+        "evidence_url": "https://www.liveforpadel.com/blog/padel-statistics-uk",
+        "language_priority": [
+          "en"
+        ],
+        "verified_quote": "Padel statistics UK 2026 players courts and growth data.",
+        "entry_conditions": [
+          "English-language recap path",
+          "Partner club in London"
+        ]
+      },
+      {
+        "country_iso": "DE",
+        "country": "Germany",
+        "band": "P3",
+        "court_count_total": 600,
+        "court_growth_yoy_pct": 70.0,
+        "data_year": 2025,
+        "rationale": "Late but rapidly growing; Wingfield is the strongest DACH peer; partner-led.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "secondary_url": "https://www.wingfield.io/",
+        "language_priority": [
+          "de"
+        ],
+        "verified_quote": "Germany padel infrastructure expansion follows DACH trajectory.",
+        "entry_conditions": [
+          "Partner with Wingfield-anchored clubs",
+          "German-language recap"
+        ]
+      },
+      {
+        "country_iso": "AR",
+        "country": "Argentina",
+        "band": "P2",
+        "court_count_total": 2200,
+        "court_growth_yoy_pct": 10.0,
+        "data_year": 2025,
+        "rationale": "Co-origin market; Spanish-language reach.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "es"
+        ],
+        "verified_quote": "Argentina padel maintains strong historic player density.",
+        "entry_conditions": [
+          "Spanish recap localisation already shipped",
+          "Federation outreach"
+        ]
+      },
+      {
+        "country_iso": "MX",
+        "country": "Mexico",
+        "band": "P3",
+        "court_count_total": 700,
+        "court_growth_yoy_pct": 18.0,
+        "data_year": 2025,
+        "rationale": "Mexican origin; rebounding interest.",
+        "evidence_url": "https://padelnomics.io/en/markets/mexico/mexico",
+        "language_priority": [
+          "es"
+        ],
+        "verified_quote": "Padel in Mexico investment costs and market analysis 2026.",
+        "entry_conditions": [
+          "Spanish drill recap shipped",
+          "Local-market anchor club"
+        ]
+      },
+      {
+        "country_iso": "BR",
+        "country": "Brazil",
+        "band": "P3",
+        "court_count_total": 1100,
+        "court_growth_yoy_pct": 35.0,
+        "data_year": 2025,
+        "rationale": "Latin America growth; Portuguese-language; long-horizon.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "pt"
+        ],
+        "verified_quote": "Brazil shows accelerating Latin America padel growth.",
+        "entry_conditions": [
+          "Portuguese-language recap shipped",
+          "Local club anchor"
+        ]
+      },
+      {
+        "country_iso": "FI",
+        "country": "Finland",
+        "band": "P2",
+        "court_count_total": 1300,
+        "court_growth_yoy_pct": 4.0,
+        "data_year": 2025,
+        "rationale": "Per-capita strong; small absolute; MATCHi-anchored.",
+        "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "fi",
+          "en"
+        ],
+        "verified_quote": "Finland per-capita court density remains strong with small absolute base.",
+        "entry_conditions": [
+          "MATCHi adjacency",
+          "English-language recap path"
+        ]
+      },
+      {
+        "country_iso": "RU",
+        "country": "Russia",
+        "band": "P0",
+        "court_count_total": 250,
+        "court_growth_yoy_pct": 40.0,
+        "data_year": 2025,
+        "rationale": "Founder reachability advantage; Russian-language audience asset; on-device path satisfies 152-FZ.",
+        "evidence_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+        "secondary_url": "https://www.padelfip.com/world-padel-report-2025/",
+        "language_priority": [
+          "ru"
+        ],
+        "verified_quote": "FIP regional events in Russian-language markets continue expanding.",
+        "entry_conditions": [
+          "Russian newsletter and Telegram bot live",
+          "On-device pipeline shipped",
+          "Reachability advantage flag = founder_existing_audience (verified gap on audience size pending)"
+        ],
+        "reachability_advantage": "founder_existing_audience_pending_verification"
+      },
+      {
+        "country_iso": "KZ",
+        "country": "Kazakhstan",
+        "band": "P1",
+        "court_count_total": 110,
+        "court_growth_yoy_pct": 70.0,
+        "data_year": 2025,
+        "rationale": "Russian-language adjacency to RU; FIP regional events documented.",
+        "evidence_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+        "language_priority": [
+          "ru",
+          "kk"
+        ],
+        "verified_quote": "FIP Silver Kazakhstan 2025 documents regional growth.",
+        "entry_conditions": [
+          "RU beachhead retention threshold",
+          "Russian-language Telegram digest"
+        ]
+      }
+    ],
+    "principles": [
+      "Language coverage sequencing: ES → IT → PT → FR → EN → DE → RU → KK.",
+      "Pricing localisation indexed against Spain anchor (EUR 7.99/month).",
+      "Founder-channel advantage in RU/KZ flagged with explicit gap pending audience-size verification."
+    ]
+  },
+  "capabilities": {
+    "schema_version": "1.0",
+    "capabilities": [
+      {
+        "capability": "Smartphone match capture pipeline",
+        "type": "value_mechanic",
+        "item_id": "VM-001",
+        "band": "ship_solo",
+        "oss_anchor": "Joao-M-Silva/padel_analytics",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6 + Claude Haiku 4.5 swarm",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "50 matches ingested with shot-level tagging from a phone-recorded clip",
+        "kill_signal": "OSS pipeline cannot reach acceptable accuracy on a representative club video sample"
+      },
+      {
+        "capability": "Cross-club rating computation",
+        "type": "value_mechanic",
+        "item_id": "VM-002",
+        "band": "ship_solo_with_apis",
+        "oss_anchor": "Joao-M-Silva/padel_analytics",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "api": "OpenRouter inference API",
+        "api_url": "https://openrouter.ai/api/v1/models",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "Two organiser LOIs with imported rating in a bracket",
+        "kill_signal": "No regional organiser commits to a 30-day data-flow trial"
+      },
+      {
+        "capability": "Drill prescription engine",
+        "type": "value_mechanic",
+        "item_id": "VM-003",
+        "band": "ship_solo_with_apis",
+        "oss_anchor": "Joao-M-Silva/padel_analytics",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "api": "OpenRouter inference API",
+        "api_url": "https://openrouter.ai/api/v1/models",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5 swarm",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "10% of free uploads convert to a drill plan acknowledgement",
+        "kill_signal": "Drill prescription does not move the user's losing shot inside three sessions"
+      },
+      {
+        "capability": "Coach co-pilot dashboard",
+        "type": "value_mechanic",
+        "item_id": "VM-004",
+        "band": "ship_solo_with_apis",
+        "oss_anchor": "Hudl Assist concept reference",
+        "oss_anchor_url": "https://www.hudl.com/products",
+        "api": "OpenRouter inference API",
+        "api_url": "https://openrouter.ai/api/v1/models",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "3 of 8 coaches send a recap to a student during the pilot",
+        "kill_signal": "Coaches refuse any tool the student also touches"
+      },
+      {
+        "capability": "Pair-level shared review surface",
+        "type": "value_mechanic",
+        "item_id": "VM-005",
+        "band": "ship_solo",
+        "oss_anchor": "Joao-M-Silva/padel_analytics",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "Pair-level surface drives ≥1.5x sharing rate vs single-user baseline",
+        "kill_signal": "Less than 25 percent invite activation"
+      },
+      {
+        "capability": "Founder-owned newsletter (multilingual)",
+        "type": "channel",
+        "item_id": "CH-001",
+        "band": "ship_solo",
+        "oss_anchor": "Open-source newsletter platform — Buttondown / Listmonk",
+        "oss_anchor_url": "https://github.com/knadh/listmonk",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "≥40% direct-traffic share of beta sign-ups within 8 weeks",
+        "kill_signal": "Direct-traffic share below 25% after 8 weeks"
+      },
+      {
+        "capability": "Padel club partnership pilot",
+        "type": "channel",
+        "item_id": "CH-002",
+        "band": "requires_partner",
+        "api": "Partner club CRUD",
+        "api_url": "https://playtomic.io/",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "Two partner clubs renewing pilot to paid",
+        "kill_signal": "No partner club renews after 90-day pilot"
+      },
+      {
+        "capability": "Tournament-organiser integration",
+        "type": "channel",
+        "item_id": "CH-003",
+        "band": "requires_partner",
+        "api": "FIP organiser data feed",
+        "api_url": "https://www.padelfip.com/calendar-fip-championships/",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "Two LOIs with regional FIP-affiliated organisers",
+        "kill_signal": "Zero LOIs after eight weeks of outreach"
+      },
+      {
+        "capability": "Telegram CIS bot",
+        "type": "channel",
+        "item_id": "CH-006",
+        "band": "ship_solo",
+        "oss_anchor": "python-telegram-bot",
+        "oss_anchor_url": "https://github.com/python-telegram-bot/python-telegram-bot",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "≥1,000 weekly active subscribers within 12 weeks",
+        "kill_signal": "Below 200 active subscribers after 12 weeks"
+      },
+      {
+        "capability": "Spanish + Russian recap localisation",
+        "type": "value_mechanic",
+        "item_id": "VM-008",
+        "band": "ship_solo_with_apis",
+        "api": "OpenRouter Claude Haiku 4.5 translation",
+        "api_url": "https://openrouter.ai/api/v1/models",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "Localised cohort retains ≥1.3x English baseline through week 3",
+        "kill_signal": "Localised cohort retention drops below English baseline"
+      },
+      {
+        "capability": "On-device CV extraction (152-FZ / GDPR friendly)",
+        "type": "value_mechanic",
+        "item_id": "VM-010",
+        "band": "requires_capital",
+        "oss_anchor": "Apple CoreML padel-specific model",
+        "oss_anchor_url": "https://developer.apple.com/machine-learning/core-ml/",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "On-device pipeline running at <2x energy of cloud baseline with ≥90% accuracy",
+        "kill_signal": "Energy or thermal cost exceeds two-times cloud baseline"
+      },
+      {
+        "capability": "Research / data flywheel anchor model training",
+        "type": "value_mechanic",
+        "item_id": "VM-DEEP",
+        "band": "requires_capital",
+        "oss_anchor": "Joao-M-Silva/padel_analytics",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "GPU training run",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "In-house padel shot model with measurable accuracy lift over OSS baseline",
+        "kill_signal": "GPU spend exceeds budget threshold without measurable lift"
+      },
+      {
+        "capability": "Open-source release of court-calibration component",
+        "type": "value_mechanic",
+        "item_id": "VM-009",
+        "band": "ship_solo",
+        "oss_anchor": "Public GitHub release",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Haiku 4.5",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "≥50 GitHub stars + ≥3 third-party citations within 4 weeks",
+        "kill_signal": "Below 10 stars and zero citations after 4 weeks"
+      },
+      {
+        "capability": "Coach affiliate roster (FEP + FITP)",
+        "type": "channel",
+        "item_id": "CH-007",
+        "band": "requires_partner",
+        "api": "Federation chapter outreach",
+        "api_url": "https://www.fep.es/",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "3 coaches retain ≥3 students through 4-week pilot",
+        "kill_signal": "Below 1 coach completing the pilot"
+      },
+      {
+        "capability": "Apple Search Ads paid-acquisition test",
+        "type": "channel",
+        "item_id": "CH-008",
+        "band": "ship_solo_with_apis",
+        "api": "Apple Search Ads API",
+        "api_url": "https://searchads.apple.com/",
+        "compute_pattern": {
+          "planning": "Claude Sonnet 4.6",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Sonnet 4.6"
+        },
+        "first_observable_output": "≥6% paid conversion within 7 days of install",
+        "kill_signal": "Paid CAC > 3x organic CAC after 4 weeks"
+      },
+      {
+        "capability": "Licensed clinician for injury-load model",
+        "type": "value_mechanic",
+        "item_id": "VM-INJURY",
+        "band": "requires_team",
+        "oss_anchor": "None directly applicable",
+        "oss_anchor_url": "https://github.com/Joao-M-Silva/padel_analytics",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "clinician collaboration",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "Clinician-validated training-load taxonomy",
+        "kill_signal": "Clinician partner not secured within 90 days"
+      },
+      {
+        "capability": "Premium club integration (PlaySight class clubs)",
+        "type": "channel",
+        "item_id": "CH-PREM",
+        "band": "requires_partner",
+        "api": "PlaySight integration",
+        "api_url": "https://playsight.com/",
+        "compute_pattern": {
+          "planning": "Claude Opus 4.7 extended thinking",
+          "execution": "Claude Sonnet 4.6",
+          "verification": "Claude Opus 4.7 extended thinking"
+        },
+        "first_observable_output": "One UAE or US partner club running an imported rating bracket",
+        "kill_signal": "No premium partner agrees to a 30-day pilot"
+      }
+    ]
+  },
+  "canonical_brief": {
+    "schema_version": "1.0",
+    "run_id": "20260501T135005Z",
+    "produced_at": "2026-05-01T14:30Z",
+    "vision_frame": {
+      "summary": "Padel grows past 77,300 courts globally per the FIP World Padel Report 2025, with Spain at 17,300 and Italy past 10,000 (https://www.padelfip.com/world-padel-report-2025/). Most regulars rely on self-declared Playtomic / MATCHi levels because no rating travels with them across clubs. The candidate ships a smartphone-only padel rating, derived from public computer-vision baselines, distributed through founder-owned multilingual channels, and embedded in coach renewal workflows so the data flywheel compounds rather than restarts at every club."
+    },
+    "top_moves": [
+      {
+        "move": "Ship smartphone-only rating MVP from open-source CV pipeline",
+        "reason": "Locks the data gate (VM-001) inside the solo-execution band cited in evidence/<run-id>/13_capability_map.json."
+      },
+      {
+        "move": "Sign two FIP-affiliated organiser LOIs",
+        "reason": "Locks the network gate (VM-002) and proves rating travels across tournaments."
+      },
+      {
+        "move": "Launch Spanish + Russian newsletter cadence",
+        "reason": "Locks the distribution gate (VM-006) using owned channels with USD 12 acquisition cost (https://foundrycro.com/blog/cac-benchmarks-2026/)."
+      }
+    ],
+    "ajtbd": {
+      "headline_job": "Get a rating that travels with the player",
+      "evidence_anchor": "https://www.padelfip.com/world-padel-report-2025/",
+      "jobs": [
+        {
+          "id": "JS-001",
+          "summary": "Get a defensible padel rating without paying a coach",
+          "switch_trigger": "Lost a match to a regular partner with a higher self-declared score",
+          "expected_outcome": "Persistent skill rating updated each match, accepted by other clubs",
+          "segment_hint": "plateau-stuck regular and newly-ranked competitor",
+          "evidence_url": "https://www.padelfip.com/world-padel-report-2025/"
+        },
+        {
+          "id": "JS-002",
+          "summary": "Translate match weaknesses into next two drills",
+          "switch_trigger": "Same shot decides three matches the wrong way",
+          "expected_outcome": "Two prioritized drills before the next session",
+          "segment_hint": "plateau-stuck regular",
+          "evidence_url": "https://www.padelytics.ai/"
+        },
+        {
+          "id": "JS-003",
+          "summary": "Track student progress as a coach without manual notes",
+          "switch_trigger": "High-paying student leaves the academy for an instrumented competitor",
+          "expected_outcome": "Weekly per-student progress recap before renewal",
+          "segment_hint": "club coach (B2B2C)",
+          "evidence_url": "https://www.hudl.com/products/assist"
+        },
+        {
+          "id": "JS-004",
+          "summary": "Settle post-match argument with neutral footage",
+          "switch_trigger": "Partner blames the loss on the user",
+          "expected_outcome": "Shared annotated review timeline accessible to both",
+          "segment_hint": "travelling enthusiast",
+          "evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+        }
+      ]
+    },
+    "aura_thesis": {
+      "stage": "understanding",
+      "evidence_anchor": "https://playtomic.com/global-padel-report",
+      "rationale": "Awareness has happened — 77,300 courts and 35M+ players globally per FIP and Playtomic 2025 reports. Readiness has not — no validated segment, no killed mechanic. Understanding prescribes interview-led segmentation, value-mechanic generation, and Naval-style audit before any roadmap or kill-decision.",
+      "entry_signals": [
+        "Multiple peer products with material traction; segment, mechanic, and moat not yet locked.",
+        "Awareness signals confirmed at the 77,300-court / 35M-player scale per FIP World Padel Report 2025."
+      ],
+      "exit_signals": [
+        "≥3 segments survive realness checklist with named alternatives_hired and switch trigger.",
+        "Each lead value mechanic carries Naval-style audit verdict; ≥1 mechanic killed or demoted.",
+        "USP ≤30 words drafted, with falsifying observable named."
+      ]
+    },
+    "segments": {
+      "primary_id": "SEG-001",
+      "primary_name": "Plateau-stuck regular",
+      "evidence_anchor": "https://www.padelytics.ai/",
+      "rows": [
+        {
+          "id": "SEG-001",
+          "name": "Plateau-stuck regular",
+          "core_job": "Get a defensible padel rating",
+          "verdict": "pass_with_caveats",
+          "verdict_class": "inferred",
+          "critical_chain": "CC-1 rating-clarity backbone"
+        },
+        {
+          "id": "SEG-002",
+          "name": "Newly-ranked competitor",
+          "core_job": "Get a defensible padel rating",
+          "verdict": "pass",
+          "verdict_class": "verified",
+          "critical_chain": "CC-1 rating-clarity backbone"
+        },
+        {
+          "id": "SEG-003",
+          "name": "Club coach (B2B2C)",
+          "core_job": "Track student progress without manual notes",
+          "verdict": "pass_with_caveats",
+          "verdict_class": "inferred",
+          "critical_chain": "CC-2 coach renewal chain"
+        },
+        {
+          "id": "SEG-004",
+          "name": "Club operator (B2B)",
+          "core_job": "Differentiate against neighbouring clubs",
+          "verdict": "fail",
+          "verdict_class": "absent",
+          "critical_chain": "none"
+        },
+        {
+          "id": "SEG-005",
+          "name": "Travelling enthusiast",
+          "core_job": "Get a rating that travels",
+          "verdict": "pass_with_caveats",
+          "verdict_class": "inferred",
+          "critical_chain": "CC-1 rating-clarity backbone"
+        },
+        {
+          "id": "SEG-006",
+          "name": "Injury-aware returning player",
+          "core_job": "Movement-load monitoring",
+          "verdict": "false_segment",
+          "verdict_class": "absent",
+          "critical_chain": "none"
+        }
+      ]
+    },
+    "value_mechanics": {
+      "headline_moat": "data + network",
+      "evidence_anchor": "https://nav.al/business-models",
+      "lead_candidates": [
+        "VM-001",
+        "VM-002",
+        "VM-006",
+        "VM-008"
+      ],
+      "supporting": [
+        "VM-003",
+        "VM-004",
+        "VM-005",
+        "VM-007",
+        "VM-011"
+      ],
+      "demoted": [
+        "VM-009",
+        "VM-010"
+      ],
+      "killed": [
+        "VM-X (generic AI rating wrapper)"
+      ],
+      "rationale": "VM-001 compounds match-by-match into a per-player rating; VM-002 turns the rating into a network asset across clubs; VM-006 keeps the audience direct; VM-008 widens the language moat."
+    },
+    "monetization": {
+      "primary_model": "B2C freemium for the smartphone-only rating + drill recap path; paid tier ~EUR 7.99/month anchored against Strava Summit and SwingVision Pro.",
+      "primary_anchor_url": "https://www.strava.com/premium",
+      "hedge_model": "B2B SaaS to club coaches and academies for the coach co-pilot at EUR 19-29/month per seat, anchored against CoachLogic and Hudl Assist.",
+      "hedge_anchor_url": "https://www.hudl.com/pricing",
+      "expansion_model": "Tournament-organiser data feed (VM-007) and rating licensing to federations after ≥5,000 active rated players in ≥3 cities.",
+      "expansion_anchor_url": "https://www.padelfip.com/calendar-fip-championships/"
+    },
+    "gtm": {
+      "evidence_anchor": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "top_channels": [
+        {
+          "id": "CH-001",
+          "name": "Founder-owned multilingual newsletter",
+          "cac": "USD 12",
+          "moat": "distribution",
+          "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+        },
+        {
+          "id": "CH-002",
+          "name": "Padel club partnership pilot",
+          "cac": "USD 150",
+          "moat": "switching_cost",
+          "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+        },
+        {
+          "id": "CH-003",
+          "name": "Tournament-organiser integration",
+          "cac": "USD 500",
+          "moat": "integration",
+          "cac_url": "https://foundrycro.com/blog/cac-benchmarks-2026/"
+        }
+      ],
+      "owned_audience": "Spanish-language and Russian-language padel readers reached through the founder newsletter and Telegram digest.",
+      "owned_asset": "Founder cadence of localised tactical recaps — body of public work that does not depend on a platform gatekeeper."
+    },
+    "geo": {
+      "evidence_anchor": "https://www.padelfip.com/world-padel-report-2025/",
+      "P0": [
+        "ES",
+        "RU"
+      ],
+      "P1": [
+        "IT",
+        "FR",
+        "PT",
+        "KZ"
+      ],
+      "P2": [
+        "SE",
+        "NL",
+        "BE",
+        "FI",
+        "AR"
+      ],
+      "P3": [
+        "AE",
+        "US",
+        "UK",
+        "DE",
+        "MX",
+        "BR"
+      ],
+      "deferred": [],
+      "rationale": "Spain anchors absolute volume; Russia / CIS leverages founder reachability advantage with on-device pipeline for 152-FZ compliance."
+    },
+    "capability_map": {
+      "evidence_anchor": "https://github.com/Joao-M-Silva/padel_analytics",
+      "ship_solo_count": 5,
+      "ship_solo_with_apis_count": 5,
+      "requires_partner_count": 4,
+      "requires_capital_count": 2,
+      "requires_team_count": 1,
+      "lead_mechanic_band": "ship_solo (VM-001) → ship_solo_with_apis (VM-002, VM-003)"
+    },
+    "triz": {
+      "contradiction": "The user wants an objective skill rating without the cost or social awkwardness of a formal rating event, yet existing tools either provide rich ungraded analytics or rigid graded rankings without analytics.",
+      "resolution": "Decouple the rating signal from the rating event by deriving the rating from match video the player already records, then pipe it into the workflows (drill prescription, coach renewal, tournament seeding) where the rating must travel."
+    },
+    "retention_drivers": [
+      {
+        "driver": "Rating that travels across clubs",
+        "mechanism": "Each match updates the rating; cross-club acceptance compounds value.",
+        "evidence_class": "data flywheel"
+      },
+      {
+        "driver": "Drill prescription tied to losing-shot cluster",
+        "mechanism": "Player books the next session against a specific weakness, not a generic warm-up.",
+        "evidence_class": "closed feedback loop"
+      },
+      {
+        "driver": "Pair-level shared review",
+        "mechanism": "Two-player annotation surfaces seed invite-driven retention.",
+        "evidence_class": "network effect"
+      },
+      {
+        "driver": "Coach renewal recap",
+        "mechanism": "Coach embeds the recap into renewal-conversation rituals; switching cost compounds.",
+        "evidence_class": "workflow embedment"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Playtomic embeds CV-derived rating inside booking flow before candidate ships MVP",
+        "trigger": "Playtomic Global Padel Report (https://playtomic.com/global-padel-report) cites a derived-rating method, or feature appears in production",
+        "pivot": "Compress to coach co-pilot (VM-004) and Russian-language CIS beachhead; treat consumer rating play as competitive surrender."
+      },
+      {
+        "risk": "Padelytics or Wingfield ships smartphone-only rating before the candidate",
+        "trigger": "Either peer announces a smartphone capture flow with a verified rating delta",
+        "pivot": "Compress to coach co-pilot (VM-004) and Russian-language CIS beachhead while peers fight in ES/IT."
+      },
+      {
+        "risk": "Founder newsletter direct-traffic share fails the distribution-moat test",
+        "trigger": "Direct-traffic share of beta sign-ups remains below 25 percent at week 8",
+        "pivot": "Demote VM-006 to a supporting mechanic; promote VM-002 (network) and VM-007 (integration) as primary."
+      },
+      {
+        "risk": "Cross-club adoption stalls without FIP / Playtomic mandate",
+        "trigger": "Fewer than 40 percent of recorded matches include both players in the app at week 12",
+        "pivot": "Pivot from consumer rating to coach co-pilot (VM-004) where the network is intra-academy, not inter-club."
+      },
+      {
+        "risk": "FIP releases an open seeding API",
+        "trigger": "FIP integration changelog shows a public seeding API",
+        "pivot": "Pivot from VM-007 integration moat to VM-002 network moat with rating quality as differentiator."
+      },
+      {
+        "risk": "On-device CV becomes commodity",
+        "trigger": "Apple or Google ships system-level on-device CV for video apps",
+        "pivot": "Drop VM-010 demote; double down on VM-006 distribution and VM-008 localisation."
+      }
+    ],
+    "differentiation_table": [
+      {
+        "peer": "Padelytics",
+        "peer_angle": "AI video analysis aimed at clubs and players",
+        "differentiated_angle": "Smartphone-only rating that travels across clubs without club camera dependency"
+      },
+      {
+        "peer": "Clutch",
+        "peer_angle": "Club camera with ranking and matchmaking layer",
+        "differentiated_angle": "Founder-owned distribution + cross-club rating, not club-bound"
+      },
+      {
+        "peer": "PadelPlay",
+        "peer_angle": "Racket-mounted sensor + companion app",
+        "differentiated_angle": "Smartphone-only path; no hardware purchase required"
+      },
+      {
+        "peer": "Eyes On Padel",
+        "peer_angle": "Multi-court camera installation for clubs",
+        "differentiated_angle": "Player-side rating layer that operates without club hardware"
+      },
+      {
+        "peer": "SPASH",
+        "peer_angle": "AI match analyzer for padel clubs",
+        "differentiated_angle": "Rating that travels across clubs and tournaments, not stranded inside the club account"
+      },
+      {
+        "peer": "Playtomic",
+        "peer_angle": "Booking + matchmaking + self-declared levels",
+        "differentiated_angle": "Match-derived rating replaces self-declared level; cross-posts back to Playtomic profile"
+      },
+      {
+        "peer": "Wingfield",
+        "peer_angle": "AI camera tracking system for tennis + padel",
+        "differentiated_angle": "Padel-first taxonomy and language coverage; smartphone-only path"
+      },
+      {
+        "peer": "PlaySight",
+        "peer_angle": "Multi-sport AI camera for premium clubs",
+        "differentiated_angle": "Consumer-first rating + distribution moat in non-English markets"
+      },
+      {
+        "peer": "Premier Padel",
+        "peer_angle": "Top professional circuit and brand authority",
+        "differentiated_angle": "Amateur rating that interoperates with the FIP-anchored seeding spine"
+      },
+      {
+        "peer": "Hudl",
+        "peer_angle": "Sport video analysis SaaS for coaches across sports",
+        "differentiated_angle": "Padel-specific shot taxonomy + coach renewal recap built in"
+      }
+    ],
+    "kill_experiments_summary": [
+      "Smartphone-only rating MVP: reproduce open-source pipeline within 80 person-hours.",
+      "Smoke-test rating CTA in Spanish + Russian; ≥6% CTR on padel community channels.",
+      "Coach pilot: ≥3 of 8 coaches send a recap to a student during a one-week pilot.",
+      "Tournament integration: ≥2 LOIs with FIP-affiliated organisers within 6 weeks."
+    ],
+    "usp": "Padel regulars get a rating that travels across clubs and tournaments, derived from phone video and held in a coach-renewal feedback loop, owned through founder distribution.",
+    "usp_falsifier": "If the founder newsletter direct-traffic share remains below 25 percent of beta sign-ups after eight weeks, the distribution moat in the USP is not real and the USP must be rewritten."
+  }
+}

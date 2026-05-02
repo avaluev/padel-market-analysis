@@ -1,0 +1,27 @@
+{
+  "id": "padelplay",
+  "name": "PadelPlay",
+  "url": "https://www.padelplay.ai/",
+  "archetype": "sensor_hardware",
+  "value_prop": "Racket-mounted sensor combined with a companion app delivering shot recognition and tactical recommendations.",
+  "pricing": {
+    "model": "hardware_plus_service",
+    "price_anchor": "hardware bundle plus subscription tier",
+    "source_url": "https://www.padelplay.ai/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Direct-to-consumer hardware presale",
+    "geo_presence": [
+      "ES",
+      "IT"
+    ],
+    "evidence_url": "https://www.padelplay.ai/"
+  },
+  "moat_class": "integration",
+  "moat_evidence_url": "https://www.padelplay.ai/",
+  "gaps": [
+    "Dependency on hardware ownership creates conversion friction; refund and replacement terms not on the homepage.",
+    "Sample size of recorded sensor data and accuracy benchmarks not published."
+  ],
+  "verification_status": "VERIFIED"
+}

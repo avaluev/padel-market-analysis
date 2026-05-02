@@ -1,0 +1,37 @@
+{
+  "id": "playtomic",
+  "name": "Playtomic",
+  "url": "https://playtomic.io/blog",
+  "archetype": "matchmaking_app",
+  "value_prop": "Court booking and matchmaking network connecting players to clubs and partners across multiple countries.",
+  "pricing": {
+    "model": "freemium",
+    "price_anchor": "free for players; B2B SaaS to clubs (Standard/Professional/Champion tiers)",
+    "source_url": "https://playtomic.com/pricing"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Cited as the largest padel booking network in 2025 reports",
+    "geo_presence": [
+      "ES",
+      "IT",
+      "SE",
+      "UK",
+      "DE",
+      "FR",
+      "BE",
+      "NL",
+      "PT",
+      "AR",
+      "MX",
+      "UAE"
+    ],
+    "evidence_url": "https://playtomic.com/global-padel-report"
+  },
+  "moat_class": "network",
+  "moat_evidence_url": "https://playtomic.com/global-padel-report",
+  "gaps": [
+    "Coaching layer is shallow versus dedicated peers; analytics ride on top of self-declared levels.",
+    "Player rating system has been re-tuned multiple times; cross-club consistency is debated by power users."
+  ],
+  "verification_status": "VERIFIED"
+}

@@ -1,0 +1,179 @@
+{
+ "schema_version": "1.0",
+ "method": "segment-stress-test (https://github.com/Joao-M-Silva/padel_analytics serves as feasibility evidence; peer cards in evidence/<run-id>/04_peer_cards/ supply counter-examples).",
+ "summary": {
+ "ran_against": [
+ "SEG-001",
+ "SEG-002",
+ "SEG-003",
+ "SEG-004",
+ "SEG-005",
+ "SEG-006"
+ ],
+ "non_pass_count": 3
+ },
+ "verdicts": [
+ {
+ "segment_id": "SEG-001",
+ "name": "The plateau-stuck regular",
+ "verdict": "pass_with_caveats",
+ "failure_modes": [
+ {
+ "code": "FM-3",
+ "mode": "missing_trigger",
+ "evidence": "\"Skill stagnation\" is a feeling, not an event. Caveat tightens the trigger to: lost a match against a regular partner whose self-declared rating outpaces this player."
+ },
+ {
+ "code": "FM-7",
+ "mode": "vanity_moat",
+ "evidence": "Generic match video accumulates, but unless tied to a per-player longitudinal record (CC-1), the data does not improve the rating model."
+ }
+ ],
+ "counter_examples": [
+ "Padelytics (https://www.padelytics.ai/) sells match-level analysis to plateau players today; the trigger that converts them is partner-driven, not internal stagnation.",
+ "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) provides club-side highlights that satisfy the curiosity layer without prompting a rating purchase."
+ ],
+ "strongest_reason_false_segment": "If the trigger is partner comparison rather than self-perceived plateau, the segment overlaps with the newly-ranked competitor; merging risk is real.",
+ "strongest_reason_real": "The alternatives_hired list is concrete (Padelytics, Clutch, club camera, paid coach), not invented; the segment is reachable through padel-specific community channels.",
+ "recommendation": "keep",
+ "kill_experiments": [
+ {
+ "experiment": "smoke-test 'request a padel rating' fake-door landing in Spain and Italy",
+ "threshold": "≥6% CTR on padel community channels (Reddit, club newsletters)",
+ "timeline_weeks": 2
+ }
+ ]
+ },
+ {
+ "segment_id": "SEG-002",
+ "name": "The newly-ranked competitor",
+ "verdict": "pass",
+ "failure_modes": [
+ {
+ "code": "none",
+ "mode": "none",
+ "evidence": "Trigger (tournament loss) is event-based; alternatives are concrete (federation result, paid coach assessment)."
+ }
+ ],
+ "counter_examples": [
+ "Premier Padel rating (https://premierpadel.com/) does not interoperate with amateur products today, so the unmet outcome is real."
+ ],
+ "strongest_reason_false_segment": "If the player's federation already publishes a rating per tournament, the unmet outcome shrinks to convenience rather than transferability.",
+ "strongest_reason_real": "Tournament-loss → reach-for-tool is a recurring switch trigger documented in club coach interviews.",
+ "recommendation": "keep"
+ },
+ {
+ "segment_id": "SEG-003",
+ "name": "The club coach (B2B2C)",
+ "verdict": "pass_with_caveats",
+ "failure_modes": [
+ {
+ "code": "FM-5",
+ "mode": "unreachable_affordably",
+ "evidence": "Coaches are slow to convert and CAC anchors are unknown; depending on coach affiliate (foundrycro.com benchmark CAC=$150 for affiliate channels) leaves the segment economic-margin-thin until LTV math is verified."
+ }
+ ],
+ "counter_examples": [
+ "Hudl (https://www.hudl.com/) sells to coaches across multiple sports but its padel-specific tagging is shallow, leaving room — and risk.",
+ "CoachLogic (https://coachlogic.com/) offers a coach LMS that some coaches already pay for; switching cost is real."
+ ],
+ "strongest_reason_false_segment": "Coaches sometimes refuse any tool the student also touches; if that refusal dominates, the segment splits into coach-only vs B2B2C and the latter shrinks.",
+ "strongest_reason_real": "The renewal-conversation pain is documented across multiple peer cards; the trigger (lost student) is event-based.",
+ "recommendation": "keep",
+ "kill_experiments": [
+ {
+ "experiment": "recruit 8 coaches via FEP (https://www.fep.es/) and FITP (https://www.fitp.it/) chapters and run a 1-week pilot",
+ "threshold": "≥3 coaches submit a recap; ≥1 sends it to a student",
+ "timeline_weeks": 2
+ }
+ ]
+ },
+ {
+ "segment_id": "SEG-004",
+ "name": "The club operator (B2B)",
+ "verdict": "fail",
+ "failure_modes": [
+ {
+ "code": "FM-1",
+ "mode": "demographic_in_disguise",
+ "evidence": "\"Manages 4–12 courts\" is a venue-size descriptor; differentiation does not predict Core Job behavior the way a switch trigger does."
+ },
+ {
+ "code": "FM-2",
+ "mode": "one_job_multiple_segments",
+ "evidence": "Operator job 'differentiate against the local club' overlaps with the coach segment's renewal job; mechanics needed are nearly identical."
+ }
+ ],
+ "counter_examples": [
+ "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) sells to operators today; the moat lives in the camera install, not the analytics — separate game from a coaching co-pilot."
+ ],
+ "strongest_reason_false_segment": "Operator economics are dominated by court hardware capex and bookings throughput; AI coaching is a feature, not a primary purchase.",
+ "strongest_reason_real": "Some operators do buy analytics dashboards, but the value is bookings retention, not coaching depth.",
+ "recommendation": "kill",
+ "kill_experiments": [
+ {
+ "experiment": "none — fold operator interactions into coach segment until evidence justifies a separate canvas",
+ "threshold": "n/a",
+ "timeline_weeks": 0
+ }
+ ]
+ },
+ {
+ "segment_id": "SEG-005",
+ "name": "The travelling enthusiast",
+ "verdict": "pass_with_caveats",
+ "failure_modes": [
+ {
+ "code": "FM-4",
+ "mode": "no_real_alternative",
+ "evidence": "\"No consistent rating across cities\" is true but most travelling players hire Playtomic/MATCHi self-declared levels — competing against an alternative rather than a missing one."
+ }
+ ],
+ "counter_examples": [
+ "Playtomic (https://playtomic.io/blog) and MATCHi (https://matchi.com/) cover cross-club bookings; their self-declared levels are the alternative, not nothing."
+ ],
+ "strongest_reason_false_segment": "Travelling enthusiasts are a thin slice of paid users; reachability through direct channel could be cheap but the segment may be too small to anchor monetisation.",
+ "strongest_reason_real": "Tournament invitations across cities are an event-based trigger; ratings that travel meaningfully solve the unmet outcome.",
+ "recommendation": "merge with SEG-001",
+ "kill_experiments": [
+ {
+ "experiment": "survey existing Playtomic / MATCHi power users on whether they would switch their public rating from self-declared to derived",
+ "threshold": "≥30% prefer derived",
+ "timeline_weeks": 2
+ }
+ ]
+ },
+ {
+ "segment_id": "SEG-006",
+ "name": "The injury-aware returning player",
+ "verdict": "false_segment",
+ "failure_modes": [
+ {
+ "code": "FM-1",
+ "mode": "demographic_in_disguise",
+ "evidence": "\"Returning after injury\" is a life-situation label; the Core Job (movement quality monitoring) does not yet have a documented switch trigger or named alternative."
+ },
+ {
+ "code": "FM-7",
+ "mode": "vanity_moat",
+ "evidence": "Injury-load modelling without longitudinal sensor data risks fabricating a moat where the data accumulation does not yet exist."
+ }
+ ],
+ "counter_examples": [
+ "Whoop (https://www.whoop.com/membership/) covers movement-load monitoring across sports; padel-specific load modelling is under-evidenced in peer cards."
+ ],
+ "strongest_reason_false_segment": "Without a verified switch trigger or specific alternative_hired, the segment is a feature wishlist rather than a real Core Job.",
+ "strongest_reason_real": "There is plausible demand long-term, but the kill experiment needs to come before the segment is treated as real.",
+ "recommendation": "kill",
+ "kill_experiments": [
+ {
+ "experiment": "defer; revisit only if Phase 09 audit promotes the injury-load value mechanic above the rating chain",
+ "threshold": "n/a until evidence appears",
+ "timeline_weeks": 0
+ }
+ ]
+ }
+ ],
+ "pipeline_level_risk": "If SEG-001 and SEG-005 collapse into a single segment, the beachhead becomes more concentrated — a positive — but the GTM channel ranking must follow the rating-clarity job, not the travelling-enthusiast story.",
+ "kill_experiment_for_pipeline_risk": "Run JTBD interviews with 8 plateau-stuck regulars and ask explicitly whether 'rating that travels' or 'drill prescription' was the precipitating switch — Phase 07 owns this experiment."
+}

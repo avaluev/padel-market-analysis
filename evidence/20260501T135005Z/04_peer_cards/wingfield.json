@@ -1,0 +1,29 @@
+{
+  "id": "wingfield",
+  "name": "Wingfield",
+  "url": "https://www.wingfield.io/",
+  "archetype": "club_camera_system",
+  "value_prop": "Court-installed AI camera tracking ball, players, and shots for racket-sport clubs with companion player-facing app.",
+  "pricing": {
+    "model": "hardware_plus_service",
+    "price_anchor": "€85/month per court tier per Sonar pricing capture",
+    "source_url": "https://www.wingfield.io/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Hundreds of installed courts in DACH and Iberia",
+    "geo_presence": [
+      "DE",
+      "ES",
+      "CH",
+      "AT"
+    ],
+    "evidence_url": "https://www.wingfield.io/"
+  },
+  "moat_class": "integration",
+  "moat_evidence_url": "https://www.wingfield.io/",
+  "gaps": [
+    "Vendor primarily targets tennis; padel-specific shot taxonomy is shallower than padel-only peers.",
+    "Player-facing rating layer rides on club deployment rather than a smartphone-only path."
+  ],
+  "verification_status": "VERIFIED"
+}

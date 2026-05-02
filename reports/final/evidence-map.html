@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="Padel AI Coach — Evidence Map. Source-trace and verbatim quotes for every claim in the strategic brief.">
+<meta property="og:title" content="Padel AI Coach — Evidence Map">
+<meta property="og:description" content="Companion document linking every claim to a verifiable evidence file.">
+<meta property="og:type" content="article">
+<title>Padel AI Coach — Evidence Map</title>
+<link rel="canonical" href="./evidence-map.html">
+<style>
+  :root {
+    --bg:#fff; --bg-soft:#fafafa; --bg-card:#fff; --bg-elev:#f5f7fa;
+    --ink:#0a0a0a; --ink-soft:#3f3f46; --ink-mute:#71717a;
+    --line:#e6e6e6; --line-soft:#f0f0f0;
+    --accent:#0a6cf3; --accent-soft:#e6efff; --accent-ink:#fff;
+    --good:#0a8a52; --warn:#b45309; --bad:#b00020;
+    --code-bg:#f4f4f5;
+    --shadow:0 1px 2px rgba(0,0,0,.04), 0 1px 1px rgba(0,0,0,.04);
+    --shadow-elev:0 4px 16px rgba(0,0,0,.08);
+    --radius:8px; --radius-sm:6px; --radius-lg:12px;
+    --tap:44px;
+    --gutter:clamp(16px, 4vw, 32px);
+    --shell-max:1280px;
+    --nav-w:clamp(260px, 22vw, 300px);
+    --safe-l:env(safe-area-inset-left,0);
+    --safe-r:env(safe-area-inset-right,0);
+    --safe-b:env(safe-area-inset-bottom,0);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0a0a0a; --bg-soft:#101012; --bg-card:#141416; --bg-elev:#181a1d;
+      --ink:#fafafa; --ink-soft:#d4d4d8; --ink-mute:#a1a1aa;
+      --line:#27272a; --line-soft:#1c1c1f;
+      --accent:#3b9bff; --accent-soft:#0e2440; --accent-ink:#0a0a0a;
+      --code-bg:#1a1a1d;
+      --shadow:0 1px 2px rgba(0,0,0,.4);
+      --shadow-elev:0 6px 24px rgba(0,0,0,.5);
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%; tab-size:4; scroll-behavior:smooth; scroll-padding-top:120px}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink); overflow-x:clip}
+  body{
+    font:400 16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","SF Pro Text",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    padding-left:var(--safe-l); padding-right:var(--safe-r);
+  }
+  img,svg,video{display:block;max-width:100%;height:auto}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--accent-ink);padding:12px 16px;border-radius:var(--radius-sm);z-index:1000;font-weight:600}
+  .skip-link:focus{left:8px;top:8px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  h1,h2,h3,h4{margin:0 0 .4em; font-weight:600; letter-spacing:-0.01em; color:var(--ink); text-wrap:balance}
+  h1{font-size:clamp(1.6rem, 1.3rem + 1.5vw, 2rem); line-height:1.2}
+  h2{font-size:clamp(1.2rem, 1.05rem + .8vw, 1.4rem); line-height:1.25; margin-top:clamp(32px,5vw,48px); padding-top:clamp(16px,3vw,20px); border-top:1px solid var(--line)}
+  h3{font-size:clamp(1.05rem, 0.95rem + 0.5vw, 1.15rem); line-height:1.35; margin-top:clamp(20px,3vw,28px)}
+  h4{font-size:.825rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-mute);font-weight:600;margin-top:22px}
+  p{margin:.5em 0 1em; text-wrap:pretty}
+  p.lede{font-size:clamp(1rem,.95rem + .4vw,1.125rem);color:var(--ink-soft);max-width:72ch}
+  small,.small{font-size:.825rem; color:var(--ink-soft)}
+  .meta{color:var(--ink-mute); font-size:.825rem}
+
+  a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px;
+    text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{text-decoration-color:var(--accent)}
+  a:active{opacity:.7}
+  code{font:13px ui-monospace,"SF Mono",Menlo,Consolas,monospace; background:var(--code-bg); padding:1px 5px; border-radius:4px; word-break:break-word}
+
+  .shell{
+    max-width:var(--shell-max);
+    margin:0 auto;
+    padding:24px var(--gutter) calc(64px + var(--safe-b));
+    display:block;
+  }
+  .main{min-width:0}
+
+  /* ─── Navigation: FAB+bottom-sheet on mobile, sticky rail on desktop ─── */
+  details.sidenav{margin:0}
+  details.sidenav > summary{list-style:none;cursor:pointer}
+  details.sidenav > summary::-webkit-details-marker{display:none}
+
+  .nav-summary{
+    position:fixed;
+    right:max(16px,var(--safe-r));
+    bottom:calc(16px + var(--safe-b));
+    z-index:50;
+    display:inline-flex;align-items:center;gap:10px;
+    min-height:var(--tap);min-width:var(--tap);
+    padding:0 18px 0 14px;
+    background:var(--accent);color:var(--accent-ink);
+    border-radius:999px;
+    box-shadow:var(--shadow-elev);
+    font-weight:600;font-size:.875rem;letter-spacing:.01em;
+    user-select:none;
+  }
+  .nav-summary::before{
+    content:"";display:inline-block;width:18px;height:14px;
+    background:linear-gradient(currentColor,currentColor) top / 100% 2px no-repeat,
+               linear-gradient(currentColor,currentColor) center / 100% 2px no-repeat,
+               linear-gradient(currentColor,currentColor) bottom / 100% 2px no-repeat;
+  }
+  .nav-summary .nav-label{letter-spacing:.04em;text-transform:uppercase;font-size:.7rem}
+
+  details.sidenav[open]::before{
+    content:"";position:fixed;inset:0;
+    background:rgba(0,0,0,.45);z-index:40;
+    -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+    animation:fadeIn 150ms ease forwards;
+  }
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+  details.sidenav nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:45;
+    background:var(--bg-card);border-top:1px solid var(--line);
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    max-height:80vh;overflow-y:auto;
+    padding:8px 10px calc(16px + var(--safe-b));
+    box-shadow:0 -8px 32px rgba(0,0,0,.18);
+    animation:slideUp 220ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  details.sidenav nav::before{
+    content:"";display:block;width:36px;height:4px;
+    background:var(--line);border-radius:999px;margin:6px auto 12px;
+  }
+  details.sidenav nav ol{margin:0;padding:0;list-style:none;counter-reset:nav}
+  details.sidenav nav li{margin:0;counter-increment:nav}
+  details.sidenav nav li a{
+    display:flex;align-items:center;
+    min-height:var(--tap);padding:10px 14px;
+    border-radius:8px;color:var(--ink);text-decoration:none;
+    font-size:1rem;line-height:1.35;
+  }
+  details.sidenav nav li a::before{
+    content:counter(nav, decimal-leading-zero);
+    color:var(--ink-mute);font-variant-numeric:tabular-nums;
+    font-size:.75rem;margin-right:14px;min-width:24px;
+  }
+  details.sidenav nav li a:active,
+  details.sidenav nav li a:hover{background:var(--bg-soft)}
+  details.sidenav nav li a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  details.sidenav .nav-foot{display:none}
+
+  .nav-rail-label{display:none}
+
+  @media (min-width:720px){
+    .shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);gap:32px;padding-top:40px}
+    .nav-summary{display:none !important}
+    details.sidenav[open]::before{display:none}
+    details.sidenav,
+    details.sidenav[open]{
+      position:sticky;top:24px;align-self:start;
+      max-height:calc(100vh - 88px);overflow-y:auto;
+      margin:0;
+      border:1px solid var(--line);background:var(--bg-soft);
+      border-radius:var(--radius);padding:14px 12px;
+    }
+    details.sidenav nav{
+      position:static;background:transparent;
+      border:0;border-radius:0;max-height:none;overflow:visible;
+      padding:4px;box-shadow:none;animation:none;display:block !important;
+    }
+    details.sidenav nav::before{display:none}
+    details.sidenav nav li a{
+      padding:8px 10px;border-radius:6px;
+      font-size:.925rem;color:var(--ink-soft);
+      border-left:2px solid transparent;min-height:36px;
+    }
+    details.sidenav nav li a:hover{background:var(--bg);color:var(--ink);border-left-color:var(--accent)}
+    details.sidenav nav li a[aria-current="true"]{
+      background:var(--bg);color:var(--ink);border-left-color:var(--accent);font-weight:500;
+    }
+    details.sidenav .nav-foot{display:block;padding:10px 8px 0;margin-top:10px;border-top:1px solid var(--line);font-size:.825rem;color:var(--ink-soft)}
+    .nav-rail-label{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mute);font-weight:600;margin:4px 8px 8px}
+  }
+  @media (min-width:1024px){.shell{padding:56px var(--gutter) 96px;gap:40px}}
+
+  header.hero{padding:8px 0 24px;border-bottom:1px solid var(--line);margin-bottom:24px}
+
+  .badge{display:inline-block;padding:3px 10px;font-size:.7rem;font-weight:600;
+    border-radius:999px;letter-spacing:.04em;text-transform:uppercase;
+    border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);white-space:nowrap}
+  .badge.verified{color:var(--good);border-color:rgba(10,138,82,.25);background:rgba(10,138,82,.08)}
+  .badge.tier1{color:var(--accent);border-color:rgba(10,108,243,.25);background:rgba(10,108,243,.08)}
+
+  .card{background:var(--bg-card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:clamp(16px,3vw,20px);margin:14px 0;box-shadow:var(--shadow)}
+  .card .card-title{font-weight:600;font-size:1rem;margin-bottom:6px;line-height:1.35}
+
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+    margin:14px calc(var(--gutter) * -.5);padding:0 calc(var(--gutter) * .5);scrollbar-width:thin}
+  @media (min-width:720px){.table-wrap{margin-left:0;margin-right:0;padding:0}}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.925rem;min-width:520px}
+  th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4}
+  @media (min-width:720px){th,td{padding:10px 12px}}
+  th{color:var(--ink-mute);text-transform:uppercase;font-size:.7rem;letter-spacing:.06em;font-weight:600;background:var(--bg-soft);position:sticky;top:0;padding-top:10px;padding-bottom:10px}
+  tr:last-child td{border-bottom:none}
+  @media (hover:none) and (pointer:coarse){
+    td > a:only-child{display:flex;align-items:center;min-height:32px}
+  }
+
+  blockquote{border-left:3px solid var(--accent);margin:14px 0;padding:10px 14px;
+    color:var(--ink-soft);font-style:italic;background:var(--bg-soft);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+
+  .file-path{font:12px ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    color:var(--ink-mute);display:block;margin:4px 0 8px;word-break:break-all}
+  ul.compact{margin:.4em 0;padding-left:1.2em}
+  ul.compact li{margin:.15em 0}
+
+  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--ink-mute);font-size:.75rem}
+
+  @media print{
+    :root{--shadow:none}
+    body{font-size:11pt;background:#fff;color:#000}
+    details.sidenav,.skip-link,.nav-summary{display:none !important}
+    .shell{display:block;padding:0;max-width:none}
+    .table-wrap{overflow:visible}
+    table{min-width:0;font-size:10pt}
+    h2,h3,.card{break-inside:avoid}
+    a{color:#000;text-decoration:underline}
+    th{position:static}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  }
+
+/* Author footer + digital fingerprint */
+.author-foot{
+  margin-top:48px;
+  padding:24px 0 calc(32px + env(safe-area-inset-bottom,0));
+  border-top:1px solid var(--line, #e6e6e6);
+  font-size:.825rem;
+  color:var(--ink-mute, #71717a);
+}
+.author-foot .author-shell{
+  display:flex;flex-direction:column;gap:8px;
+  flex-wrap:wrap;
+}
+.author-foot .author-line,
+.author-foot .author-fingerprint{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;
+}
+.author-foot .author-line .who{color:var(--ink-soft, #3f3f46)}
+.author-foot .author-line strong{color:var(--ink, #0a0a0a);font-weight:600}
+.author-foot a{color:var(--accent, #0a6cf3)}
+.author-foot .dot-sep{color:var(--ink-mute, #71717a);user-select:none}
+.author-foot code{font-size:.75rem}
+@media (min-width:640px){
+  .author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}
+}
+@media print{
+  .author-foot{break-before:auto;break-inside:avoid}
+  .author-foot a{color:#000}
+}
+</style>
+<link rel="stylesheet" href="topnav.css">
+<meta name="author" content="Alexandr Valuev">
+<link rel="me" href="https://www.linkedin.com/in/valuev/">
+<link rel="me" href="https://t.me/ASNKT">
+<link rel="me" href="https://github.com/avaluev">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Padel AI Coach — Evidence Map",
+  "description": "Source-trace document for the Padel AI Coach Strategic Brief.",
+  "inLanguage": "en",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": "Collection",
+    "name": "Deep Research OS — Padel AI Coach case study",
+    "url": "https://github.com/avaluev/padel-market-analysis"
+  },
+  "codeRepository": "https://github.com/avaluev/padel-market-analysis",
+  "author": {
+    "@type": "Person",
+    "name": "Alexandr Valuev",
+    "url": "https://www.linkedin.com/in/valuev/",
+    "sameAs": [
+      "https://www.linkedin.com/in/valuev/",
+      "https://t.me/ASNKT",
+      "https://github.com/avaluev",
+      "https://github.com/avaluev/padel-market-analysis"
+    ]
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Alexandr Valuev",
+    "url": "https://www.linkedin.com/in/valuev/"
+  },
+  "datePublished": "2026-05-03"
+}
+</script>
+</head>
+<body>
+<header class="topnav" role="navigation" aria-label="Cross-page navigation">
+  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Deep Research OS</a>
+    <a class="np" href="index.html">Home</a>
+    <a class="np" href="padel-ai-coach-research.html">Strategic Brief</a>
+    <a class="np" href="evidence-map.html" aria-current="page">Evidence Map</a>
+    <a class="np" href="methodology.html">Methodology</a>
+  <span class="spacer"></span>
+  <span class="ext">Run 20260501T135005Z</span>
+</header>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="shell">
+
+<details class="sidenav" aria-label="Section navigation">
+  <summary class="nav-summary"><span class="nav-label">Sections</span></summary>
+  <span class="nav-rail-label">Evidence Map</span>
+  <nav aria-label="Table of contents">
+    <ol>
+      <li><a href="#how-to-read">How to read this map</a></li>
+      <li><a href="#strategic">Strategic framing</a></li>
+      <li><a href="#jobs">Jobs to be done (JS-001 to JS-004)</a></li>
+      <li><a href="#peers">Competitive peer cards</a></li>
+      <li><a href="#mechanics">Value mechanics (VM-001 to VM-011)</a></li>
+      <li><a href="#market">Market sizing (TAM, SAM, SOM)</a></li>
+      <li><a href="#geo">Geographic priority</a></li>
+      <li><a href="#capability">Capability map</a></li>
+      <li><a href="#monetization">Monetisation and GTM</a></li>
+      <li><a href="#redteam">Red-team and DoD</a></li>
+      <li><a href="#derived">Derived synthesis</a></li>
+      <li><a href="#run-info">Run metadata</a></li>
+    </ol>
+  </nav>
+  <p class="nav-foot">Companion to the <a href="padel-ai-coach-research.html">Strategic Brief</a>.</p>
+</details>
+
+<main id="main" class="main">
+
+<header class="hero">
+  <div class="meta">Companion document · Run <code>20260501T135005Z</code></div>
+  <h1>Padel AI Coach — Evidence Map</h1>
+  <p class="lede">Every claim in the customer-facing <a href="padel-ai-coach-research.html">Strategic Brief</a> traces back to a file in <code>evidence/20260501T135005Z/</code>. This map lists those files with verbatim quotes and primary URLs so a reader can audit the evidence chain without opening JSON or YAML by hand.</p>
+</header>
+
+<section id="how-to-read">
+  <h2>1 · How to read this map</h2>
+  <p>Each section names a research artefact, links to the file in the repository, and surfaces the most load-bearing quote(s) plus the primary URL the quote was extracted from. The strategic brief consumes these artefacts; this map is the source-trace.</p>
+  <div class="table-wrap" role="region" tabindex="0" aria-label="Data table"><table>
+    <thead><tr><th>Format</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge verified">VERIFIED</span></td><td>The quote was retrieved from a live URL during the run and the response body was archived.</td></tr>
+      <tr><td><code>file.json</code></td><td>Path is relative to <code>evidence/20260501T135005Z/</code>.</td></tr>
+      <tr><td>"verbatim quote"</td><td>Direct extract from the cited URL or evidence file. No paraphrase.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="strategic">
+  <h2>2 · Strategic framing</h2>
+
+  <div class="card">
+    <div class="card-title">Strategic stage — Understanding</div>
+    <span class="file-path">evidence/20260501T135005Z/02_aura.json</span>
+    <blockquote>"The padel coaching strategic question sits in the Understanding stage of the strategic question because the candidate product, segment, and moat are not yet locked. Awareness has happened: padel reached 35M+ players and 77,000 courts globally per the FIP World Padel Report 2025 and Playtomic Global Padel Report 2025."</blockquote>
+    <p class="small"><span class="meta">Primary URL:</span> <a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener">FIP World Padel Report 2025</a> · Secondary URL: <a href="https://playtomic.com/global-padel-report" rel="noopener">Playtomic Global Padel Report 2025</a></p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Canonical brief — single source of truth</div>
+    <span class="file-path">evidence/20260501T135005Z/canonical_brief.json</span>
+    <p class="small">Aggregates segments, value mechanics, USP draft, and kill-experiments into the document the deck-assembler and red-team agents both read. Acts as the immutable downstream label set — once written, no downstream agent may alter its values.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Run blueprint</div>
+    <span class="file-path">evidence/20260501T135005Z/00_blueprint.json</span>
+    <p class="small">Snapshot of the prompt graph executed for this run, with model assignments and stage gates.</p>
+  </div>
+</section>
+
+<section id="jobs">
+  <h2>3 · Jobs to be done (JS-001 to JS-004)</h2>
+  <p>Four AJTBD job stories, each in <code>evidence/20260501T135005Z/01_job_stories/</code> as a YAML file. Confidence scores are 0.30–0.35 because the jobs are derived from desk research; they remain assumptions pending the qualitative interviews scheduled in each file's <code>gaps_to_probe_next</code> field.</p>
+
+  <div class="card">
+    <div class="card-title">JS-001 · Get a defensible padel rating without paying a coach</div>
+    <span class="file-path">evidence/20260501T135005Z/01_job_stories/JS-001.yaml</span>
+    <blockquote>"After losing a series of matches to a regular partner whose claimed rating outpaces the player, the player searches for a numeric rating that survives outside the home club."</blockquote>
+    <p class="small"><span class="meta">Most-felt by:</span> plateau-stuck regular and newly-ranked competitor. <span class="meta">Confidence:</span> 0.35.</p>
+    <p class="small"><span class="meta">Cited URLs:</span> <a href="https://playtomic.io/blog" rel="noopener">Playtomic</a>, <a href="https://matchi.com/" rel="noopener">MATCHi</a>, <a href="https://www.padelytics.ai/" rel="noopener">Padelytics</a>, <a href="https://www.clutchapp.io/" rel="noopener">Clutch</a>, <a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener">FIP World Padel Report 2025</a>, <a href="https://www.padelfip.com/2025/02/padel-in-spain-growth-in-courts-and-player-licenses-in-2024-morcillo-these-results-reflect-the-hard-work-of-recent-years/" rel="noopener">FIP, Spain growth in courts and licences</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">JS-002 · Translate match weaknesses into the next two drills</div>
+    <span class="file-path">evidence/20260501T135005Z/01_job_stories/JS-002.yaml</span>
+    <blockquote>"After three consecutive matches where the same shot decides the outcome the wrong way, the player stops trusting their own diagnosis and looks for an outside reading."</blockquote>
+    <p class="small"><span class="meta">Most-felt by:</span> plateau-stuck regular. <span class="meta">Confidence:</span> 0.30.</p>
+    <p class="small"><span class="meta">Cited URLs:</span> <a href="https://www.padelytics.ai/" rel="noopener">Padelytics</a>, <a href="https://www.hudl.com/pricing" rel="noopener">Hudl pricing</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">JS-003 · Track student progress as a club coach without manual notes</div>
+    <span class="file-path">evidence/20260501T135005Z/01_job_stories/JS-003.yaml</span>
+    <blockquote>"After losing a high-paying student to a competing academy that offered better progress visibility, a club coach searches for tooling that surfaces between-session deltas without adding admin time."</blockquote>
+    <p class="small"><span class="meta">Most-felt by:</span> club coach (B2B2C). <span class="meta">Confidence:</span> 0.30.</p>
+    <p class="small"><span class="meta">Cited URLs:</span> <a href="https://coachlogic.com/" rel="noopener">CoachLogic</a>, <a href="https://www.eyeson.sport/en/eyes-on-padel/" rel="noopener">Eyes On Padel</a>, <a href="https://www.hudl.com/products/assist" rel="noopener">Hudl Assist</a>, <a href="https://spash.com/en/match-analyzer-ia-clubs-padel/" rel="noopener">SPASH Match Analyzer</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">JS-004 · Settle the post-match argument with neutral footage</div>
+    <span class="file-path">evidence/20260501T135005Z/01_job_stories/JS-004.yaml</span>
+    <blockquote>"After a heated post-match discussion where the partner blamed the loss on the user, both players search for a neutral way to revisit the rallies before the next booking."</blockquote>
+    <p class="small"><span class="meta">Most-felt by:</span> travelling enthusiast and plateau-stuck regular. <span class="meta">Confidence:</span> 0.30.</p>
+    <p class="small"><span class="meta">Cited URLs:</span> <a href="https://www.eyeson.sport/en/eyes-on-padel/" rel="noopener">Eyes On Padel</a>, <a href="https://playsight.com/" rel="noopener">PlaySight</a>, <a href="https://www.padelytics.ai/" rel="noopener">Padelytics</a>, <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener">Joao-M-Silva / padel_analytics</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Jobs graph</div>
+    <span class="file-path">evidence/20260501T135005Z/05_jobs_graph.json</span>
+    <p class="small">Hierarchy linking the four jobs to higher-level goals and lower-level sub-jobs, plus enables / blocks / triggers / alternates edges. Critical chain identification feeds the value-mechanics ranking.</p>
+  </div>
+</section>
+
+<section id="peers">
+  <h2>4 · Competitive peer cards</h2>
+  <p>17 peer products were profiled in <code>evidence/20260501T135005Z/04_peer_cards/</code>, one JSON file each. Every card carries a <code>verification_status: "VERIFIED"</code> with the URL whose response was archived. The deduplicated index is at <code>03_peers_dedup.json</code> and the raw scrape at <code>03_peers_raw.jsonl</code>.</p>
+
+  <div class="table-wrap" role="region" tabindex="0" aria-label="Data table"><table>
+    <thead><tr><th>Peer</th><th>File</th><th>Moat class</th><th>Source URL</th></tr></thead>
+    <tbody>
+      <tr><td>Playtomic</td><td><code>04_peer_cards/playtomic.json</code></td><td>network</td><td><a href="https://playtomic.com/global-padel-report" rel="noopener">playtomic.com/global-padel-report</a></td></tr>
+      <tr><td>MATCHi</td><td><code>04_peer_cards/matchi.json</code></td><td>network</td><td><a href="https://matchi.com/" rel="noopener">matchi.com</a></td></tr>
+      <tr><td>Padelytics</td><td><code>04_peer_cards/padelytics.json</code></td><td>data</td><td><a href="https://www.padelytics.ai/" rel="noopener">padelytics.ai</a></td></tr>
+      <tr><td>Clutch</td><td><code>04_peer_cards/clutch.json</code></td><td>switching cost</td><td><a href="https://www.clutchapp.io/" rel="noopener">clutchapp.io</a></td></tr>
+      <tr><td>Wingfield</td><td><code>04_peer_cards/wingfield.json</code></td><td>integration</td><td><a href="https://www.wingfield.io/" rel="noopener">wingfield.io</a></td></tr>
+      <tr><td>PlaySight</td><td><code>04_peer_cards/playsight.json</code></td><td>distribution</td><td><a href="https://playsight.com/" rel="noopener">playsight.com</a></td></tr>
+      <tr><td>Eyes On Padel</td><td><code>04_peer_cards/eyes_on_padel.json</code></td><td>distribution</td><td><a href="https://www.eyeson.sport/en/eyes-on-padel/" rel="noopener">eyeson.sport</a></td></tr>
+      <tr><td>SPASH Match Analyzer</td><td><code>04_peer_cards/spash.json</code></td><td>data</td><td><a href="https://spash.com/en/match-analyzer-ia-clubs-padel/" rel="noopener">spash.com</a></td></tr>
+      <tr><td>PadelPlay</td><td><code>04_peer_cards/padelplay.json</code></td><td>integration</td><td><a href="https://www.padelplay.ai/" rel="noopener">padelplay.ai</a></td></tr>
+      <tr><td>Padelboard</td><td><code>04_peer_cards/padelboard.json</code></td><td>network</td><td><a href="https://padelboard.app/" rel="noopener">padelboard.app</a></td></tr>
+      <tr><td>Premier Padel</td><td><code>04_peer_cards/premier_padel.json</code></td><td>brand</td><td><a href="https://premierpadel.com/" rel="noopener">premierpadel.com</a></td></tr>
+      <tr><td>Hudl</td><td><code>04_peer_cards/hudl.json</code></td><td>switching cost</td><td><a href="https://www.hudl.com/" rel="noopener">hudl.com</a></td></tr>
+      <tr><td>CoachSeek</td><td><code>04_peer_cards/coachseek.json</code></td><td>switching cost</td><td><a href="https://www.coachseek.com/" rel="noopener">coachseek.com</a></td></tr>
+      <tr><td>Skedda</td><td><code>04_peer_cards/skedda.json</code></td><td>switching cost</td><td><a href="https://www.skedda.com/" rel="noopener">skedda.com</a></td></tr>
+      <tr><td>Joao-M-Silva / padel_analytics</td><td><code>04_peer_cards/joao_silva_padel_analytics.json</code></td><td>none (open source)</td><td><a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener">github.com/Joao-M-Silva/padel_analytics</a></td></tr>
+      <tr><td>Decorte CVPR 2024 (research)</td><td><code>04_peer_cards/decorte_cvpr2024_padel.json</code></td><td>none</td><td><a href="https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf" rel="noopener">CVPR 2024 paper</a></td></tr>
+      <tr><td>Paradigma case study</td><td><code>04_peer_cards/paradigma_case_study.json</code></td><td>none</td><td><a href="https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/" rel="noopener">paradigma.dev</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card">
+    <div class="card-title">Sample quote — Playtomic</div>
+    <span class="file-path">evidence/20260501T135005Z/04_peer_cards/playtomic.json</span>
+    <blockquote>"Court booking and matchmaking network connecting players to clubs and partners across multiple countries. Cited as the largest padel booking network in 2025 reports."</blockquote>
+    <p class="small"><span class="meta">Gap noted in card:</span> "Coaching layer is shallow versus dedicated peers; analytics ride on top of self-declared levels. Player rating system has been re-tuned multiple times; cross-club consistency is debated by power users."</p>
+  </div>
+</section>
+
+<section id="mechanics">
+  <h2>5 · Value mechanics (VM-001 to VM-011)</h2>
+  <p>Eleven candidate value mechanics were generated and audited; each lives in <code>evidence/20260501T135005Z/08_value_mechanics/</code> as a JSON file. The Naval-style audit verdict per mechanic is in <code>09_moat_audit.json</code>.</p>
+
+  <div class="table-wrap" role="region" tabindex="0" aria-label="Data table"><table>
+    <thead><tr><th>Mechanic</th><th>File</th><th>Moat class</th><th>RICE score</th></tr></thead>
+    <tbody>
+      <tr><td>VM-001 · Smartphone-only video → rating delta pipeline</td><td><code>08_value_mechanics/VM-001.json</code></td><td>data</td><td>96.25</td></tr>
+      <tr><td>VM-002 · Cross-club rating that travels with the player</td><td><code>08_value_mechanics/VM-002.json</code></td><td>network</td><td>—</td></tr>
+      <tr><td>VM-003 · Drill prescription engine tied to losing-shot clusters</td><td><code>08_value_mechanics/VM-003.json</code></td><td>data</td><td>—</td></tr>
+      <tr><td>VM-004 · Coach co-pilot that survives the renewal conversation</td><td><code>08_value_mechanics/VM-004.json</code></td><td>switching cost</td><td>—</td></tr>
+      <tr><td>VM-005 · Shared post-match review surface for partner pairs</td><td><code>08_value_mechanics/VM-005.json</code></td><td>network</td><td>—</td></tr>
+      <tr><td>VM-006 · Distribution-as-moat through directly-reached audience asset</td><td><code>08_value_mechanics/VM-006.json</code></td><td>distribution</td><td>—</td></tr>
+      <tr><td>VM-007 · Tournament-organiser integration that becomes the seeding spine</td><td><code>08_value_mechanics/VM-007.json</code></td><td>integration</td><td>—</td></tr>
+      <tr><td>VM-008 · Local-language coaching narrative for non-English markets</td><td><code>08_value_mechanics/VM-008.json</code></td><td>distribution</td><td>—</td></tr>
+      <tr><td>VM-009 · Open-source release of an inert component</td><td><code>08_value_mechanics/VM-009.json</code></td><td>brand</td><td>—</td></tr>
+      <tr><td>VM-010 · Privacy-respecting on-device extraction</td><td><code>08_value_mechanics/VM-010.json</code></td><td>regulatory</td><td>—</td></tr>
+      <tr><td>VM-011 · Open-data export for academies (learning-curve lock-in)</td><td><code>08_value_mechanics/VM-011.json</code></td><td>learning curve</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card">
+    <div class="card-title">Sample quote — VM-001 thesis and quant signal</div>
+    <span class="file-path">evidence/20260501T135005Z/08_value_mechanics/VM-001.json</span>
+    <blockquote>"Each match yields a structured shot-and-position record that compounds into a per-player longitudinal rating other clubs accept. Spain alone has 6M players against 109,040 federation licensees per FIP World Padel Report 2025 — vast unrated population."</blockquote>
+    <p class="small"><span class="meta">Kill experiment:</span> "Reproduce the open-source baseline at <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener">Joao-M-Silva / padel_analytics</a> into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits. Success threshold: rating delta correlates with self-assessed level r ≥ 0.55 across 50 matches."</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Moat audit (Naval filter)</div>
+    <span class="file-path">evidence/20260501T135005Z/09_moat_audit.json</span>
+    <p class="small">Each mechanic scored against five gates: distribution, network, data, hardware, vertical depth. At least one mechanic killed and two demoted per the discipline of avoiding 100%-pass reviews.</p>
+  </div>
+</section>
+
+<section id="market">
+  <h2>6 · Market sizing (TAM, SAM, SOM)</h2>
+
+  <div class="card">
+    <div class="card-title">Headline market figures</div>
+    <span class="file-path">evidence/20260501T135005Z/15_market_size.json</span>
+    <blockquote>"global padel club market 'set to triple in value by 2026' — EUR 1.775B in 2023 → EUR 4.015B in 2026. 35 million players and 77,300 courts confirmed by the FIP World Padel Report 2025."</blockquote>
+    <p class="small"><span class="meta">Primary URL:</span> <a href="https://thepadelpaper.com/global-padel-report-2023-deloitee-playtomic/" rel="noopener">Deloitte / Playtomic Global Padel Report 2023</a> · <a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener">FIP World Padel Report 2025</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">SAM rebuild — 21 countries verified</div>
+    <span class="file-path">evidence/20260501T135005Z/20_sam_global_market_check.json</span>
+    <blockquote>"T1 sum 43,840 + T2 sum 22,125 = 65,965 courts. Global share 65,965 / 77,300 = 85.3%. The padel software product can theoretically reach 85% of all padel courts worldwide if T2 partner-led expansion fully executes."</blockquote>
+    <p class="small"><span class="meta">Primary URL:</span> <a href="https://www.padelfip.com/wp-content/uploads/2025/12/FIP-WPR-2025_DIGITAL.pdf" rel="noopener">FIP World Padel Report 2025 (PDF)</a>. Country-level court counts cross-checked against <a href="https://padel-magazine.co.uk/le-nombre-de-pistes-de-padel-dans-le-monde-un-cap-historique-franchi-en-2025/" rel="noopener">Padel Magazine FIP WPR 2025 country ranking</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UAE and Uzbekistan SAM verification</div>
+    <span class="file-path">evidence/20260501T135005Z/19_uae_uzbekistan_check.json</span>
+    <blockquote>"UAE — INCLUDE_IN_SAM. Verified quote: 'in 2023, the UAEPA had 155 clubs and 620 courts affiliated (+13% compared to 2022) and more than 1,900 registered players. More than 950 courts; 30% of all courts in Asia.'"</blockquote>
+    <blockquote>"Uzbekistan — EXCLUDE_FROM_SAM. Verified quote: '3 clubs, 8 courts (Padel.uz Mirabad 2 courts; BeFit Sky 2 courts; Padel.uz Yunusabad 4 courts) — all in Tashkent.' Below the 100-court SAM threshold."</blockquote>
+    <p class="small"><span class="meta">Primary URLs:</span> <a href="https://www.padelfip.com/2024/03/focus-on-arab-emirates-padel-in-dubai-grows-again/" rel="noopener">FIP, Focus on Arab Emirates 2024</a>; <a href="https://padellands.com/en/pistas-de-padel/otros-paises/uzbeskistan/" rel="noopener">Padel Lands Uzbekistan directory</a>.</p>
+  </div>
+
+  <h3>Analyst sources cited in market sizing</h3>
+  <div class="table-wrap" role="region" tabindex="0" aria-label="Data table"><table>
+    <thead><tr><th>Firm</th><th>Report</th><th>URL</th></tr></thead>
+    <tbody>
+      <tr><td>Deloitte / Playtomic</td><td>Global Padel Report 2023</td><td><a href="https://thepadelpaper.com/global-padel-report-2023-deloitee-playtomic/" rel="noopener">thepadelpaper.com</a></td></tr>
+      <tr><td>Playtomic</td><td>Global Padel Report 2025</td><td><a href="https://playtomic.com/global-padel-report" rel="noopener">playtomic.com</a></td></tr>
+      <tr><td>FIP</td><td>World Padel Report 2025</td><td><a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener">padelfip.com</a></td></tr>
+      <tr><td>InsightAce Analytic</td><td>AI in Fitness and Wellness Market 2026</td><td><a href="https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744" rel="noopener">insightaceanalytic.com</a></td></tr>
+      <tr><td>Business Research Insights</td><td>Padel Market 2026</td><td><a href="https://www.businessresearchinsights.com/market-reports/padel-market-102910" rel="noopener">businessresearchinsights.com</a></td></tr>
+      <tr><td>Market Growth Reports</td><td>Padel Sports Market 2035</td><td><a href="https://www.marketgrowthreports.com/market-reports/padel-sports-market-104681" rel="noopener">marketgrowthreports.com</a></td></tr>
+      <tr><td>Grand View Research</td><td>Fitness Apps Market 2033</td><td><a href="https://www.grandviewresearch.com/industry-analysis/fitness-app-market" rel="noopener">grandviewresearch.com</a></td></tr>
+      <tr><td>Intel Market Research</td><td>Europe Padel Sports Market 2026–2034</td><td><a href="https://www.intelmarketresearch.com/europe-padel-sports-market-market-43171" rel="noopener">intelmarketresearch.com</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="geo">
+  <h2>7 · Geographic priority</h2>
+
+  <div class="card">
+    <div class="card-title">Geo bands per country</div>
+    <span class="file-path">evidence/20260501T135005Z/12_geo.json</span>
+    <blockquote>"Spain: 17,300 courts, 8.1% YoY. Beachhead — highest absolute court count globally; direct-channel reach overlaps; FEP licensees +8% YoY."</blockquote>
+    <blockquote>"Russia: 250 courts, 40% YoY. Beachhead — direct-readership advantage; Russian-language audience asset; on-device path satisfies 152-FZ. Reachability advantage flag = direct_audience (verified gap on audience size pending)."</blockquote>
+    <p class="small"><span class="meta">Primary URLs:</span> <a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener">FIP World Padel Report 2025</a>, <a href="https://www.padelfip.com/events/fip-silver-kazakhstan-2025/" rel="noopener">FIP Silver Kazakhstan 2025</a>, <a href="https://newsletter.padelbusinessmagazine.com/p/spain-s-growth-continues-padel-courts-up-5-to-17-000-in-2024" rel="noopener">Padel Business Magazine Spain growth coverage</a>.</p>
+  </div>
+</section>
+
+<section id="capability">
+  <h2>8 · Capability map</h2>
+
+  <div class="card">
+    <div class="card-title">What ships solo, what needs a partner or capital</div>
+    <span class="file-path">evidence/20260501T135005Z/13_capability_map.json</span>
+    <p class="small">Each capability rated as <code>ship_solo</code>, <code>ship_solo_paid_apis</code>, <code>needs_partner</code>, <code>needs_capital</code>, or <code>needs_team</code>. Anchors include open-source projects (<a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener">Joao-M-Silva / padel_analytics</a>), federation channels (<a href="https://www.fep.es/" rel="noopener">FEP</a>, <a href="https://www.fitp.it/" rel="noopener">FITP</a>, <a href="https://www.padelfip.com/calendar-fip-championships/" rel="noopener">FIP calendar</a>), and paid-API references (<a href="https://openrouter.ai/api/v1/models" rel="noopener">OpenRouter</a>, <a href="https://developer.apple.com/machine-learning/core-ml/" rel="noopener">Apple CoreML</a>).</p>
+  </div>
+</section>
+
+<section id="monetization">
+  <h2>9 · Monetisation and GTM</h2>
+
+  <div class="card">
+    <div class="card-title">Pricing and monetisation model</div>
+    <span class="file-path">evidence/20260501T135005Z/10_monetization.json</span>
+    <p class="small">B2C freemium with paid tier ~EUR 7.99/month; B2B SaaS to coaches/academies at EUR 19–29/month per seat. Anchored against <a href="https://www.strava.com/premium" rel="noopener">Strava Summit</a>, <a href="https://www.whoop.com/membership/" rel="noopener">Whoop membership</a>, <a href="https://www.hudl.com/pricing" rel="noopener">Hudl pricing</a>, <a href="https://www.clutchapp.io/" rel="noopener">Clutch club tier</a>, <a href="https://www.wingfield.io/" rel="noopener">Wingfield Pro</a>, <a href="https://matchi.com/" rel="noopener">MATCHi Business</a>, <a href="https://playtomic.com/pricing" rel="noopener">Playtomic club SaaS</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">GTM channels and growth loops</div>
+    <span class="file-path">evidence/20260501T135005Z/11_gtm.json</span>
+    <p class="small">Eight ranked channels (newsletter, partner clubs, tournament organisers, creator partnerships, Reddit / Discord, Telegram CIS, coach affiliates, paid). Five named growth loops with reality-check thresholds. CAC anchors from <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener">Foundry CRO 2026 CAC benchmarks</a>.</p>
+  </div>
+</section>
+
+<section id="redteam">
+  <h2>10 · Red-team and Definition of Done</h2>
+
+  <div class="card">
+    <div class="card-title">Segment stress test</div>
+    <span class="file-path">evidence/20260501T135005Z/06_red_team.json</span>
+    <blockquote>"Ran against SEG-001 to SEG-006. Non-pass count: 3. SEG-001 (plateau-stuck regular) verdict: pass_with_caveats. Failure modes detected: missing_trigger ('skill stagnation is a feeling, not an event'), vanity_moat ('generic match video accumulates, but unless tied to a per-player longitudinal record, the data does not improve the rating model')."</blockquote>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Multi-persona red-team review</div>
+    <span class="file-path">evidence/20260501T135005Z/16/red-team-final.md</span>
+    <p class="small">Markdown-format adversarial review of the consolidated brief. Companion files: <code>16/multi-persona-audit.md</code> and <code>16/dod-checklist.md</code>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Interview guide</div>
+    <span class="file-path">evidence/20260501T135005Z/07_interview_guide.md</span>
+    <p class="small">AJTBD interview guide for the 6–8 qualitative interviews referenced in each job-story's <code>gaps_to_probe_next</code>. Confidence ratings on JS-001 through JS-004 will rise from 0.30–0.35 toward 0.7+ after the interview wave runs.</p>
+  </div>
+</section>
+
+<section id="derived">
+  <h2>11 · Derived synthesis</h2>
+
+  <div class="card">
+    <div class="card-title">Strategic brief (customer-facing)</div>
+    <span class="file-path">reports/final/padel-ai-coach-research.html</span>
+    <p class="small">The audited HTML report. Every numeric or strategic claim in the brief is sourced from one of the artefacts above. Each URL referenced in the brief was checked HTTP 200 by <code>scripts/verify_links.sh</code> at render time.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Deck-ready slide content</div>
+    <span class="file-path">reports/20260501T135005Z/data.json</span>
+    <p class="small">Structured data layer used to render slide and section content. Mirrors the canonical brief; do not edit by hand.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Run index</div>
+    <span class="file-path">reports/20260501T135005Z/index.html</span>
+    <p class="small">Per-run landing page; not investor-ready. The customer-facing version is the strategic brief in <code>reports/final/</code>.</p>
+  </div>
+</section>
+
+<section id="run-info">
+  <h2>12 · Run metadata</h2>
+  <div class="table-wrap" role="region" tabindex="0" aria-label="Data table"><table>
+    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Run ID</td><td><code>20260501T135005Z</code></td></tr>
+      <tr><td>Evidence root</td><td><code>evidence/20260501T135005Z/</code></td></tr>
+      <tr><td>Reports root</td><td><code>reports/</code> (run-specific) and <code>reports/final/</code> (audited)</td></tr>
+      <tr><td>Link verifier</td><td><code>scripts/verify_links.sh</code> — all URLs checked HTTP 200 at last build</td></tr>
+      <tr><td>Citation checker</td><td><code>scripts/check_citations.py</code> — flags claims without an evidence file</td></tr>
+      <tr><td>Operating contract</td><td><code>CLAUDE.md</code> — zero-fabrication rule, citation requirement, red-team gate</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <p>Companion to the <a href="padel-ai-coach-research.html">Padel AI Coach Strategic Brief</a>. Every quote here is verbatim from the named file or URL. Open the file in the repository to verify in context.</p>
+</footer>
+
+<footer class="author-foot" role="contentinfo">
+  <div class="author-shell">
+    <div class="author-line">
+      <span class="who">By <strong>Alexandr Valuev</strong></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/valuev/" rel="me noopener" target="_blank">LinkedIn</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://t.me/ASNKT" rel="me noopener" target="_blank">Telegram</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">GitHub repository</a>
+    </div>
+    <div class="author-fingerprint">
+      <span>Run <code>20260501T135005Z</code></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Apache 2.0</span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Built with Claude Opus 4.7 + Claude Haiku 4.5 + Claude Sonnet 4.6</span>
+    </div>
+  </div>
+</footer>
+</main>
+</div><!-- /.shell -->
+<script src="nav.js" defer></script>
+</body>
+</html>

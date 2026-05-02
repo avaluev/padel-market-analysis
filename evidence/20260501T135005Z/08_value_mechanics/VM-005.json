@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-005",
+  "name": "Shared post-match review surface for partner pairs",
+  "moat_class": "network",
+  "thesis": "A pair-level annotated review surface turns one user into two and seeds invite-driven distribution.",
+  "targets": {
+    "core_job_id": "JS-004",
+    "unmet_outcome": "Both partners feel ownership of the review",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Player tags rallies and decisions while watching the recap.",
+    "Partner receives a link with the same timeline.",
+    "Both add comments anchored to timestamps.",
+    "Both feel the review is mutual, not one-sided.",
+    "Both invite a second pair into the same surface for the next match."
+  ],
+  "defensibility": {
+    "reasoning": "Each second user adds value to the first — a textbook Naval network gate."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Eyes On Padel (https://www.eyeson.sport/en/eyes-on-padel/) and PlaySight (https://playsight.com/) expose footage but not shared annotation primitives."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Existing camera vendors add comment threads to their share links."
+  },
+  "rice": {
+    "reach_0_10": 7,
+    "impact_0_3": 2,
+    "confidence_0_100": 40,
+    "effort_person_weeks": 6,
+    "score": 93.33
+  },
+  "kill_experiment": {
+    "description": "A/B test pair-level vs single-user share flow on next-week active users.",
+    "success_threshold": "Pair-level surface drives ≥1.5x sharing rate vs single-user.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001"
+    ],
+    "stack_fit": "Share-link architecture; partner identity reconciliation."
+  }
+}

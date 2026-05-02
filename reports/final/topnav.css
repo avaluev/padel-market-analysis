@@ -1,0 +1,108 @@
+/* Cross-page sticky top navigation. Loaded by every page in the bundle.
+   Renders a horizontal scroll-capable bar that works across iPhone SE
+   widths up to large desktops. Section sidenav (when present) sits below it.
+   Variables come from the host page's design tokens; if they are not
+   declared, sensible defaults kick in. */
+:root {
+  --topnav-h: 48px;
+  --topnav-bg: var(--bg, #ffffff);
+  --topnav-line: var(--line, #e6e6e6);
+}
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: color-mix(in srgb, var(--topnav-bg) 92%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--topnav-line);
+  padding: 6px max(12px, env(safe-area-inset-right, 0)) 6px max(12px, env(safe-area-inset-left, 0));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: var(--topnav-h);
+}
+.topnav::-webkit-scrollbar {
+  display: none;
+}
+.topnav .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 8px;
+  font-weight: 600;
+  font-size: 0.825rem;
+  color: var(--ink, #0a0a0a);
+  margin-right: 8px;
+  flex-shrink: 0;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.topnav .brand .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent, #0a6cf3);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.topnav a.np {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--ink-soft, #3f3f46);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.topnav a.np:hover {
+  background: var(--bg-soft, #fafafa);
+  color: var(--ink, #0a0a0a);
+}
+.topnav a.np:focus-visible {
+  outline: 2px solid var(--accent, #0a6cf3);
+  outline-offset: 2px;
+}
+.topnav a.np[aria-current="page"] {
+  background: var(--accent-soft, #e6efff);
+  color: var(--accent, #0a6cf3);
+  font-weight: 600;
+}
+.topnav .spacer {
+  flex: 1 1 auto;
+}
+.topnav .ext {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--ink-mute, #71717a);
+  flex-shrink: 0;
+  padding: 0 8px;
+}
+@media (min-width: 720px) {
+  .topnav {
+    padding: 8px max(20px, env(safe-area-inset-right, 0)) 8px max(20px, env(safe-area-inset-left, 0));
+    gap: 6px;
+  }
+  .topnav .brand {
+    margin-right: 14px;
+    font-size: 0.9rem;
+  }
+  .topnav .ext {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+@media print {
+  .topnav {
+    display: none;
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-010",
+  "name": "Privacy-respecting on-device extraction for high-end users",
+  "moat_class": "regulatory",
+  "thesis": "Local-first extraction in regions with strict consumer-data rules (EU GDPR, Russia 152-FZ) lets the candidate operate where peers stall on cross-border data flow.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Privacy-respecting rating in regulated markets",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Player processes the match locally on a recent smartphone.",
+    "Only the rating delta is uploaded; raw video stays on-device.",
+    "Player feels personal data has not left the phone.",
+    "Player chooses the candidate over peers that require server upload.",
+    "Player promotes the privacy stance inside their club."
+  ],
+  "defensibility": {
+    "reasoning": "Regulatory gate — the cost of compliance is non-trivial for global peers, and local-first extraction scales without that overhead."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Russian 152-FZ and EU GDPR set explicit cross-border constraints; detailed by FIP regulatory references on regional events (https://www.padelfip.com/events/fip-silver-kazakhstan-2025/)."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Apple or Google enables on-device transcoding for video apps as a default; on-device CV becomes a commodity."
+  },
+  "rice": {
+    "reach_0_10": 4,
+    "impact_0_3": 2,
+    "confidence_0_100": 35,
+    "effort_person_weeks": 12,
+    "score": 23.33
+  },
+  "kill_experiment": {
+    "description": "Ship an on-device pilot for an iPhone 14 or newer; measure energy and accuracy against the cloud baseline.",
+    "success_threshold": "On-device runs at less than 2x energy of cloud baseline with accuracy ≥90 percent.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001"
+    ],
+    "stack_fit": "Core ML / TFLite; OpenRouter Haiku for on-device prompt evaluation."
+  }
+}

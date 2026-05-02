@@ -1,0 +1,29 @@
+{
+  "id": "skedda",
+  "name": "Skedda",
+  "url": "https://www.skedda.com/",
+  "archetype": "club_management_software",
+  "value_prop": "Booking and venue-management software used by sport clubs including padel courts for member-side booking.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "per-venue monthly tiers published on pricing page",
+    "source_url": "https://www.skedda.com/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Used by 5,000+ venues globally including racket-sport facilities",
+    "geo_presence": [
+      "US",
+      "UK",
+      "ES",
+      "AU"
+    ],
+    "evidence_url": "https://www.skedda.com/"
+  },
+  "moat_class": "switching_cost",
+  "moat_evidence_url": "https://www.skedda.com/",
+  "gaps": [
+    "No padel-specific analytics layer; coaching capabilities are absent.",
+    "Mostly a horizontal venue-booking tool; rating signal is not derived."
+  ],
+  "verification_status": "VERIFIED"
+}

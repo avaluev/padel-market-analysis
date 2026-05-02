@@ -1,0 +1,28 @@
+{
+  "id": "clutch",
+  "name": "Clutch",
+  "url": "https://www.clutchapp.io/",
+  "archetype": "club_camera_system",
+  "value_prop": "Club-installed camera with automatic match recording, highlights, and player-level performance feed.",
+  "pricing": {
+    "model": "subscription",
+    "price_anchor": "€53/month per club tier per Sonar pricing capture",
+    "source_url": "https://www.clutchapp.io/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Active in Spanish and UK clubs per landing page",
+    "geo_presence": [
+      "ES",
+      "UK",
+      "UAE"
+    ],
+    "evidence_url": "https://www.clutchapp.io/"
+  },
+  "moat_class": "switching_cost",
+  "moat_evidence_url": "https://www.clutchapp.io/",
+  "gaps": [
+    "Number of paid clubs not on the landing page; only a logo wall is exposed.",
+    "Hardware install cost per court not disclosed publicly."
+  ],
+  "verification_status": "VERIFIED"
+}

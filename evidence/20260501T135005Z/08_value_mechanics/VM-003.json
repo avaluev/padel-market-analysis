@@ -1,0 +1,47 @@
+{
+  "mechanic_id": "VM-003",
+  "name": "Drill prescription engine tied to losing-shot clusters",
+  "moat_class": "data",
+  "thesis": "Each labelled losing-shot cluster across users improves the drill mapping; drill prescriptions become the cheapest way to convert a rating insight into court time.",
+  "targets": {
+    "core_job_id": "JS-002",
+    "unmet_outcome": "Drill prescription tied to actual losing shot",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Match recap surfaces the recurring losing shot.",
+    "App proposes two drills with the situation, the success criterion, and the partner role.",
+    "Player books the drill into the next session.",
+    "Player feels the next session is no longer a generic warm-up.",
+    "Player rates whether the drill moved the outcome — feedback loop closes."
+  ],
+  "defensibility": {
+    "reasoning": "Drill-to-outcome data accumulates per match across the user base, improving the prescription as the corpus grows. Naval data gate scoring is medium without VM-001."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Padelytics positions match-level breakdowns as the core promise — see https://www.padelytics.ai/ . Drill prescription is the unmet outcome above raw breakdowns."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Coach LMS vendors (CoachLogic) layer drill prescription as a coach add-on."
+  },
+  "rice": {
+    "reach_0_10": 6,
+    "impact_0_3": 2,
+    "confidence_0_100": 50,
+    "effort_person_weeks": 8,
+    "score": 75.0
+  },
+  "kill_experiment": {
+    "description": "Run a smoke-test in Spanish padel community channels offering personalized drill prescription after a free match upload.",
+    "success_threshold": "≥10% of uploads convert to drill plan acknowledgement within seven days.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001"
+    ],
+    "stack_fit": "Drill library curated from public padel coach content; tagged against shot taxonomy."
+  }
+}

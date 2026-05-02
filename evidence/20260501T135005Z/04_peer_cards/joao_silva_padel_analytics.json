@@ -1,0 +1,26 @@
+{
+  "id": "joao_silva_padel_analytics",
+  "name": "Joao-M-Silva / padel_analytics",
+  "url": "https://github.com/Joao-M-Silva/padel_analytics",
+  "archetype": "open_source",
+  "value_prop": "Open-source padel computer-vision pipeline tracking ball, players, and court positions for self-hosted analytics.",
+  "pricing": {
+    "model": "free_open_source",
+    "price_anchor": "MIT-style open-source license",
+    "source_url": "https://github.com/Joao-M-Silva/padel_analytics"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Public GitHub stars and forks",
+    "geo_presence": [
+      "global"
+    ],
+    "evidence_url": "https://github.com/Joao-M-Silva/padel_analytics"
+  },
+  "moat_class": "none",
+  "moat_evidence_url": "https://github.com/Joao-M-Silva/padel_analytics",
+  "gaps": [
+    "Repository is a research baseline, not a productised offering.",
+    "Real-time inference and on-device packaging are out of scope of the public code."
+  ],
+  "verification_status": "VERIFIED"
+}

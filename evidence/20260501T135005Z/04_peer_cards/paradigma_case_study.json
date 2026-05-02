@@ -1,0 +1,26 @@
+{
+  "id": "paradigma_case_study",
+  "name": "Paradigma — Padel CV case study",
+  "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+  "archetype": "consultancy_case_study",
+  "value_prop": "Engineering write-up of a CV subsystem for racket sports, useful as feasibility evidence for solo-execution paths.",
+  "pricing": {
+    "model": "unknown",
+    "price_anchor": "engineering services pricing not on the page",
+    "source_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Single named case study",
+    "geo_presence": [
+      "ES"
+    ],
+    "evidence_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+  },
+  "moat_class": "none",
+  "moat_evidence_url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/",
+  "gaps": [
+    "The page sells a service, not a product, so traction signals do not transfer.",
+    "Dataset, accuracy and runtime targets are not disclosed in the public case write-up."
+  ],
+  "verification_status": "VERIFIED"
+}

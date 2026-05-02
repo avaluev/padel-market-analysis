@@ -1,0 +1,48 @@
+{
+  "mechanic_id": "VM-007",
+  "name": "Tournament-organiser integration that becomes the seeding spine",
+  "moat_class": "integration",
+  "thesis": "Once a regional organiser uses the rating to seed a bracket, the cost of switching to another rating spec is operational, not commercial.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Tournament rating that interoperates",
+    "segment_id": "SEG-002"
+  },
+  "experience_sketch": [
+    "Organiser imports the rating via a single signed JSON link.",
+    "Bracket auto-seeds against the imported rating.",
+    "Officials run the day with the imported rating live.",
+    "Organiser feels the day required less manual seeding work.",
+    "Organiser anchors next quarter's brackets on the imported rating."
+  ],
+  "defensibility": {
+    "reasoning": "Operational switching cost — once seedings are automated, removing the integration is a manual reset that organisers will refuse."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "FIP calendar (https://www.padelfip.com/calendar-fip-championships/) shows hundreds of regional opportunities annually."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "FIP releases an open seeding API; integration moat collapses."
+  },
+  "rice": {
+    "reach_0_10": 4,
+    "impact_0_3": 3,
+    "confidence_0_100": 35,
+    "effort_person_weeks": 12,
+    "score": 35.0
+  },
+  "kill_experiment": {
+    "description": "Sign two letters of intent with FIP regional organisers; ship a one-court demo bracket.",
+    "success_threshold": "Bracket runs without manual override.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-001",
+      "VM-002"
+    ],
+    "stack_fit": "Signed JSON export; OAuth-style organiser portal."
+  }
+}

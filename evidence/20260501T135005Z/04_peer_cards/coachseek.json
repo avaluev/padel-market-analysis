@@ -1,0 +1,29 @@
+{
+  "id": "coachseek",
+  "name": "CoachSeek",
+  "url": "https://www.coachseek.com/",
+  "archetype": "academy_lms",
+  "value_prop": "Coaching-academy management platform used by sport academies including racket-sport coaches for scheduling and student tracking.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "per-coach monthly tier published on pricing page",
+    "source_url": "https://www.coachseek.com/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Used by sport coaching businesses across multiple sports",
+    "geo_presence": [
+      "NZ",
+      "AU",
+      "US",
+      "UK"
+    ],
+    "evidence_url": "https://www.coachseek.com/"
+  },
+  "moat_class": "switching_cost",
+  "moat_evidence_url": "https://www.coachseek.com/",
+  "gaps": [
+    "No padel-specific tagging or shot taxonomy.",
+    "Tooling is operational; no rating or analytics layer."
+  ],
+  "verification_status": "VERIFIED"
+}

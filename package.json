@@ -1,0 +1,15 @@
+{
+  "name": "padel-research-os-reports",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static investor-grade reports for the Padel AI Coach research run.",
+  "scripts": {
+    "audit:baseline": "node scripts/audit_mobile.mjs baseline",
+    "audit:post": "node scripts/audit_mobile.mjs post",
+    "audit:diff": "node scripts/audit_diff.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  }
+}

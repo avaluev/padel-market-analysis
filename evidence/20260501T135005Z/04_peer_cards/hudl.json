@@ -1,0 +1,30 @@
+{
+  "id": "hudl",
+  "name": "Hudl",
+  "url": "https://www.hudl.com/",
+  "archetype": "match_analyzer_saas",
+  "value_prop": "Sport video analysis SaaS used by clubs and academies across multiple sports including racket sports.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "published Hudl Assist plans starting around USD per team",
+    "source_url": "https://www.hudl.com/pricing"
+  },
+  "traction_signal": {
+    "users_or_clubs": "170,000+ teams cited on Hudl marketing pages",
+    "geo_presence": [
+      "US",
+      "UK",
+      "ES",
+      "IT",
+      "AR"
+    ],
+    "evidence_url": "https://www.hudl.com/products"
+  },
+  "moat_class": "switching_cost",
+  "moat_evidence_url": "https://www.hudl.com/products",
+  "gaps": [
+    "Padel-specific tagging vocabulary is shallow; coaches rebuild it manually.",
+    "Tooling assumes coach-led capture rather than smartphone-only consumer flows."
+  ],
+  "verification_status": "VERIFIED"
+}

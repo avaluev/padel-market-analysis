@@ -1,0 +1,29 @@
+{
+  "id": "eyes_on_padel",
+  "name": "Eyes On Padel",
+  "url": "https://www.eyeson.sport/en/eyes-on-padel/",
+  "archetype": "club_camera_system",
+  "value_prop": "Multi-court camera installation that records every match for shareable highlights, with optional analytics layer for clubs.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "per-court installation fee plus monthly per-court SaaS",
+    "source_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Eyes On reports installation across European padel and tennis clubs",
+    "geo_presence": [
+      "ES",
+      "FR",
+      "IT",
+      "UAE"
+    ],
+    "evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/"
+  },
+  "moat_class": "distribution",
+  "moat_evidence_url": "https://www.eyeson.sport/en/eyes-on-padel/",
+  "gaps": [
+    "Player-side analytics layer is shallower than dedicated coaching tools.",
+    "Cross-club rating signal is absent; footage stays inside the host club's account."
+  ],
+  "verification_status": "VERIFIED"
+}

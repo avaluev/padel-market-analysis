@@ -1,0 +1,32 @@
+job_id: 'JS-002'
+name: 'Translate match weaknesses into the next two drills'
+when_situation: 'After three consecutive matches where the same shot decides the outcome the wrong way, the player stops trusting their own diagnosis and looks for an outside reading.'
+psychological_state: 'Fatigued by self-coaching; suspects pattern-blindness on a recurring shot.'
+motivation: 'Spend the next session on the highest-leverage drill, not on a generic warm-up that ignores the recurring weakness.'
+expected_outcome: 'Two prioritized drills naming the shot, the situation, and the success criterion, ready before the next session.'
+higher_level_job: 'Compress weeks of slow progress into specific reps that move a measurable outcome.'
+emotional_payoff: 'Walk into the next session with a plan, not with vague affirmations.'
+segment_hint: 'plateau-stuck regular'
+alternatives_hired:
+  - 'Generic padel YouTube channels and creator drills'
+  - 'Recording the match on a phone and re-watching it after dinner'
+  - 'Asking a club coach for a 30-minute diagnostic (paid)'
+alternatives_fired:
+  - 'Sport-fitness apps without padel-specific drill libraries — players abandoned them within four weeks.'
+outcomes:
+  - name: 'Drill prescription tied to the actual losing shot'
+    importance_1_10: 9
+    satisfaction_1_10: 3
+    notes: 'Generic drills satisfy the activity craving but rarely move the losing shot.'
+  - name: 'Plan ready before the booking, not after'
+    importance_1_10: 7
+    satisfaction_1_10: 2
+    notes: 'Players often book the next session before the recap arrives, so the recap arrives too late.'
+past_tense_evidence:
+  - 'Padelytics positions match-level breakdowns as the core promise — see https://www.padelytics.ai/'
+  - 'Hudl''s pricing page (https://www.hudl.com/pricing) shows weekly review cadence as the value moment for assist-class plans.'
+confidence: 0.3
+source: 'assumption'
+gaps_to_probe_next:
+  - 'Run a JTBD interview with 8 club regulars who switched from a coach to a video tool in the last six months.'
+  - 'Falsification path: if drill prescription is rated lower than rating-clarity, JS-001 dominates and JS-002 supports.'

@@ -1,0 +1,26 @@
+{
+  "id": "decorte_cvpr2024_padel",
+  "name": "Decorte CVPR 2024 — Multi-modal hit detection in padel",
+  "url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+  "archetype": "research_prototype",
+  "value_prop": "CVPR 2024 workshop paper presenting multi-modal hit detection and positional analysis for padel matches.",
+  "pricing": {
+    "model": "free_open_source",
+    "price_anchor": "academic publication; method is reproducible",
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Cited in computer-vision-in-sports literature",
+    "geo_presence": [
+      "global"
+    ],
+    "evidence_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf"
+  },
+  "moat_class": "none",
+  "moat_evidence_url": "https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf",
+  "gaps": [
+    "Academic prototype; not a productised offering.",
+    "Method requires multi-camera setup not available to amateur players."
+  ],
+  "verification_status": "VERIFIED"
+}

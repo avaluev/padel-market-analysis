@@ -1,0 +1,32 @@
+job_id: 'JS-003'
+name: 'Track student progress as a club coach without manual notes'
+when_situation: 'After losing a high-paying student to a competing academy that offered better progress visibility, a club coach searches for tooling that surfaces between-session deltas without adding admin time.'
+psychological_state: 'Defensive on retention; sceptical of any tool the student installs that competes with the coach role.'
+motivation: 'Reclaim per-student visibility so the next renewal conversation cites specific gains the coach can attribute to the program.'
+expected_outcome: 'A weekly per-student progress report the coach can send before the next session.'
+higher_level_job: 'Operate a sustainable padel coaching practice without losing every churned student to a better-instrumented academy.'
+emotional_payoff: 'Be the obvious reason a student renews, not the assumed default.'
+segment_hint: 'club coach (B2B2C)'
+alternatives_hired:
+  - 'Pen-and-paper or spreadsheet notes per student'
+  - 'Coach LMS tools generic to all sports such as CoachLogic (https://coachlogic.com/)'
+  - 'Club camera footage stored on Eyes On Padel and shared by URL (https://www.eyeson.sport/en/eyes-on-padel/)'
+alternatives_fired:
+  - 'Hudl Assist B2B coaching SaaS (https://www.hudl.com/products/assist) — coaches abandoned it for racket-sport-specific tagging needs the generic tool ignores.'
+outcomes:
+  - name: 'Per-student delta surfaced without manual data entry'
+    importance_1_10: 9
+    satisfaction_1_10: 2
+    notes: 'Pen-and-paper notes go stale; CoachLogic-style tools require an LMS workflow students rarely adopt.'
+  - name: 'Tool reinforces the coach''s authority, not replaces it'
+    importance_1_10: 8
+    satisfaction_1_10: 3
+    notes: 'Player-facing tools that bypass the coach are rejected because they erode the coach role.'
+past_tense_evidence:
+  - 'SPASH Match Analyzer is sold to clubs and coaches, not to players directly — see https://spash.com/en/match-analyzer-ia-clubs-padel/'
+  - 'FIP World Padel Report 2025 documents the academy and coach segment growing alongside courts (https://www.padelfip.com/world-padel-report-2025/).'
+confidence: 0.3
+source: 'assumption'
+gaps_to_probe_next:
+  - 'Recruit 6 club coaches across Spain and Italy through federation chapters; ask about renewal conversations and what data was missing.'
+  - 'Falsification path: if coaches reject any tool the student also touches, the co-pilot mechanic must be coach-only access.'

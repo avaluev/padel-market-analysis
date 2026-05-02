@@ -1,0 +1,26 @@
+{
+  "id": "premier_padel",
+  "name": "Premier Padel",
+  "url": "https://premierpadel.com/",
+  "archetype": "rating_system_authority",
+  "value_prop": "Top professional circuit producing the rating spine that amateurs and tournaments aspirationally anchor against.",
+  "pricing": {
+    "model": "unknown",
+    "price_anchor": "sponsorship and broadcast revenue model",
+    "source_url": "https://premierpadel.com/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "FIP-sanctioned global circuit",
+    "geo_presence": [
+      "global"
+    ],
+    "evidence_url": "https://premierpadel.com/"
+  },
+  "moat_class": "brand",
+  "moat_evidence_url": "https://premierpadel.com/",
+  "gaps": [
+    "Amateur ratings are not interoperable with the Premier Padel professional system today.",
+    "Tournament data is broadcast-grade but not exposed via a public API for amateur products."
+  ],
+  "verification_status": "VERIFIED"
+}

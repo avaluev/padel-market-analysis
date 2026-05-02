@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260501T135005Z",
+  "produced_at": "2026-05-01T13:50:05Z",
+  "model": "anthropic/claude-opus-4.x",
+  "core_jobs": [
+    {
+      "id": "job_objective_self_rating",
+      "summary": "Get an objective, transferable padel skill rating without paying for a coach or completing a formal ranking event.",
+      "switch_trigger": "Lost a match to a regular partner who declared a higher rating, or invited to a tournament that requires a rating.",
+      "expected_outcome": "A defensible numeric rating that travels across clubs and partners, updated each match.",
+      "segment_hint": "plateau-stuck regular and newly-ranked competitor"
+    },
+    {
+      "id": "job_targeted_practice_drills",
+      "summary": "Translate match-level weaknesses into the next two specific drills before the next session, without re-watching footage.",
+      "switch_trigger": "Same shot loses repeatedly across three matches with similar opponents.",
+      "expected_outcome": "Two prioritized drills naming the shot, the situation, and the success criterion.",
+      "segment_hint": "plateau-stuck regular"
+    },
+    {
+      "id": "job_coach_co_pilot",
+      "summary": "Give a working club coach a per-student dashboard so progress is tracked between sessions without manual notes.",
+      "switch_trigger": "A high-paying student leaves the academy because progress was not visible.",
+      "expected_outcome": "A weekly per-student progress report the coach can send before the next session.",
+      "segment_hint": "club coach (B2B2C)"
+    },
+    {
+      "id": "job_post_match_review_with_partner",
+      "summary": "Replay the match together with the partner to debate decisions while the moments are fresh.",
+      "switch_trigger": "Partner blames the loss on the user; the user wants neutral footage to settle it.",
+      "expected_outcome": "A shared review timeline annotated with key rallies and decisions, accessible by both players.",
+      "segment_hint": "travelling enthusiast"
+    }
+  ],
+  "aura_stage": "understanding",
+  "peer_seed": [
+    {
+      "id": "padelytics",
+      "name": "Padelytics",
+      "url": "https://www.padelytics.ai/"
+    },
+    {
+      "id": "clutch",
+      "name": "Clutch",
+      "url": "https://www.clutchapp.io/"
+    },
+    {
+      "id": "padelplay",
+      "name": "PadelPlay",
+      "url": "https://www.padelplay.ai/"
+    },
+    {
+      "id": "eyes_on_padel",
+      "name": "Eyes On Padel",
+      "url": "https://www.eyeson.sport/en/eyes-on-padel/"
+    },
+    {
+      "id": "spash",
+      "name": "SPASH Match Analyzer",
+      "url": "https://spash.com/en/match-analyzer-ia-clubs-padel/"
+    },
+    {
+      "id": "joao_silva_padel_analytics",
+      "name": "Joao-M-Silva / padel_analytics",
+      "url": "https://github.com/Joao-M-Silva/padel_analytics"
+    },
+    {
+      "id": "paradigma_case_study",
+      "name": "Paradigma — Padel CV case study",
+      "url": "https://paradigma.dev/cases/computer-vision-subsystems-for-racket-sports-products-tennis-padel/"
+    },
+    {
+      "id": "padelfip",
+      "name": "International Padel Federation (PadelFIP)",
+      "url": "https://www.padelfip.com/"
+    },
+    {
+      "id": "playtomic",
+      "name": "Playtomic",
+      "url": "https://playtomic.io/blog"
+    },
+    {
+      "id": "matchi",
+      "name": "MATCHi",
+      "url": "https://matchi.com/"
+    },
+    {
+      "id": "wingfield",
+      "name": "Wingfield",
+      "url": "https://www.wingfield.io/"
+    },
+    {
+      "id": "playsight",
+      "name": "PlaySight",
+      "url": "https://playsight.com/"
+    },
+    {
+      "id": "premier_padel",
+      "name": "Premier Padel",
+      "url": "https://premierpadel.com/"
+    },
+    {
+      "id": "hudl",
+      "name": "Hudl",
+      "url": "https://www.hudl.com/"
+    },
+    {
+      "id": "padelboard",
+      "name": "Padelboard",
+      "url": "https://padelboard.app/"
+    }
+  ],
+  "moat_axes": [
+    "network",
+    "data",
+    "distribution",
+    "switching_cost",
+    "integration"
+  ],
+  "kill_experiments": [
+    {
+      "hypothesis": "A match-rating signal generated from a smartphone-only video pipeline is acceptable to padel players as their primary skill score.",
+      "kill_criterion": "Below 25% accept rate when surveyed against the user's own self-assessed level after three matches.",
+      "evidence_required": "Smoke-test landing page with a fake-door 'request a padel rating' CTA; survey respondents who upload a sample match clip."
+    },
+    {
+      "hypothesis": "Padel coaches will integrate a per-student dashboard into a weekly workflow if it cuts manual prep below 10 minutes per student.",
+      "kill_criterion": "Fewer than 3 of 8 invited Spanish coaches complete a one-week pilot.",
+      "evidence_required": "Recruit through Spanish padel federation chapters; offer a free pilot tied to two of their existing students."
+    },
+    {
+      "hypothesis": "A rating that travels across clubs unlocks tournament-organizer integrations as a B2B revenue line within the priority geography.",
+      "kill_criterion": "No FIP-affiliated regional organizer agrees to a 30-day data-flow trial in a P0 country.",
+      "evidence_required": "Outreach to regional organizers cited in evidence/<run-id>/12_geo.json; trial does not exceed letter-of-intent depth."
+    },
+    {
+      "hypothesis": "The product can ship the smartphone-only video pipeline end-to-end under solo execution using open-source CV anchors and free-tier OpenRouter models.",
+      "kill_criterion": "A working pipeline cannot be reproduced from Joao-M-Silva/padel_analytics in under 40 person-hours of integration work.",
+      "evidence_required": "Capability map row marked ship_solo with explicit OSS anchor; reproducible install log."
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "channels": [
+    {
+      "rank": 1,
+      "channel_id": "CH-001",
+      "name": "Directly-reached multilingual newsletter (Spanish + Russian)",
+      "type": "owned",
+      "cac_anchor": "USD 12 per acquisition (newsletter benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "distribution",
+      "fit_segment": "SEG-001",
+      "playbook": [
+        "Weekly Spanish-language tactical recap; biweekly Russian-language version.",
+        "Free rating-recap CTA in every issue, gated on phone-video upload.",
+        "Track direct-traffic share to prove audience ownership."
+      ],
+      "kill_metric": {
+        "metric": "direct-traffic share of beta sign-ups",
+        "threshold": "≥40% within 8 weeks",
+        "timeline_weeks": 8
+      }
+    },
+    {
+      "rank": 2,
+      "channel_id": "CH-002",
+      "name": "Padel club partnership (single-club deals)",
+      "type": "partner",
+      "cac_anchor": "USD 150 per acquisition (community + partnership benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "switching_cost",
+      "fit_segment": "SEG-001 + SEG-003",
+      "playbook": [
+        "Anchor 3 partner clubs in Madrid, Barcelona, Milan.",
+        "Free pilot for member rating; revenue share with club after threshold.",
+        "Surface partner-club leaderboard as a co-branded page."
+      ],
+      "kill_metric": {
+        "metric": "clubs renewing pilot to paid",
+        "threshold": "≥2 of 3 within 12 weeks",
+        "timeline_weeks": 12
+      }
+    },
+    {
+      "rank": 3,
+      "channel_id": "CH-003",
+      "name": "Tournament-organiser integration (FIP-affiliated regional)",
+      "type": "partner",
+      "cac_anchor": "USD 500 per organiser acquisition (B2B partnership benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "integration",
+      "fit_segment": "SEG-002",
+      "playbook": [
+        "Sign 2 LOIs for a 30-day bracket trial.",
+        "Ship a one-court demo bracket with imported rating.",
+        "Move organisers to paid integration after one tournament."
+      ],
+      "kill_metric": {
+        "metric": "signed LOIs",
+        "threshold": "≥2 within 6 weeks",
+        "timeline_weeks": 6
+      }
+    },
+    {
+      "rank": 4,
+      "channel_id": "CH-004",
+      "name": "Spanish-language YouTube creator partnerships",
+      "type": "earned",
+      "cac_anchor": "USD 200 per acquisition (creator partnership benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "distribution",
+      "fit_segment": "SEG-001",
+      "playbook": [
+        "Identify 5 Spanish-language padel coaching channels.",
+        "Sponsor a recap-video format using uploaded subscriber matches.",
+        "Track conversion via creator-specific referral codes."
+      ],
+      "kill_metric": {
+        "metric": "creator-referred paid conversions",
+        "threshold": "≥5% lift over baseline",
+        "timeline_weeks": 8
+      }
+    },
+    {
+      "rank": 5,
+      "channel_id": "CH-005",
+      "name": "Reddit + Discord padel communities",
+      "type": "earned",
+      "cac_anchor": "USD 150 per acquisition (community channel benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "distribution",
+      "fit_segment": "SEG-001 + SEG-002",
+      "playbook": [
+        "Pinned moderator AMA in r/padel; post frequency twice weekly.",
+        "Discord weekly office hours with shared anonymised recaps.",
+        "Convert engaged community members into beta uploaders."
+      ],
+      "kill_metric": {
+        "metric": "community-driven sign-ups",
+        "threshold": "≥10% of beta cohort",
+        "timeline_weeks": 8
+      }
+    },
+    {
+      "rank": 6,
+      "channel_id": "CH-006",
+      "name": "Telegram bot for Russian-language and CIS markets",
+      "type": "owned",
+      "cac_anchor": "USD 150 per acquisition (community benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "distribution",
+      "fit_segment": "SEG-001 (RU/KZ subset)",
+      "playbook": [
+        "Telegram group with weekly digest and rating-recap CTA.",
+        "On-device pipeline for compliance with 152-FZ.",
+        "Convert via in-channel command flow without external links."
+      ],
+      "kill_metric": {
+        "metric": "weekly active subscribers",
+        "threshold": "≥1,000 within 12 weeks",
+        "timeline_weeks": 12
+      }
+    },
+    {
+      "rank": 7,
+      "channel_id": "CH-007",
+      "name": "Coach affiliate network (B2B2C)",
+      "type": "partner",
+      "cac_anchor": "USD 150 per coach acquisition (coach affiliate benchmark)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "switching_cost",
+      "fit_segment": "SEG-003",
+      "playbook": [
+        "Recruit 8 coaches via FEP / FITP chapters.",
+        "Each coach receives a weekly recap pack for their roster.",
+        "Coach-driven student sign-ups carry a 90-day retention bonus."
+      ],
+      "kill_metric": {
+        "metric": "coaches retaining ≥3 students through pilot",
+        "threshold": "≥3 of 8",
+        "timeline_weeks": 4
+      }
+    },
+    {
+      "rank": 8,
+      "channel_id": "CH-008",
+      "name": "Apple Search Ads (App Store)",
+      "type": "paid",
+      "cac_anchor": "USD 4.7 per install (Apple Search Ads benchmark, install-only)",
+      "cac_anchor_url": "https://foundrycro.com/blog/cac-benchmarks-2026/",
+      "moat_alignment": "none",
+      "fit_segment": "SEG-001",
+      "playbook": [
+        "Test keyword set: padel, rating, coach, recap.",
+        "Convert install to paid via week-1 rating-recap delivery.",
+        "Treated as conversion-stage, not awareness."
+      ],
+      "kill_metric": {
+        "metric": "paid conversion within 7 days",
+        "threshold": "≥6% paid in 7 days",
+        "timeline_weeks": 4
+      }
+    }
+  ],
+  "plg_loops": [
+    {
+      "loop_id": "PLG-001",
+      "name": "Post-match share recap",
+      "trigger": "User finishes uploading a recorded match.",
+      "action": "App generates a 30-second highlight + insight card with both player names.",
+      "share_surface": "WhatsApp / Telegram / Instagram Story",
+      "reward": "Social validation + tactical insight for the partner.",
+      "multiplication_factor": "1 player → up to 3 partners + opponents see the share.",
+      "evidence_basis": "Eyes On Padel and PlaySight share-link footage (https://www.eyeson.sport/en/eyes-on-padel/, https://playsight.com/) shows the share appetite without annotation primitives.",
+      "instrumentation_metric": "% of completed matches that result in a share",
+      "kill_threshold": "If <10% share rate after 200 matches, kill",
+      "moat_class": "network"
+    },
+    {
+      "loop_id": "PLG-002",
+      "name": "Partner invite for shared review",
+      "trigger": "User clicks 'review with partner' on a recap.",
+      "action": "Invite link with timestamped annotation seats.",
+      "share_surface": "Direct link + email + WhatsApp",
+      "reward": "Both partners get pair-level rating delta + drill prescription.",
+      "multiplication_factor": "1 invite → 1 paired user with co-purchasing intent.",
+      "evidence_basis": "Joao-M-Silva/padel_analytics (https://github.com/Joao-M-Silva/padel_analytics) demonstrates the technical feasibility of pair-anchored events.",
+      "instrumentation_metric": "% of invites that become activated partner accounts",
+      "kill_threshold": "If <25% invite activation, redesign invite copy",
+      "moat_class": "network"
+    },
+    {
+      "loop_id": "PLG-003",
+      "name": "Club discovery via leaderboard",
+      "trigger": "User lands on a co-branded club leaderboard URL.",
+      "action": "Public leaderboard shows top 20 club members; CTA to claim profile.",
+      "share_surface": "Web URL with club branding",
+      "reward": "Club bragging rights + curiosity-driven sign-up.",
+      "multiplication_factor": "Club member views compound through club newsletter.",
+      "evidence_basis": "Padelboard (https://padelboard.app/) demonstrates the leaderboard appetite in Nordic markets.",
+      "instrumentation_metric": "Sign-ups from club leaderboard URLs",
+      "kill_threshold": "If <2 sign-ups per 100 leaderboard views, retire surface",
+      "moat_class": "distribution"
+    },
+    {
+      "loop_id": "PLG-004",
+      "name": "Rating display on Playtomic / MATCHi profile",
+      "trigger": "User claims a rating in-app and elects to surface it on their booking profile.",
+      "action": "Cross-post rating to Playtomic / MATCHi profile via deep link.",
+      "share_surface": "Booking apps (https://playtomic.io/blog, https://matchi.com/)",
+      "reward": "Profile becomes more attractive to new partners.",
+      "multiplication_factor": "Booking partners discover the rating on the booking flow itself.",
+      "evidence_basis": "Playtomic and MATCHi expose self-declared levels; the candidate's rating is more credible.",
+      "instrumentation_metric": "Cross-post rate after rating issue",
+      "kill_threshold": "If <15% cross-post rate, drop the deep link path",
+      "moat_class": "network"
+    },
+    {
+      "loop_id": "PLG-005",
+      "name": "Coach handoff for student dashboard",
+      "trigger": "Player uploads three matches and elects to share with a coach.",
+      "action": "Coach receives a weekly recap pack for that player.",
+      "share_surface": "Coach phone email digest",
+      "reward": "Coach retention conversation is data-led at renewal.",
+      "multiplication_factor": "Coach extends invite to other students.",
+      "evidence_basis": "Hudl (https://www.hudl.com/products) shows coach-driven distribution in adjacent sports.",
+      "instrumentation_metric": "% of player uploads that opt into coach handoff",
+      "kill_threshold": "If <5% handoff rate, the coach co-pilot path becomes coach-only",
+      "moat_class": "switching_cost"
+    }
+  ],
+  "community_surfaces": [
+    {
+      "name": "Direct rating asset (owned)",
+      "description": "Public-by-default rating page per player; opt-in privacy. SEO-indexable; players become organic sources.",
+      "moat_class": "distribution"
+    },
+    {
+      "name": "Per-club leaderboard (semi-owned)",
+      "description": "Co-branded leaderboard page per partner club. Clubs amplify their page to members.",
+      "moat_class": "distribution"
+    },
+    {
+      "name": "Coach reputation graph (owned, network)",
+      "description": "Coaches accumulate a verifiable student-progress graph; leaving the platform forfeits the graph.",
+      "moat_class": "switching_cost"
+    },
+    {
+      "name": "Match challenge feed (network)",
+      "description": "Open matches in the user's locale, filtered by rating delta. Creates serendipitous matches across club lines.",
+      "moat_class": "network"
+    }
+  ],
+  "distribution_as_moat": "The audience the product owns directly is the multilingual padel reader segment that subscribes to the direct-readership newsletter (Spanish + Russian) and the Telegram digest. The asset that secures the relationship is the team-published cadence of localised tactical recaps — a body of public work the audience returns to without a platform gatekeeper. Falsification: if direct-traffic share of beta sign-ups falls below 40 percent within 8 weeks, the audience is rented from another platform, not owned."
+}

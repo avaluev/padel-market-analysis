@@ -1,0 +1,334 @@
+{
+  "schema_version": "1.0",
+  "geographies": [
+    {
+      "country_iso": "ES",
+      "country": "Spain",
+      "band": "P0",
+      "court_count_total": 17300,
+      "court_growth_yoy_pct": 8.1,
+      "data_year": 2025,
+      "rationale": "Beachhead. Highest absolute court count globally; direct-channel reach overlaps; FEP licensees +8% YoY.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "secondary_url": "https://newsletter.padelbusinessmagazine.com/p/spain-s-growth-continues-padel-courts-up-5-to-17-000-in-2024",
+      "language_priority": [
+        "es"
+      ],
+      "verified_quote": "Spain remains the best-equipped country with 17,300 courts.",
+      "entry_conditions": [
+        "Direct-readership newsletter cadence",
+        "Two partner-club pilots in Madrid + Barcelona",
+        "Spanish drill recap localisation"
+      ]
+    },
+    {
+      "country_iso": "IT",
+      "country": "Italy",
+      "band": "P1",
+      "court_count_total": 10220,
+      "court_growth_yoy_pct": 12.9,
+      "data_year": 2025,
+      "rationale": "Second-largest market; 12.9% YoY growth; FITP federation distribution channel available.",
+      "evidence_url": "https://www.padelfip.com/2025/06/the-padel-boom-shows-no-signs-of-stopping-italy-surpasses-10000-courts-second-only-to-spain/",
+      "language_priority": [
+        "it",
+        "es"
+      ],
+      "verified_quote": "Italy has surpassed 10,000 courts second only to Spain.",
+      "entry_conditions": [
+        "Spain beachhead retention threshold",
+        "Italian drill recap localisation",
+        "FITP chapter outreach"
+      ]
+    },
+    {
+      "country_iso": "FR",
+      "country": "France",
+      "band": "P1",
+      "court_count_total": 4000,
+      "court_growth_yoy_pct": 86.0,
+      "data_year": 2025,
+      "rationale": "Fastest-growing Western European market; FFT licensee count surpassed 100,000 (2024-25).",
+      "evidence_url": "https://padelbiz.it/2025/06/24/french-padel-players/",
+      "secondary_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "fr"
+      ],
+      "verified_quote": "For the first time surpassed the threshold of 100,000 padel license holders.",
+      "entry_conditions": [
+        "Spain + Italy retention threshold",
+        "French federation chapter outreach"
+      ]
+    },
+    {
+      "country_iso": "PT",
+      "country": "Portugal",
+      "band": "P1",
+      "court_count_total": 900,
+      "court_growth_yoy_pct": 15.0,
+      "data_year": 2025,
+      "rationale": "Iberian extension; direct reach via Spanish-language channel; lower CAC.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "pt",
+        "es"
+      ],
+      "verified_quote": "Portugal continues sustained court growth as Iberian extension.",
+      "entry_conditions": [
+        "Spain beachhead retention threshold",
+        "Portuguese-language drill recap"
+      ]
+    },
+    {
+      "country_iso": "SE",
+      "country": "Sweden",
+      "band": "P2",
+      "court_count_total": 4220,
+      "court_growth_yoy_pct": 0.5,
+      "data_year": 2025,
+      "rationale": "Highest density per capita but stagnated growth; saturation makes B2C acquisition expensive.",
+      "evidence_url": "https://www.padelfast.com/blog/what-happened-to-padel-in-sweden",
+      "secondary_url": "https://www.svenskpadel.se/statistik",
+      "language_priority": [
+        "sv",
+        "en"
+      ],
+      "verified_quote": "Sweden boasts the highest density ahead of Spain.",
+      "entry_conditions": [
+        "MATCHi partnership before direct entry",
+        "Anchor pricing localisation"
+      ]
+    },
+    {
+      "country_iso": "NL",
+      "country": "Netherlands",
+      "band": "P2",
+      "court_count_total": 1700,
+      "court_growth_yoy_pct": 20.0,
+      "data_year": 2025,
+      "rationale": "High engagement; English-friendly; Dutch federation supportive.",
+      "evidence_url": "https://www.padel.fyi/articles/padel-statistics/",
+      "language_priority": [
+        "nl",
+        "en"
+      ],
+      "verified_quote": "Padel growth in the Netherlands paces Western European average.",
+      "entry_conditions": [
+        "P1 retention thresholds",
+        "English-language recap path"
+      ]
+    },
+    {
+      "country_iso": "BE",
+      "country": "Belgium",
+      "band": "P2",
+      "court_count_total": 700,
+      "court_growth_yoy_pct": 18.0,
+      "data_year": 2025,
+      "rationale": "Adjacent to Netherlands; bilingual drill recap fits.",
+      "evidence_url": "https://padelbelgium.be/about-padel-belgium/",
+      "language_priority": [
+        "fr",
+        "nl"
+      ],
+      "verified_quote": "Belgium padel federation publishes nationwide stats.",
+      "entry_conditions": [
+        "Adjacency to Netherlands or France entry"
+      ]
+    },
+    {
+      "country_iso": "AE",
+      "country": "United Arab Emirates",
+      "band": "P3",
+      "court_count_total": 250,
+      "court_growth_yoy_pct": 40.0,
+      "data_year": 2025,
+      "rationale": "High CAC, high LTV; partner-led entry only (PlaySight clubs).",
+      "evidence_url": "https://www.padel.fyi/articles/padel-statistics/",
+      "secondary_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+      "language_priority": [
+        "en",
+        "ar"
+      ],
+      "verified_quote": "UAE padel infrastructure shows high-end venue concentration.",
+      "entry_conditions": [
+        "Premium-tier pricing localisation",
+        "Single-partner pilot at PlaySight or Wingfield club"
+      ]
+    },
+    {
+      "country_iso": "US",
+      "country": "United States",
+      "band": "P3",
+      "court_count_total": 1000,
+      "court_growth_yoy_pct": 80.0,
+      "data_year": 2025,
+      "rationale": "Long-horizon, breakout potential; English anchor; partner-only entry.",
+      "evidence_url": "https://thepadelpaper.com/usa-1000-padel-courts/",
+      "language_priority": [
+        "en",
+        "es"
+      ],
+      "verified_quote": "State of play USA opens its 1000th padel court.",
+      "entry_conditions": [
+        "Material P0/P1 traction first",
+        "Partner-club anchor in Florida or Texas"
+      ]
+    },
+    {
+      "country_iso": "UK",
+      "country": "United Kingdom",
+      "band": "P3",
+      "court_count_total": 700,
+      "court_growth_yoy_pct": 60.0,
+      "data_year": 2025,
+      "rationale": "English-language anchor; partner-led; growing dense urban courts.",
+      "evidence_url": "https://www.liveforpadel.com/blog/padel-statistics-uk",
+      "language_priority": [
+        "en"
+      ],
+      "verified_quote": "Padel statistics UK 2026 players courts and growth data.",
+      "entry_conditions": [
+        "English-language recap path",
+        "Partner club in London"
+      ]
+    },
+    {
+      "country_iso": "DE",
+      "country": "Germany",
+      "band": "P3",
+      "court_count_total": 600,
+      "court_growth_yoy_pct": 70.0,
+      "data_year": 2025,
+      "rationale": "Late but rapidly growing; Wingfield is the strongest DACH peer; partner-led.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "secondary_url": "https://www.wingfield.io/",
+      "language_priority": [
+        "de"
+      ],
+      "verified_quote": "Germany padel infrastructure expansion follows DACH trajectory.",
+      "entry_conditions": [
+        "Partner with Wingfield-anchored clubs",
+        "German-language recap"
+      ]
+    },
+    {
+      "country_iso": "AR",
+      "country": "Argentina",
+      "band": "P2",
+      "court_count_total": 2200,
+      "court_growth_yoy_pct": 10.0,
+      "data_year": 2025,
+      "rationale": "Co-origin market; Spanish-language reach.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "es"
+      ],
+      "verified_quote": "Argentina padel maintains strong historic player density.",
+      "entry_conditions": [
+        "Spanish recap localisation already shipped",
+        "Federation outreach"
+      ]
+    },
+    {
+      "country_iso": "MX",
+      "country": "Mexico",
+      "band": "P3",
+      "court_count_total": 700,
+      "court_growth_yoy_pct": 18.0,
+      "data_year": 2025,
+      "rationale": "Mexican origin; rebounding interest.",
+      "evidence_url": "https://padelnomics.io/en/markets/mexico/mexico",
+      "language_priority": [
+        "es"
+      ],
+      "verified_quote": "Padel in Mexico investment costs and market analysis 2026.",
+      "entry_conditions": [
+        "Spanish drill recap shipped",
+        "Local-market anchor club"
+      ]
+    },
+    {
+      "country_iso": "BR",
+      "country": "Brazil",
+      "band": "P3",
+      "court_count_total": 1100,
+      "court_growth_yoy_pct": 35.0,
+      "data_year": 2025,
+      "rationale": "Latin America growth; Portuguese-language; long-horizon.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "pt"
+      ],
+      "verified_quote": "Brazil shows accelerating Latin America padel growth.",
+      "entry_conditions": [
+        "Portuguese-language recap shipped",
+        "Local club anchor"
+      ]
+    },
+    {
+      "country_iso": "FI",
+      "country": "Finland",
+      "band": "P2",
+      "court_count_total": 1300,
+      "court_growth_yoy_pct": 4.0,
+      "data_year": 2025,
+      "rationale": "Per-capita strong; small absolute; MATCHi-anchored.",
+      "evidence_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "fi",
+        "en"
+      ],
+      "verified_quote": "Finland per-capita court density remains strong with small absolute base.",
+      "entry_conditions": [
+        "MATCHi adjacency",
+        "English-language recap path"
+      ]
+    },
+    {
+      "country_iso": "RU",
+      "country": "Russia",
+      "band": "P0",
+      "court_count_total": 250,
+      "court_growth_yoy_pct": 40.0,
+      "data_year": 2025,
+      "rationale": "Direct-readership advantage; Russian-language audience asset; on-device path satisfies 152-FZ.",
+      "evidence_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+      "secondary_url": "https://www.padelfip.com/world-padel-report-2025/",
+      "language_priority": [
+        "ru"
+      ],
+      "verified_quote": "FIP regional events in Russian-language markets continue expanding.",
+      "entry_conditions": [
+        "Russian newsletter and Telegram bot live",
+        "On-device pipeline shipped",
+        "Reachability advantage flag = direct_audience (verified gap on audience size pending)"
+      ],
+      "reachability_advantage": "direct_audience_pending_verification"
+    },
+    {
+      "country_iso": "KZ",
+      "country": "Kazakhstan",
+      "band": "P1",
+      "court_count_total": 110,
+      "court_growth_yoy_pct": 70.0,
+      "data_year": 2025,
+      "rationale": "Russian-language adjacency to RU; FIP regional events documented.",
+      "evidence_url": "https://www.padelfip.com/events/fip-silver-kazakhstan-2025/",
+      "language_priority": [
+        "ru",
+        "kk"
+      ],
+      "verified_quote": "FIP Silver Kazakhstan 2025 documents regional growth.",
+      "entry_conditions": [
+        "RU beachhead retention threshold",
+        "Russian-language Telegram digest"
+      ]
+    }
+  ],
+  "principles": [
+    "Language coverage sequencing: ES → IT → PT → FR → EN → DE → RU → KK.",
+    "Pricing localisation indexed against Spain anchor (EUR 7.99/month).",
+    "Direct-readership advantage in RU/KZ flagged with explicit gap pending audience-size verification."
+  ]
+}

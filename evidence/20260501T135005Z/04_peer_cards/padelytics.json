@@ -1,0 +1,29 @@
+{
+  "id": "padelytics",
+  "name": "Padelytics",
+  "url": "https://www.padelytics.ai/",
+  "archetype": "product_app",
+  "value_prop": "AI video analysis converting padel match footage into shot-level statistics and tactical breakdowns for clubs and players.",
+  "pricing": {
+    "model": "subscription",
+    "price_anchor": "undisclosed monthly tier",
+    "source_url": "https://www.padelytics.ai/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Multiple Iberian and LATAM clubs cited on landing page",
+    "geo_presence": [
+      "ES",
+      "PT",
+      "AR",
+      "MX"
+    ],
+    "evidence_url": "https://www.padelytics.ai/"
+  },
+  "moat_class": "data",
+  "moat_evidence_url": "https://www.padelytics.ai/",
+  "gaps": [
+    "Public pricing tiers not disclosed on the homepage; needs a vendor follow-up.",
+    "Match dataset size and per-player longitudinal coverage is not enumerated."
+  ],
+  "verification_status": "VERIFIED"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "playsight",
+  "name": "PlaySight",
+  "url": "https://playsight.com/",
+  "archetype": "club_camera_system",
+  "value_prop": "Multi-sport AI camera and analytics platform with padel deployments in premium clubs.",
+  "pricing": {
+    "model": "B2B_seat",
+    "price_anchor": "enterprise per-court SaaS; not disclosed publicly",
+    "source_url": "https://playsight.com/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Cited in MENA and US club deployments",
+    "geo_presence": [
+      "US",
+      "UAE",
+      "ES"
+    ],
+    "evidence_url": "https://playsight.com/"
+  },
+  "moat_class": "distribution",
+  "moat_evidence_url": "https://playsight.com/",
+  "gaps": [
+    "Pricing is not disclosed; channel is enterprise-led.",
+    "Padel coaching depth lags dedicated padel-only products."
+  ],
+  "verification_status": "VERIFIED"
+}

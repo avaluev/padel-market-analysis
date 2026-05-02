@@ -1,0 +1,28 @@
+{
+  "id": "padelboard",
+  "name": "Padelboard",
+  "url": "https://padelboard.app/",
+  "archetype": "rating_system_authority",
+  "value_prop": "Padel rating and matchmaking surface aligned with MATCHi, exposing ladders and player profiles.",
+  "pricing": {
+    "model": "freemium",
+    "price_anchor": "free tier with paid premium ladder features",
+    "source_url": "https://padelboard.app/"
+  },
+  "traction_signal": {
+    "users_or_clubs": "Nordic and UK ladders",
+    "geo_presence": [
+      "SE",
+      "UK",
+      "NL"
+    ],
+    "evidence_url": "https://padelboard.app/"
+  },
+  "moat_class": "network",
+  "moat_evidence_url": "https://padelboard.app/",
+  "gaps": [
+    "Rating signal is self-declared at sign-up; not derived from match video.",
+    "Coverage is concentrated in MATCHi-anchored geographies."
+  ],
+  "verification_status": "VERIFIED"
+}

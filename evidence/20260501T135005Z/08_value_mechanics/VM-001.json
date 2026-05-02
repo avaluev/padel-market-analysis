@@ -1,0 +1,48 @@
+{
+  "mechanic_id": "VM-001",
+  "name": "Smartphone-only video → rating delta pipeline",
+  "moat_class": "data",
+  "thesis": "Each match yields a structured shot-and-position record that compounds into a per-player longitudinal rating other clubs accept.",
+  "targets": {
+    "core_job_id": "JS-001",
+    "unmet_outcome": "Rating travels across clubs and partners",
+    "segment_id": "SEG-001"
+  },
+  "experience_sketch": [
+    "Player records the match with a phone propped on the bag.",
+    "App ingests video, segments rallies, tags shots and court positions.",
+    "Rating delta computed against opponent's rating; rating updated.",
+    "Player feels validated when the rating reflects what the partner already saw.",
+    "Player shares the rating link with a new partner before the next booking."
+  ],
+  "defensibility": {
+    "reasoning": "The data is unique per use, reusable across users, and the rating model improves with every match. This is the canonical Naval data-gate."
+  },
+  "evidence": {
+    "interview_quote_ids": [],
+    "quant_signal": "Spain alone has 6M players against 109,040 federation licensees per FIP World Padel Report 2025 (https://www.padelfip.com/world-padel-report-2025/) — vast unrated population."
+  },
+  "risks": {
+    "false_segment_risk": false,
+    "counter_mechanic": "Padelytics or Clutch deepens longitudinal rating before the candidate hits scale."
+  },
+  "rice": {
+    "reach_0_10": 7,
+    "impact_0_3": 3,
+    "confidence_0_100": 55,
+    "effort_person_weeks": 12,
+    "score": 96.25
+  },
+  "kill_experiment": {
+    "description": "Reproduce the open-source baseline at https://github.com/Joao-M-Silva/padel_analytics into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits.",
+    "success_threshold": "Rating delta correlates with self-assessed level r ≥ 0.55 across 50 matches.",
+    "timeline_weeks": 2
+  },
+  "dependencies": {
+    "other_mechanics_required": [
+      "VM-002",
+      "VM-003"
+    ],
+    "stack_fit": "OpenRouter Sonnet for tagging, Haiku for batch processing, free-tier Tongyi for ablations."
+  }
+}
