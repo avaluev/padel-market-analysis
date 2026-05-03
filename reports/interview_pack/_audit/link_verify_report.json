@@ -9,7 +9,6 @@
       "status": 200,
       "method": "HEAD",
       "sources": [
-        "jd-coverage-map.html",
         "model-provenance.html"
       ]
     },
@@ -29,7 +28,6 @@
         "30-60-90-plan.html",
         "competitor-intelligence.html",
         "index.html",
-        "jd-coverage-map.html",
         "model-provenance.html",
         "mvp-loop-design.html",
         "subscription-economics.html"
@@ -43,7 +41,6 @@
         "30-60-90-plan.html",
         "competitor-intelligence.html",
         "index.html",
-        "jd-coverage-map.html",
         "model-provenance.html",
         "mvp-loop-design.html",
         "subscription-economics.html"
@@ -63,7 +60,6 @@
       "method": "HEAD",
       "sources": [
         "30-60-90-plan.html",
-        "jd-coverage-map.html",
         "mvp-loop-design.html"
       ]
     },
@@ -80,9 +76,7 @@
       "url": "https://openrouter.ai/api/v1/models",
       "status": 200,
       "method": "HEAD",
-      "sources": [
-        "jd-coverage-map.html"
-      ]
+      "sources": []
     },
     {
       "url": "https://playtomic.com/global-padel-report",
@@ -96,9 +90,7 @@
       "url": "https://playtomic.io/blog",
       "status": 200,
       "method": "HEAD",
-      "sources": [
-        "jd-coverage-map.html"
-      ]
+      "sources": []
     },
     {
       "url": "https://t.me/ASNKT",
@@ -108,7 +100,6 @@
         "30-60-90-plan.html",
         "competitor-intelligence.html",
         "index.html",
-        "jd-coverage-map.html",
         "model-provenance.html",
         "mvp-loop-design.html",
         "subscription-economics.html"
@@ -160,8 +151,7 @@
       "status": 200,
       "method": "HEAD",
       "sources": [
-        "30-60-90-plan.html",
-        "jd-coverage-map.html"
+        "30-60-90-plan.html"
       ]
     },
     {
@@ -201,7 +191,6 @@
       "status": 200,
       "method": "HEAD",
       "sources": [
-        "jd-coverage-map.html",
         "mvp-loop-design.html"
       ]
     },
@@ -229,7 +218,6 @@
         "30-60-90-plan.html",
         "competitor-intelligence.html",
         "index.html",
-        "jd-coverage-map.html",
         "model-provenance.html",
         "mvp-loop-design.html",
         "subscription-economics.html"
@@ -247,9 +235,7 @@
       "url": "https://www.padelfip.com/",
       "status": 200,
       "method": "HEAD",
-      "sources": [
-        "jd-coverage-map.html"
-      ]
+      "sources": []
     },
     {
       "url": "https://www.padelfip.com/world-padel-report-2025/",

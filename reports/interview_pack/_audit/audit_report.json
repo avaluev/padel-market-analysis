@@ -148,7 +148,7 @@
     "index": {
       "iphone-13": {
         "viewportW": 390,
-        "title": "Padel AI Coach — Product Lead Interview Pack",
+        "title": "Padel AI Coach \u2014 Product Lead Interview Pack",
         "overflowCount": 0,
         "overflowSample": [],
         "tooSmallFontsCount": 0,
@@ -162,7 +162,7 @@
       },
       "iphone-se": {
         "viewportW": 320,
-        "title": "Padel AI Coach — Product Lead Interview Pack",
+        "title": "Padel AI Coach \u2014 Product Lead Interview Pack",
         "overflowCount": 0,
         "overflowSample": [],
         "tooSmallFontsCount": 0,
@@ -176,7 +176,7 @@
       },
       "pixel-7": {
         "viewportW": 412,
-        "title": "Padel AI Coach — Product Lead Interview Pack",
+        "title": "Padel AI Coach \u2014 Product Lead Interview Pack",
         "overflowCount": 0,
         "overflowSample": [],
         "tooSmallFontsCount": 0,
@@ -190,7 +190,7 @@
       },
       "ipad-mini": {
         "viewportW": 768,
-        "title": "Padel AI Coach — Product Lead Interview Pack",
+        "title": "Padel AI Coach \u2014 Product Lead Interview Pack",
         "overflowCount": 0,
         "overflowSample": [],
         "tooSmallFontsCount": 0,
@@ -204,7 +204,7 @@
       },
       "desktop-1280": {
         "viewportW": 1280,
-        "title": "Padel AI Coach — Product Lead Interview Pack",
+        "title": "Padel AI Coach \u2014 Product Lead Interview Pack",
         "overflowCount": 0,
         "overflowSample": [],
         "tooSmallFontsCount": 0,
@@ -215,78 +215,6 @@
         "consoleErrors": [],
         "failedRequests": [],
         "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/desktop-1280_index.png"
-      }
-    },
-    "jd-coverage-map": {
-      "iphone-13": {
-        "viewportW": 390,
-        "title": "JD Coverage Map",
-        "overflowCount": 0,
-        "overflowSample": [],
-        "tooSmallFontsCount": 0,
-        "tooSmallFontsSample": [],
-        "imgsBroken": [],
-        "linksTotal": 59,
-        "linksExternal": 59,
-        "consoleErrors": [],
-        "failedRequests": [],
-        "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/iphone-13_jd-coverage-map.png"
-      },
-      "iphone-se": {
-        "viewportW": 320,
-        "title": "JD Coverage Map",
-        "overflowCount": 0,
-        "overflowSample": [],
-        "tooSmallFontsCount": 0,
-        "tooSmallFontsSample": [],
-        "imgsBroken": [],
-        "linksTotal": 59,
-        "linksExternal": 59,
-        "consoleErrors": [],
-        "failedRequests": [],
-        "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/iphone-se_jd-coverage-map.png"
-      },
-      "pixel-7": {
-        "viewportW": 412,
-        "title": "JD Coverage Map",
-        "overflowCount": 0,
-        "overflowSample": [],
-        "tooSmallFontsCount": 0,
-        "tooSmallFontsSample": [],
-        "imgsBroken": [],
-        "linksTotal": 59,
-        "linksExternal": 59,
-        "consoleErrors": [],
-        "failedRequests": [],
-        "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/pixel-7_jd-coverage-map.png"
-      },
-      "ipad-mini": {
-        "viewportW": 768,
-        "title": "JD Coverage Map",
-        "overflowCount": 0,
-        "overflowSample": [],
-        "tooSmallFontsCount": 0,
-        "tooSmallFontsSample": [],
-        "imgsBroken": [],
-        "linksTotal": 59,
-        "linksExternal": 59,
-        "consoleErrors": [],
-        "failedRequests": [],
-        "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/ipad-mini_jd-coverage-map.png"
-      },
-      "desktop-1280": {
-        "viewportW": 1280,
-        "title": "JD Coverage Map",
-        "overflowCount": 0,
-        "overflowSample": [],
-        "tooSmallFontsCount": 0,
-        "tooSmallFontsSample": [],
-        "imgsBroken": [],
-        "linksTotal": 59,
-        "linksExternal": 59,
-        "consoleErrors": [],
-        "failedRequests": [],
-        "screenshot": "/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/_audit/desktop-1280_jd-coverage-map.png"
       }
     },
     "model-provenance": {
