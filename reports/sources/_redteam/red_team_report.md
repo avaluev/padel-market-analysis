@@ -1,7 +1,7 @@
 # Red-Team Report — Padel AI Platform Interview Pack
 
 **Reviewer voice.** Hostile red-team. Third-person. No diplomacy.
-**Pack under review.** `reports/interview_pack/deliverables/01..06_*.md` plus `reports/interview_pack/evidence/*.json`.
+**Pack under review.** `reports/sources/deliverables/01..06_*.md` plus `reports/sources/evidence/*.json`.
 **Method.** Each deliverable read line-by-line. Evidence JSON cross-checked against the markdown. Every numeric claim re-computed. Every "verified quote" sampled for provenance integrity. First-person leak audit run via `grep -nE '\b(I|we|my|our|us|me|mine|ours)\b'` on the full deliverables tree.
 **Verdict format.** `HIGH | MEDIUM | LOW`. HIGH = a recruiter or founder will catch this on first read and credibility takes material damage.
 
@@ -11,7 +11,7 @@
 
 ### HIGH-1. The 30-60-90 plan tests a viral pair-share surface that the MVP design does not build
 
-- **Where.** `reports/interview_pack/deliverables/04_30_60_90_plan.md:101` lists `share_clicked, partner_invited, partner_activated` as instrumented events. `04:160` (productisation table) sets a kill metric of `Pair-level surface drives ≥ 1.5x sharing rate vs single-user baseline`. Hypothesis `H-07` at `04:212` promises to measure this in days 45–60. By contrast `reports/interview_pack/deliverables/03_mvp_loop_design.md:10–48` (the entire core loop) defines a single-player → coach → outcome loop. `03` mentions "partner role" once at line 32 in the context of a drill description (one player among the four on court), never as a viral share surface. There is no recap-share, no partner-invite link, no pair-activation step in the manual MVP.
+- **Where.** `reports/sources/deliverables/04_30_60_90_plan.md:101` lists `share_clicked, partner_invited, partner_activated` as instrumented events. `04:160` (productisation table) sets a kill metric of `Pair-level surface drives ≥ 1.5x sharing rate vs single-user baseline`. Hypothesis `H-07` at `04:212` promises to measure this in days 45–60. By contrast `reports/sources/deliverables/03_mvp_loop_design.md:10–48` (the entire core loop) defines a single-player → coach → outcome loop. `03` mentions "partner role" once at line 32 in the context of a drill description (one player among the four on court), never as a viral share surface. There is no recap-share, no partner-invite link, no pair-activation step in the manual MVP.
 - **Why this damages credibility.** The competitor brief (`01:111-114` WS-003) names "smartphone-only consumer pair-share" as one of three white-space pillars and a kill metric. The 30-60-90 plan inherits that thesis as a measured hypothesis. The MVP design then quietly drops the pair-share mechanic. A founder reading 03 next to 04 will ask "what surface generates `partner_invited`?" and there is no answer. The interview pack contradicts itself on the wedge thesis it pitched in 01.
 - **Fix.** Either (a) add a Stage 2.5 "share to partner" step to `03` with success metric, owner, and detection signal, or (b) cut `share_clicked / partner_invited / partner_activated / H-07` from `04` and admit the pair-viral surface is post-pilot. Pretending the manual loop will produce events the loop does not generate is the most fixable but most embarrassing inconsistency in the pack.
 
@@ -21,7 +21,7 @@
 
   > "At EUR 7.99/month, ≥ 8 percent of activated free users convert to paid within three matches; below 4 percent paid conversion → trigger hedge model (B2B coach SaaS)." Source: foundrycro.com/blog/cac-benchmarks-2026.
 
-  Cross-checked at `reports/interview_pack/evidence/04_30_60_90_plan.json:177` — the same string appears as `verified_quote`. Foundry CRO publishes generic CAC and conversion benchmarks. They do not publish anchor-specific kill thresholds that mention "EUR 7.99/month" or "trigger hedge model (B2B coach SaaS)". The text is internal product language laundered through a Foundry citation.
+  Cross-checked at `reports/sources/evidence/04_30_60_90_plan.json:177` — the same string appears as `verified_quote`. Foundry CRO publishes generic CAC and conversion benchmarks. They do not publish anchor-specific kill thresholds that mention "EUR 7.99/month" or "trigger hedge model (B2B coach SaaS)". The text is internal product language laundered through a Foundry citation.
 - **Why this damages credibility.** `CLAUDE.md` Hard Rule states `MUST NOT fabricate quotes` and `MUST tag every factual claim … VERIFIED (URL fetched, content quoted within ±15 words)`. The quote is 32 words. It cannot be on Foundry CRO's published page. It is fabrication of attribution. A founder who clicks the Foundry link will find no such sentence, and the candidate's "anti-hallucination" pitch collapses on the same artefact that pitches it.
 - **Fix.** Rewrite the block as: "Internal threshold (synthesised from Foundry CRO 2026 5–9% free-to-paid range): at EUR 7.99/month, ≥8% paid conversion within three matches is keep; <4% triggers hedge model." Remove the quotation marks. Cite Foundry CRO only for the 5–9% range, with the actual verbatim quote that already exists in `evidence/02_subscription_economics.json:180`.
 
@@ -89,7 +89,7 @@
 
 ### MEDIUM-7. First-person voice leak inside the WTP survey question
 
-- **Where.** `02:167` quotes the survey question: *"If your booking app published a derived rating, would you still pay EUR 7.99 for ours?"* The word `ours` is a first-person possessive. Run: `grep -nE '\b(I|we|my|our|us|me|mine|ours)\b' reports/interview_pack/deliverables/02_subscription_economics.md` confirms the leak at line 167 (other matches at lines 20, 125, 195 are URL false-positives `whoop.com/us/en/`; matches in `03` lines 181, 183 are `P × I` math notation false-positives; match in `06:19` is `I_peers_reasoning.json` filename).
+- **Where.** `02:167` quotes the survey question: *"If your booking app published a derived rating, would you still pay EUR 7.99 for ours?"* The word `ours` is a first-person possessive. Run: `grep -nE '\b(I|we|my|our|us|me|mine|ours)\b' reports/sources/deliverables/02_subscription_economics.md` confirms the leak at line 167 (other matches at lines 20, 125, 195 are URL false-positives `whoop.com/us/en/`; matches in `03` lines 181, 183 are `P × I` math notation false-positives; match in `06:19` is `I_peers_reasoning.json` filename).
 - **Why this matters.** `CLAUDE.md` Hard Rule: `MUST NOT use first-person pronouns (I, we, my, our) anywhere in reports/`. The leak is one word, but the candidate's interview pitch (`05`) advertises "Voice discipline (third-person, no first-person leaks) is enforced by the candidate's own pipeline as a hard gate". A reviewer running `grep -nE` lives the contradiction. The pack fails the candidate's own gate.
 - **Fix.** Rewrite the survey question to: *"If your booking app published a derived rating, would users still pay EUR 7.99 for the candidate platform?"* Or: *"would you still pay EUR 7.99 for the alternative product?"* Then re-run the grep and verify zero leaks.
 
@@ -164,7 +164,7 @@ The competitor brief at `01:163-179` presents only two graveyard entries: PlaySi
 
 ## 5. First-person leak audit
 
-Command run: `grep -nE '\b(I|we|my|our|us|me|mine|ours)\b' reports/interview_pack/deliverables/*.md`.
+Command run: `grep -nE '\b(I|we|my|our|us|me|mine|ours)\b' reports/sources/deliverables/*.md`.
 
 | Line | Match | Verdict |
 |---|---|---|
@@ -251,11 +251,11 @@ For each: the question, the strongest current answer in the pack, the gap if ans
 ```bash
 # First-person leak audit (RAW)
 grep -nE '\b(I|we|my|our|us|me|mine|ours)\b' \
-  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/deliverables/*.md
+  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/sources/deliverables/*.md
 
 # Cross-doc Russian / 152-FZ presence check
 grep -n "Russian\|152-FZ\|Telegram\|RUB" \
-  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/deliverables/*.md
+  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/sources/deliverables/*.md
 
 # Arithmetic re-run on LTV/CAC (Python sandbox)
 python3 -c "print(94*1.4/1.085)"        # UAE CAC: 121.29 vs claimed 121.66
@@ -271,7 +271,7 @@ print(sub, con, sub+con)
 
 # Playtomic / Padelytics pricing disclosure cross-check
 grep -nE 'pricing|verified_quote|tier_disclosed' \
-  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/evidence/01_competitor_intelligence.json
+  /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/sources/evidence/01_competitor_intelligence.json
 
 # Provenance arms model split check
 for f in /Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/evidence/20260501T135005Z/_research_arms/*.json; do

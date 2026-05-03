@@ -107,9 +107,9 @@ def _abs(href: str) -> str:
 def _file_lastmod_iso(name: str) -> str:
     p = FINAL / name
     if p.exists():
-        ts = dt.datetime.fromtimestamp(p.stat().st_mtime, tz=dt.UTC)
+        ts = dt.datetime.fromtimestamp(p.stat().st_mtime, tz=dt.timezone.utc)
         return ts.strftime("%Y-%m-%dT%H:%M:%SZ")
-    return dt.datetime.now(tz=dt.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return dt.datetime.now(tz=dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 # --------------------------------------------------------------- robots.txt
@@ -344,7 +344,7 @@ def build_sitemap_xml() -> str:
 
 
 def build_rss_feed() -> str:
-    now = dt.datetime.now(tz=dt.UTC).strftime("%a, %d %b %Y %H:%M:%S +0000")
+    now = dt.datetime.now(tz=dt.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
     items = []
     for name, title, summary in PAGES:
         if name == "index.html":

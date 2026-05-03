@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Multi-viewport Playwright audit for the Padel AI Coach interview pack.
+// Multi-viewport Playwright audit for the Padel AI Coach source markdown.
 // Captures: screenshots per device, console errors, layout overflow, image-load errors.
 
 import { chromium, devices } from 'playwright';
@@ -7,12 +7,12 @@ import { mkdirSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 const ROOT = '/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os';
-const PAGES_DIR = join(ROOT, 'reports/final/interview-pack');
-const AUDIT_DIR = join(ROOT, 'reports/interview_pack/_audit');
+const PAGES_DIR = join(ROOT, 'reports/final/sources');
+const AUDIT_DIR = join(ROOT, 'reports/sources/_audit');
 mkdirSync(AUDIT_DIR, { recursive: true });
 
 // Use local HTTP server to test as it would run on GitHub Pages
-const BASE_URL = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:8765/interview-pack';
+const BASE_URL = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:8765/sources';
 const htmlFiles = readdirSync(PAGES_DIR).filter(f => f.endsWith('.html')).sort();
 const urls = htmlFiles.map(f => ({
   name: f.replace(/\.html$/, ''),

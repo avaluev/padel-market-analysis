@@ -38,7 +38,7 @@ When a new content failure is found in production, that failure becomes a new ga
 
 ## Adding a builder
 
-1. Source markdown goes in `reports/interview_pack/deliverables/`.
+1. Source markdown goes in `reports/sources/deliverables/`.
 2. Add a registry entry to `scripts/build_pages.mjs → PAGES`.
 3. Run `node scripts/build_pages.mjs` and verify the output.
 4. Run `make audit` and fix any gate violations.

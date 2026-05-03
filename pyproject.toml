@@ -118,7 +118,7 @@ omit = [
   "scripts/build_pages.mjs",
   "scripts/inject_*.mjs",
   "scripts/scroll_check.mjs",
-  "scripts/build_interview_pack_html.mjs",
+  "scripts/audit_sources.mjs",
   "scripts/verify_pack_links.mjs",
   "scripts/audit_*.mjs",
 ]

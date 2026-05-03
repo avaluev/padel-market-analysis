@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Build the public site pages for the Padel Coaching Research portfolio.
 //
-// Reads markdown deliverables from reports/interview_pack/deliverables/*.md,
+// Reads markdown deliverables from reports/sources/deliverables/*.md,
 // skips files marked DROP, applies content sanitisation (no internal IDs,
 // no run timestamps, no first-person, no marketing badges), wraps each page
 // in an AI-search-optimised HTML shell (JSON-LD, Open Graph, Twitter Card,
@@ -13,14 +13,14 @@
 //   /padel-ai-coach-research.html  (main strategic brief, untouched here)
 //   /evidence-map.html             (evidence trace, untouched here)
 //   /methodology.html              (pipeline doc, untouched here)
-//   /competitor-landscape.html     (was interview-pack/competitor-intelligence)
+//   /competitor-landscape.html     (was sources/competitor-intelligence)
 //   /subscription-economics.html   (flattened)
 //   /mvp-design.html               (was mvp-loop-design, REWRITTEN)
 //   /90-day-plan.html              (was 30-60-90-plan)
 //   /model-provenance.html         (flattened)
 //
 // Removed entirely:
-//   /interview-pack/jd-coverage-map.html  — deleted, history scrubbed
+//   /sources/jd-coverage-map.html  — deleted, history scrubbed
 //
 // Screenshots land in /screenshots/ (flat).
 
@@ -30,9 +30,9 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = dirname(dirname(__filename));
-const SRC_DIR = join(ROOT, 'reports/interview_pack/deliverables');
+const SRC_DIR = join(ROOT, 'reports/sources/deliverables');
 const OUT_DIR = join(ROOT, 'reports/final');
-const SHOTS_SRC = join(ROOT, 'reports/interview_pack/screenshots');
+const SHOTS_SRC = join(ROOT, 'reports/sources/screenshots');
 const SHOTS_OUT = join(OUT_DIR, 'screenshots');
 
 const SITE_ORIGIN = 'https://avaluev.github.io/padel-market-analysis';
@@ -744,8 +744,8 @@ function buildOnePage(srcFile) {
 }
 
 function deleteLegacyOutput() {
-  // Remove the old interview-pack/ subdirectory entirely.
-  const legacy = join(OUT_DIR, 'interview-pack');
+  // Remove the old sources/ subdirectory entirely.
+  const legacy = join(OUT_DIR, 'sources');
   if (existsSync(legacy)) {
     rmSync(legacy, { recursive: true, force: true });
     console.log(`[clean] removed legacy ${legacy}`);

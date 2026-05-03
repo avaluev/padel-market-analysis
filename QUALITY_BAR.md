@@ -35,7 +35,7 @@
 | M-5 | Every numeric calculation runs through the Python sandbox. LLMs do not perform arithmetic. The output of arithmetic must be reproducible from the JSON inputs. | `python3 -c "..."` re-run on cited math |
 | M-6 | Every section that ships to `reports/final/` has a red-team verdict of `pass` or `pass_with_caveats` recorded in `_redteam/<section>.md`. | red-team report present per section |
 | M-7 | Every deliverable references this file at the top: `Quality bar: see padel-research-os/QUALITY_BAR.md`. | grep for the line |
-| M-8 | Mobile-first layout: no element renders below 12px on viewports ≥320px wide; no horizontal scroll outside `.table-wrap` and `<pre>`; all images have alt text. | `node scripts/audit_interview_pack.mjs` |
+| M-8 | Mobile-first layout: no element renders below 12px on viewports ≥320px wide; no horizontal scroll outside `.table-wrap` and `<pre>`; all images have alt text. | `node scripts/audit_sources.mjs` |
 
 ---
 
@@ -111,7 +111,7 @@ Any metric or claim used in more than one deliverable MUST be sourced from a sin
 | `evidence/<run-id>/06_red_team.json` | Segment validity (PASS / FAIL / KILL / MERGE) |
 | `evidence/<run-id>/05_jobs_graph.json` | Job stories, alternatives_hired, switch triggers |
 | `evidence/<run-id>/15_market_size.json` | TAM / SAM / SOM by geography |
-| `reports/interview_pack/evidence/00_model_provenance.json` | Models invoked, billing class, downstream evidence |
+| `reports/sources/evidence/00_model_provenance.json` | Models invoked, billing class, downstream evidence |
 
 **If a deliverable needs a number, it reads from the canonical source first.** If the canonical source has the number with a different value than the deliverable, the deliverable is wrong.
 

@@ -70,7 +70,7 @@ This page exists so a reviewer can do the trace without reading the source code.
 
 ## Source files
 
-- Ground-truth JSON: [`reports/interview_pack/evidence/00_model_provenance.json`](../evidence/00_model_provenance.json)
+- Ground-truth JSON: [`reports/sources/evidence/00_model_provenance.json`](../evidence/00_model_provenance.json)
 - Operating contract: `padel-research-os/CLAUDE.md` — kept private (see [`.gitignore`](https://github.com/avaluev/padel-market-analysis/blob/main/.gitignore)) to protect orchestration internals; the rules summarised on this page are the public-safe extract.
 - Research arms: `evidence/20260501T135005Z/_research_arms/*.json` (12 files)
 - Cross-validation rule: every Tongyi-derived claim must appear in at least one paid Perplexity arm before merge.

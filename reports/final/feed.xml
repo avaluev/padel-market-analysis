@@ -7,62 +7,62 @@
     <description><![CDATA[Independent, evidence-graded research on padel coaching technology — competitor landscape, subscription economics, MVP design, and operating plan. Every claim cites a verifiable source URL.]]></description>
     <language>en</language>
     <copyright>Apache 2.0 licensed</copyright>
-    <lastBuildDate>Sun, 03 May 2026 07:22:55 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 08:35:05 +0000</lastBuildDate>
     <item>
       <title><![CDATA[Padel AI Coaching Platform — Strategic Brief]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/padel-ai-coach-research.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/padel-ai-coach-research.html</guid>
       <description><![CDATA[The full strategic brief: market sizing, jobs to be done, competitive landscape, defensibility analysis, go-to-market thinking, risk register, and pivot triggers. Eighteen sections, every numeric claim cited.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Evidence Map — Source Trace]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/evidence-map.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/evidence-map.html</guid>
       <description><![CDATA[Source trace for the strategic brief. Every claim cross-referenced to the verbatim source quote and the URL fetched at runtime.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Methodology — How This Research Was Built]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/methodology.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/methodology.html</guid>
       <description><![CDATA[The pipeline that produced the research: multi-agent orchestration, multi-model fan-out, evidence gates, mobile-first rendering, adversarial review.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Padel Coaching Tech: Competitor Landscape]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/competitor-landscape.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/competitor-landscape.html</guid>
       <description><![CDATA[Independent analysis of padel coaching apps, club-management software, and racket-sport AI. Who has data moats, where the white space is, what failed and why.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Padel App Subscription Economics: Pricing, Churn, LTV/CAC]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/subscription-economics.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/subscription-economics.html</guid>
       <description><![CDATA[How a padel coaching subscription would price against eight verified anchors, with monthly churn, LTV/CAC by channel, and four geographic scenarios.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Padel AI MVP Design: Capture, Insight, Practice Loop]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/mvp-design.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/mvp-design.html</guid>
       <description><![CDATA[Visual-first MVP design: a three-stage product loop, three pilot tracks compared, a decision tree, and a five-row risk register. Plain language, no jargon.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Padel AI Platform: First 90 Days Operating Plan]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/90-day-plan.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/90-day-plan.html</guid>
       <description><![CDATA[Twelve testable hypotheses, a metric tree from headline number to weekly leading indicators, and a risk register with named exit criteria.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
     <item>
       <title><![CDATA[Model Provenance: Every AI Model Used]]></title>
       <link>https://avaluev.github.io/padel-market-analysis/model-provenance.html</link>
       <guid isPermaLink="true">https://avaluev.github.io/padel-market-analysis/model-provenance.html</guid>
       <description><![CDATA[Full disclosure of every model invoked across the pipeline, the role each played, and the billing class.]]></description>
-      <pubDate>Sun, 03 May 2026 07:22:55 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 08:35:05 +0000</pubDate>
     </item>
   </channel>
 </rss>

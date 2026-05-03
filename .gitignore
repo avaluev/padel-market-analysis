@@ -79,6 +79,6 @@ scripts/check_job_stories.py
 reports/20260501T135005Z/
 
 # Interview pack — keep deliverables, evidence JSON, redteam, and audit_report.json; drop large duplicates and per-device PNGs
-reports/interview_pack/screenshots/
-reports/interview_pack/_audit/*.png
-reports/interview_pack/_logs/
+reports/sources/screenshots/
+reports/sources/_audit/*.png
+reports/sources/_logs/

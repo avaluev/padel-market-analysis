@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'fs';
 import { join } from 'path';
 
-const OUT = '/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/interview_pack/screenshots';
+const OUT = '/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os/reports/sources/screenshots';
 mkdirSync(OUT, { recursive: true });
 
 const targets = [

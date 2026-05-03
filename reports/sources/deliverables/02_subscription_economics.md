@@ -5,7 +5,7 @@ Subscription economics for the Padel AI Platform live or die on one channel: org
 **Deliverable:** `02_subscription_economics`
 **Audience:** Product Lead screening panel — Padel AI Platform
 **Voice:** Third-person professional. Capability-conditional phrasing only.
-**Backing data:** [`reports/interview_pack/evidence/02_subscription_economics.json`](../evidence/02_subscription_economics.json)
+**Backing data:** [`reports/sources/evidence/02_subscription_economics.json`](../evidence/02_subscription_economics.json)
 **Run anchor:** `evidence/20260501T135005Z/`
 
 This brief addresses the JD requirement on unit economics, funnels, retention, LTV/CAC, and subscription/recurring-payment product experience. Every numeric claim resolves to a verified URL or to explicit Python-style arithmetic shown inline.

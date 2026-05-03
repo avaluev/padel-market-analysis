@@ -3,7 +3,7 @@
 Three competitors define the threat surface a Padel AI Platform must navigate in the first six months. The rest of the field is adjacent or noise.
 
 > Voice: third-person professional. Capability statements are conditional.
-> Evidence backing: `reports/interview_pack/evidence/01_competitor_intelligence.json`.
+> Evidence backing: `reports/sources/evidence/01_competitor_intelligence.json`.
 > Source pool: `evidence/20260501T135005Z/03_peers_dedup.json` (28 verified peers).
 > Cross-references: `09_moat_audit.json` (moat classes), `10_monetization.json` (pricing benchmarks), `11_gtm.json` (GTM channels and PLG loops), `06_red_team.json` (segment stress test).
 

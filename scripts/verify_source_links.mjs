@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Verify all external links from interview pack pages return HTTP 200 (or 3xx).
+// Verify all external links from source markdown pages return HTTP 200 (or 3xx).
 
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const ROOT = '/Users/sxope/Documents/2026/Research/28.Padel/Claude/padel-research-os';
-const PAGES_DIR = join(ROOT, 'reports/final/interview-pack');
-const AUDIT_DIR = join(ROOT, 'reports/interview_pack/_audit');
+const PAGES_DIR = join(ROOT, 'reports/final/sources');
+const AUDIT_DIR = join(ROOT, 'reports/sources/_audit');
 
 const linkRe = /href="(https?:\/\/[^"]+)"/g;
 const allLinks = new Set();
@@ -40,7 +40,7 @@ async function worker() {
         method: 'HEAD',
         redirect: 'follow',
         signal: ctrl.signal,
-        headers: { 'User-Agent': 'Mozilla/5.0 (interview-pack-verifier)' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (sources-verifier)' },
       });
       clearTimeout(t);
       // some servers reject HEAD; retry GET on 4xx/5xx
@@ -49,7 +49,7 @@ async function worker() {
         const t2 = setTimeout(() => ctrl2.abort(), 12000);
         try {
           const res2 = await fetch(url, { method: 'GET', redirect: 'follow', signal: ctrl2.signal,
-            headers: { 'User-Agent': 'Mozilla/5.0 (interview-pack-verifier)' } });
+            headers: { 'User-Agent': 'Mozilla/5.0 (sources-verifier)' } });
           clearTimeout(t2);
           results.push({ url, status: res2.status, method: 'GET-fallback', sources: [...linkSources.get(url)] });
         } catch (e2) {
@@ -66,7 +66,7 @@ async function worker() {
         const ctrl3 = new AbortController();
         const t3 = setTimeout(() => ctrl3.abort(), 12000);
         const res3 = await fetch(url, { method: 'GET', redirect: 'follow', signal: ctrl3.signal,
-          headers: { 'User-Agent': 'Mozilla/5.0 (interview-pack-verifier)' } });
+          headers: { 'User-Agent': 'Mozilla/5.0 (sources-verifier)' } });
         clearTimeout(t3);
         results.push({ url, status: res3.status, method: 'GET-after-HEAD-err', sources: [...linkSources.get(url)] });
       } catch (e2) {

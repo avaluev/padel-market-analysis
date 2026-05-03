@@ -1,6 +1,63 @@
 # Padel Coaching Tech Research — Full text
 
 
+# Padel Coaching Tech Research — Home
+
+Source URL: https://avaluev.github.io/padel-market-analysis/index.html
+
+Landing page for the research portfolio. Links to the strategic brief, the evidence map, the competitor analysis, the subscription economics work, and the MVP design.
+
+---
+
+Read the strategic work
+
+Strategic brief →
+
+Eighteen sections on market sizing, jobs to be done, the competitive landscape, defensibility, go-to-market, risks, and pivot triggers.
+
+Evidence map →
+
+Source trace for the brief — every claim paired with the verbatim source quote and the URL it came from.
+
+Methodology →
+
+How the research was built: agents, models, evidence gates, mobile-first rendering, adversarial review.
+
+Read the supporting analyses
+
+Competitor landscape →
+
+Padel coaching apps, club software, and racket-sport AI. Who has the data moats and where the white space is.
+
+Subscription economics →
+
+Eight pricing anchors verified May 2026. LTV/CAC by channel across four geographic scenarios.
+
+MVP design →
+
+The smallest product loop that earns the right to exist. Three pilot tracks compared, decision tree, risk register.
+
+90-day plan →
+
+Twelve testable hypotheses for the first quarter. A metric tree from the headline number down to weekly leading indicators.
+
+Model provenance →
+
+Every AI model used in the research, by billing class. Paid Anthropic, paid Perplexity, plus a free Alibaba arm as a cross-check.
+
+What this work shows
+
+Research as a build, not a document. Schemas, fail-fast quality gates, immutable canonical state, regression rules added every time something fails.
+
+Multi-model orchestration. Strategic models plan and adversarially review. Three deep-research workers fan out in parallel. Smaller models structure the data. Python runs every calculation.
+
+Evidence over polish. Three rules govern every output. Every number has a verified source URL. Quotes are at most fifteen words verbatim from the source. A documented gap is more honest than a fabricated number.
+
+Mobile-first frontend. Vanilla HTML and CSS. No framework. No build step. Audited across five device profiles before each release.
+
+Open and reproducible. The whole pipeline ships as static HTML and the source repository contains every prompt, every script, and every quality gate.
+
+
 # Padel AI Coaching Platform — Strategic Brief
 
 Source URL: https://avaluev.github.io/padel-market-analysis/padel-ai-coach-research.html
@@ -2245,35 +2302,97 @@ Free fallbackNVIDIA Nemotron series (free tier)First-pass scans only; never used
 
 5 · Quality gates
 
-Seven gates, sequential, each with explicit pass criteria and a documented retry policy. Failure does not silently retry — failure becomes a new rule.
+The pipeline runs two layers of gates. Pipeline-phase gates check each research stage as it produces JSON; content-and-SEO gates check the published HTML before deploy. Failure becomes a new rule — the gate file at scripts/check_quality.py is the live regression log.
+
+Pipeline-phase gates (research output)
 
 1Research brief validity
 
-Completeness ≥ 60%, content_type not null, target geographies non-empty. Fail action: surface clarification questions to the user.
+Completeness ≥ 60%, content type set, target geographies non-empty. Fail action: surface clarification questions to the user.
 
 2Citation coverage
 
-Every numeric claim has a corresponding _source URL; the URL was fetched and returned HTTP 200; the response body is archived. Fail action: re-invoke the research agent with the missing-field list.
+Every numeric claim has a _source URL; the URL was fetched and returned HTTP 200; the response body is archived. Fail action: re-invoke the research agent with the missing-field list.
 
 3Mathematical integrity
 
-calculation_method == "python_subprocess_executed"; pessimistic < base < optimistic; revenue percentages sum to 1.0 ± 0.001. Fail action: halt the pipeline, require user confirmation.
+calculation_method == "python_subprocess_executed"; pessimistic < base < optimistic; revenue percentages sum to 1.0 ± 0.001. Fail action: halt the pipeline, require explicit confirmation.
 
-4adversarial review minimum issues
+4Adversarial review minimum
 
-≥ 3 HIGH-severity issues. Below threshold means the critic is being too diplomatic; re-invoke with stricter framing.
+At least three HIGH-severity issues identified. Below threshold means the critic is being too diplomatic; re-invoke with stricter framing.
 
 5Regulatory coverage
 
-An entry in regulatory_compliance for every priority geography. Fail action: re-invoke the risk-assessor with the missing-geos list.
+An entry in regulatory_compliance for every priority geography. Fail action: re-invoke the risk assessor with the missing-geographies list.
 
-6Deck completeness
+6Section completeness
 
-Every section heading non-null; no {placeholder} strings; financial figures reference canonical brief values verbatim.
+Every section heading non-null; no placeholder strings; financial figures reference canonical brief values verbatim.
 
 7Output file completeness
 
-All output files present and non-empty; HTML files contain the expected number of sections.
+All output files present and non-empty; HTML files contain the expected number of sections; URLs resolve to HTTP 200.
+
+Content + SEO gates (published HTML)
+
+Fourteen gates run on every page in reports/final/ via scripts/check_quality.py. The full set runs locally with make audit and on every pull request via .github/workflows/quality-gates.yml.
+
+h1
+
+Exactly one <h1> per page.
+
+run_id
+
+Block timestamped run identifiers in published prose.
+
+Block job-application framing leaking into research voice.
+
+jd_coverage
+
+Block any reference to the deleted JD coverage page.
+
+jargon
+
+Block "stop test", "exit criteria", "adversarial review" jargon variants in user-facing prose.
+
+marketing
+
+Block specific unverified marketing badge phrases.
+
+link_syntax
+
+Block literal <https://...> markdown auto-link text.
+
+internal_ids
+
+Block internal codes like , in prose.
+
+meta
+
+Required <head> tags present (title, canonical, OG, Twitter, robots).
+
+jsonld
+
+JSON-LD structured data present and parseable.
+
+images
+
+Every <img> has alt + width + height (CLS prevention).
+
+links
+
+Every internal href resolves to an existing file.
+
+nav
+
+Every page carries the same nav structure.
+
+seo_assets
+
+Site-wide files (robots.txt, llms.txt, sitemap.xml, etc.) present and valid.
+
+The gate suite is unit-tested at tests/test_check_quality.py (51 tests, ~72% coverage on the gate modules). When a new failure is found in production, the failure becomes a new gate. No retry without a new rule.
 
 6 · The evidence chain
 
@@ -2289,55 +2408,61 @@ The whole pipeline state lives in flat JSON/YAML. diff works. git blame works. T
 
 7 · Agent specialisation
 
-Twelve specialist agents in .claude/agents/, each with a narrow contract:
+Six specialist agents in the project's .claude/agents/ directory, each with a narrow contract. Routing decisions and effort budgets are documented in QUALITY_BAR.md.
 
-intake-analyst
+deep-research-orchestrator
 
-Classifies the input prompt, extracts structured fields, surfaces clarification questions.
+Runs parallel fan-out across Sonar Deep Research, Sonar Pro, Tongyi DeepResearch, and o4-mini. Cross-validates free arms with paid models.
 
-market-researcher
+peer-extractor
 
-Web research with full citation work for market sizing.
+Extracts the peer set from research arms, deduplicates, tags discovery method and verification timestamp.
 
-comp-analyst
+adversarial review-critic
 
-Competitive analysis, deduplication, peer-card extraction.
+Surfaces at least three HIGH-severity issues plus at least five MEDIUM-severity. Includes fabrication-risk detection and survivorship-bias check. Runs on Claude Opus.
 
-audience-analyst
+canonical-synthesizer
 
-Behavioural profiling, JTBD parsing, segment-stress-test.
+Writes the immutable canonical brief; respects the cross-document consistency contract.
 
-financial-modeler
+archetype-synthesizer
 
-Generates Python, executes via subprocess, writes the financial model JSON.
+Constructs persona archetypes from peer cards and segment data.
 
-positioning-strategist
+report-renderer
 
-Strategic synthesis; runs on Claude Opus 4.7.
+Renders the final HTML with mobile-first design, JSON-LD, and Playwright-audited layout.
 
-risk-assessor
+Five new skills (AI-search optimisation)
 
-Five-domain risk classification with mitigation pathways.
+The session that produced this rewrite added five reusable skills (loaded by Claude Code from the user's ~/.claude/skills/ directory) and two universal rule files:
 
-critic-adversarial review
+geo-optimization
 
-Hostile-investor adversarial review; runs on Claude Opus 4.7, max thinking budget.
+Generative Engine Optimisation — make content cited by ChatGPT Search, Perplexity, Gemini.
 
-research-synthesizer
+aio-optimization
 
-Cross-document conflict resolution; produces the canonical brief.
+AI Overview Optimisation — land in Google AI Overviews. Direct-answer paragraphs, query fan-out, quarterly freshness.
 
-deck-assembler
+aeo-optimization
 
-Builds the slide spec from the canonical brief.
+Answer Engine Optimisation — voice search, featured snippets, "People also ask".
 
-translator
+llmo-optimization
 
-Builds the glossary first; then translates; preserves verbatim original.
+LLM Optimisation — crawler access, llms.txt spec, brand-entity reinforcement, the AI-crawler reference table.
 
-output-renderer
+seo-structured-data
 
-Renders the final HTML with charts, navigation, dark mode.
+Schema.org reference — the five JSON-LD types covering 80% of cases plus universal head-tag and JSON-LD templates.
+
++ rules
+
+Universal rule files ai-search-optimization.md and content-quality-gates.md in ~/.claude/rules/common/.
+
+The full research note backing those skills lives at evidence/research/ai-search-optimization/SUMMARY.md: 4,696 words, 67 unique sources, primary docs anchoring the load-bearing claims (Princeton GEO paper, llmstxt.org, OpenAI bot docs, Anthropic privacy page, Schema.org type pages).
 
 8 · Frontend engineering
 
@@ -2379,25 +2504,105 @@ DevOps — deployment readiness, security headers, secrets handling, .gitignore 
 
 Audit reports live alongside the run artefacts in evidence/_audits/. The discipline is the same as the adversarial review: an audit that says "everything passes" is itself a failure.
 
-10 · The numbers
+10 · AI search optimisation
 
-Specialist agents12
+The site is engineered to be cited by AI search surfaces (ChatGPT Search, Perplexity, Google AI Overviews, Claude). The four 2026 paradigms — Generative Engine Optimisation (GEO), AI Overview Optimisation (AIO), Answer Engine Optimisation (AEO), and LLM Optimisation (LLMO) — are summarised in the cross-cutting reference at evidence/research/ai-search-optimization/SUMMARY.md.
 
-Frontier models4+
+Per-page
 
-Quality gates7
+Forty-to-sixty word citable summary lead under H1.
 
-Verified peer cards17
+JSON-LD @graph with Article + Organization + WebSite + BreadcrumbList + Person.
 
-Value mechanics audited11
+Open Graph + Twitter Card meta tags.
 
-Countries in SAM rebuild21
+Canonical URL, language attribute, robots directive permitting full snippet reuse.
 
-Cited URLs (HTTP 200)100%
+Mobile-first hamburger drawer that expands to a horizontal row at ≥ 880 px (WCAG 2.5.5 — 44 px tap targets).
 
-Device profiles audited5
+Site-wide assets
 
-11 · What this scales to
+Generated deterministically by scripts/build_seo_assets.py:
+
+robots.txt
+
+AI-crawler-aware allow / disallow per the 2026 reference. Allows GPTBot, OAI-SearchBot, ChatGPT-User, the three Anthropic bots, PerplexityBot, Google-Extended, Applebot-Extended; blocks Bytespider and the deprecated Anthropic agents.
+
+llms.txt
+
+Concise machine-readable index per the llmstxt.org spec — H1, blockquote summary, H2-grouped link list with one-line annotations.
+
+llms-full.txt
+
+Full plain-text concatenation of every page's body. AI agents visit it ~2× more than llms.txt (Semrush 2026).
+
+sitemap.xml
+
+Standard XML sitemap with lastmod from file mtime, priority, change frequency.
+
+feed.xml
+
+RSS 2.0 feed of every report page.
+
+security.txt
+
+RFC 9116 contact + policy file under /.well-known/.
+
+manifest.webmanifest
+
+Minimal PWA manifest. Sets the brand colour, icon, language, and category.
+
+humans.txt
+
+Human-readable team and credit file.
+
+11 · Repository & engineering quality
+
+The full source is at github.com/avaluev/padel-market-analysis — every script, every prompt, every test, every CI workflow. Apache 2.0.
+
+Layout
+
+scripts/ — pipeline builders, content sanitiser, SEO asset generator, quality gate, mobile audit.
+
+tests/ — pytest suite for the new gates (51 tests).
+
+reports/final/ — the published site (this directory is what GitHub Pages serves).
+
+evidence/ — raw research output, audit reports, the AI-search research summary.
+
+QUALITY_BAR.md — the rules every agent obeys.
+
+.github/workflows/ — CI: deploy + quality-gates.
+
+Engineering quality
+
+Typed Python — mypy --strict on scripts/ and tests/; configured in pyproject.toml.
+
+Linted + formatted — ruff for both lint and format; runs as a pre-commit hook.
+
+Tested — 51 unit tests, ~72% coverage on the gate modules; tests required for every new gate.
+
+CI gated — quality-gates.yml blocks merge to main on lint, typecheck, test, content-quality, link-verify, secret-scan failures.
+
+Secret scanning — gitleaks as both a pre-commit hook and a CI job.
+
+Reproducible builds — Makefile with make install, make test, make audit, make build; idempotency check in CI.
+
+Dependency hygiene — Dependabot weekly runs on Python, npm, GitHub Actions.
+
+Local audit
+
+Reproduce the full pre-deploy gate set in one command:
+
+git clone https://github.com/avaluev/padel-market-analysis.git
+
+cd padel-market-analysis
+
+make install # python dev deps + node deps
+
+make audit # build + content + SEO gates
+
+12 · What this scales to
 
 The pipeline is domain-agnostic. The Padel AI Coach run is a worked example, not the product. Replace the input prompt and the same architecture produces:
 
@@ -2428,9 +2633,9 @@ Three competitors define the threat surface a Padel AI Platform must navigate in
 
 Voice: third-person professional. Capability statements are conditional.
 
-Evidence backing: reports/interview_pack/the published evidence published evidence.
+Evidence backing: reports/sources/the published evidence published evidence.
 
-Source pool: the published evidence file (28 verified peers).
+Source pool: the published evidence (28 verified peers).
 
 Cross-references: the published evidence (moat classes), the published evidence (pricing benchmarks), the published evidence (go-to-market channels and product-led growth loops), the published evidence (segment stress test).
 
@@ -2466,7 +2671,7 @@ The accepted three carry the strongest combined signal across all three weights.
 
 1. Padelytics — https://www.padelytics.ai/
 
-Threat rank: 1 / 3. Most direct overlap with the smartphone-only padel AI coaching wedge. Sells to the three audiences the wedge reaches (players, clubs, streaming). Iberian and LATAM footprint matches the planned beachhead in the published evidence file. Builds the same data flywheel.
+Threat rank: 1 / 3. Most direct overlap with the smartphone-only padel AI coaching wedge. Sells to the three audiences the wedge reaches (players, clubs, streaming). Iberian and LATAM footprint matches the planned beachhead in the published evidence. Builds the same data flywheel.
 
 Positioning. Padel-native AI analytics product spanning amateur players, club programmes, and streaming surfaces in one funnel.
 
@@ -2502,7 +2707,7 @@ Primary value prop. Club-installed camera with automatic match recording, highli
 
 Verbatim landing-page quote (≤15 words): "The AI Camera for Padel | Automated Highlights & Analytics" — https://www.clutchapp.io/.
 
-Pricing tier. Subscription. Captured in the published evidence file price benchmarks at EUR 53/month per club, USD 58 equivalent — tagged ` (Sonar paraphrase, not vendor-page verbatim). Sourced from prior Sonar pricing capture rather than a live clutchapp.io price card. Per-court hardware install cost is not disclosed publicly; logged as `.
+Pricing tier. Subscription. Captured in the published evidence price benchmarks at EUR 53/month per club, USD 58 equivalent — tagged ` (Sonar paraphrase, not vendor-page verbatim). Sourced from prior Sonar pricing capture rather than a live clutchapp.io price card. Per-court hardware install cost is not disclosed publicly; logged as `.
 
 Customer segment served well. Club operators running 4-12 courts in Spain, the UK, and the UAE who want a one-stop highlight-and-analytics layer that members can reach through a club-branded app, with no requirement for member smartphone capture.
 
@@ -2664,7 +2869,7 @@ Lesson for the wedge. A padel-native taxonomy and coach vocabulary is a structur
 
 Survivorship-bias note
 
-The graveyard above lists only PlaySight (absorbed) and Wingfield (multisport sprawl). That is statistically thin for a 2024–2026 vintage of CV/AI sport startups; some padel-AI vendors must have stalled, pivoted, or wound down. The source pool (the published evidence file) deselects no padel-AI vendor for being dead — every padel-native peer named in this brief is presented as alive. That is a research limitation, not a market signal. A reviewer who probes the pack for survivorship bias is correct to flag the gap; first-party diligence with a former Padelytics or Clutch employee would surface at least one wound-down peer not in the public source pool.
+The graveyard above lists only PlaySight (absorbed) and Wingfield (multisport sprawl). That is statistically thin for a 2024–2026 vintage of CV/AI sport startups; some padel-AI vendors must have stalled, pivoted, or wound down. The source pool (the published evidence) deselects no padel-AI vendor for being dead — every padel-native peer named in this brief is presented as alive. That is a research limitation, not a market signal. A reviewer who probes the pack for survivorship bias is correct to flag the gap; first-party diligence with a former Padelytics or Clutch employee would surface at least one wound-down peer not in the public source pool.
 
 data gaps Acknowledged Before the Interview
 
@@ -2803,7 +3008,7 @@ MATCHiBusiness (per court)~EUR 107/month per courtPadel booking SaaShttps://matc
 
 PlaytomicManager Standard / Professional / ChampionUSD 37 / 109.08 / 274 per month per clubPadel booking SaaShttps://playtomic.com/pricing"Standard $37 / Professional $109.08 / Champion $274 monthly"
 
-Read-out for the padel business-to-consumer product. Strava and SwingVision frame a USD 12–15 monthly ceiling for business-to-consumer sport-tech subscriptions. Whoop demonstrates that annual-only billing is a defensible commitment-anchoring move. Hudl, Clutch, Wingfield, MATCHi, and Playtomic establish that business-to-business per-team / per-court / per-club pricing operates in a different elasticity band — so any business-to-business hedge to coaches or clubs should be priced against those references, not against the business-to-consumer anchor. The current run's evidence file the published evidence file anchors the primary business-to-consumer tier at EUR 7.99/month for Spain and Italy and at EUR 6.49/month for Portugal (PPP-indexed).
+Read-out for the padel business-to-consumer product. Strava and SwingVision frame a USD 12–15 monthly ceiling for business-to-consumer sport-tech subscriptions. Whoop demonstrates that annual-only billing is a defensible commitment-anchoring move. Hudl, Clutch, Wingfield, MATCHi, and Playtomic establish that business-to-business per-team / per-court / per-club pricing operates in a different elasticity band — so any business-to-business hedge to coaches or clubs should be priced against those references, not against the business-to-consumer anchor. The current run's evidence file the published evidence anchors the primary business-to-consumer tier at EUR 7.99/month for Spain and Italy and at EUR 6.49/month for Portugal (PPP-indexed).
 
 B. Activation funnel benchmarks — sport-tech business-to-consumer
 
@@ -2907,7 +3112,7 @@ Scenario 4 — RU Direct-channel (RUB 499/month ≈ EUR 5.0 PPP-indexed) — ass
 
 VariableValueSource / calc
 
-ARPU monthly (PPP-indexed EUR)EUR 5.0RUB 499 × 0.55 PPP index ≈ EUR 5.0; PPP index per the published evidence file
+ARPU monthly (PPP-indexed EUR)EUR 5.0RUB 499 × 0.55 PPP index ≈ EUR 5.0; PPP index per the published evidence
 
 Monthly churn8.5%Upper-band of sport-tech business-to-consumer (inferred — no Strava-class flywheel data exists for Russian-speaking padel)
 
@@ -2923,7 +3128,7 @@ CAC Apple Search Adsn/adata gaps: ASA Russian payment rails are constrained at t
 
 LTV:CAC organic5.3258.82 / 11.06 = 5.32
 
-Read-out. The RU Direct-channel scenario clears the 3:1 SaaS guardrail on organic acquisition only, at honest 8.5% churn and PPP-indexed ARPU. Both paid Meta and Apple Search Ads are unavailable on this path; the channel reduces to Telegram newsletter plus organic Telegram-bot distribution, which is the only path documented in the published evidence file. data gaps are flagged inline so the channel cannot be presented as fully validated.
+Read-out. The RU Direct-channel scenario clears the 3:1 SaaS guardrail on organic acquisition only, at honest 8.5% churn and PPP-indexed ARPU. Both paid Meta and Apple Search Ads are unavailable on this path; the channel reduces to Telegram newsletter plus organic Telegram-bot distribution, which is the only path documented in the published evidence. data gaps are flagged inline so the channel cannot be presented as fully validated.
 
 Sensitivity (best / base / worst)
 
@@ -2935,7 +3140,7 @@ Base (anchor ES/IT)7.997%114.1610.321.32
 
 Worst (PT ARPU + high churn)6.4910%6.49 × 10 = 64.905.870.75
 
-Interpretation. Organic newsletter / community-led acquisition is the only channel that clears the 3:1 LTV:CAC guardrail in every scenario including worst case. Paid Meta is net-positive only above the EUR 7.99 anchor and at churn ≤7%. Affiliate coach acquisition sits below 1:1 in two of three scenarios, which means the coach channel must be retained as a business-to-business-to-consumer distribution and switching-cost lever) — not booked as a business-to-consumer CAC line.
+Interpretation. Organic newsletter / community-led acquisition is the only channel that clears the 3:1 LTV:CAC guardrail in every scenario including worst case. Paid Meta is net-positive only above the EUR 7.99 anchor and at churn ≤7%. Affiliate coach acquisition sits below 1:1 in two of three scenarios, which means the coach channel must be retained as a business-to-business-to-consumer distribution and switching-cost lever — not booked as a business-to-consumer CAC line.
 
 Channel-mix discipline matters more than absolute pricing. The Foundry CRO USD 12 newsletter CAC is the channel that bends the LTV:CAC math; everything else is a hedge.
 
@@ -3153,7 +3358,7 @@ Audience: hiring-panel screening interview.
 
 >
 
-Evidence base: the published evidence file. Every numeric threshold below cites either a verified URL or carries an "anchor — to be validated" flag.
+Evidence base: the published evidence. Every numeric threshold below cites either a verified URL or carries an "anchor — to be validated" flag.
 
 >
 
@@ -3562,7 +3767,7 @@ Every AI model used in this research is named, with the artefact it produced and
 
 Every number in the pack is only as honest as the model that produced it. This page names every model, its billing class, and the artefact it touched.
 
-Every claim downstream of this page is only as honest as the model that produced it. This page enumerates every model invoked across the research pipeline, its billing class, and the artefacts it produced. Verification method: grep -oE '"model":\s*"[^"]+"' across the published evidence file, cross-referenced with the orchestration contract in padel-research-os/CLAUDE.md.
+Every claim downstream of this page is only as honest as the model that produced it. This page enumerates every model invoked across the research pipeline, its billing class, and the artefacts it produced. Verification method: grep -oE '"model":\s*"[^"]+"' across the published evidence, cross-referenced with the orchestration contract in padel-research-os/CLAUDE.md.
 
 Why this page exists
 
@@ -3598,7 +3803,7 @@ The Tongyi arm fed into the published evidence as one of three sources for peer 
 
 Free fallback chain — declared but NOT invoked
 
-Three free models appear in the operating contract (padel-research-os/CLAUDE.md) as a fallback chain when paid Anthropic credits are tight. Verification of the published evidence file returns zero invocations of any of them in this run.
+Three free models appear in the operating contract (padel-research-os/CLAUDE.md) as a fallback chain when paid Anthropic credits are tight. Verification of the published evidence returns zero invocations of any of them in this run.
 
 Model IDStatus
 
@@ -3642,10 +3847,10 @@ Research pipeline ran primarily on paid Perplexity Sonar tiers (sonar-pro, sonar
 
 Source files
 
-Ground-truth JSON: reports/interview_pack/the published evidence published evidence
+Ground-truth JSON: reports/sources/the published evidence published evidence
 
 Operating contract: padel-research-os/CLAUDE.md — kept private (see .gitignore) to protect orchestration internals; the rules summarised on this page are the public-safe extract.
 
-Research arms: the published evidence file (12 files)
+Research arms: the published evidence (12 files)
 
 Cross-validation rule: every Tongyi-derived claim must appear in at least one paid Perplexity arm before merge.
