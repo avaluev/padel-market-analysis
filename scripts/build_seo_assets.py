@@ -243,17 +243,82 @@ def build_llms_txt() -> str:
 # ------------------------------------------------------------ llms-full.txt
 
 
-class _BodyExtractor(HTMLParser):
-    """Extract visible text from <main> only, dropping nav/script/style."""
+class _HtmlToMarkdown(HTMLParser):
+    """Convert the <main> region of a published page into clean Markdown.
 
-    SKIP = {"script", "style", "nav", "header", "footer", "aside", "noscript", "svg"}
+    Preserves heading hierarchy (h1–h6), paragraphs, bullet and numbered
+    lists (with nesting), tables (as Markdown tables), blockquotes, code
+    blocks, links, bold, italic, inline code, and horizontal rules.
+
+    Skips entire subtrees of: ``<nav>``, ``<header>``, ``<footer>``,
+    ``<aside>``, ``<noscript>``, ``<svg>``, ``<style>``, ``<script>``.
+    """
+
+    SKIP_TAGS = frozenset({"nav", "header", "footer", "aside", "noscript", "svg",
+                           "style", "script"})
 
     def __init__(self) -> None:
-        super().__init__()
-        self.depth = 0
-        self.skip_depth = 0
+        super().__init__(convert_charrefs=True)
         self.in_main = False
-        self.parts: list[str] = []
+        self.skip_depth = 0
+        self.out: list[str] = []
+        # Per-block state.
+        self.list_stack: list[str] = []  # "ul" or "ol"
+        self.ol_counters: list[int] = []
+        self.in_pre = False
+        self.in_code = False
+        self.in_blockquote = False
+        # Table state.
+        self.in_table = False
+        self.table_rows: list[list[str]] = []
+        self.in_thead = False
+        self.in_tr = False
+        self.cell_buf: list[str] = []
+        self.in_cell = False
+        # Inline state — buffer until we hit a block boundary.
+        self.text_buf: list[str] = []
+        # Link state.
+        self.link_stack: list[str] = []  # list of href attrs
+        # Heading state.
+        self.heading_level: int | None = None
+
+    # --- helpers ---------------------------------------------------------
+
+    def _flush_paragraph(self) -> None:
+        text = "".join(self.text_buf).strip()
+        self.text_buf = []
+        if not text:
+            return
+        # Inside a list item / blockquote / cell, append to the current
+        # context. Otherwise emit as a paragraph.
+        if self.in_cell:
+            self.cell_buf.append(text)
+            return
+        if self.list_stack:
+            indent = "  " * (len(self.list_stack) - 1)
+            marker = "-" if self.list_stack[-1] == "ul" else f"{self.ol_counters[-1]}."
+            if self.list_stack[-1] == "ol":
+                self.ol_counters[-1] += 1
+            # Collapse all internal whitespace runs to a single space.
+            text = re.sub(r"\s+", " ", text)
+            self.out.append(f"{indent}{marker} {text}")
+            return
+        if self.in_blockquote:
+            for line in text.splitlines():
+                self.out.append(f"> {line}")
+            self.out.append("")
+            return
+        # Plain paragraph — preserve line breaks at sentence-ish boundaries
+        # but collapse runs of whitespace within sentences.
+        text = re.sub(r"[ \t]+", " ", text)
+        self.out.append(text)
+        self.out.append("")
+
+    def _emit_blank(self) -> None:
+        if self.out and self.out[-1] != "":
+            self.out.append("")
+
+    # --- start tags ------------------------------------------------------
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         t = tag.lower()
@@ -262,51 +327,355 @@ class _BodyExtractor(HTMLParser):
             return
         if not self.in_main:
             return
-        if t in self.SKIP:
+        if t in self.SKIP_TAGS:
             self.skip_depth += 1
             return
-        # Block-level paragraph hint: insert a newline so prose paragraphs split.
-        if t in {"p", "h1", "h2", "h3", "h4", "li", "tr", "blockquote", "br", "hr"}:
-            self.parts.append("\n")
+        if self.skip_depth > 0:
+            return
+        if t in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            self._flush_paragraph()
+            self._emit_blank()
+            self.heading_level = int(t[1])
+            return
+        if t == "p":
+            self._flush_paragraph()
+            return
+        if t == "br":
+            self.text_buf.append("  \n")
+            return
+        if t == "hr":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.out.append("---")
+            self._emit_blank()
+            return
+        if t == "ul":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.list_stack.append("ul")
+            return
+        if t == "ol":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.list_stack.append("ol")
+            self.ol_counters.append(1)
+            return
+        if t == "li":
+            self._flush_paragraph()
+            return
+        if t == "blockquote":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.in_blockquote = True
+            return
+        if t == "pre":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.in_pre = True
+            self.out.append("```")
+            return
+        if t == "code" and not self.in_pre:
+            self.text_buf.append("`")
+            self.in_code = True
+            return
+        if t == "table":
+            self._flush_paragraph()
+            self._emit_blank()
+            self.in_table = True
+            self.table_rows = []
+            return
+        if t == "thead":
+            self.in_thead = True
+            return
+        if t == "tr":
+            self.in_tr = True
+            self.table_rows.append([])
+            return
+        if t in {"th", "td"}:
+            self.in_cell = True
+            self.cell_buf = []
+            return
+        if t in {"strong", "b"}:
+            self.text_buf.append("**")
+            return
+        if t in {"em", "i"}:
+            self.text_buf.append("*")
+            return
+        if t == "a":
+            href = ""
+            for k, v in attrs:
+                if k.lower() == "href" and v:
+                    href = v
+                    break
+            self.link_stack.append(href)
+            self.text_buf.append("[")
+            return
+        if t == "div":
+            # Many pages use <div class="stat"><div class="item">…</div></div>
+            # to display key/value pairs. Treat each div boundary as a soft
+            # paragraph break so the items don't run together as one line.
+            self._flush_paragraph()
+            return
+        if t == "figure":
+            self._flush_paragraph()
+            self._emit_blank()
+            return
+        if t == "figcaption":
+            self.text_buf.append("*")
+            return
+
+    # --- end tags --------------------------------------------------------
 
     def handle_endtag(self, tag: str) -> None:
         t = tag.lower()
         if t == "main":
+            self._flush_paragraph()
             self.in_main = False
             return
-        if t in self.SKIP and self.skip_depth > 0:
-            self.skip_depth -= 1
+        if not self.in_main:
+            return
+        if t in self.SKIP_TAGS:
+            if self.skip_depth > 0:
+                self.skip_depth -= 1
+            return
+        if self.skip_depth > 0:
+            return
+        if t in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            text = re.sub(r"\s+", " ", "".join(self.text_buf).strip())
+            self.text_buf = []
+            if text and self.heading_level is not None:
+                hashes = "#" * self.heading_level
+                self.out.append(f"{hashes} {text}")
+                self.out.append("")
+            self.heading_level = None
+            return
+        if t == "p":
+            self._flush_paragraph()
+            return
+        if t == "ul":
+            self._flush_paragraph()
+            if self.list_stack and self.list_stack[-1] == "ul":
+                self.list_stack.pop()
+            if not self.list_stack:
+                self._emit_blank()
+            return
+        if t == "ol":
+            self._flush_paragraph()
+            if self.list_stack and self.list_stack[-1] == "ol":
+                self.list_stack.pop()
+                if self.ol_counters:
+                    self.ol_counters.pop()
+            if not self.list_stack:
+                self._emit_blank()
+            return
+        if t == "li":
+            self._flush_paragraph()
+            return
+        if t == "blockquote":
+            self._flush_paragraph()
+            self.in_blockquote = False
+            self._emit_blank()
+            return
+        if t == "pre":
+            # Whatever's in text_buf is pre content.
+            content = "".join(self.text_buf).strip("\n")
+            self.text_buf = []
+            for line in content.splitlines():
+                self.out.append(line)
+            self.out.append("```")
+            self._emit_blank()
+            self.in_pre = False
+            return
+        if t == "code" and self.in_code and not self.in_pre:
+            self.text_buf.append("`")
+            self.in_code = False
+            return
+        if t == "table":
+            # Render the accumulated rows as a Markdown table.
+            if self.table_rows:
+                # Pick the widest row to define column count.
+                cols = max((len(r) for r in self.table_rows), default=0)
+                if cols > 0:
+                    # Pad each row to `cols` cells.
+                    norm = [r + [""] * (cols - len(r)) for r in self.table_rows]
+                    header = norm[0] if norm else [""] * cols
+                    body = norm[1:] if len(norm) > 1 else []
+                    self.out.append("| " + " | ".join(header) + " |")
+                    self.out.append("|" + "|".join(["---"] * cols) + "|")
+                    for r in body:
+                        self.out.append("| " + " | ".join(r) + " |")
+                    self._emit_blank()
+            self.in_table = False
+            self.table_rows = []
+            return
+        if t == "thead":
+            self.in_thead = False
+            return
+        if t == "tr":
+            self.in_tr = False
+            return
+        if t in {"th", "td"}:
+            cell_text = re.sub(r"\s+", " ", "".join(self.cell_buf).strip())
+            cell_text = cell_text.replace("|", "\\|")
+            if self.table_rows:
+                self.table_rows[-1].append(cell_text)
+            self.in_cell = False
+            self.cell_buf = []
+            return
+        if t in {"strong", "b"}:
+            self.text_buf.append("**")
+            return
+        if t in {"em", "i"}:
+            self.text_buf.append("*")
+            return
+        if t == "a":
+            href = self.link_stack.pop() if self.link_stack else ""
+            if href:
+                self.text_buf.append(f"]({href})")
+            else:
+                self.text_buf.append("]")
+            return
+        if t == "div":
+            self._flush_paragraph()
+            return
+        if t == "figure":
+            self._flush_paragraph()
+            self._emit_blank()
+            return
+        if t == "figcaption":
+            self.text_buf.append("*")
+            return
+
+    # --- text ------------------------------------------------------------
 
     def handle_data(self, data: str) -> None:
-        if self.in_main and self.skip_depth == 0:
-            self.parts.append(data)
+        if not self.in_main or self.skip_depth > 0:
+            return
+        if self.in_cell:
+            self.cell_buf.append(data)
+            return
+        if self.in_pre:
+            self.text_buf.append(data)
+            return
+        # Strip leading/trailing newlines added by HTML formatting; keep
+        # internal whitespace structure for inline.
+        self.text_buf.append(data)
 
-    def text(self) -> str:
-        raw = "".join(self.parts)
-        # Collapse runs of whitespace, preserve paragraph breaks.
-        out_lines: list[str] = []
-        for line in raw.splitlines():
-            stripped = re.sub(r"[ \t]+", " ", line).strip()
-            if stripped:
-                out_lines.append(stripped)
-        return "\n\n".join(out_lines)
+    def to_markdown(self) -> str:
+        self._flush_paragraph()
+        # Tidy: collapse 3+ blank lines, strip trailing whitespace.
+        out = "\n".join(self.out)
+        out = re.sub(r"[ \t]+$", "", out, flags=re.MULTILINE)
+        out = re.sub(r"\n{3,}", "\n\n", out)
+        return out.strip()
+
+
+def _sanitise_md(text: str) -> str:
+    """Apply the same defensive scrubs the public pages already pass.
+    Defence-in-depth: even if a stray reference slipped through the page,
+    it must not appear in llms-full.txt."""
+    # Run-IDs.
+    text = re.sub(r"\b\d{8}T\d{6}Z\b", "", text)
+    # Internal IDs (VM-001, CH-006, …).
+    text = re.sub(r"\b(?:VM|CH|RL|PB|PLG|FM|DG|JS|SEG|CC|MM|SC|UC|FE)-\d{1,3}\b", "", text)
+    # Broken sanitisation residue.
+    text = text.replace(
+        "the published evidence published evidence", "the published evidence"
+    )
+    text = re.sub(r"reports/(?:interview_pack|sources)/the published evidence(?: published evidence)?",
+                  "the published evidence file", text)
+    # Empty bold / italic from <strong></strong> or <em></em>.
+    text = re.sub(r"\*\*\*\*", "", text)
+    text = re.sub(r"(?<!\*)\*\*(?!\*)", "", text) if False else text  # leave non-paired ** alone
+    # Lines that are nothing but emphasis markers.
+    text = re.sub(r"^[\s\*_]+$", "", text, flags=re.MULTILINE)
+    # Collapse extra whitespace.
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n[ \t]+", "\n", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+# Map output slug → optional source markdown file. When present, the
+# source markdown is used directly (cleaner structure, citation density)
+# in preference to round-tripping through the rendered HTML.
+SOURCE_MARKDOWN: dict[str, str] = {
+    "competitor-landscape.html": "01_competitor_intelligence.md",
+    "subscription-economics.html": "02_subscription_economics.md",
+    "mvp-design.html": "03_mvp_loop_design.md",
+    "90-day-plan.html": "04_30_60_90_plan.md",
+    "model-provenance.html": "06_model_provenance.md",
+}
+
+
+def _markdown_for_page(name: str, title: str) -> str:
+    """Return the Markdown body for a single page, choosing the cleanest
+    available source: the original markdown when we have it, the rendered
+    HTML's <main> region otherwise."""
+    src_md = SOURCE_MARKDOWN.get(name)
+    if src_md:
+        src_path = ROOT / "reports/sources/deliverables" / src_md
+        if src_path.exists():
+            text = src_path.read_text(encoding="utf-8")
+            # Strip the H1 (the consumer page already prints the page title).
+            text = re.sub(r"^#\s+.+\n+", "", text, count=1)
+            # Strip the boilerplate metadata block (Deliverable, Audience, …).
+            text = re.sub(
+                r"(?:^\*\*(?:Deliverable|Audience|Voice|Posture|Backing data|Anchor evidence|Run anchor):\*\*[^\n]*\n)+",
+                "",
+                text,
+                flags=re.MULTILINE,
+            )
+            return _sanitise_md(text)
+    # Fall back to extracting <main> from the rendered HTML.
+    html_path = FINAL / name
+    if not html_path.exists():
+        return ""
+    converter = _HtmlToMarkdown()
+    try:
+        converter.feed(html_path.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    return _sanitise_md(converter.to_markdown())
 
 
 def build_llms_full_txt() -> str:
-    out: list[str] = [f"# {SITE_TITLE} — Full text\n"]
+    """Render llms-full.txt as a clean Markdown corpus.
+
+    Per llmstxt.org, ``llms-full.txt`` is the comprehensive single-file
+    reference. Markdown structure is preserved so retrieval contexts can
+    chunk on headings, lists, and tables rather than flat prose.
+    """
+    sections: list[str] = []
+    sections.append(f"# {SITE_TITLE} — Full Reference\n")
+    sections.append(f"> {SITE_DESCRIPTION}\n")
+    sections.append(
+        f"_Author: {SITE_AUTHOR}. License: Apache 2.0._  "
+        f"_Repository: <https://github.com/avaluev/padel-market-analysis>._\n"
+    )
+    sections.append(
+        "_This file concatenates every published page in markdown for "
+        "retrieval contexts. Page boundaries are marked by `# Page: …` "
+        "headings. The original page lives at the canonical URL noted "
+        "directly under each heading._\n"
+    )
+    sections.append("\n---\n")
+
     for name, title, summary in PAGES:
-        p = FINAL / name
-        if not p.exists():
+        # The site landing page is mostly nav links; skip it.
+        if name in {"index.html", "404.html"}:
             continue
-        ext = _BodyExtractor()
-        try:
-            ext.feed(p.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-        body = ext.text()
+        body = _markdown_for_page(name, title)
         if not body:
             continue
-        out.append(f"\n\n# {title}\n\nSource URL: {_abs(name)}\n\n{summary}\n\n---\n\n{body}\n")
+        canonical = _abs(name)
+        sections.append(f"\n## Page: {title}\n")
+        sections.append(f"_Canonical: <{canonical}>_\n")
+        sections.append(f"> {summary}\n")
+        sections.append("\n" + body + "\n")
+        sections.append("\n---\n")
+
+    return "\n".join(sections).strip() + "\n"
     return "".join(out)
 
 
