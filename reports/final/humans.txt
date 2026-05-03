@@ -1,0 +1,17 @@
+/* TEAM */
+Researcher and engineer: Alexandr Valuev
+LinkedIn: https://www.linkedin.com/in/valuev/
+GitHub:   https://github.com/avaluev
+Telegram: https://t.me/ASNKT
+
+/* THANKS */
+The work draws on public research, open-source padel computer-vision projects,
+and the published pricing pages of every vendor referenced in the brief.
+Every quote is verbatim from the cited URL and was fetched at the time of
+writing.
+
+/* SITE */
+Last update:   2026-05-03
+Language:      English
+Doctype:       HTML5
+IDE:           Claude Code

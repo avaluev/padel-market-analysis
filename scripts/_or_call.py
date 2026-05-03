@@ -10,6 +10,7 @@ Usage:
     --max-tokens 4000 \
     --out evidence/RUN/_logs/sonar_deep_arm.json
 """
+
 from __future__ import annotations
 
 import argparse
@@ -17,8 +18,8 @@ import json
 import os
 import pathlib
 import sys
-import urllib.request
 import urllib.error
+import urllib.request
 
 API = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -31,8 +32,11 @@ def main() -> int:
     ap.add_argument("--max-tokens", type=int, default=2400)
     ap.add_argument("--temperature", type=float, default=0.2)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--reasoning", default=None,
-                    help="Optional reasoning effort: low|medium|high (Anthropic models).")
+    ap.add_argument(
+        "--reasoning",
+        default=None,
+        help="Optional reasoning effort: low|medium|high (Anthropic models).",
+    )
     args = ap.parse_args()
 
     key = os.environ.get("OPENROUTER_API_KEY")

@@ -33,6 +33,25 @@ out/
 dist/
 build/
 
+# Python dev artefacts
+__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.venv/
+venv/
+
+# Editor noise
+.vscode/
+.idea/
+*.swp
+
 # Internal session/handoff artefacts that should not appear in the public portfolio
 HANDOFF*.md
 NEW_SESSION_PROMPT.md

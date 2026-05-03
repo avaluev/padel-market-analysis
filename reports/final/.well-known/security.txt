@@ -1,0 +1,5 @@
+Contact: https://www.linkedin.com/in/valuev/
+Expires: 2027-05-03T00:00:00.000Z
+Preferred-Languages: en, ru
+Canonical: https://avaluev.github.io/padel-market-analysis/.well-known/security.txt
+Policy: https://github.com/avaluev/padel-market-analysis/blob/main/SECURITY.md

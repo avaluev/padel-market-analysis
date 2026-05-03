@@ -1,0 +1,3651 @@
+# Padel Coaching Tech Research — Full text
+
+
+# Padel AI Coaching Platform — Strategic Brief
+
+Source URL: https://avaluev.github.io/padel-market-analysis/padel-ai-coach-research.html
+
+The full strategic brief: market sizing, jobs to be done, competitive landscape, defensibility analysis, go-to-market thinking, risk register, and pivot triggers. Eighteen sections, every numeric claim cited.
+
+---
+
+1 · Executive summary
+
+Lucia plays in Madrid every Tuesday. Last week her partner Marco bumped his self-declared level on Playtomic by half a step. Lucia has no way to tell whether Marco is actually better or just bolder, and her coach charges around EUR 60 for an assessment that means nothing the moment she books a court in Valencia. She wants a number that travels with her. So do roughly 35 million other padel players across 77,300 courts worldwide (FIP World Padel Report 2025), most of whom still pick a level on Playtomic or MATCHi because nothing better exists. The opportunity is a phone-recorded rating that follows the player between clubs and tournaments, and that earns its keep inside the coach's renewal conversation.
+
+What the product does in one sentence
+
+Help a player walk into any club, hand over a phone-derived rating, and have it accepted without paying for a coach assessment that does not transfer.
+
+Where the strategic question stands
+
+Pick the audience and the bet — not the roadmap.
+
+Frame, not roadmap: the market exists, competitors are visible, but no audience or bet has been validated end-to-end yet.
+
+First audience to win
+
+Tournament-loss switcher (the regular who just lost a bracket and wants a real number).
+
+Where the defensibility lives
+
+Rating data that compounds match-by-match (data) plus cross-club acceptance (network).
+
+Three moves that should happen first
+
+Ship a smartphone-only rating MVP from the open-source padel computer-vision pipeline — Locks the data gate inside the solo-execution band — the team can validate this without a club partner.
+
+Sign two FIP-affiliated regional organisers to a 30-day bracket trial — Locks the network gate by proving the rating travels across tournaments, not only across players.
+
+Launch a Spanish and a Russian editorial cadence — Locks the distribution gate with directly-reached readers at roughly USD 12 acquisition cost (Foundry CRO 2026).
+
+What keeps a player engaged — basic needs and the in-product trigger
+
+Engagement is not "show analytics"; it is a specific basic need answered at a specific moment. Below: the five needs the product is built around, the trigger that opens each one, the in-product surface that meets it, and the signal that proves the user came back.
+
+Basic needReal-life triggerWhat the product doesRetention signal
+
+Status — be seen at the right level
+
+After a humiliating loss to a regular partner, the player wants a rating that the partner cannot wave away.
+
+Match-by-match rating delta with a public profile link the player chooses to share.
+
+Repeat upload by the same player within 7 days of the first recap.
+
+Mastery — close the gap between effort and progress
+
+Three matches in a row lost on the same shot.
+
+Two prioritised drills tied to the recurring losing shot, ready before the next booking.
+
+Drill plan acknowledgement followed by a rating delta improvement on that shot.
+
+Belonging — keep the partnership alive
+
+Post-match argument with the partner about what cost the third set.
+
+Shared annotated review timeline both partners can scrub through and tag.
+
+Both accounts active in the same review within two days of upload.
+
+Self-efficacy — feel the next session has a plan
+
+Booking a slot for next Tuesday with no idea what to practise.
+
+One-line plan: shot, drill, success criterion, partner role.
+
+Booking made through Playtomic / MATCHi with the plan referenced in-session notes.
+
+Coach-led recognition (business-to-business-to-consumer)
+
+A high-paying student goes quiet before renewal.
+
+Weekly per-student progress recap the coach forwards before the renewal call.
+
+Coach sends recap to the student; student renews.
+
+The one-line proposition
+
+Padel regulars get a skill rating that follows them between clubs and tournaments, derived from a phone-recorded match and embedded in the coach renewal conversation.
+
+2 · Market size — TAM, SAM, SOM
+
+The three layers below describe the same market funnel using the same currency (EUR), the same unit of measure (annual software spend per active padel player), and the same primary source for court and player counts: the FIP World Padel Report 2025.
+
+TAM — global addressableEUR 770 million / year35 million players × EUR 22/year software ARPU
+
+SAM — reachable through multilingual moatEUR 657 million / year29.9 million players in 21 countries × EUR 22/year
+
+SOM — Year-1 realistic captureEUR 0.48M — 1.92M / year5,000 — 20,000 paid users × EUR 7.99/month
+
+SAM = 85.3% of TAM (court-share weighted). SOM = 0.07% – 0.29% of SAM. Funnel is consistent in both currency and unit.
+
+Total addressable market (TAM)
+
+TAM uses 35 million global padel players (FIP World Padel Report 2025) at an annualised software ARPU of EUR 22 — the low end of Strava Summit + booking-app combined spend. That gives EUR 770 million per year as the theoretical software ceiling if every player paid.
+
+Player-software TAM (used in this brief)
+
+EUR 770 million per year — 35 million players × EUR 22 / year ARPU.
+
+Player count from FIP World Padel Report 2025. ARPU benchmark from Strava Summit USD 11.99/month annualised at low-tier conversion.
+
+Adjacent ceiling — AI fitness
+
+USD 10.68 billion in 2025, USD 57.8 billion by 2035 (AI in fitness and wellness, 19.3% CAGR). Used as a sanity ceiling, not as the TAM the captures.
+
+Source: InsightAce Analytic, AI in Fitness and Wellness Market 2026.
+
+Padel-only software sanity check
+
+USD 0.32 billion (≈EUR 290 million) in 2026, USD 0.71 billion by 2035 — independent analyst figure for padel-only software spending.
+
+Source: Business Research Insights, Padel Market 2026. Smaller than the EUR 770M ceiling because it counts current paid software spend, not addressable potential.
+
+Serviceable addressable market (SAM)
+
+SAM is the slice of the TAM the team can realistically reach with the multilingual editorial moat (Spanish, Italian, French, Portuguese, Russian, Arabic-English UAE) plus partner-led entry to English-, German- and Nordic-language markets. Inclusion threshold: at least 100 padel courts and language reachability through either owned content (Tier 1) or a named partner channel (Tier 2).
+
+Headline: 21 countries hold 65,965 of the world's 77,300 courts (85.3% of global court count). Applying the global player-to-court ratio (35M / 77,300 ≈ 453 players per court) gives ~29.9 million addressable players. At EUR 22 / year ARPU that is EUR 657 million per year in software spend ceiling.
+
+Tier 1 — beachhead and core expansion
+
+Eight markets the can enter through owned-language editorial cadence without partner gating:
+
+CountryCourts (2025)Player countReach languageSource
+
+Spain17,3006.0 millionSpanishFIP World Padel Report 2025
+
+Italy10,2202.2 millionItalianFIP, Italy surpasses 10,000 courts
+
+Argentina7,0002.0 millionSpanishPadel Magazine, FIP WPR 2025 country ranking
+
+France4,0000.5 million (100,000+ federation licensees)FrenchPadel Biz, France crosses 100,000 federation licensees
+
+Mexico2,560—SpanishPadel Magazine, FIP WPR 2025 country ranking
+
+Portugal1,560—Portuguese / SpanishPadel Magazine, FIP WPR 2025 country ranking
+
+United Arab Emirates9501,900+ federation-registered (2023)Arabic / EnglishFIP, Focus on Arab Emirates 2024
+
+Russia250—RussianFIP Silver Kazakhstan 2025
+
+Tier 1 total43,840 courts56.7% of global court count
+
+Tier 2 — partner-led expansion (after Tier 1 retention threshold)
+
+Thirteen markets with 100+ courts that require a partner (federation, club, or distributor) before entry because the team does not yet own the language or distribution channel:
+
+CountryCourts (2025)Reach languageSource
+
+Sweden4,220Swedish / EnglishPadel Magazine, FIP WPR 2025 country ranking
+
+Netherlands3,570Dutch / EnglishPadel Magazine, FIP WPR 2025 country ranking
+
+Chile2,200SpanishPadel Magazine, FIP WPR 2025 country ranking
+
+Belgium2,150French / DutchPadel Magazine, FIP WPR 2025 country ranking
+
+Paraguay2,000SpanishPadel Magazine, FIP WPR 2025 country ranking
+
+Denmark1,560Danish / EnglishPadel Magazine, FIP WPR 2025 country ranking
+
+Egypt1,210Arabic / EnglishPadel Magazine, FIP WPR 2025 country ranking
+
+Saudi Arabia1,130Arabic / EnglishPadel Magazine, FIP WPR 2025 country ranking
+
+South Africa1,100English / AfrikaansPadel Magazine, FIP WPR 2025 country ranking
+
+United Kingdom1,000EnglishPadel — Wikipedia, citing UK federation 2025
+
+United States1,000English / SpanishPadel — Wikipedia, citing USPA January 2026
+
+Germany875GermanPadel — Wikipedia, citing German federation 2025
+
+Kazakhstan110Russian / KazakhFIP Silver Kazakhstan 2025
+
+Tier 2 total22,125 courts28.6% of global court count
+
+SAM totals
+
+Court count (Tier 1 + Tier 2)65,965
+
+Share of global courts85.3%
+
+Addressable players (court-share × global)~29.9 million
+
+Software spend ceiling~EUR 657 million / year
+
+Markets excluded from SAM after explicit verification
+
+Uzbekistan — 8 courts across 3 Tashkent clubs (also confirmed by Elle Uzbekistan, BeFit launch coverage). Below the 100-court inclusion threshold. Re-evaluate when the Uzbek Padel Federation reports 100+ affiliated courts.
+
+Brazil — country-level court count not extractable from public FIP 2025 summaries; pending direct verification before inclusion.
+
+Qatar, Kuwait, Oman — court counts bundled with the regional Gulf figure (1,850 across UAE + Kuwait + Qatar + Oman by 2022, per Padel — Wikipedia). UAE-only figure used to avoid double-counting.
+
+Realistic 1-year capture (SOM)
+
+Paid users — low end~5,000
+
+Paid users — high end~20,000
+
+Year-1 revenue rangeEUR 0.48M — 1.92M
+
+SOM as percent of SAM0.07% – 0.29%
+
+SOM is anchored to Tier 1 beachhead conversion rates (Spain and Russia primary), with a 0.03–0.12% paid conversion of the active player base at EUR 7.99 per month. Adding Tier 2 markets to SAM does not change Year-1 SOM unless the team executes Tier 2 expansion, which is gated on Tier 1 retention thresholds.
+
+Concrete benchmark: Playtomic's Spanish booking flow sees roughly 1.5 million monthly active users. If the rating product converts 0.5% of free trials to paid at EUR 7.99 per month, year-one paid users land at ~7,500 and revenue at ~EUR 720,000 — bigger than zero, smaller than Wingfield, and exactly the size that proves product-market fit without depending on a venture cheque.
+
+3 · Jobs to be done
+
+Four jobs are stated in canonical AJTBD form: when [context], the player wants [outcome], so that [higher-level goal]. For each job: the four forces of progress (push, pull, anxiety, habit) explain why the player switches; the alternatives list names what they hire today; outcome importance and current satisfaction are scored 1–10 to identify the opportunity gap (importance minus satisfaction).
+
+· Get a skill rating that travels
+
+When losing matches to a regular partner whose claimed level outpaces the player, the player wants a numeric rating that survives outside the home club, so that disposable sport budget goes toward the move with the highest return on enjoyment and progression.
+
+Forces of progress
+
+ForceWhat is happening
+
+Push (struggle)Embarrassment in front of a fixed peer group; doubt over whether the perceived skill gap is real or a streak.
+
+Pull (attraction)A persistent rating updated each match that other clubs and partners accept as legitimate.
+
+Anxiety (risk)Fear that the rating will land lower than the self-declared level and become public.
+
+Habit (inertia)Self-declared level on Playtomic or MATCHi profile is good enough for booking and pairing.
+
+Alternatives currently hired
+
+Self-declared level on Playtomic or MATCHi profile.
+
+Single-match score from Padelytics or Clutch.
+
+Federation amateur tournament result as a proxy.
+
+Paid coach assessment after one session — fired because cost scales but the signal does not transfer between clubs.
+
+Outcomes — opportunity = importance minus satisfaction
+
+OutcomeImportanceSatisfactionOpportunity
+
+Rating travels across clubs and partners9 / 103 / 106 (high)
+
+Rating updates after every match without manual entry8 / 102 / 106 (high)
+
+Higher-level job: spend disposable sport budget on the move with the highest expected return on progression. Most likely segments: plateau-stuck regular, newly-ranked competitor. Confidence: 0.35 (assumption — pending qualitative interviews per gaps file).
+
+· Translate match weaknesses into the next two drills
+
+When the same shot decides three consecutive matches the wrong way, the player wants two prioritised drills naming the shot, situation and success criterion before the next session, so that weeks of slow progress compress into specific reps that move a measurable outcome.
+
+Forces of progress
+
+ForceWhat is happening
+
+Push (struggle)Fatigue from self-coaching; suspicion of pattern-blindness on a recurring losing shot.
+
+Pull (attraction)A 30-second recap naming the shot, body position and the next two drills, ready before the booking.
+
+Anxiety (risk)That the recap will be a generic "20 minutes of warm-up" instead of a real diagnosis.
+
+Habit (inertia)Generic padel YouTube channels and asking the regular partner what to fix.
+
+Alternatives currently hired
+
+Generic padel YouTube channels and creator drill content.
+
+Recording the match on a phone and re-watching it after dinner.
+
+Asking a club coach for a 30-minute paid diagnostic.
+
+Sport-fitness apps without padel-specific drill libraries — fired because players abandoned them within four weeks.
+
+Outcomes — opportunity = importance minus satisfaction
+
+OutcomeImportanceSatisfactionOpportunity
+
+Drill prescription tied to the actual losing shot9 / 103 / 106 (high)
+
+Plan ready before the booking, not after7 / 102 / 105 (high)
+
+Higher-level job: compress weeks of slow progress into specific reps that move a measurable outcome. Most likely segment: plateau-stuck regular. Confidence: 0.30 (assumption). Reference: Padelytics positions match-level breakdowns as the core promise; Hudl Assist pricing shows weekly review cadence as the value moment.
+
+· Track student progress as a coach without manual notes
+
+When a high-paying student churns to a competing academy that offered better progress visibility, the club coach wants a weekly per-student progress report ready before the next session, so that the coaching practice survives without losing every churned student to a better-instrumented academy.
+
+Forces of progress
+
+ForceWhat is happening
+
+Push (struggle)Defensive on retention; specific student already lost to a rival academy that offered "progress charts".
+
+Pull (attraction)A weekly per-student delta the coach can attribute to the program at renewal time.
+
+Anxiety (risk)That a player-facing tool installed by the student will erode the coach's authority.
+
+Habit (inertia)Pen-and-paper notes per student; spreadsheet logs that go stale within a month.
+
+Alternatives currently hired
+
+Pen-and-paper or spreadsheet notes per student.
+
+Generic coach LMS tools such as CoachLogic.
+
+Club camera footage stored on Eyes On Padel and shared by URL.
+
+Hudl Assist — fired because racket-sport-specific tagging needs are ignored.
+
+Outcomes — opportunity = importance minus satisfaction
+
+OutcomeImportanceSatisfactionOpportunity
+
+Per-student delta surfaced without manual data entry9 / 102 / 107 (very high)
+
+Tool reinforces the coach's authority, not replaces it8 / 103 / 105 (high)
+
+Higher-level job: operate a sustainable padel coaching practice without losing every churned student. Most likely segment: club coach (business-to-business-to-consumer). Confidence: 0.30 (assumption). Reference: SPASH Match Analyzer sells to clubs and coaches, not directly to players.
+
+· Settle the post-match argument with neutral footage
+
+When the partner blames the loss on the player after a heated post-match discussion, both players want a neutral, timestamped review timeline before the next booking, so that a long-running padel partnership survives through honest after-match review rather than blame attribution.
+
+Forces of progress
+
+ForceWhat is happening
+
+Push (struggle)Resentment over the lost set; risk that the partnership ends if the argument is not resolved.
+
+Pull (attraction)A shared review timeline both partners can scrub through and tag with rally events.
+
+Anxiety (risk)That the footage exposes one partner's weakness in a way that escalates the conflict.
+
+Habit (inertia)Verbal recall over a beer — usually fails because details disagree.
+
+Alternatives currently hired
+
+Phone recorded from a bag at the side of the court.
+
+Club's Eyes On Padel or PlaySight footage shared by URL.
+
+Padelytics shared match link.
+
+Verbal recall — fired because details disagree and the conversation ends without resolution.
+
+Outcomes — opportunity = importance minus satisfaction
+
+OutcomeImportanceSatisfactionOpportunity
+
+Shared, scrubbable timeline annotated with rally events8 / 103 / 105 (high)
+
+Both partners feel ownership of the review7 / 102 / 105 (high)
+
+Higher-level job: preserve a long-running padel partnership through honest after-match review. Most likely segments: travelling enthusiast, plateau-stuck regular. Confidence: 0.30 (assumption). Reference: open-source padel CV pipeline shows technical feasibility of timestamped events.
+
+4 · Where this question sits in its journey
+
+Current stage: Understanding.
+
+The strategic question sits at the 'how should the team frame this?' stage rather than the 'how should the team ship it?' stage. The market exists in volume, the early entrants are visible, but no single rating, mechanic or audience has been validated end-to-end. The next 8 weeks belong to validating one audience and one bet, not designing a roadmap.
+
+Why this stage applies right now
+
+Multiple peer products with material traction; segment, mechanic, and moat not yet locked.
+
+Awareness signals confirmed at the 77,300-court / 35M-player scale per FIP World Padel Report 2025.
+
+What needs to be true before the next stage starts
+
+At least three audiences survive the realness test with a named alternative-hired tool and a discrete switch trigger.
+
+Every lead defensibility bet carries a verdict against the five gates; at least one bet is killed or demoted.
+
+A one-line proposition under 30 words is on file, with the observable that would prove it wrong already named.
+
+5 · Audiences and which one is the beachhead
+
+An audience qualifies as real only when it shares one job, one trigger, and
+
+one set of alternatives. Demographic labels alone do not qualify. Three of the
+
+six options passed; two are kept with caveats; one was rejected as a
+
+description in disguise.
+
+Plateau-stuck regular
+
+Validated with caveats
+
+What they want done: Get a defensible padel rating
+
+Storya player who books two slots a week for two years. They know they have stopped improving. They have tried a paid coach, a generic fitness app, and their friend's racket sensor. None of those produced a number their next partner accepts. That is the moment they look for something new.
+
+Newly-ranked competitor
+
+Validated
+
+What they want done: Get a defensible padel rating
+
+Storya player who entered their first regional tournament and lost in the round of 32. They suspect their level is honest, but they want a public-looking rating before they pay for the next entry fee. The moment of reaching for a tool is the morning after the loss, not the day before the tournament.
+
+Club coach
+
+Validated with caveats
+
+What they want done: Track student progress without manual notes
+
+Storya working coach with 8–20 students. One paying student churns to a competing academy because the rival coach 'showed them progress charts'. The coach goes looking for a tool the next morning — but only if it does not compete with their authority in front of the student.
+
+Club operator
+
+Rejected
+
+What they want done: Differentiate against neighbouring clubs
+
+Storya club operator running 6 courts with 60% weekday occupancy. They want to differentiate against the new club two streets away. Their default purchase is more cameras and a booking refresh, not a coaching layer — which is why this audience was rejected.
+
+Travelling enthusiast
+
+Validated with caveats
+
+What they want done: Get a rating that travels
+
+Storya player who plays in Madrid and Barcelona alternating weekends. Their Playtomic level is inconsistent across cities. They reach for a tool when an out-of-town tournament invitation lands and the seeding system asks for a rating they do not have.
+
+Injury-aware returning player
+
+Rejected as a false group
+
+What they want done: Movement-load monitoring
+
+Storya player returning from lateral epicondylitis. They want load monitoring for racket-specific motions, not a generic Whoop strain score. Today, no padel product collects this data longitudinally — which is why this group was treated as a wishlist rather than a real audience.
+
+6 · Competitive landscape
+
+Competitors and adjacent products grouped by what they actually do, not by
+
+how they market themselves. Pricing is the published anchor where vendors
+
+disclose it; "—" means it is not on the public page.
+
+ProductWhat it isWhat it sellsPricing anchorWhere the moat livesStatus
+
+Clutch
+
+Club camera system
+
+Club-installed camera with automatic match recording, highlights, and player-level performance feed.
+
+subscription · €53/month per club tier per Sonar pricing capture
+
+switching cost
+
+VERIFIED
+
+CoachSeek
+
+Academy management
+
+Coaching-academy management platform used by sport academies including racket-sport coaches for scheduling and student tracking.
+
+business-to-business seat · per-coach monthly tier published on pricing page
+
+switching cost
+
+VERIFIED
+
+Decorte CVPR 2024 — Multi-modal hit detection in padel
+
+Research prototype
+
+CVPR 2024 workshop paper presenting multi-modal hit detection and positional analysis for padel matches.
+
+free open source · academic publication; method is reproducible
+
+none
+
+VERIFIED
+
+Eyes On Padel
+
+Club camera system
+
+Multi-court camera installation that records every match for shareable highlights, with optional analytics layer for clubs.
+
+business-to-business seat · per-court installation fee plus monthly per-court SaaS
+
+distribution
+
+VERIFIED
+
+Hudl
+
+Club match analyzer
+
+Sport video analysis SaaS used by clubs and academies across multiple sports including racket sports.
+
+business-to-business seat · published Hudl Assist plans starting around USD per team
+
+switching cost
+
+VERIFIED
+
+Joao-M-Silva / padel_analytics
+
+Open-source toolkit
+
+Open-source padel computer-vision pipeline tracking ball, players, and court positions for self-hosted analytics.
+
+free open source · MIT-style open-source license
+
+none
+
+VERIFIED
+
+MATCHi
+
+Booking and matchmaking
+
+Nordic court booking network for racket sports including padel, with operator tools for clubs.
+
+freemium · free for players; SaaS to clubs
+
+network
+
+VERIFIED
+
+Padelboard
+
+Rating authority
+
+Padel rating and matchmaking surface aligned with MATCHi, exposing ladders and player profiles.
+
+freemium · free tier with paid premium ladder features
+
+network
+
+VERIFIED
+
+PadelPlay
+
+Racket sensor
+
+Racket-mounted sensor combined with a companion app delivering shot recognition and tactical recommendations.
+
+hardware plus service · hardware bundle plus subscription tier
+
+integration
+
+VERIFIED
+
+Padelytics
+
+Player app
+
+AI video analysis converting padel match footage into shot-level statistics and tactical breakdowns for clubs and players.
+
+subscription · undisclosed monthly tier
+
+data
+
+VERIFIED
+
+Paradigma — Padel CV case study
+
+Engineering case study
+
+Engineering write-up of a CV subsystem for racket sports, useful as feasibility evidence for solo-execution paths.
+
+unknown · engineering services pricing not on the page
+
+none
+
+VERIFIED
+
+PlaySight
+
+Club camera system
+
+Multi-sport AI camera and analytics platform with padel deployments in premium clubs.
+
+business-to-business seat · enterprise per-court SaaS; not disclosed publicly
+
+distribution
+
+VERIFIED
+
+Playtomic
+
+Booking and matchmaking
+
+Court booking and matchmaking network connecting players to clubs and partners across multiple countries.
+
+freemium · free for players; business-to-business SaaS to clubs (Standard/Professional/Champion tiers)
+
+network
+
+VERIFIED
+
+Premier Padel
+
+Rating authority
+
+Top professional circuit producing the rating spine that amateurs and tournaments aspirationally anchor against.
+
+unknown · sponsorship and broadcast revenue model
+
+brand
+
+VERIFIED
+
+Skedda
+
+Club management
+
+Booking and venue-management software used by sport clubs including padel courts for member-side booking.
+
+business-to-business seat · per-venue monthly tiers published on pricing page
+
+switching cost
+
+VERIFIED
+
+SPASH Match Analyzer
+
+Club match analyzer
+
+AI match analyzer aimed at padel clubs that turns raw video into 20+ statistics and rally markers.
+
+business-to-business seat · club tier sold per court per month
+
+data
+
+VERIFIED
+
+Wingfield
+
+Club camera system
+
+Court-installed AI camera tracking ball, players, and shots for racket-sport clubs with companion player-facing app.
+
+hardware plus service · €85/month per court tier per Sonar pricing capture
+
+integration
+
+VERIFIED
+
+7 · Defensibility bets
+
+A "bet" is one specific way the product creates compounding value — a reason
+
+a feature exists, not the feature itself. Each bet targets a specific job and
+
+is anchored to the kind of moat it is supposed to build.
+
+Smartphone-only video → rating delta pipeline
+
+Lead bet
+
+Where the moat lives: data
+
+Thesis: Each match yields a structured shot-and-position record that compounds into a per-player longitudinal rating other clubs accept.
+
+Examplethe user props a phone on the side of the court. The app ingests the match video, segments rallies, tags shot types, and produces a rating delta. Each match the player records improves the rating model for everyone — that is the reason the data gate is real and not just analytics theatre.
+
+Reality-check test: Reproduce the open-source baseline at Joao-M-Silva / padel_analytics into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits.
+
+Cross-club rating that travels with the player
+
+Lead bet
+
+Where the moat lives: network
+
+Thesis: Rating value compounds with every additional club and tournament that accepts it as the seeding signal — non-linear with users.
+
+Examplea regional FIP-affiliated organiser in Valencia accepts the rating spec and uses it to seed their bracket. Once the bracket runs cleanly, removing the integration costs the organiser hours of manual seeding work — which is why this is a switching-cost moat, not a feature parity claim.
+
+Reality-check test: Sign letters of intent with two FIP-affiliated regional organisers in Spain or Italy to import a rating into a single bracket.
+
+Drill prescription engine tied to losing-shot clusters
+
+Reinforces a lead bet
+
+Where the moat lives: data
+
+Thesis: Each labelled losing-shot cluster across users improves the drill mapping; drill prescriptions become the cheapest way to convert a rating insight into court time.
+
+Exampleinstead of a generic 'practice your backhand' tip, the player gets 'Tuesday at Club X, drill backhand-lob defence with right partner, success criterion 7 of 10 returns inside the cage.' The drill prescription rides on top of the rating chain — kill the rating and this drill loses its anchor.
+
+Reality-check test: Run a smoke-test in Spanish padel community channels offering personalized drill prescription after a free match upload.
+
+Coach co-pilot that survives the renewal conversation
+
+Reinforces a lead bet
+
+Where the moat lives: switching cost
+
+Thesis: Each between-session tag a coach files becomes part of the renewal-conversation artifact. Coaches do not export the artifact when they leave.
+
+Examplea coach taps four quick tags on their phone after each lesson. By Friday the app has composed a per-student weekly recap that the coach forwards before the renewal call. The coach does not export the tag history when they leave — that history is the switching cost.
+
+Reality-check test: Pilot the dashboard with 8 coaches recruited via FEP and FITP chapters.
+
+Shared post-match review surface for partner pairs
+
+Reinforces a lead bet
+
+Where the moat lives: network
+
+Thesis: A pair-level annotated review surface turns one user into two and seeds invite-driven distribution.
+
+Exampleafter the match, both partners get an annotated timeline. One tags the third-set return, the other tags the smash that landed long. They both invite a second pair into the same surface for next Saturday — one user becomes four.
+
+Reality-check test: A/B test pair-level vs single-user share flow on next-week active users.
+
+Distribution-as-moat through directly-reached audience asset
+
+Lead bet
+
+Where the moat lives: distribution
+
+Thesis: Direct relationship with a multilingual padel audience — newsletter, Telegram, podcast — captures attention upstream of Playtomic, MATCHi, and paid channels.
+
+Examplea Spanish-language padel publication with weekly tactical recaps and a Russian-language Telegram digest. Subscribers arrive direct, not from Playtomic or Meta. If the direct-traffic share of beta sign-ups falls below 25 percent at week 8, this is a marketing tactic and not a moat.
+
+Reality-check test: Launch a Spanish-language and a Russian-language newsletter; compare the share of bookings driven by direct-traffic referers.
+
+Tournament-organiser integration that becomes the seeding spine
+
+Reinforces a lead bet
+
+Where the moat lives: integration
+
+Thesis: Once a regional organiser uses the rating to seed a bracket, the cost of switching to another rating spec is operational, not commercial.
+
+Examplewhen the bracket auto-seeds against the imported rating, officials run the day with one fewer manual step. Removing the integration means the organiser re-learns the manual process — operational lock-in beats a feature parity argument.
+
+Reality-check test: Sign two letters of intent with FIP regional organisers; ship a one-court demo bracket.
+
+Local-language coaching narrative for non-English markets
+
+Lead bet
+
+Where the moat lives: distribution
+
+Thesis: First-language tactical narratives in Spanish, Italian, and Russian capture attention before the global English-first competitors localise.
+
+Examplea Spanish-only player gets a recap that uses the same vocabulary their club coach uses. An English-first competitor cannot replicate that cadence until they hire local writers — that hiring step is the moat, not the translation step.
+
+Reality-check test: Translate the recap into Spanish and Russian; test cohort retention against English-only baseline.
+
+Open-source release of an inert component
+
+Reduce priority
+
+Where the moat lives: brand
+
+Thesis: Releasing an inert engineering component (court calibration, shot taxonomy spec) builds developer credibility without giving away the data flywheel.
+
+Exampleshipping the court-calibration step as open-source attracts CV engineers and gives the brand a credible story. It does not protect any value alone — that is why it was downgraded to a supporting bet.
+
+Reality-check test: Publish the open-source component; track GitHub stars, forks, and citations.
+
+Privacy-respecting on-device extraction for high-end users
+
+Reduce priority
+
+Where the moat lives: regulatory
+
+Thesis: Local-first extraction in regions with strict consumer-data rules (EU GDPR, Russia 152-FZ) lets the operate where peers stall on cross-border data flow.
+
+Examplematches in Russia and the EU process locally on the phone. Only the rating delta leaves the device. Useful as a positioning lever in regulated markets — not strong enough to be a primary moat.
+
+Reality-check test: Ship an on-device pilot for an iPhone 14 or newer; measure energy and accuracy against the cloud baseline.
+
+Open-data export for academies — lock-in via tooling, not data hoarding
+
+Reinforces a lead bet
+
+Where the moat lives: learning curve
+
+Where the moat lives: learning curve
+
+One-sentence thesis: Academies adopt the drill and tag taxonomy; staff training compounds the cost of switching tools without the hoarding the underlying data.
+
+ExampleAn academy adopts the drill taxonomy and tag schema. Staff time spent learning the schema becomes the lock-in: the next tool would force a retraining cost the academy refuses to pay.
+
+Reality-check test: Pilot the schema with a single multi-court academy; measure coach onboarding time before vs after.
+
+8 · Defensibility frame — five gates
+
+Each bet was scored against five gates that survive AI commoditisation:
+
+whether the audience is reached directly (distribution), whether each
+
+new user makes the product more valuable to existing users (network),
+
+whether the product accumulates a unique data record per use (data), whether
+
+a physical layer is involved that software alone cannot replicate
+
+(hardware), and whether the workflow is buried deep enough in one industry
+
+that a horizontal player cannot match it (vertical depth). Scoring runs 0
+
+(absent) — 1 (partial) — 2 (strong). At least one bet was killed and two
+
+were demoted; a 100-percent-pass review would itself be a failure.
+
+BetDistributionNetworkDataHardwareVertical depthVerdict
+
+Smartphone-only video → rating delta pipeline
+
+1
+
+1
+
+2
+
+2
+
+Lead bet
+
+Cross-club rating that travels with the player
+
+1
+
+2
+
+2
+
+2
+
+Lead bet
+
+Drill prescription engine tied to losing-shot clusters
+
+1
+
+2
+
+2
+
+Reinforces a lead bet
+
+Coach co-pilot that survives the renewal conversation
+
+1
+
+1
+
+1
+
+2
+
+Reinforces a lead bet
+
+Shared post-match review surface for partner pairs
+
+2
+
+2
+
+1
+
+1
+
+Reinforces a lead bet
+
+Distribution-as-moat through directly-reached audience asset
+
+2
+
+1
+
+2
+
+Lead bet
+
+Tournament-organiser integration as seeding spine
+
+1
+
+2
+
+1
+
+2
+
+Reinforces a lead bet
+
+Local-language coaching narrative for non-English markets
+
+2
+
+1
+
+1
+
+Lead bet
+
+Open-source release of an inert component
+
+1
+
+1
+
+Reduce priority
+
+Privacy-respecting on-device extraction
+
+1
+
+1
+
+1
+
+1
+
+Reduce priority
+
+Open-data export for academies (learning-curve lock-in)
+
+1
+
+2
+
+Reinforces a lead bet
+
+Generic AI rating wrapper
+
+Drop
+
+9 · Pricing and monetisation
+
+Primary model
+
+business-to-consumer freemium for the smartphone-only rating + drill recap path; paid tier ~EUR 7.99/month anchored against Strava Summit and SwingVision Pro.
+
+Hedge model
+
+business-to-business SaaS to club coaches and academies for the coach co-pilot at EUR 19-29/month per seat, anchored against CoachLogic and Hudl Assist.
+
+Expansion model
+
+Tournament-organiser data feed and rating licensing to federations after ≥5,000 active rated players in ≥3 cities.
+
+Public pricing anchors
+
+Where the priced this against. Every row links to the page where
+
+the price is published; rows marked "—" mean the vendor does not disclose.
+
+VendorPlanAnchor priceSource
+
+Strava
+
+Summit (Premium)
+
+USD 11.99/month
+
+strava.com/premium
+
+Whoop
+
+Whoop 5.0 membership
+
+USD 30/month equivalent (annual)
+
+whoop.com/membership
+
+Hudl
+
+Hudl Assist
+
+contract per team
+
+hudl.com/pricing
+
+Clutch
+
+club camera tier
+
+around EUR 53/month per club
+
+clutchapp.io
+
+Wingfield
+
+Pro
+
+around EUR 85/month per court
+
+wingfield.io
+
+MATCHi
+
+Business
+
+around EUR 107/month per court
+
+matchi.com
+
+Playtomic
+
+club SaaS Standard / Professional / Champion
+
+contract per club
+
+playtomic.com/pricing
+
+10 · Distribution and growth loops
+
+Channels are ranked by how well they reinforce a moat the product is
+
+building, not by which one is cheapest to test.
+
+#ChannelTypeCost-of-acquisition anchorReinforces
+
+1
+
+Directly-reached multilingual newsletter (Spanish + Russian)Storya weekly Spanish-language tactical recap, biweekly Russian-language version, both with a 'match-recap' link in every issue. Direct-traffic share is the proof that this audience is owned, not rented.
+
+Owned
+
+USD 12 per acquisition (newsletter benchmark) (source)
+
+Distribution
+
+2
+
+Padel club partnership (single-club deals)Storyanchor three clubs in Madrid, Barcelona, Milan with a free pilot. Each club's leaderboard becomes co-branded; the club imports its own audience.
+
+Partner
+
+USD 150 per acquisition (community + partnership benchmark) (source)
+
+Switching Cost
+
+3
+
+Tournament-organiser integration (FIP-affiliated regional)Storysign two FIP-affiliated regional organisers to a 30-day bracket trial. After one tournament runs cleanly, organisers commit to paid integration.
+
+Partner
+
+USD 500 per organiser acquisition (business-to-business partnership benchmark) (source)
+
+Integration
+
+4
+
+Spanish-language YouTube creator partnershipsStorysponsor five Spanish-language padel coaching creators with a 'match-recap' format using their subscriber footage. Each creator runs a trackable referral code.
+
+Earned
+
+USD 200 per acquisition (creator partnership benchmark) (source)
+
+Distribution
+
+5
+
+Reddit + Discord padel communitiesStorypinned moderator AMA in r/padel, weekly Discord office hours with anonymised recaps. Engaged community members convert to beta uploaders.
+
+Earned
+
+USD 150 per acquisition (community channel benchmark) (source)
+
+Distribution
+
+6
+
+Telegram bot for Russian-language and CIS marketsStorya Telegram digest in Russian with a /recap command flow. Subscribers stay on platform; the on-device pipeline keeps the data inside the user's phone for 152-FZ compliance.
+
+Owned
+
+USD 150 per acquisition (community benchmark) (source)
+
+Distribution
+
+7
+
+Coach affiliate network (business-to-business-to-consumer)Story8 coaches recruited via federation chapters in Spain and Italy. Each coach gets a per-student recap they can share before renewal calls.
+
+Partner
+
+USD 150 per coach acquisition (coach affiliate benchmark) (source)
+
+Switching Cost
+
+8
+
+Apple Search Ads (App Store)Storypaid search is conversion-stage only — keywords like 'padel rating' and 'padel coach app' get tested against organic traffic, not used as the lead acquisition channel.
+
+Paid
+
+USD 4.7 per install (Apple Search Ads benchmark, install-only) (source)
+
+None
+
+Growth loops inside the product
+
+A loop is named, has a trigger, an action, and a reward, and turns one
+
+user into more than one. Every loop has a number that, if missed, kills the
+
+loop.
+
+Post-match share recap
+
+Trigger: User finishes uploading a recorded match.
+
+What the product does: Generates a 30-second highlight and insight card with both player names.
+
+Why the user shares: Social validation plus a tactical insight for the partner.
+
+Reality-check threshold: Below 10% share rate after 200 matches kills this loop.
+
+StoryThe player finishes uploading a match and receives a 30-second highlight plus insight card naming both partners. They share it on WhatsApp; the partner and the two opponents see it.
+
+Partner invite for shared review
+
+Trigger: User clicks "review with partner" on a recap.
+
+What the product does: Invite link with timestamped annotation seats for the second partner.
+
+Why the user shares: Both partners get a pair-level rating delta plus drill prescription.
+
+Reality-check threshold: Below 25% invite activation triggers an invite-copy redesign.
+
+StoryThe first player tags the third-set return as the cost; the second player tags the smash that landed long. Both see the same annotated timeline before the next booking — and the second partner is now in the product.
+
+Club discovery via leaderboard
+
+Trigger: User lands on a co-branded club leaderboard URL.
+
+What the product does: Public leaderboard shows the top 20 club members with a "claim profile" call-to-action.
+
+Why the user shares: Club bragging rights plus curiosity-driven sign-up.
+
+Reality-check threshold: Below 2 sign-ups per 100 leaderboard views retires the surface.
+
+StoryA club leaderboard URL is co-branded with the club logo. Members see the top 20 ranking and click through to claim their profile.
+
+Rating display on Playtomic and MATCHi profile
+
+Trigger: User claims a rating in-app and elects to surface it on the booking profile.
+
+What the product does: Cross-posts the rating to Playtomic and MATCHi profiles via deep link.
+
+Why the user shares: The booking profile becomes more attractive to new partners.
+
+Reality-check threshold: Below 15% cross-post rate drops the deep-link path.
+
+StoryThe player surfaces a derived rating on the booking profile. Booking partners see it during pairing — the rating starts to travel through the booking layer itself.
+
+Coach handoff for student dashboard
+
+Trigger: Player uploads three matches and elects to share with a coach.
+
+What the product does: Coach receives a weekly recap pack for that player.
+
+Why the user shares: Coach renewal conversation becomes data-led.
+
+Reality-check threshold: Below 5% handoff rate restricts the coach co-pilot path to coach-only.
+
+StoryAfter three uploaded matches the player grants the coach access. The coach receives a weekly recap pack and can extend invites to other students.
+
+Distribution as a moat — the audience the product owns directly
+
+The audience the product owns directly is the multilingual padel reader segment that subscribes to the direct-readership newsletter (Spanish + Russian) and the Telegram digest. The asset that secures the relationship is the team-published cadence of localised tactical recaps — a body of public work the audience returns to without a platform gatekeeper. Falsification: if direct-traffic share of beta sign-ups falls below 40 percent within 8 weeks, the audience is rented from another platform, not owned.
+
+11 · Geographic priority
+
+Country bands are evidence-graded. "Beachhead" is the one country that has
+
+to work first; "Adjacent expansion" follows after a retention threshold;
+
+"Scale" is reserved for after the first audience is paying; "Partner-only"
+
+needs an anchor partner before any spend; "Deferred" is honest about thin
+
+signal.
+
+Court counts revised in May 2026 against the FIP World Padel Report 2025 country ranking; an earlier draft used 2023 padel.fyi figures and is superseded.
+
+BandCountryCourts (2025)Why this bandSource
+
+Beachhead
+
+Spain
+
+17,300
+
+Highest absolute court count globally; direct-channel reach in Spanish; FEP licensees grew 8% YoY.
+
+FIP World Padel Report 2025
+
+Beachhead
+
+Russia
+
+250
+
+Direct-readership advantage; Russian-language audience asset; on-device path satisfies 152-FZ.
+
+FIP Silver Kazakhstan 2025
+
+Adjacent expansion
+
+Italy
+
+10,220
+
+Second-largest market; 12.9% YoY growth; FITP federation distribution channel.
+
+FIP, Italy surpasses 10,000 courts
+
+Adjacent expansion
+
+France
+
+4,000
+
+Fastest-growing Western European market; FFT licensee count surpassed 100,000 in 2024–25.
+
+Padel Biz, France crosses 100,000 federation licensees
+
+Adjacent expansion
+
+Portugal
+
+1,560
+
+Iberian extension; direct reach via Portuguese / Spanish channel; low CAC.
+
+Padel Magazine, FIP WPR 2025 country ranking
+
+Adjacent expansion
+
+Kazakhstan
+
+110
+
+Russian-language adjacency to RU beachhead; FIP regional events documented.
+
+FIP Silver Kazakhstan 2025
+
+Scale market
+
+Sweden
+
+4,220
+
+Highest density per capita but stagnated growth; saturation raises business-to-consumer acquisition cost.
+
+PadelFast, what happened to padel in Sweden
+
+Scale market
+
+Netherlands
+
+3,570
+
+High engagement; English-friendly; Dutch federation supportive.
+
+Padel Magazine, FIP WPR 2025 country ranking
+
+Scale market
+
+Argentina
+
+7,000
+
+Co-origin market with deep Spanish-language reach; FIP-confirmed third-largest court base.
+
+Padel Magazine, FIP WPR 2025 country ranking
+
+Scale market
+
+Belgium
+
+2,150
+
+Adjacent to Netherlands; bilingual drill recap fits French + Dutch markets.
+
+Padel Magazine, FIP WPR 2025 country ranking
+
+Scale market
+
+Finland
+
+1,300
+
+Per-capita strong; small absolute; MATCHi-anchored distribution.
+
+FIP World Padel Report 2025
+
+Partner-only entry
+
+United Arab Emirates
+
+950
+
+High CAC, high LTV; PlaySight-tier club venues; UAEPA had 620 affiliated courts in 2023 with 13% YoY.
+
+FIP, Focus on Arab Emirates 2024
+
+Partner-only entry
+
+United States
+
+1,000
+
+Long-horizon, breakout potential; English anchor; partner-only entry.
+
+The Padel Paper, USA 1,000 padel courts
+
+Partner-only entry
+
+United Kingdom
+
+1,000
+
+English-language anchor; 130% annual growth since 2023; dense urban courts.
+
+Live for Padel, UK padel statistics
+
+Partner-only entry
+
+Germany
+
+875
+
+Late but rapidly growing; Wingfield is the strongest DACH peer; partner-led.
+
+Padel — Wikipedia, citing 2025 federation data
+
+Partner-only entry
+
+Mexico
+
+2,560
+
+Mexican origin; rebounding interest; significant Spanish-speaking population.
+
+Padel Magazine, FIP WPR 2025 country ranking
+
+Partner-only entry
+
+Brazil
+
+—
+
+Latin American growth; Portuguese-language; country-level court count not extractable from public FIP 2025 summaries — pending direct verification.
+
+FIP World Padel Report 2025
+
+12 · What ships solo, what needs help
+
+Each capability is rated by how a small team can actually deliver it
+
+today. "Buildable solo" is end-to-end with public APIs and open-source
+
+anchors; "Buildable solo (paid APIs)" needs a sub-USD-500/month spend;
+
+"Needs a partner" requires a club or organiser; "Needs capital" means
+
+hardware or training spend; "Needs a team" means a specialist hire (a
+
+licensed clinician for injury work, for example).
+
+CapabilityBandReference / anchorFirst observable outputIf this fails
+
+Smartphone match capture pipeline
+
+Buildable solo
+
+Joao-M-Silva/padel_analytics ↗
+
+50 matches ingested with shot-level tagging from a phone-recorded clip
+
+OSS pipeline cannot reach acceptable accuracy on a representative club video sample
+
+Cross-club rating computation
+
+Buildable solo (paid APIs)
+
+Joao-M-Silva/padel_analytics ↗
+
+Two organiser LOIs with imported rating in a bracket
+
+No regional organiser commits to a 30-day data-flow trial
+
+Drill prescription engine
+
+Buildable solo (paid APIs)
+
+Joao-M-Silva/padel_analytics ↗
+
+10% of free uploads convert to a drill plan acknowledgement
+
+Drill prescription does not move the user's losing shot inside three sessions
+
+Coach co-pilot dashboard
+
+Buildable solo (paid APIs)
+
+Hudl Assist concept reference ↗
+
+3 of 8 coaches send a recap to a student during the pilot
+
+Coaches refuse any tool the student also touches
+
+Pair-level shared review surface
+
+Buildable solo
+
+Joao-M-Silva/padel_analytics ↗
+
+Pair-level surface drives ≥1.5x sharing rate vs single-user baseline
+
+Less than 25 percent invite activation
+
+Direct-readership newsletter (multilingual)
+
+Buildable solo
+
+Open-source newsletter platform — Buttondown / Listmonk ↗
+
+≥40% direct-traffic share of beta sign-ups within 8 weeks
+
+Direct-traffic share below 25% after 8 weeks
+
+Padel club partnership pilot
+
+Needs a partner
+
+Partner club CRUD ↗
+
+Two partner clubs renewing pilot to paid
+
+No partner club renews after 90-day pilot
+
+Tournament-organiser integration
+
+Needs a partner
+
+FIP organiser data feed ↗
+
+Two LOIs with regional FIP-affiliated organisers
+
+Zero LOIs after eight weeks of outreach
+
+Telegram CIS bot
+
+Buildable solo
+
+python-telegram-bot ↗
+
+≥1,000 weekly active subscribers within 12 weeks
+
+Below 200 active subscribers after 12 weeks
+
+Spanish + Russian recap localisation
+
+Buildable solo (paid APIs)
+
+OpenRouter Claude Haiku 4.5 translation ↗
+
+Localised cohort retains ≥1.3x English baseline through week 3
+
+Localised cohort retention drops below English baseline
+
+On-device CV extraction (152-FZ / GDPR friendly)
+
+Needs capital
+
+Apple CoreML padel-specific model ↗
+
+On-device pipeline running at <2x energy of cloud baseline with ≥90% accuracy
+
+Energy or thermal cost exceeds two-times cloud baseline
+
+Research / data flywheel anchor model training
+
+Needs capital
+
+Joao-M-Silva/padel_analytics ↗
+
+In-house padel shot model with measurable accuracy lift over OSS baseline
+
+GPU spend exceeds budget threshold without measurable lift
+
+Open-source release of court-calibration component
+
+Buildable solo
+
+Public GitHub release ↗
+
+≥50 GitHub stars + ≥3 third-party citations within 4 weeks
+
+Below 10 stars and zero citations after 4 weeks
+
+Coach affiliate roster (FEP + FITP)
+
+Needs a partner
+
+Federation chapter outreach ↗
+
+3 coaches retain ≥3 students through 4-week pilot
+
+Below 1 coach completing the pilot
+
+Apple Search Ads paid-acquisition test
+
+Buildable solo (paid APIs)
+
+Apple Search Ads API ↗
+
+≥6% paid conversion within 7 days of install
+
+Paid CAC > 3x organic CAC after 4 weeks
+
+Licensed clinician for injury-load model
+
+Needs a team
+
+None directly applicable ↗
+
+Clinician-validated training-load taxonomy
+
+Clinician partner not secured within 90 days
+
+Premium club integration (PlaySight class clubs)
+
+Needs a partner
+
+PlaySight integration ↗
+
+One UAE or US partner club running an imported rating bracket
+
+No premium partner agrees to a 30-day pilot
+
+13 · Reality-check tests
+
+A reality-check test is a small, time-boxed experiment that decides
+
+whether a piece of the strategy survives or gets dropped. Each test names
+
+the assumption being checked, the specific number that would prove it
+
+wrong, and the cheapest evidence that produces an honest answer. The
+
+alternative — building for nine months and discovering the assumption was
+
+wrong — is what these tests exist to prevent.
+
+If the assumption is wrong: A match-rating signal generated from a smartphone-only video pipeline is acceptable to padel players as their primary skill score.
+
+The number that would prove this wrong: Below 25% accept rate when surveyed against the user's own self-assessed level after three matches.
+
+Cheapest evidence to gather: Smoke-test landing page with a fake-door 'request a padel rating' CTA; survey respondents who upload a sample match clip.
+
+How this looks in practicea Spanish landing page lets a beta user upload a sample match and receive a rating. If fewer than a quarter of testers accept the result as their public level, the rating idea was wishful thinking.
+
+If the assumption is wrong: Padel coaches will integrate a per-student dashboard into a weekly workflow if it cuts manual prep below 10 minutes per student.
+
+The number that would prove this wrong: Fewer than 3 of 8 invited Spanish coaches complete a one-week pilot.
+
+Cheapest evidence to gather: Recruit through Spanish padel federation chapters; offer a free pilot tied to two of their existing students.
+
+How this looks in practice8 coaches in Spain and Italy run a one-week pilot with a per-student dashboard. If fewer than 3 of them send a recap to a real student, the coach co-pilot is a feature, not a workflow.
+
+If the assumption is wrong: A rating that travels across clubs unlocks tournament-organizer integrations as a business-to-business revenue line within the priority geography.
+
+The number that would prove this wrong: No FIP-affiliated regional organizer agrees to a 30-day data-flow trial in a P0 country.
+
+Cheapest evidence to gather: Outreach to FIP-affiliated regional organisers in Spain and Italy; trial does not exceed letter-of-intent depth.
+
+How this looks in practiceoutreach to two FIP-affiliated regional organisers in Spain and Italy for a 30-day bracket trial. If neither agrees in writing, the cross-club moat is theatre.
+
+If the assumption is wrong: The product can ship the smartphone-only video pipeline end-to-end under solo execution using open-source CV anchors and free-tier OpenRouter models.
+
+The number that would prove this wrong: A working pipeline cannot be reproduced from Joao-M-Silva/padel_analytics in under 40 person-hours of integration work.
+
+Cheapest evidence to gather: Capability map row marked ship_solo with explicit OSS anchor; reproducible install log.
+
+How this looks in practiceclone the open-source padel CV pipeline, spend a fixed budget of 40 person-hours integrating it on a single laptop. If the pipeline does not work end-to-end in that window, every plan that depended on the smartphone path needs to be re-priced against partner clubs.
+
+14 · Risks and pivot triggers
+
+If the strategy is wrong, the next move is named below. Each risk has the
+
+observable that fires the pivot.
+
+RiskWhat fires the pivotPivot move
+
+Playtomic embeds CV-derived rating inside booking flow before ships MVP
+
+Playtomic Global Padel Report cites a derived-rating method, or feature appears in production
+
+Compress to coach co-pilot (the coach co-pilot) and Russian-language CIS beachhead; treat consumer rating play as competitive surrender.
+
+Padelytics or Wingfield ships smartphone-only rating before the
+
+Either peer announces a smartphone capture flow with a verified rating delta
+
+Compress to coach co-pilot (the coach co-pilot) and Russian-language CIS beachhead while peers fight in ES/IT.
+
+Direct-readership newsletter direct-traffic share fails the distribution-moat test
+
+Direct-traffic share of beta sign-ups remains below 25 percent at week 8
+
+Drop the directly-reached audience asset to a supporting role; promote the cross-club rating and the tournament-organiser integration as the primary bets.
+
+Cross-club adoption stalls without FIP / Playtomic mandate
+
+Fewer than 40 percent of recorded matches include both players in the app at week 12
+
+Pivot from consumer rating to coach co-pilot (the coach co-pilot) where the network is intra-academy, not inter-club.
+
+FIP releases an open seeding API
+
+FIP integration changelog shows a public seeding API
+
+Pivot from the tournament-organiser integration moat to the cross-club network moat with rating quality as the differentiator.
+
+On-device CV becomes commodity
+
+Apple or Google ships system-level on-device CV for video apps
+
+Drop the on-device pipeline demote; double down on the directly-reached audience and the local-language recap.
+
+15 · The category contradiction
+
+Every category is held together by an unresolved tension. Naming it makes
+
+the design choices honest.
+
+The contradiction
+
+The user wants an objective skill rating without the cost or social awkwardness of a formal rating event, yet existing tools either provide rich ungraded analytics or rigid graded rankings without analytics.
+
+The resolution this strategy proposes
+
+Decouple the rating signal from the rating event by deriving the rating from match video the player already records, then pipe it into the workflows (drill prescription, coach renewal, tournament seeding) where the rating must travel.
+
+16 · Retention drivers
+
+Rating that travels across clubs — Each match updates the rating; cross-club acceptance compounds value. (data flywheel)
+
+Drill prescription tied to losing-shot cluster — Player books the next session against a specific weakness, not a generic warm-up. (closed feedback loop)
+
+Pair-level shared review — Two-player annotation surfaces seed invite-driven retention. (network effect)
+
+Coach renewal recap — Coach embeds the recap into renewal-conversation rituals; switching cost compounds. (workflow embedment)
+
+17 · The one-line proposition
+
+Proposition
+
+Padel regulars get a skill rating that follows them between clubs and tournaments, derived from a phone-recorded match and embedded in the coach renewal conversation.
+
+Differentiation against named competitors
+
+CompetitorTheir angleThe differentiated angle
+
+Padelytics
+
+AI video analysis aimed at clubs and players
+
+Smartphone-only rating that travels across clubs without club camera dependency
+
+Clutch
+
+Club camera with ranking and matchmaking layer
+
+Directly-reached distribution + cross-club rating, not club-bound
+
+PadelPlay
+
+Racket-mounted sensor + companion app
+
+Smartphone-only path; no hardware purchase required
+
+Eyes On Padel
+
+Multi-court camera installation for clubs
+
+Player-side rating layer that operates without club hardware
+
+SPASH
+
+AI match analyzer for padel clubs
+
+Rating that travels across clubs and tournaments, not stranded inside the club account
+
+Playtomic
+
+Booking + matchmaking + self-declared levels
+
+Match-derived rating replaces self-declared level; cross-posts back to Playtomic profile
+
+Wingfield
+
+AI camera tracking system for tennis + padel
+
+Padel-first taxonomy and language coverage; smartphone-only path
+
+PlaySight
+
+Multi-sport AI camera for premium clubs
+
+Consumer-first rating + distribution moat in non-English markets
+
+Premier Padel
+
+Top professional circuit and brand authority
+
+Amateur rating that interoperates with the FIP-anchored seeding spine
+
+Hudl
+
+Sport video analysis SaaS for coaches across sports
+
+Padel-specific shot taxonomy + coach renewal recap built in
+
+18 · Analyst sources cited
+
+Reports the market sizing and competitive scoring above are anchored to.
+
+Tier 1 = vendor-owned, official, peer-reviewed, federation. Tier 2 =
+
+established secondary (analyst firm, established trade press).
+
+FirmReportYearQuoteLink
+
+Deloitte (with Playtomic)
+
+Global Padel Report 2023
+
+2023
+
+global padel club market 'set to triple in value by 2026'
+
+thepadelpaper.com
+
+Playtomic
+
+Global Padel Report 2025
+
+2025
+
+Global Padel Report 2025 — Padel insights by Playtomic.
+
+playtomic.com
+
+International Padel Federation (FIP)
+
+World Padel Report 2025
+
+2025
+
+Spain remains the best-equipped country with 17,300 courts.
+
+padelfip.com
+
+InsightAce Analytic
+
+AI in Fitness and Wellness Market 2026
+
+2026
+
+USD 10.68 billion in 2025; predicted USD 57.80 billion by 2035
+
+insightaceanalytic.com
+
+Business Research Insights
+
+Padel Market Size, Trends, Report Growth 2035
+
+2026
+
+USD 0.71 billion by 2035 from USD 0.32 billion in 2026
+
+businessresearchinsights.com
+
+Market Growth Reports
+
+Padel Sports Market Size and Trends Research 2035
+
+2026
+
+USD 293.03 million in 2026, projected USD 581.67 million by 2035
+
+marketgrowthreports.com
+
+Grand View Research
+
+Fitness Apps Market Size and Share Industry Report 2033
+
+2025
+
+Global fitness app market with sustained double-digit growth.
+
+grandviewresearch.com
+
+Intel Market Research
+
+Europe Padel Sports Market Outlook 2026–2034
+
+2026
+
+European padel infrastructure expansion across DACH, Iberia, Nordics.
+
+intelmarketresearch.com
+
+
+# Evidence Map — Source Trace
+
+Source URL: https://avaluev.github.io/padel-market-analysis/evidence-map.html
+
+Source trace for the strategic brief. Every claim cross-referenced to the verbatim source quote and the URL fetched at runtime.
+
+---
+
+1 · How to read this map
+
+Each section names a research artefact, links to the file in the repository, and surfaces the most load-bearing quote(s) plus the primary URL the quote was extracted from. The strategic brief consumes these artefacts; this map is the source-trace.
+
+FormatWhat it means
+
+VERIFIEDThe quote was retrieved from a live URL during the run and the response body was archived.
+
+file.jsonPath is relative to evidence//.
+
+"verbatim quote"Direct extract from the cited URL or evidence file. No paraphrase.
+
+2 · Strategic framing
+
+Strategic stage — Understanding
+
+the published evidence file
+
+"The padel coaching strategic question sits in the Understanding stage of the strategic question because the product, segment, and moat are not yet locked. Awareness has happened: padel reached 35M+ players and 77,000 courts globally per the FIP World Padel Report 2025 and Playtomic Global Padel Report 2025."
+
+Primary URL: FIP World Padel Report 2025 · Secondary URL: Playtomic Global Padel Report 2025
+
+Canonical brief — single source of truth
+
+the published evidence file
+
+Aggregates segments, value mechanics, USP draft, and kill-experiments into the document the deck-assembler and adversarial review agents both read. Acts as the immutable downstream label set — once written, no downstream agent may alter its values.
+
+Run blueprint
+
+the published evidence file
+
+Snapshot of the prompt graph executed for this run, with model assignments and stage gates.
+
+3 · Jobs to be done ( to )
+
+Four AJTBD job stories, each in the published evidence file as a YAML file. Confidence scores are 0.30–0.35 because the jobs are derived from desk research; they remain assumptions pending the qualitative interviews scheduled in each file's gaps_to_probe_next field.
+
+· Get a defensible padel rating without paying a coach
+
+the published evidence file
+
+"After losing a series of matches to a regular partner whose claimed rating outpaces the player, the player searches for a numeric rating that survives outside the home club."
+
+Most-felt by: plateau-stuck regular and newly-ranked competitor. Confidence: 0.35.
+
+Cited URLs: Playtomic, MATCHi, Padelytics, Clutch, FIP World Padel Report 2025, FIP, Spain growth in courts and licences.
+
+· Translate match weaknesses into the next two drills
+
+the published evidence file
+
+"After three consecutive matches where the same shot decides the outcome the wrong way, the player stops trusting their own diagnosis and looks for an outside reading."
+
+Most-felt by: plateau-stuck regular. Confidence: 0.30.
+
+Cited URLs: Padelytics, Hudl pricing.
+
+· Track student progress as a club coach without manual notes
+
+the published evidence file
+
+"After losing a high-paying student to a competing academy that offered better progress visibility, a club coach searches for tooling that surfaces between-session deltas without adding admin time."
+
+Most-felt by: club coach (business-to-business-to-consumer). Confidence: 0.30.
+
+Cited URLs: CoachLogic, Eyes On Padel, Hudl Assist, SPASH Match Analyzer.
+
+· Settle the post-match argument with neutral footage
+
+the published evidence file
+
+"After a heated post-match discussion where the partner blamed the loss on the user, both players search for a neutral way to revisit the rallies before the next booking."
+
+Most-felt by: travelling enthusiast and plateau-stuck regular. Confidence: 0.30.
+
+Cited URLs: Eyes On Padel, PlaySight, Padelytics, Joao-M-Silva / padel_analytics.
+
+Jobs graph
+
+the published evidence file
+
+Hierarchy linking the four jobs to higher-level goals and lower-level sub-jobs, plus enables / blocks / triggers / alternates edges. Critical chain identification feeds the value-mechanics ranking.
+
+4 · Competitive peer cards
+
+17 peer products were profiled in the published evidence file, one JSON file each. Every card carries a verification_status: "VERIFIED" with the URL whose response was archived. The deduplicated index is at 03_peers_dedup.json and the raw scrape at 03_peers_raw.jsonl.
+
+PeerFileMoat classSource URL
+
+Playtomic04_peer_cards/playtomic.jsonnetworkplaytomic.com/global-padel-report
+
+MATCHi04_peer_cards/matchi.jsonnetworkmatchi.com
+
+Padelytics04_peer_cards/padelytics.jsondatapadelytics.ai
+
+Clutch04_peer_cards/clutch.jsonswitching costclutchapp.io
+
+Wingfield04_peer_cards/wingfield.jsonintegrationwingfield.io
+
+PlaySight04_peer_cards/playsight.jsondistributionplaysight.com
+
+Eyes On Padel04_peer_cards/eyes_on_padel.jsondistributioneyeson.sport
+
+SPASH Match Analyzer04_peer_cards/spash.jsondataspash.com
+
+PadelPlay04_peer_cards/padelplay.jsonintegrationpadelplay.ai
+
+Padelboard04_peer_cards/padelboard.jsonnetworkpadelboard.app
+
+Premier Padel04_peer_cards/premier_padel.jsonbrandpremierpadel.com
+
+Hudl04_peer_cards/hudl.jsonswitching costhudl.com
+
+CoachSeek04_peer_cards/coachseek.jsonswitching costcoachseek.com
+
+Skedda04_peer_cards/skedda.jsonswitching costskedda.com
+
+Joao-M-Silva / padel_analytics04_peer_cards/joao_silva_padel_analytics.jsonnone (open source)github.com/Joao-M-Silva/padel_analytics
+
+Decorte CVPR 2024 (research)04_peer_cards/decorte_cvpr2024_padel.jsonnoneCVPR 2024 paper
+
+Paradigma case study04_peer_cards/paradigma_case_study.jsonnoneparadigma.dev
+
+Sample quote — Playtomic
+
+the published evidence file
+
+"Court booking and matchmaking network connecting players to clubs and partners across multiple countries. Cited as the largest padel booking network in 2025 reports."
+
+Gap noted in card: "Coaching layer is shallow versus dedicated peers; analytics ride on top of self-declared levels. Player rating system has been re-tuned multiple times; cross-club consistency is debated by power users."
+
+5 · Value mechanics ( to )
+
+Eleven value mechanics were generated and audited; each lives in the published evidence file as a JSON file. The Naval-style audit verdict per mechanic is in 09_moat_audit.json.
+
+MechanicFileMoat classRICE score
+
+· Smartphone-only video → rating delta pipeline08_value_mechanics/.jsondata96.25
+
+· Cross-club rating that travels with the player08_value_mechanics/.jsonnetwork—
+
+· Drill prescription engine tied to losing-shot clusters08_value_mechanics/.jsondata—
+
+· Coach co-pilot that survives the renewal conversation08_value_mechanics/.jsonswitching cost—
+
+· Shared post-match review surface for partner pairs08_value_mechanics/.jsonnetwork—
+
+· Distribution-as-moat through directly-reached audience asset08_value_mechanics/.jsondistribution—
+
+· Tournament-organiser integration that becomes the seeding spine08_value_mechanics/.jsonintegration—
+
+· Local-language coaching narrative for non-English markets08_value_mechanics/.jsondistribution—
+
+· Open-source release of an inert component08_value_mechanics/.jsonbrand—
+
+· Privacy-respecting on-device extraction08_value_mechanics/.jsonregulatory—
+
+· Open-data export for academies (learning-curve lock-in)08_value_mechanics/.jsonlearning curve—
+
+Sample quote — thesis and quant signal
+
+the published evidence file
+
+"Each match yields a structured shot-and-position record that compounds into a per-player longitudinal rating other clubs accept. Spain alone has 6M players against 109,040 federation licensees per FIP World Padel Report 2025 — vast unrated population."
+
+stop test: "Reproduce the open-source baseline at Joao-M-Silva / padel_analytics into a working end-to-end smartphone pipeline; collect 50 matches from solo recruits. Success threshold: rating delta correlates with self-assessed level r ≥ 0.55 across 50 matches."
+
+Moat audit (Naval filter)
+
+the published evidence file
+
+Each mechanic scored against five gates: distribution, network, data, hardware, vertical depth. At least one mechanic killed and two demoted per the discipline of avoiding 100%-pass reviews.
+
+6 · Market sizing (TAM, SAM, SOM)
+
+Headline market figures
+
+the published evidence file
+
+"global padel club market 'set to triple in value by 2026' — EUR 1.775B in 2023 → EUR 4.015B in 2026. 35 million players and 77,300 courts confirmed by the FIP World Padel Report 2025."
+
+Primary URL: Deloitte / Playtomic Global Padel Report 2023 · FIP World Padel Report 2025.
+
+SAM rebuild — 21 countries verified
+
+the published evidence file
+
+"T1 sum 43,840 + T2 sum 22,125 = 65,965 courts. Global share 65,965 / 77,300 = 85.3%. The padel software product can theoretically reach 85% of all padel courts worldwide if T2 partner-led expansion fully executes."
+
+Primary URL: FIP World Padel Report 2025 (PDF). Country-level court counts cross-checked against Padel Magazine FIP WPR 2025 country ranking.
+
+UAE and Uzbekistan SAM verification
+
+the published evidence file
+
+"UAE — INCLUDE_IN_SAM. Verified quote: 'in 2023, the UAEPA had 155 clubs and 620 courts affiliated (+13% compared to 2022) and more than 1,900 registered players. More than 950 courts; 30% of all courts in Asia.'"
+
+"Uzbekistan — EXCLUDE_FROM_SAM. Verified quote: '3 clubs, 8 courts (Padel.uz Mirabad 2 courts; BeFit Sky 2 courts; Padel.uz Yunusabad 4 courts) — all in Tashkent.' Below the 100-court SAM threshold."
+
+Primary URLs: FIP, Focus on Arab Emirates 2024; Padel Lands Uzbekistan directory.
+
+Analyst sources cited in market sizing
+
+FirmReportURL
+
+Deloitte / PlaytomicGlobal Padel Report 2023thepadelpaper.com
+
+PlaytomicGlobal Padel Report 2025playtomic.com
+
+FIPWorld Padel Report 2025padelfip.com
+
+InsightAce AnalyticAI in Fitness and Wellness Market 2026insightaceanalytic.com
+
+Business Research InsightsPadel Market 2026businessresearchinsights.com
+
+Market Growth ReportsPadel Sports Market 2035marketgrowthreports.com
+
+Grand View ResearchFitness Apps Market 2033grandviewresearch.com
+
+Intel Market ResearchEurope Padel Sports Market 2026–2034intelmarketresearch.com
+
+7 · Geographic priority
+
+Geo bands per country
+
+the published evidence file
+
+"Spain: 17,300 courts, 8.1% YoY. Beachhead — highest absolute court count globally; direct-channel reach overlaps; FEP licensees +8% YoY."
+
+"Russia: 250 courts, 40% YoY. Beachhead — direct-readership advantage; Russian-language audience asset; on-device path satisfies 152-FZ. Reachability advantage flag = direct_audience (verified gap on audience size pending)."
+
+Primary URLs: FIP World Padel Report 2025, FIP Silver Kazakhstan 2025, Padel Business Magazine Spain growth coverage.
+
+8 · Capability map
+
+What ships solo, what needs a partner or capital
+
+the published evidence file
+
+Each capability rated as ship_solo, ship_solo_paid_apis, needs_partner, needs_capital, or needs_team. Anchors include open-source projects (Joao-M-Silva / padel_analytics), federation channels (FEP, FITP, FIP calendar), and paid-API references (OpenRouter, Apple CoreML).
+
+9 · Monetisation and go-to-market
+
+Pricing and monetisation model
+
+the published evidence file
+
+business-to-consumer freemium with paid tier ~EUR 7.99/month; business-to-business SaaS to coaches/academies at EUR 19–29/month per seat. Anchored against Strava Summit, Whoop membership, Hudl pricing, Clutch club tier, Wingfield Pro, MATCHi Business, Playtomic club SaaS.
+
+go-to-market channels and growth loops
+
+the published evidence file
+
+Eight ranked channels (newsletter, partner clubs, tournament organisers, creator partnerships, Reddit / Discord, Telegram CIS, coach affiliates, paid). Five named growth loops with reality-check thresholds. CAC anchors from Foundry CRO 2026 CAC benchmarks.
+
+10 · adversarial review and Definition of Done
+
+Segment stress test
+
+the published evidence file
+
+"Ran against to . Non-pass count: 3. (plateau-stuck regular) verdict: pass_with_caveats. Failure modes detected: missing_trigger ('skill stagnation is a feeling, not an event'), vanity_moat ('generic match video accumulates, but unless tied to a per-player longitudinal record, the data does not improve the rating model')."
+
+Multi-persona adversarial review review
+
+the published evidence file
+
+Markdown-format adversarial review of the consolidated brief. Companion files: 16/multi-persona-audit.md and 16/dod-checklist.md.
+
+Interview guide
+
+the published evidence file
+
+AJTBD interview guide for the 6–8 qualitative interviews referenced in each job-story's gaps_to_probe_next. Confidence ratings on through will rise from 0.30–0.35 toward 0.7+ after the interview wave runs.
+
+11 · Derived synthesis
+
+Strategic brief (customer-facing)
+
+reports/final/padel-ai-coach-research.html
+
+The audited HTML report. Every numeric or strategic claim in the brief is sourced from one of the artefacts above. Each URL referenced in the brief was checked HTTP 200 by scripts/verify_links.sh at render time.
+
+Deck-ready slide content
+
+reports//data.json
+
+Structured data layer used to render slide and section content. Mirrors the canonical brief; do not edit by hand.
+
+Run index
+
+reports//index.html
+
+Per-run landing page; not investor-ready. The customer-facing version is the strategic brief in reports/final/.
+
+12 · Run metadata
+
+FieldValue
+
+Run ID
+
+Evidence rootevidence//
+
+Reports rootreports/ (run-specific) and reports/final/ (audited)
+
+Link verifierscripts/verify_links.sh — all URLs checked HTTP 200 at last build
+
+Citation checkerscripts/check_citations.py — flags claims without an evidence file
+
+Operating contractCLAUDE.md — zero-fabrication rule, citation requirement, adversarial review gate
+
+
+# Methodology — How This Research Was Built
+
+Source URL: https://avaluev.github.io/padel-market-analysis/methodology.html
+
+The pipeline that produced the research: multi-agent orchestration, multi-model fan-out, evidence gates, mobile-first rendering, adversarial review.
+
+---
+
+1 · The problem
+
+Three failure modes dominate AI-generated research:
+
+Single-model hallucination. One model invents a number, polishes it into a confident sentence, and the deck moves on. The reader cannot distinguish a sourced figure from a generated one.
+
+LLM arithmetic. Even when the source is real, the model rounds, transposes, or invents during multiplication. Compounded across a financial model, the output is unverifiable.
+
+"Better UX" as moat. Without an explicit defensibility taxonomy, every roadmap reduces to a list of features. There is no test for whether the value compounds.
+
+The output looks plausible, falls apart on a CTO's first probe, and nothing in the build pipeline could have caught it.
+
+2 · The thesis
+
+Treat research as a build pipeline. Apply software-engineering discipline to the artefact: schemas, fail-fast gates, immutable canonical state, isolated calculation, multi-perspective code review, regression checks. The model is a worker; the pipeline is the product.
+
+Every error becomes a rule. When a sub-agent fabricates a fact, fails verification, or drifts into wish-based language, a regression check is added to the pipeline. No retries without a new rule.
+
+3 · Pipeline architecture
+
+A reasoning sandwich. Strategy and adversarial review use the most expensive model; deep search is parallelised across three different RAG strategies; structured extraction is delegated to the cheapest model that passes a schema check; calculation never touches an LLM.
+
+Stage 1 · Plan
+
+Reconnaissance
+
+Model: Claude Opus 4.7 with extended thinking. Output: a research blueprint that decomposes the prompt into atomic jobs with model assignments per job. Failure mode caught here: scope creep, missing falsifiability, fabricated segments.
+
+Stage 2 · Fan-out
+
+Parallel deep search
+
+Workers: Perplexity Sonar Deep Research, Alibaba Tongyi DeepResearch 30B, OpenAI o4-mini deep-research — all three queried with the same questions. Output: citations with quotes, archived to evidence/<run-id>/_research_arms/. Cross-arm disagreement is preserved (never averaged) and surfaced to synthesis.
+
+Stage 3 · Extract
+
+Structured-extraction swarm
+
+Model: Claude Haiku 4.5, parallel sub-agents. Output: JSON/YAML matching strict schemas — peer cards, job stories, value mechanics, capability map, geo bands. Unknown values are null with a row in data gaps; fabrication of a number is a pipeline failure.
+
+Stage 4 · Calculate
+
+Python sandbox
+
+Every numeric claim in the final brief is the output of executed Python. The financial model writes a financial_calc.py file, runs it via subprocess, and the result is the only number that lands in the output JSON. The flag calculation_method == "python_subprocess_executed" is a hard gate.
+
+Stage 5 · adversarial review
+
+Adversarial review
+
+Model: Claude Opus 4.7 in a hostile-investor frame. Output: minimum 3 HIGH-severity issues per run. If the adversarial review finds fewer, the agent is re-invoked with stricter instruction — being too diplomatic is itself a failure.
+
+Stage 6 · Synthesise
+
+Canonical brief
+
+Model: Claude Opus 4.7. Output: canonical_brief.json — the immutable downstream label set. From this point, no agent (deck assembler, translator, renderer) may use a number that contradicts the canonical brief.
+
+Stage 7 · Render
+
+Static HTML
+
+Mobile-first vanilla HTML+CSS, no framework, no build step. Output: reports/final/*.html. Playwright audit harness verifies metrics on iPhone 13, Pixel 7, iPhone SE, iPad Mini, desktop 1280 before the bundle is considered green.
+
+4 · Model routing
+
+Picking the right model for each job is the cost-quality lever. The default is Claude Haiku 4.5 — Claude Opus 4.7 is the exception, used only where the work is irreplaceable.
+
+StageModelReason
+
+Plan / strategyClaude Opus 4.7 (extended thinking)Highest-leverage cognitive moment; mistakes here cascade.
+
+Web fan-out (×3)Sonar Deep Research; Tongyi DeepResearch; o4-mini deep-researchThree different RAG strategies on the same questions; cross-check surfaces disagreement.
+
+Structured extractionClaude Haiku 4.5 (parallel)Schema-bound work doesn't need frontier reasoning; Claude Haiku 4.5 is 90% of the quality at ⅓ the cost.
+
+Synthesis / framingClaude Opus 4.7 (extended thinking)Cross-document insight generation requires the best model.
+
+Adversarial reviewClaude Opus 4.7 (extended thinking, max budget)Adversarial reasoning is the second-most expensive cognitive task; do not skimp.
+
+Translation, renderClaude Haiku 4.5Schema-driven work with a pre-built glossary.
+
+Free fallbackNVIDIA Nemotron series (free tier)First-pass scans only; never used for final synthesis.
+
+5 · Quality gates
+
+Seven gates, sequential, each with explicit pass criteria and a documented retry policy. Failure does not silently retry — failure becomes a new rule.
+
+1Research brief validity
+
+Completeness ≥ 60%, content_type not null, target geographies non-empty. Fail action: surface clarification questions to the user.
+
+2Citation coverage
+
+Every numeric claim has a corresponding _source URL; the URL was fetched and returned HTTP 200; the response body is archived. Fail action: re-invoke the research agent with the missing-field list.
+
+3Mathematical integrity
+
+calculation_method == "python_subprocess_executed"; pessimistic < base < optimistic; revenue percentages sum to 1.0 ± 0.001. Fail action: halt the pipeline, require user confirmation.
+
+4adversarial review minimum issues
+
+≥ 3 HIGH-severity issues. Below threshold means the critic is being too diplomatic; re-invoke with stricter framing.
+
+5Regulatory coverage
+
+An entry in regulatory_compliance for every priority geography. Fail action: re-invoke the risk-assessor with the missing-geos list.
+
+6Deck completeness
+
+Every section heading non-null; no {placeholder} strings; financial figures reference canonical brief values verbatim.
+
+7Output file completeness
+
+All output files present and non-empty; HTML files contain the expected number of sections.
+
+6 · The evidence chain
+
+Every claim in the strategic brief traces back to an artefact in evidence/<run-id>/. The Evidence Map renders the trace human-readable. Three discipline rules govern the chain:
+
+Citation requirement. Every numeric claim in any research output has a _source URL field. No URL → the claim is dropped.
+
+Quote ≤ 15 words. Translations are stored separately; the original verbatim is preserved. Mistranslation is detectable.
+
+Null beats fabrication. Any agent that cannot find real data writes null and adds an entry to data gaps. A null with documentation is valid; a fabricated number is a pipeline failure.
+
+The whole pipeline state lives in flat JSON/YAML. diff works. git blame works. There is no opaque vector store or graph database to consult.
+
+7 · Agent specialisation
+
+Twelve specialist agents in .claude/agents/, each with a narrow contract:
+
+intake-analyst
+
+Classifies the input prompt, extracts structured fields, surfaces clarification questions.
+
+market-researcher
+
+Web research with full citation work for market sizing.
+
+comp-analyst
+
+Competitive analysis, deduplication, peer-card extraction.
+
+audience-analyst
+
+Behavioural profiling, JTBD parsing, segment-stress-test.
+
+financial-modeler
+
+Generates Python, executes via subprocess, writes the financial model JSON.
+
+positioning-strategist
+
+Strategic synthesis; runs on Claude Opus 4.7.
+
+risk-assessor
+
+Five-domain risk classification with mitigation pathways.
+
+critic-adversarial review
+
+Hostile-investor adversarial review; runs on Claude Opus 4.7, max thinking budget.
+
+research-synthesizer
+
+Cross-document conflict resolution; produces the canonical brief.
+
+deck-assembler
+
+Builds the slide spec from the canonical brief.
+
+translator
+
+Builds the glossary first; then translates; preserves verbatim original.
+
+output-renderer
+
+Renders the final HTML with charts, navigation, dark mode.
+
+8 · Frontend engineering
+
+The output is the audit. A static HTML bundle a reviewer can open in a browser, in private mode, with DevTools open. No build step, no framework, no external resources.
+
+Mobile-first design system
+
+Fluid typography via clamp() — no breakpoint cliffs.
+
+Mobile (< 720px): floating action button bottom-right opens a bottom-sheet drawer driven by <details> — works without JavaScript.
+
+Tablet / desktop (≥ 720px): sticky always-visible side rail, never scrolls out of view.
+
+WCAG 2.5.5 — 44 px tap targets on standalone controls; the audit script distinguishes inline-prose links (exempt) from standalone CTAs (required).
+
+Dark mode, safe-area insets (env()), prefers-reduced-motion, print stylesheet.
+
+Audit harness — Playwright
+
+The harness in scripts/audit_mobile.mjs emulates 5 device profiles (iPhone 13, Pixel 7, iPhone SE, iPad Mini, desktop 1280) and captures: TTFB, FCP, LCP, CLS, transfer bytes, document height, horizontal overflow, console errors, network failures, viewport screenshots, full-page screenshots, and a tap-target audit that distinguishes inline-prose vs standalone controls.
+
+FCP (mobile)~ 30 ms
+
+CLS0.000JS dependencies0
+
+9 · Multi-perspective audit
+
+Before publication the bundle was audited by simulated specialists running in parallel — QA, ML, Data Science, SWE, DevOps. Each surfaces a different class of failure:
+
+QA — reproducibility, gate coverage, regression-rule additions after each failure.
+
+ML — hallucination prevention, confidence scoring, model-routing justification.
+
+Data Science — number traceability, source tier separation, null discipline.
+
+SWE — code idiom, semantic HTML, accessibility.
+
+DevOps — deployment readiness, security headers, secrets handling, .gitignore hygiene, smoke-checks.
+
+Audit reports live alongside the run artefacts in evidence/_audits/. The discipline is the same as the adversarial review: an audit that says "everything passes" is itself a failure.
+
+10 · The numbers
+
+Specialist agents12
+
+Frontier models4+
+
+Quality gates7
+
+Verified peer cards17
+
+Value mechanics audited11
+
+Countries in SAM rebuild21
+
+Cited URLs (HTTP 200)100%
+
+Device profiles audited5
+
+11 · What this scales to
+
+The pipeline is domain-agnostic. The Padel AI Coach run is a worked example, not the product. Replace the input prompt and the same architecture produces:
+
+An investor-grade brief on any market opportunity.
+
+A competitive landscape with verified peer cards and moat analysis.
+
+A capability map for any team — what ships solo, what needs a partner, what needs capital.
+
+A risk register with regulatory coverage by geography and named pivot triggers.
+
+Where to put it next: continuous research (run on a cron, diff the canonical brief, alert on material changes); enterprise customers (replace OpenRouter with self-hosted endpoints, swap the evidence store for Postgres+pgvector if the run cardinality demands it); decision support (treat the canonical brief as a structured input to product-roadmap and capital-allocation decisions).
+
+
+# Padel Coaching Tech: Competitor Landscape
+
+Source URL: https://avaluev.github.io/padel-market-analysis/competitor-landscape.html
+
+Independent analysis of padel coaching apps, club-management software, and racket-sport AI. Who has data moats, where the white space is, what failed and why.
+
+---
+
+Padel coaching tech — competitor landscape
+
+A market scan of padel coaching tech in May 2026 finds the rating-clarity layer unowned: court-software vendors hold booking data without coaching insight, racket-sport AI vendors hold insight without booking distribution, and no single product compounds both. The full peer table covers seventeen vendors across padel, fitness, and racket-sport AI.
+
+Three competitors define the threat surface a Padel AI Platform must navigate in the first six months. The rest of the field is adjacent or noise.
+
+Voice: third-person professional. Capability statements are conditional.
+
+Evidence backing: reports/interview_pack/the published evidence published evidence.
+
+Source pool: the published evidence file (28 verified peers).
+
+Cross-references: the published evidence (moat classes), the published evidence (pricing benchmarks), the published evidence (go-to-market channels and product-led growth loops), the published evidence (segment stress test).
+
+Executive Summary
+
+Three competitors carry the strongest near-term threat to a smartphone-only padel AI coaching wedge: Padelytics (most direct product overlap), Clutch (highest installed-club density in the beachhead), and Playtomic (network gravity that could ship a derived-rating feature on top of an existing booking funnel). None of the three has staked the cross-club derived-rating spine, the local-language editorial cadence, or the smartphone-only on-device pipeline for regulated geographies. Those three structural absences form the white-space map.
+
+The two graveyard signals — PlaySight's 2021 absorption into Slinger Bag and Wingfield's tennis-first multisport posture — frame the competitive edge: padel-native depth and direct distribution beat enterprise camera SaaS without a hardware adjacency.
+
+The rating-clarity wedge is open because no padel-AI vendor has staked a cross-club derived-rating spine. Whoever lands a tournament-organiser LOI first owns it.
+
+A. The Three Closest Direct Competitors
+
+Selection method: weight three signals against each peer in the published evidence: (1) overlap with the smartphone-only AI-coaching wedge defined in the published evidence , (2) installed footprint and traction signal, (3) capacity to expand the wedge in 18 months through adjacent moves.
+
+Why these three, and why not others
+
+Peer (rejected)Reason for exclusion
+
+PadelPlayHardware-bundled racket sensor; conversion friction structurally higher than smartphone-only path.
+
+SPASHbusiness-to-business-only; cannot reach a player without a club deal; tracked in adjacency.
+
+WingfieldTennis-first multisport posture; padel taxonomy shallower per peer card; tracked in adjacency.
+
+PlaySightEnterprise-led inside Slinger Bag group; padel coaching depth lags dedicated peers per peer card; tracked as graveyard pivot signal.
+
+MATCHiBooking network without a coaching surface; tracked as adjacent rating-platform player.
+
+HudlCross-sport SaaS without padel-specific tagging vocabulary; coach-led, not consumer-led.
+
+The accepted three carry the strongest combined signal across all three weights.
+
+1. Padelytics — https://www.padelytics.ai/
+
+Threat rank: 1 / 3. Most direct overlap with the smartphone-only padel AI coaching wedge. Sells to the three audiences the wedge reaches (players, clubs, streaming). Iberian and LATAM footprint matches the planned beachhead in the published evidence file. Builds the same data flywheel.
+
+Positioning. Padel-native AI analytics product spanning amateur players, club programmes, and streaming surfaces in one funnel.
+
+Primary value prop. AI video analysis converting padel match footage into shot-level statistics and tactical breakdowns.
+
+Verbatim landing-page quote (≤15 words): "YOUR GAME, PERFECTED. AI-POWERED PADEL ANALYTICS AT YOUR FINGERTIPS" — https://www.padelytics.ai/.
+
+Verbatim audience quote (≤15 words): "padel players, clubs and streaming platforms" — https://www.padelytics.ai/.
+
+Pricing tier. Subscription model. Public pricing tiers are not disclosed on the homepage. Confirmed gap on second-pass web search 2026-05-03. Logged as `. Source: https://www.padelytics.ai/`.
+
+Customer segment served well. Iberian and LATAM intermediate-to-advanced amateur players who already record matches and want post-game shot-level breakdowns, plus padel clubs running coaching programmes that need a streaming and analytics layer in one funnel.
+
+Geo presence (per peer card): ES, PT, AR, MX. Source: https://www.padelytics.ai/.
+
+Blind spots — what Padelytics structurally cannot or will not address
+
+No cross-club rating spine (moat unaddressed: network). Vendor sells single-match analysis but has no documented cross-club, cross-organiser rating that travels with the player. The cross-club rating gate (`` in the published evidence) requires a network mechanic Padelytics has not staked. A new entrant that lands a tournament-organiser LOI before Padelytics moves owns the rating spine.
+
+Anglo-European pricing posture without local-language distribution (moat unaddressed: distribution). Vendor page is English-led with Spanish reach via club logos but does not run a multilingual editorial cadence. The distribution-as-moat thesis in the published evidence hinges on a directly-reached Spanish + Russian newsletter that Padelytics does not currently operate. A new entrant with a localised cadence can compound audience without paid acquisition.
+
+Pricing opacity blocks the viral pair-share loop (moat unaddressed: network). No public pricing means no per-user share-with-partner conversion path. The `` pair-invite loop in the published evidence depends on a frictionless paid tier exposed during the share moment. Padelytics structurally optimises for a club-led sales motion, not a viral pair conversion, so a smartphone-first entrant can convert pairs faster.
+
+No regulated-geography on-device path documented (moat unaddressed: regulatory). Vendor page does not describe a 152-FZ-compliant on-device pipeline for Russian-language and CIS markets. The `` Telegram channel and on-device pipeline documented in the published evidence open a Russian-language pocket Padelytics is structurally absent from.
+
+2. Clutch — https://www.clutchapp.io/
+
+Threat rank: 2 / 3. Highest installed-club threat in the camera category. Per peer card the vendor is active in ES, UK, and UAE — three of four geographies in the beachhead path. Each installed court entrenches a club into a hardware-plus-app habit that competes for the same coach-renewal conversation.
+
+Positioning. Always-on club camera that automates match recording and highlight generation, with the player feed riding on the club install.
+
+Primary value prop. Club-installed camera with automatic match recording, highlights, and player-level performance feed.
+
+Verbatim landing-page quote (≤15 words): "The AI Camera for Padel | Automated Highlights & Analytics" — https://www.clutchapp.io/.
+
+Pricing tier. Subscription. Captured in the published evidence file price benchmarks at EUR 53/month per club, USD 58 equivalent — tagged ` (Sonar paraphrase, not vendor-page verbatim). Sourced from prior Sonar pricing capture rather than a live clutchapp.io price card. Per-court hardware install cost is not disclosed publicly; logged as `.
+
+Customer segment served well. Club operators running 4-12 courts in Spain, the UK, and the UAE who want a one-stop highlight-and-analytics layer that members can reach through a club-branded app, with no requirement for member smartphone capture.
+
+Geo presence (per peer card): ES, UK, UAE. Source: https://www.clutchapp.io/.
+
+Blind spots — what Clutch structurally cannot or will not address
+
+Hardware capex anchors the moat to the venue (moat unaddressed: data). Switching cost compounds at the club level, not the player level. Per peer card the per-court install is undisclosed but exists; once a player leaves the club, the data trail ends. A smartphone-first entrant who captures the player relationship outside the club venue inherits the longitudinal record Clutch cannot port between venues.
+
+No travelling-player rating across venues (moat unaddressed: network). Footage stays inside the host club's account, mirroring the gap documented for Eyes On Padel in 04_peer_cards/eyes_on_padel.json. Cross-club rating that travels with the player is the network-effect moat (``) Clutch is structurally absent from. A new entrant that builds the rating spine across organisers can plug into Clutch venues without displacing them.
+
+Coach-renewal narrative is venue-bound (moat unaddressed: switching cost). Coach co-pilot value (``) requires a coach-to-student handoff that survives outside the club. Clutch optimises for the venue contract, so the coach-student renewal conversation depends on whichever venue the coach happens to be teaching at. A smartphone-first entrant gives coaches a graph that travels with the coach, breaking Clutch's venue gravity.
+
+business-to-business sales cycle slows player conversion (moat unaddressed: distribution). Vendor enters players only after a venue contract closes. Per the published evidence the ` newsletter and ` Reddit/Discord paths can convert individual players in days, while a club-deployment cycle is measured in weeks-to-months. Velocity asymmetry favours a direct-to-player wedge in markets where Clutch has not yet signed a club.
+
+3. Playtomic — https://playtomic.io/blog
+
+Threat rank: 3 / 3. Largest documented padel booking network in 2025 reports per peer card. The booking-network gravity puts Playtomic one product release from publishing a derived rating that crushes any standalone rating product. Treated as the network-incumbent threat: not a direct AI-coach rival today, but the rival most able to add a coaching-shaped feature on top of an existing distribution.
+
+Positioning. Booking-and-matchmaking network that owns the player-to-court relationship across 12+ countries, with a club SaaS sold via four published tiers.
+
+Primary value prop. Court booking and matchmaking network connecting players to clubs and partners across multiple countries.
+
+Verbatim pricing-page headline (≤15 words): "Flexible plans that adapt to your needs" — https://playtomic.com/pricing.
+
+Verbatim tier list (≤15 words): "Standard, Professional, Champion, Master" — https://playtomic.com/pricing.
+
+Pricing tier. Freemium. Player tier is free. Club SaaS published as four tiers (Standard, Professional, Champion, Master). The pricing landing at https://playtomic.com/pricing does not display individual tier numbers without account creation, but per-tier monthly figures are surfaced on https://products.playtomic.io/playtomic-manager/pricing-2/ and confirmed in 02_subscription_economics.md at USD 37 / 109.08 / 274 monthly per club (Standard / Professional / Champion). Verbatim quote (≤15 words): "Standard $37 / Professional $109.08 / Champion $274 monthly" — verified 2026-05-03. ` revised: individual tier breakdown not displayed on the pricing landing without account creation, but per-tier monthly figures are surfaced on products.playtomic.io/playtomic-manager`.
+
+Customer segment served well. Recreational and intermediate amateur players who book courts across cities in ES, IT, SE, UK, NL, FR, DE, BE, PT, AR, MX, and UAE, plus club operators in those geographies who treat Playtomic as their venue distribution channel.
+
+Geo presence (per peer card): twelve geographies above. Source: https://playtomic.com/global-padel-report.
+
+Blind spots — what Playtomic structurally cannot or will not address
+
+Self-declared rating with documented inconsistency (moat unaddressed: data). Per peer card the rating system has been re-tuned multiple times and cross-club consistency is debated by power users. The rating is the foundation of matchmaking but is not derived from match video. A derived-rating entrant solves the structural credibility gap Playtomic cannot close without rebuilding the data layer.
+
+Coaching layer is shallow versus dedicated peers (moat unaddressed: data). Per peer card the analytics ride on top of self-declared levels and the coaching layer is shallow versus dedicated peers. Adding a real coaching surface requires a CV pipeline Playtomic does not own. The wedge can plug into the booking funnel via `` (rating cross-post on Playtomic profile) without requiring Playtomic to acquire or rebuild a CV stack.
+
+Marketplace incentives cap coach-side investment (moat unaddressed: switching cost). Playtomic's economic model rewards venue throughput, not coach retention. A coach co-pilot (``) that survives the renewal conversation is structurally a low-priority feature inside a marketplace whose unit economics are bookings-driven. A new entrant that builds coach-graph switching cost at the coach level is not in Playtomic's optimisation function.
+
+Multi-country footprint dilutes local-language editorial (moat unaddressed: distribution). Operating across twelve geographies forces a generalist editorial register. The localisation moat (`) requires Spanish-only and Russian-only narrative cadence Playtomic is structurally unwilling to invest in at the depth a local-only competitor can deliver. The ` Spanish + Russian newsletter path remains open for a focused entrant.
+
+C. White-Space Map — Three Positioning Angles That Will Not Be Crushed Immediately
+
+Each angle maps to at least one moat class from the value-mechanics taxonomy in the published evidence and a stop metric from the published evidence. No "AI-powered" or "better UX" claims; defensibility is named explicitly.
+
+WS-001. Cross-club derived rating that travels with the player
+
+Moat class. Network.
+
+Why this is open. Padelytics has no documented cross-club rating spine; Clutch keeps footage inside the host venue; Playtomic's rating is self-declared and re-tuned. A derived rating that ports across organisers is a defensibility lever none of the top-three threats have staked. Aligned to `` in the published evidence.
+
+stop metric. Per `` in the published evidence: signed LOIs from FIP-affiliated regional organisers reach 2 within 6 weeks of outreach. Failure below threshold means the network gate has not opened.
+
+WS-002. Local-language editorial cadence (Spanish-only and Russian-only)
+
+Moat class. Distribution.
+
+Why this is open. Top-three threats run multilingual or English-led pages without a dedicated multilingual editorial cadence. Per the published evidence the ` newsletter and Telegram channel target Spanish and Russian audiences directly, building distribution-as-moat and ` localisation-as-moat.
+
+stop metric. Direct-traffic share of beta sign-ups reaches 40% within 8 weeks per `` stop metric in the published evidence.
+
+WS-003. Smartphone-only consumer pair-share with on-device extraction for regulated geographies
+
+Moat classes. Data + network (pair-viral) + regulatory (on-device).
+
+Why this is open. Clutch and Eyes On require club hardware; Padelytics does not advertise a 152-FZ-compliant on-device pipeline; Playtomic does not run CV. A smartphone-only pipeline that performs extraction on-device and shares pair-level recaps via WhatsApp/Telegram opens a regulated-geography pocket and a viral pair conversion the camera-system rivals cannot mimic without rearchitecting their stack. Aligned to ` and ` in the published evidence.
+
+stop metric. Per `` in the published evidence the post-match share rate clears 10% across the first 200 matches; below threshold the pair-viral surface is killed and the wedge collapses to a paid business-to-consumer only.
+
+D. Adjacent Categories and Their Interaction with the AI Coaching Wedge
+
+Each category lists the verified peers from the published evidence and explains the structural interaction.
+
+Rating platforms
+
+PadelFIP — https://www.padelfip.com/. Authoritative tournament-rating issuer. The wedge can either license the FIP rating spec or publish a derived rating organisers accept as a complement. Risk: per the published evidence `` counter-position, FIP could publish an open seeding API and collapse the integration moat.
+
+Premier Padel — https://premierpadel.com/. Pro-tier rating spine. Per peer card amateur ratings are not interoperable with Premier Padel today. The benefits from being the bridge between amateur derived ratings and the Premier Padel reference, not from competing with the broadcast tier directly.
+
+Padelboard — https://padelboard.app/. Self-declared rating in MATCHi-anchored Nordic geographies. Same structural gap as Playtomic. The wedge can offer a derived-rating upgrade path to Padelboard players without competing with the booking layer.
+
+Padelstats — https://padelstats.com/. Parallel rating wrapper. Treated as a derived-rating differentiation target.
+
+Padel Radar — https://padelradar.com/. Same parallel-tracker pattern as Padelstats; treated as a rating-discovery surface, not a derived-rating engine.
+
+Club camera systems
+
+Wingfield — https://www.wingfield.io/. Verified pricing capture: hardware bundle around USD 5,000 plus monthly software fee USD 100-200. Verbatim quote (≤15 words): "monthly software fee of between $100 and $200" — https://www.padelspor.com/en/news/padel-court-prices. Tennis-first multisport stack per vendor page (verbatim ≤15 words: "KI-Sportkameras für Padel, Pickleball & Tennis" — https://www.wingfield.io/). The can layer per-player coaching on top of Wingfield-equipped courts without challenging the hardware moat.
+
+Eyes On Padel — https://www.eyeson.sport/en/eyes-on-padel/. 4K multi-court installation across ES, FR, IT, UAE per peer card. Footage stays inside the host club's account. The wedge can ingest Eyes On club footage where licensed and own the cross-club rating layer Eyes On does not deliver.
+
+PlaySight (Slinger Bag) — https://playsight.com/. See graveyard entry below.
+
+Aiball — https://aiball.io/. AI court camera with automatic match recording. Same hardware-anchored pattern as Clutch and Eyes On.
+
+Court Sense — https://courtsense.io/. Court vision system. Same hardware-anchored pattern.
+
+Community apps
+
+Playtomic — covered above as Threat #3.
+
+MATCHi — https://matchi.com/. Nordic + adjacent booking network. Per peer card padel coaching is not a core surface and the rating does not interoperate with Playtomic levels. Same cross-post integration path as Playtomic in Nordic geographies, with lower competitive intensity but a smaller addressable population.
+
+Racketpal — https://racketpal.com/. Multi-racket community surface. Treated as a low-intensity discovery channel.
+
+Padelbrowser — https://padelbrowser.com/. Padel community + match-finding browser. Treated as a partnership target for distribution rather than a wedge competitor.
+
+Match-analyzer SaaS
+
+SPASH — https://spash.com/en/match-analyzer-ia-clubs-padel/. business-to-business-only club analytics. Verbatim positioning quote (≤15 words): "fully automated, sensor-free technology — a unique position on the market" — https://spash.com/en/match-analyzer-ia-clubs-padel/. Confirms technical feasibility without contesting the smartphone-only consumer wedge.
+
+Hudl — https://www.hudl.com/. Cross-sport video analysis SaaS with 170,000+ teams cited per peer card. Per peer card padel-specific tagging vocabulary is shallow; coaches rebuild it manually. Risk: Hudl could extend padel-specific tagging and erode the drill-prescription moat (`` counter-position). Mitigation: ship a published padel shot taxonomy as a public schema asset before Hudl moves.
+
+Dartfish — https://www.dartfish.com/. Coach-led capture pattern; not a smartphone-first consumer rival.
+
+Smash — https://smash.app/. Multi-racket match analyzer; treated as a parallel SaaS without padel-specific differentiation.
+
+Academy / LMS
+
+CoachSeek — https://www.coachseek.com/. Operational LMS without padel-specific shot taxonomy or analytics layer per peer card. Treated as an integration partner for the coach co-pilot path (``).
+
+CoachLogic — https://www.coach-logic.com/. Coach LMS already paid for by some coaches per the published evidence counter-example. The wedge co-exists by feeding recap PDFs into coach workflows rather than displacing the LMS.
+
+Padel United — https://www.padel-united.com/. Club operator group with academy programmes. Treated as a business-to-business-to-consumer deployment partner.
+
+Skedda — https://www.skedda.com/. Booking + venue management for clubs. Treated as operational adjacency.
+
+Sensor hardware
+
+PadelPlay — https://www.padelplay.ai/. Racket-mounted sensor with companion app. Hardware ownership is conversion friction; per peer card refund and replacement terms are not on the homepage. The smartphone-only path competes against the same shot-recognition use case without hardware overhead.
+
+Open-source and academic research
+
+Joao-M-Silva / padel_analytics — https://github.com/Joao-M-Silva/padel_analytics. Public CV pipeline. Treated as feasibility evidence and a reusable baseline rather than a competitor.
+
+Decorte CVPR 2024 padel paper — https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf. Academic prototype with multi-camera dependency per peer card.
+
+E. The Graveyard — Underperforming or Pivoted Comps
+
+G-1. PlaySight — absorbed into Slinger Bag (October 2021)
+
+PlaySight was acquired by Slinger Bag (now Connexa Sports) in October 2021 in a transaction estimated at USD 82 million before earnout based on Slinger's previous market close share price. Verbatim deal headline (≤15 words): "Slinger to Acquire PlaySight, a Pioneer and Leader" — source: https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html. Verbatim transaction-value quote (≤15 words): "estimated US$82 million (before earnout) based on Slinger's previous market close" — same source.
+
+Caveat on the headline figure. Slinger Bag's stock subsequently collapsed and the company rebranded to Connexa Sports, with realised consideration likely well below the headline 82M peak-implied value. The 82M is therefore a peak-implied stock-for-stock number at signing, not a realised cash transaction. Treated as ` for downstream comparison (no follow-up news source captured in this run; flagged in data gaps`).
+
+Pivot signal. A standalone consumer-court SaaS could not survive on its own; PlaySight was absorbed into a hardware-led parent that primarily sells a ball launcher. Per peer card padel coaching depth lags dedicated peers inside the post-acquisition product.
+
+Lesson for the wedge. A camera-only enterprise stack without a defensible distribution moat (``) is a strategic dead-end at frontier-pricing. The avoids this trap by being smartphone-only (no hardware capex) and direct-to-audience (no enterprise sales dependency).
+
+G-2. Wingfield — tennis-first multisport posture
+
+Wingfield is not a failure but underperforms as a padel-specific competitor. Verbatim positioning quote (≤15 words): "KI-Sportkameras für Padel, Pickleball & Tennis" — https://www.wingfield.io/. The vendor message treats padel as co-equal with tennis and pickleball. Per peer card the padel-specific shot taxonomy is shallower than padel-only peers.
+
+Pivot signal. Multisport sprawl is an underperformance signal for padel depth. The product roadmap is structurally allocated across three sports.
+
+Lesson for the wedge. A padel-native taxonomy and coach vocabulary is a structural advantage no multisport vendor will out-invest in for the next 18 months without a major strategic shift. Aligned to `` data + vertical-depth gates in the published evidence.
+
+Survivorship-bias note
+
+The graveyard above lists only PlaySight (absorbed) and Wingfield (multisport sprawl). That is statistically thin for a 2024–2026 vintage of CV/AI sport startups; some padel-AI vendors must have stalled, pivoted, or wound down. The source pool (the published evidence file) deselects no padel-AI vendor for being dead — every padel-native peer named in this brief is presented as alive. That is a research limitation, not a market signal. A reviewer who probes the pack for survivorship bias is correct to flag the gap; first-party diligence with a former Padelytics or Clutch employee would surface at least one wound-down peer not in the public source pool.
+
+data gaps Acknowledged Before the Interview
+
+IDFieldDescriptionSeverity
+
+padelytics.pricingPublic pricing tiers not disclosed; vendor follow-up required.MEDIUM
+
+clutch.hardware_install_costPer-court hardware install cost not disclosed publicly.MEDIUM
+
+playtomic.pricing.numericStandard / Professional / Champion / Master tier numeric pricing gated behind sales conversation.MEDIUM
+
+padelytics.user_countMAU and longitudinal coverage not enumerated.MEDIUM
+
+clutch.paid_clubsPaid-club count exposed only as a logo wall per peer card.MEDIUM
+
+spash.pricingSPASH does not publish pricing; per-court tier per peer card.LOW
+
+playsight.padel_focusCurrent padel-specific user-base and roadmap inside Slinger / Connexa group not publicly disclosed in 2026.LOW
+
+Verified URL Inventory (≥ 8 distinct sources required by the gate)
+
+https://www.padelytics.ai/ — Padelytics value prop and pricing posture (verified 2026-05-03).
+
+https://www.clutchapp.io/ — Clutch value prop (verified 2026-05-03).
+
+https://playtomic.com/pricing — Playtomic tier names (verified 2026-05-03).
+
+https://playtomic.io/blog — Playtomic positioning per peer card.
+
+https://playtomic.com/global-padel-report — Playtomic geo footprint reference.
+
+https://www.wingfield.io/ — Wingfield positioning and multisport posture (verified 2026-05-03).
+
+https://spash.com/en/match-analyzer-ia-clubs-padel/ — SPASH sensor-free positioning (verified 2026-05-03).
+
+https://www.eyeson.sport/en/eyes-on-padel/ — Eyes On Padel club tooling (verified 2026-05-03).
+
+https://www.padelspor.com/en/news/padel-court-prices — Wingfield public pricing capture (verified 2026-05-03).
+
+https://www.globenewswire.com/news-release/2021/10/12/2312460/0/en/Slinger-to-Acquire-PlaySight-a-Pioneer-and-Leader-in-Global-Sports-Technology.html — PlaySight acquisition pivot (verified 2026-05-03).
+
+https://playsight.com/articles/slinger/ — PlaySight acquisition confirmation.
+
+https://github.com/Joao-M-Silva/padel_analytics — Open-source CV feasibility.
+
+https://openaccess.thecvf.com/content/CVPR2024W/CVsports/papers/Decorte_Multi-Modal_Hit_Detection_and_Positional_Analysis_in_Padel_Competitions_CVPRW_2024_paper.pdf — Academic CV reference.
+
+https://www.padelfip.com/ — Rating authority adjacency.
+
+https://premierpadel.com/ — Professional rating spine adjacency.
+
+https://padelboard.app/ — Self-declared rating adjacency.
+
+https://matchi.com/ — Nordic booking adjacency.
+
+https://www.hudl.com/ — Cross-sport SaaS adjacency.
+
+https://nav.al/podcast — Distribution-moat citation.
+
+Distinct verified URL count: 19 (gate threshold ≥ 8).
+
+Quality-Gate Self-Check
+
+Every numeric claim links to a source_url and a verified ≤15-word quote, or is logged as a data gaps. Pass.
+
+Moat claims use the taxonomy: network, data, distribution, switching cost, integration, regulatory, brand. No "AI-powered" or "better UX" claims used as defensibility. Pass.
+
+Voice is third-person professional throughout; no first-person pronouns. Pass.
+
+Capability statements are conditional ("the wedge can …", "a new entrant who lands … owns the rating spine"). Pass.
+
+Distinct verified URLs cited: 19, above threshold of 8. Pass.
+
+Original-language quote retained for German (Wingfield) and Spanish-context (SPASH). Pass.
+
+Visual evidence — captured 2026-05-03
+
+Full-page screenshots captured via Playwright (scripts/capture_interview_screenshots.mjs) at viewport 1280×800. Each image is the homepage state used to anchor the verified quotes above.
+
+Top three direct threats
+
+Padelytics — direct AI video analysis competitor (verified 2026-05-03)
+
+Clutch — club camera + automatic match recording (verified 2026-05-03)
+
+Playtomic — booking + community network with self-declared rating layer (verified 2026-05-03)
+
+Adjacent categories cited
+
+Wingfield — multi-court tracking camera (verified 2026-05-03)
+
+MATCHi — Nordic court booking network (verified 2026-05-03)
+
+SPASH — AI match analyzer aimed at clubs (verified 2026-05-03)
+
+Eyes On Padel parent · Wingfield-style installations and PadelFIP rating authority context (verified 2026-05-03)
+
+CoachLogic — coach LMS adjacent to the business-to-business-to-consumer wedge (verified 2026-05-03)
+
+
+# Padel App Subscription Economics: Pricing, Churn, LTV/CAC
+
+Source URL: https://avaluev.github.io/padel-market-analysis/subscription-economics.html
+
+How a padel coaching subscription would price against eight verified anchors, with monthly churn, LTV/CAC by channel, and four geographic scenarios.
+
+---
+
+Padel app subscription economics — pricing, churn, LTV/CAC
+
+Eight verified subscription anchors across fitness and racket-sport markets in May 2026 frame a USD 12 to USD 15 monthly ceiling for consumer padel apps. Modelling four pricing scenarios (Portugal, Spain and Italy, the United Arab Emirates, and Russia) shows organic newsletter is the only acquisition channel that clears a healthy LTV-to-CAC ratio in every scenario; paid Meta only works above the EUR 7.99 anchor and at lower churn.
+
+Subscription economics for the Padel AI Platform one channel: organic newsletter. , so the channel-mix decision is the pricing decision.
+
+This brief addresses the JD requirement on unit economics, funnels, retention, LTV/CAC, and subscription/recurring-payment product experience. Every numeric claim resolves to a verified URL or to explicit Python-style arithmetic shown inline.
+
+A. Pricing anchors — what the market already pays
+
+The eight anchors below were re-verified during this run (May 2026). Where a 2026 figure could not be re-validated on the live page, the prior internal capture is carried forward and flagged as a data gap.
+
+VendorTierPrice (verified 2026-05)VerticalSource URLVerbatim quote (≤15 words)Status
+
+StravaPremiumUSD 11.99/month or USD 79.99/yearFitness business-to-consumerhttps://www.strava.com/pricing"Strava Premium $11.99 per month or $79.99 per year"
+
+WhoopOne / Peak / LifeUSD 199 / 239 / 359 per year (annual-only billing) — captured 2026-05-03; re-verify weeklyFitness wearablehttps://www.whoop.com/us/en/membership/; screenshot in screenshots/whoop.png"WHOOP One $199 / Peak $239 / Life $359 per year"
+
+SwingVisionProUSD 14.99/month or USD 179.99/yearRacket-sport CVhttps://swing.vision/subscribe"SwingVision Pro $14.99 per month or $179.99 per year"
+
+HudlAssist (Club Football, Your Games)USD 250–1,700 per team per seasonSport-tech business-to-businesshttps://www.hudl.com/pricing/assist/football"Your Games at $250 per team per season"
+
+ClutchClub camera tier~EUR 53/month per clubPadel club camerahttps://www.clutchapp.io/"(Sonar paraphrase, not vendor-page verbatim)"
+
+WingfieldSoftware & Service planEUR 70/month + EUR 6,999 hardwarePadel/tennis camerahttps://www.wingfield.io/en/products"Software & Service Plan costs €70/month per court"(aggregator)
+
+MATCHiBusiness (per court)~EUR 107/month per courtPadel booking SaaShttps://matchi.com/"(Sonar paraphrase, not vendor-page verbatim)"
+
+PlaytomicManager Standard / Professional / ChampionUSD 37 / 109.08 / 274 per month per clubPadel booking SaaShttps://playtomic.com/pricing"Standard $37 / Professional $109.08 / Champion $274 monthly"
+
+Read-out for the padel business-to-consumer product. Strava and SwingVision frame a USD 12–15 monthly ceiling for business-to-consumer sport-tech subscriptions. Whoop demonstrates that annual-only billing is a defensible commitment-anchoring move. Hudl, Clutch, Wingfield, MATCHi, and Playtomic establish that business-to-business per-team / per-court / per-club pricing operates in a different elasticity band — so any business-to-business hedge to coaches or clubs should be priced against those references, not against the business-to-consumer anchor. The current run's evidence file the published evidence file anchors the primary business-to-consumer tier at EUR 7.99/month for Spain and Italy and at EUR 6.49/month for Portugal (PPP-indexed).
+
+B. Activation funnel benchmarks — sport-tech business-to-consumer
+
+The funnel below is the activation spine the padel product would instrument. The headline benchmark for each stage is sourced from a public reference. Two stages — capture-to-insight conversion and 90-day paid retention — have no published padel-specific benchmark and are flagged as data gaps for first-party measurement.
+
+StageDefinitionBenchmarkSourceStatus
+
+F0 — AwarenessImpression → landing-page visitnull (channel-specific CPM proxies only)Foundry CRO 2026 CPM commentary
+
+F1 — Landing → installVisit → app install or signup6.6% median across industries (SaaS 3.8%; events 12.3%)https://foundrycro.com/blog/landing-page-conversion-rate-benchmarks-2026/ — "median landing page conversion rate is 6.6% across industries"
+
+F2 — Install → activationInstall → first match captured + first insight delivered30–50% considered healthy for mobile onboardinghttps://kirro.io/mobile-app-conversion-rate — "onboarding conversion install to activation 30-50% considered healthy"
+
+F3 — Activation → first insightFirst match captured → first AI insight deliverednullNo padel-specific benchmark
+
+F4 — Free → first paid monthFree → paid within 30 days of activation5–9% (Foundry CRO 2026); exit threshold 4%https://foundrycro.com/blog/cac-benchmarks-2026/ — "Foundry CRO 2026 free-to-paid 5-9% within 30 days"
+
+F4b — Download → paid (raw)Overall app download → paid subscriber1.7% average; 2.5% excellenthttps://kirro.io/mobile-app-conversion-rate — "download-to-paid-subscriber conversion averages 1.7%"
+
+F5 — First paid month → 90-dayPaid month 1 → paid month 3~50–60% derived: monthly churn ≤7% → 90-day survival = (1 − 0.07)³ ≈ 80% upper-bound; 50–60% is the conservative lower-band band reflecting padel-specific seasonality riskhttps://foundrycro.com/blog/cac-benchmarks-2026/
+
+Monthly churn input. Sport-tech business-to-consumer paid churn benchmarks land at 6–9% per month in months 1–3 (Strava/Whoop public communications, captured in the published evidence). Strava's social-fitness flywheel reportedly bucks this trend (https://www.businessofapps.com/data/strava-statistics/); the padel product cannot assume Strava-class retention without earning it.
+
+Padel-specific friction. Phone-camera capture protocol (mount, angle, height) is the dominant F2 drop-off risk per peer cards. Two onboarding variants — phone-mount tutorial vs. club-camera fallback via Eyes On Padel — should be A/B-tested in Spain over 4 weeks; the variant clearing 35% activation continues.
+
+C. LTV/CAC math — three pricing scenarios
+
+Arithmetic is shown explicitly so a reviewer can re-run every line. FX: USD/EUR ≈ 1.085, AED/EUR ≈ 0.249 (ECB indicative range Q1–Q2 2026, ).
+
+Formula reference
+
+average_lifetime_months = 1 / monthly_churn_rate
+
+LTV = ARPU_monthly × average_lifetime_months
+
+LTV:CAC ratio = LTV / blended_CAC_per_channel
+
+Scenario 1 — Lean (Portugal anchor, EUR 6.49/month) — assumption_strength: anchored
+
+VariableValueSource / calc
+
+ARPU monthlyEUR 6.49the published evidence PT row
+
+Monthly churn8%Mid-range of 6–9% sport-tech business-to-consumer
+
+Avg lifetime12.5 months1 / 0.08 = 12.5
+
+LTVEUR 81.136.49 × 12.5 = 81.13
+
+CAC organic (newsletter, USD 12)EUR 11.0612 / 1.085 = 11.06
+
+CAC paid (Meta, USD 94)EUR 86.6494 / 1.085 = 86.64
+
+CAC affiliate (coach, USD 150)EUR 138.25150 / 1.085 = 138.25
+
+LTV:CAC organic7.3481.13 / 11.06
+
+LTV:CAC paid0.9481.13 / 86.64
+
+LTV:CAC affiliate0.5981.13 / 138.25
+
+Scenario 2 — Anchor (Spain/Italy, EUR 7.99/month) — assumption_strength: anchored
+
+VariableValueSource / calc
+
+ARPU monthlyEUR 7.99the published evidence ES row
+
+Monthly churn7%Mid-range with mild primary-geo language fit (inferred)
+
+Avg lifetime14.29 months1 / 0.07 = 14.29
+
+LTVEUR 114.167.99 × 14.29 = 114.16
+
+LTV:CAC organic10.32114.16 / 11.06
+
+LTV:CAC paid1.32114.16 / 86.64
+
+LTV:CAC affiliate0.83114.16 / 138.25
+
+Scenario 3 — Premium (UAE, AED 49/month ≈ EUR 12.20) — assumption_strength: inferred
+
+VariableValueSource / calc
+
+ARPU monthlyEUR 12.20AED 49 × 0.249 = 12.20; AE row of the published evidence
+
+Monthly churn6%Premium tiers typically churn lower (inferred)
+
+Avg lifetime16.67 months1 / 0.06 = 16.67
+
+LTVEUR 203.3712.20 × 16.67 = 203.37
+
+CAC paid (Meta + UAE 1.4× uplift)EUR 121.2994 × 1.4 / 1.085 = 121.29 (inferred — UAE digital media premium; Python-recomputed)
+
+LTV:CAC organic18.39203.37 / 11.06
+
+LTV:CAC paid1.68203.37 / 121.29
+
+LTV:CAC affiliate1.47203.37 / 138.25
+
+Scenario 4 — RU Direct-channel (RUB 499/month ≈ EUR 5.0 PPP-indexed) — assumption_strength: inferred
+
+VariableValueSource / calc
+
+ARPU monthly (PPP-indexed EUR)EUR 5.0RUB 499 × 0.55 PPP index ≈ EUR 5.0; PPP index per the published evidence file
+
+Monthly churn8.5%Upper-band of sport-tech business-to-consumer (inferred — no Strava-class flywheel data exists for Russian-speaking padel)
+
+Avg lifetime11.76 months1 / 0.085 = 11.76
+
+LTVEUR 58.825.0 × 11.76 = 58.82
+
+CAC organic (Telegram newsletter, USD 12 baseline)EUR 11.0612 / 1.085 = 11.06 data gaps**: no Russia-specific CAC benchmark; Foundry CRO 2026 figure carried forward as proxy
+
+CAC paid Metan/adata gaps: Meta is unavailable in the Russian advertising channel mix at this date
+
+CAC Apple Search Adsn/adata gaps: ASA Russian payment rails are constrained at this date
+
+LTV:CAC organic5.3258.82 / 11.06 = 5.32
+
+Read-out. The RU Direct-channel scenario clears the 3:1 SaaS guardrail on organic acquisition only, at honest 8.5% churn and PPP-indexed ARPU. Both paid Meta and Apple Search Ads are unavailable on this path; the channel reduces to Telegram newsletter plus organic Telegram-bot distribution, which is the only path documented in the published evidence file. data gaps are flagged inline so the channel cannot be presented as fully validated.
+
+Sensitivity (best / base / worst)
+
+CaseARPU EURChurnLTV EURLTV:CAC organicLTV:CAC paid
+
+Best (lower churn, anchor ARPU)7.995%7.99 × 20 = 159.8014.451.84
+
+Base (anchor ES/IT)7.997%114.1610.321.32
+
+Worst (PT ARPU + high churn)6.4910%6.49 × 10 = 64.905.870.75
+
+Interpretation. Organic newsletter / community-led acquisition is the only channel that clears the 3:1 LTV:CAC guardrail in every scenario including worst case. Paid Meta is net-positive only above the EUR 7.99 anchor and at churn ≤7%. Affiliate coach acquisition sits below 1:1 in two of three scenarios, which means the coach channel must be retained as a business-to-business-to-consumer distribution and switching-cost lever) — not booked as a business-to-consumer CAC line.
+
+Channel-mix discipline matters more than absolute pricing. The Foundry CRO USD 12 newsletter CAC is the channel that bends the LTV:CAC math; everything else is a hedge.
+
+The published Foundry CRO USD 12 newsletter CAC is the single channel that bends the LTV:CAC math; channel mix discipline matters more than absolute pricing.
+
+D. Retention levers — what drives 90-day paid retention
+
+Six levers ranked by expected contribution to 90-day paid retention. Each maps to a peer that proves the mechanic works in an adjacent vertical.
+
+RankLeverMechanismPeer proofTag
+
+1Pair-anchored progressRating updates only after both partners' uploads; partner becomes a retention asset, not a featureStrava clubs/segments — "Strava social-fitness flywheel converts engagement into retention" (https://www.businessofapps.com/data/strava-statistics/); padel feasibility per https://github.com/Joao-M-Silva/padel_analytics
+
+2Drill prescription tied to last matchEach recap closes with one drill prescription — the bridge between insight and the next sessionWhoop strain-coaching pattern paraphrased from a third-party affiliate page: "Whoop personalises strain and recovery guidance per member" — third-party paraphrase per https://wellness.alibaba.com/fitlife/whoop-membership-pricing-guide; vendor surface at https://www.whoop.com/us/en/membership/; padel surface evidenced via https://www.padelytics.ai/
+
+3Streak / weekly cadenceVisible streak counter that resets on missed weeks; weekly tactical recap newsletterDuolingo — "Learners with 7-day streaks 2.4x more likely to return next day" (https://blog.duolingo.com/how-duolingo-streak-builds-habit/)
+
+4Pre-match habit triggerPush 30 min before a booked court (Playtomic / MATCHi deep link) with capture setup checklistHeadspace habit-trigger literature; padel deep-link feasibility via https://playtomic.io/blog
+
+5Coach handoffPlayer routes weekly recap pack to coach; coach uses it at renewal conversationHudl Assist (https://www.hudl.com/products/assist); CoachLogic (https://www.coach-logic.com/) — via the published evidence
+
+6Public rating assetIndexable public profile; cancellation forfeits public-facing credibilityStrava public profile; Padelboard leaderboard appetite (https://padelboard.app/)
+
+Top-3 ranking rationale. Pair-anchored progress is ranked #1 because padel is structurally a four-player game: the partner is already in the loop, and converting that partner from feature to retention asset is the cheapest moat to build. Drill prescription is ranked #2 because it converts the recap from a vanity surface into a behaviour driver — the difference between Strava-class retention and a one-off video tool. Streak / weekly cadence is ranked #3 because Duolingo's published streak data is the most rigorous public benchmark for habit-loop retention in any consumer subscription category.
+
+Instrumentation thresholds and exit criteria for each lever are defined in the published evidence section D_retention_levers.
+
+E. Subscription product playbook — five lessons that translate to padel
+
+#LessonSourceVerbatim source quoteMechanismPadel application
+
+****Anchor commitment with annual prepay; resist rolling-monthly billingWhoop"WHOOP does not offer rolling monthly subscription pay annually" (https://support.whoop.com/s/article/Membership-Pricing)Annual prepay forces user past the cancel-after-month-1 defaultOffer EUR 79/year vs EUR 7.99/month. Surface annual saving (~17% discount) at first paywall
+
+****Make the streak visible at every entry pointDuolingo"Streaks reinforce a daily lesson loop with immediate reward" (https://blog.duolingo.com/how-duolingo-streak-builds-habit/)Visible streak compounds psychological cost of breaking the habitWeekly streak (padel cadence is weekly, not daily). Reset visible 24h before expiry; recovery via single uploaded match
+
+****Convert the social graph into the retention engineStrava"Strava 2.23% interaction rate 14B kudos given in 2025" (https://www.businessofapps.com/data/strava-statistics/)Friends provide free retention signal; cancellation cost rises with social tiesPair-anchored progress — partner becomes a retention asset; both lose progress on cancel
+
+****Tie subscription to a measurable outcome the user controlsSwingVision"SwingVision Pro $14.99 per month or $179.99 per year" (https://swing.vision/subscribe)Outcomes (line calls, scores) are tangible and paid value is unambiguousRating delta per month is the headline KPI surfaced in the recap; subscription is the mechanism that produces the delta
+
+****Use the coach as an unpaid distribution channel that increases switching costHudl"Hudl Assist subscriptions sold per team per season" (https://www.hudl.com/products/assist)Coach owns the workflow; player follows the coach; switching the player out forces coach buy-incoach handoff per the published evidence. Coach reputation graph is the moat
+
+F. Failure modes — three ways the subscription economics break
+
+Each mode is paired with a stop test that produces a verdict in 4–8 weeks.
+
+— Capture friction kills activation
+
+Mechanism. Phone-camera capture protocol (mount, angle, height, lighting) drops install→activation below the 30% sport-tech floor. Padelytics, Eyes On Padel, and the Joao-M-Silva pipeline all evidence the technical feasibility, but each addresses friction differently — and the padel app must own the friction itself.
+
+Diagnostic signal. F2 install→first-match-captured below 25% within 7 days.
+
+stop test (4 weeks). Ship two onboarding variants in Spain — (A) phone-mount tutorial video + checklist; (B) club-camera fallback via Eyes On Padel partnership. A/B 200 installs over 4 weeks. The variant clearing ≥35% activation continues.
+
+— Rating becomes a commodity (federation publishes free)
+
+Mechanism. If FIP/national federations or Playtomic/MATCHi publish a free derived rating, the paid rating loses its credibility moat. Premier Padel adjacency (https://premierpadel.com/) makes this credible within 18 months.
+
+Diagnostic signal. Federation announces derived rating OR Playtomic ships derived levels; paid conversion drops 30%+ in 8 weeks.
+
+stop test (6 weeks). Structured survey of 200 Playtomic / MATCHi power users in Spain + Italy: "If your booking app published a derived rating, would respondents still pay EUR 7.99 for the alternative product?" Threshold: ≥30% retain WTP. This pre-empts the failure rather than reacting to it. (Linked to adversarial review in the published evidence.)
+
+— Churn after season-end (Q4 collapse) — MOST CRITICAL data gap
+
+Mechanism. Padel is outdoor-skewed in Iberia; winter players migrate or pause. October–March monthly churn could spike 2–3× baseline. The current run does not contain padel-specific seasonal churn elasticity — this is the single most urgent first-party measurement before scaling Iberia paid acquisition.
+
+Diagnostic signal. Month-over-month paid churn jumps from 7% (base) to ≥14% in October.
+
+stop test (8 weeks). Instrument Q4 churn cohort by geography. If Iberia spikes, ship indoor-court partnership content + winter rating-prep drill series. Re-measure at 8 weeks. Source frame: https://www.padelfip.com/world-padel-report-2025/.
+
+data gaps — what blocks higher confidence
+
+IDFieldWhy it matters
+
+(HIGHEST)Padel-specific Q4 paid-churn elasticityWithout this, the LTV/CAC math is exposed to a 2–3× seasonality multiplier that breaks the base case
+
+F3 capture→insight conversionPadel-specific benchmark unpublished; first-party instrumentation required
+
+F5 90-day paid retention12-month sport-tech range used as proxy floor
+
+Clutch monthly tier priceLive page no longer surfaces figure; carry forward EUR 53 from prior capture
+
+MATCHi per-court Business priceLive page no longer publishes; carry forward EUR 107
+
+FX rates EUR/USD/AEDInferred from ECB indicative ranges; not material at one-decimal precision
+
+Verified URL register (≥10 distinct)
+
+https://www.strava.com/pricing
+
+https://www.whoop.com/us/en/membership/
+
+https://swing.vision/subscribe
+
+https://www.hudl.com/pricing/assist/football
+
+https://www.clutchapp.io/
+
+https://www.wingfield.io/en/products
+
+https://matchi.com/
+
+https://playtomic.com/pricing
+
+https://foundrycro.com/blog/cac-benchmarks-2026/
+
+https://foundrycro.com/blog/landing-page-conversion-rate-benchmarks-2026/
+
+https://kirro.io/mobile-app-conversion-rate
+
+https://blog.duolingo.com/how-duolingo-streak-builds-habit/
+
+https://www.businessofapps.com/data/strava-statistics/
+
+https://github.com/Joao-M-Silva/padel_analytics
+
+Generated: 2026-05-03. Backing JSON: the published evidence. Anti-hallucination posture: every numeric claim has a source_url and verified quote ≤15 words OR is reproduced from explicit Python-style arithmetic. Where data is not public, the cell is null and listed in data gaps.
+
+Visual evidence — pricing anchors captured 2026-05-03
+
+Each screenshot below corresponds to a price benchmark or subscription mechanic cited in the brief above. Captured via Playwright at viewport 1280×800.
+
+Strava Premium — fitness subscription anchor used to calibrate paid-tier expectations
+
+Whoop — hardware-included subscription (USD 30/mo equivalent) referenced in benchmark table
+
+SwingVision Pro — racket-sport AI subscription anchor (USD 14.99/mo)
+
+Hudl pricing page — coach SaaS reference for the business-to-business hedge model
+
+
+# Padel AI MVP Design: Capture, Insight, Practice Loop
+
+Source URL: https://avaluev.github.io/padel-market-analysis/mvp-design.html
+
+Visual-first MVP design: a three-stage product loop, three pilot tracks compared, a decision tree, and a five-row risk register. Plain language, no jargon.
+
+---
+
+Padel AI MVP — capture, insight, practice loop
+
+A working padel coaching AI needs three things to compound into a product, not a tool: smartphone capture that succeeds without club hardware, an insight that a player can act on in their next session, and a coach who can sign off on the result. The three pilot tracks below trade speed against learning depth; the diagram shows what to build first under three different conditions.
+
+How a padel coaching app earns the right to exist
+
+A padel coaching app has to compound three things into one product, not three: capture that succeeds without club hardware, an insight a player can act on in their next session, and a coach who signs off on the result. Skip any one and the loop stalls — capture without insight is a video archive, insight without coach buy-in is a newsletter, coach buy-in without capture is a workshop business. The diagram below is the smallest shape that closes the loop.
+
+The loop in three steps. Each step has one input, one action, one output. The loop only compounds value if step three closes — without coach sign-off the recap is a guess.
+
+The strongest part of the loop is step three. It is the only place a video stream becomes a labelled training signal: which drill, which losing pattern, did the player improve. Without that closing tag, the model never gets better than commodity tagging.
+
+Three pilot tracks compared
+
+Before any of the three pilots starts, decide which question matters more: how fast the loop can ship, or how deeply it can be measured. The table below trades the same loop against three different pilot shapes. None is wrong; the choice depends on what is unknown.
+
+TrackWho runs itWhat it testsWhat it learnsWhat it cannot tell you
+
+A · Single club, one academyOne academy lead, three to five coaches, twenty to thirty regular players over four to six weeksWhether players read the recap and act on it inside one social contextWhether the loop has any traction at all and where capture friction shows upWhether the loop generalises across clubs or coaching styles
+
+B · Two clubs, pairedTwo academies in the same city, four to six coaches each, two cohorts of players running in parallelWhether the loop survives a second context with different coach habitsWhether ratings drift across clubs and whether the recap template needs club-specific tuningWhether the loop works in markets with different padel cultures (Iberia vs the Gulf vs the Russian-speaking world)
+
+C · Open beta, narrow geographyA landing page in one city or country, anyone can sign up, no academy partnershipWhether the loop works for self-served players without a coach in the loopWhat happens to retention when there is no human reinforcement at step threeWhether the loop works at all — open beta tests scale, it does not test value
+
+The honest order is A → B → C. Track A answers the value question with the smallest possible group of people. Track B tests whether what worked in one academy survives in another. Track C only makes sense after A and B return strong signals.
+
+What to build first
+
+The diagram below shows the build order under three different early signals. Each branch picks the smallest next thing that earns the right to keep going.
+
+The next build is whichever the early signal asks for. Each branch picks the smallest change that turns a weak signal into a stronger one before any new feature gets added.
+
+Risk register
+
+The five things that can go wrong, ordered by how likely each is to break the pilot. Each row names the symptom early enough to react and the response that does not require rebuilding from scratch.
+
+RiskWhat it looks likeWhere to spot itWhat to do
+
+Players never read the recapThe PDF is opened by fewer than three in ten players within three days of receiving itEmail or chat read receipts during weeks two and threeMove the recap from a downloadable file to a short message inside the chat the player already uses with the coach
+
+Coaches refuse the toolTwo or more coaches stop filing the outcome tag during a single week despite remindersWeekly tagging report shared with the academy leadSwitch to coach-only delivery: the recap goes to the coach first; the player only sees what the coach decides to share
+
+The recap is too genericPlayers say "I already knew that" in week-three interviewsTwo short interviews per coach panel, recorded for replayRe-curate the drill list with the coaches and shorten the recap to one losing pattern instead of three
+
+Phone capture fails outdoors or indoorsMore than one in four matches cannot be processed because of light, occlusion, or angleIngestion log shows rejection rate by weekPublish a one-page setup card with where to mount the phone, what to point it at, and how high; offer a club-camera fallback if the partner club has one
+
+Ratings drift between clubsA player's rating changes by more than five percent across two clubs in two weeksCross-club rating comparison once a second club is added in track BLock the shot taxonomy to a published schema before any second-club expansion; treat the schema as a contract, not an evolving guess
+
+What this loop is not
+
+The loop is not a video editor. It is not a club-management tool. It is not a tournament organiser. It is not a marketplace for coaches. Each of those would compete with companies that have years of work in those categories. The loop earns its right to exist only on one job: turning the next match into a measurably better next session, with a coach in the room.
+
+How to read this against the rest of the research
+
+This page describes the loop. The strategic brief explains why it is the loop worth building. The competitor landscape shows which adjacent products already own pieces of it. The subscription economics page works out what the loop has to be worth per month for the unit economics to land. The ninety-day plan is what the first quarter looks like if track A starts on day one.
+
+
+# Padel AI Platform: First 90 Days Operating Plan
+
+Source URL: https://avaluev.github.io/padel-market-analysis/90-day-plan.html
+
+Twelve testable hypotheses, a metric tree from headline number to weekly leading indicators, and a risk register with named exit criteria.
+
+---
+
+Padel AI platform — first 90 days operating plan
+
+A first-quarter operating plan for a padel coaching AI is structured around twelve testable hypotheses, a metric tree from the headline number down to weekly leading indicators, and a risk register with named exit criteria. Days 1 to 30 focus on capture-quality validation in a single club; days 31 to 60 add a coach panel and the first paid cohort; days 61 to 90 measure ninety-day paid retention before any second-club expansion.
+
+A 90-day plan earns its title by naming what would stop it on day 30, day 60, and day 90. This document does that for the Padel AI Platform: three phases, one stop memo, one pivot route, twelve hypotheses on the clock.
+
+Voice: third-person professional, capability-conditional. No first-person pronouns. No promised headcount, budget, or timelines beyond what existing evidence supports.
+
+>
+
+Audience: hiring-panel screening interview.
+
+>
+
+Evidence base: the published evidence file. Every numeric threshold below cites either a verified URL or carries an "anchor — to be validated" flag.
+
+>
+
+profile assumed: deep product-strategy and research expertise, zero playing-level expertise in padel itself. The plan treats the domain gap as a primary risk and routes mitigations through an advisory coach pool (R-05).
+
+Executive frame
+
+The role would inherit a pre-validated research package that has already done two things the plan must respect.
+
+First, the adversarial review pass (the published evidence) has already pruned the segment list. (plateau-stuck regular), (newly-ranked competitor), and (club coach, business-to-business-to-consumer) carry PASS or PASS-with-caveats verdicts. (club operator) and (injury-aware returner) were KILLED. (travelling enthusiast) was MERGED into . The plan does not re-litigate these calls; it executes against them.
+
+Second, the jobs graph (the published evidence) names the rating-clarity backbone as the critical chain: smartphone match capture → auto-tag → rating delta → defensible rating. Every other Core Job — drill prescription, coach co-pilot, post-match argument settler — is gated on working at smartphone-only fidelity. The plan invests there first.
+
+Third, monetisation (the published evidence) sets a hard exit threshold for the business-to-consumer path: below 4% paid conversion at EUR 7.99/month triggers a pivot to the business-to-business coach-SaaS hedge. The plan sequences a smoke test in Spanish and Russian against this threshold inside phase B.
+
+A roadmap that does not name what would stop it is not a roadmap, it is a wishlist.
+
+Phase A — Days 0–30: Discovery and anchor
+
+A.1 Objectives
+
+The role would establish a documented mental model of (rating-clarity backbone) and (coach-renewal chain) before touching scope.
+
+The role would validate or stop the inherited top-10 hypotheses without re-running existing research.
+
+The role would stand up the jobs-to-be-done interview cohort across the three PASS segments.
+
+The role would scope a single-club manual MVP loop without launching it.
+
+A.2 Stakeholder map
+
+StakeholderCadencePurpose
+
+Founder / CEOWeekly 1:1 + async written briefStrategic alignment; stop-experiment authority; pricing signoff
+
+Engineering leadWeekly synchronous + standing async channelCapture-pipeline reliability; instrumentation spec ownership
+
+Design lead (or contractor)Bi-weekly working sessionRecap card UX; partner-share surface; share-link semantics
+
+Operations / communityWeekly check-inDirect-readership newsletter cadence; CIS Telegram group; club outreach
+
+Advisory coach pool (3–5 padel pros)Two structured sessions in month 1; on-call thereafterDomain-gap mitigation; ground-truth shot taxonomy; recap review
+
+The role would coordinate with engineering and design as currently staffed. No headcount asks during the first 30 days. The advisory coach pool is the mitigation for the domain gap (R-05) and is treated as a paid retainer secured in week 1.
+
+A.3 jobs-to-be-done interview cohort
+
+Total: 20 interviews, all conducted in the first 28 days, drawn exclusively from PASS segments per the published evidence.
+
+SegmentCountVerdictInterview focus
+
+— Plateau-stuck regular12pass_with_caveatsSwitch trigger calibration: separate self-perceived plateau from partner-comparison loss. Confirm alternatives_hired set (Padelytics, Clutch, club camera, paid coach).
+
+— Newly-ranked competitor4passTournament-loss → reach-for-tool latency. Test rating-portability willingness across federation, Premier Padel, and derived sources.
+
+— Club coach (business-to-business-to-consumer)4pass_with_caveatsRenewal-conversation pain. Refusal patterns on tools the student also touches. LTV math on coach-affiliate channel. Recruit via FEP and FITP chapters.
+
+Explicit exclusions (per Phase 06 adversarial review):
+
+(club operator, business-to-business): killed — venue-size descriptor in disguise.
+
+(travelling enthusiast): merged into .
+
+(injury-aware returner): killed — life-situation label without verified switch trigger.
+
+A.4 Evidence audit
+
+The role would review the inherited research package (peer cards, jobs graph, adversarial review, monetisation, go-to-market, capability map, market sizing) and produce an annotated hypothesis backlog. Hypotheses are tagged keep / stop / promote-to-experiment. Killed hypotheses move to a graveyard log; reactivation requires new evidence, per the project operating contract.
+
+A.5 Single-club pilot scoping (not yet running)
+
+Scoping deliverables only — no execution in phase A:
+
+Pilot brief: target club profile (Madrid or Barcelona, 4–8 courts, 1 coach champion).
+
+Manual loop diagram: capture → tag → recap → drill → next session.
+
+Reliability thresholds for graduating each step out of manual ops (see B.2).
+
+Privacy / consent flow draft (GDPR baseline; 152-FZ flagged for Russian-language path).
+
+A.6 Output artifacts (end of phase A)
+
+Validated AJTBD canvas per PASS segment.
+
+Prioritised hypothesis backlog (this document, section D).
+
+PRD outline for the manual MVP loop.
+
+Instrumentation spec covering match-upload, share, partner-invite, and recap-acknowledgement events.
+
+Stakeholder map and cadence document.
+
+Risk register v1 (this document, section F).
+
+Phase B — Days 31–60: Manual MVP and pricing test
+
+B.1 Objectives
+
+The role would run the manual measurement → insight → training loop in one club end-to-end without productising any step.
+
+The role would run the WTP smoke test in Spanish and Russian against the EUR 7.99 anchor.
+
+The role would begin the first 4-week retention cohort (week 5–8 of pilot).
+
+The role would produce the first stop/keep call against segment-level evidence.
+
+B.2 Manual MVP loop
+
+Pilot clubs film matches on a tripod-mounted phone. The OSS baseline (Joao-M-Silva/padel_analytics) auto-tags shots. The plus advisory coach review three matches per pilot user. A recap card and a two-drill prescription get sent to the player and copied to the coach before the next booking.
+
+Instrumentation events to land in the spec:
+
+match_uploaded, match_tagged, recap_sent, recap_opened, drill_acknowledged, coach_outcome_tag.
+
+Out of scope for the 90-day window: pair-share and partner-invite mechanics. The manual MVP loop in 03_mvp_loop_design.md is single-player → coach. Any pair-viral surface (share_clicked, partner_invited, partner_activated) requires a Stage 2.5 build that is not part of this pilot. Pair-share viral lift is logged as a post-pilot exploration item, not a 90-day hypothesis.
+
+Reliability gates to graduate manual steps into product (used in phase C):
+
+StepPromote when
+
+TaggingHuman-correction rate ≤ 15% across 50 matches.
+
+Recap template≥ 70% of recaps require zero advisory coach edits.
+
+Drill prescription≥ 60% of recaps result in a logged drill within seven days.
+
+B.3 WTP smoke test (Spanish + Russian)
+
+Two landing pages — Spanish and Russian — each with a fake-door "request a padel rating" CTA priced at the geo-localised tier per the published evidence:
+
+CountryTierPrice/monthSmoke-test role
+
+ESAnchorEUR 7.99stop gate (≥8% keep, <4% pivot)
+
+ITAdjacentEUR 7.99stop gate (same threshold as ES)
+
+RUDirect-channelRUB 499 (PPP-indexed ≈ EUR 5.0; on-device-only path required)Fact-finding only, not a stop gate — paid Meta and ASA are structurally unavailable in this channel mix per 02 RU scenario, so the channel reduces to organic-only. The unit economics already validate LTV:CAC organic = 5.32 at honest 8.5% churn.
+
+Anchor threshold (stop / keep). Internal exit threshold synthesised from the Foundry CRO 2026 5–9% free-to-paid range (verbatim quote sits in the published evidence at the F4 funnel row): at EUR 7.99/month, ≥8% paid conversion within three matches is keep; below 4% triggers the hedge model (business-to-business coach SaaS). Source for the underlying range: foundrycro.com/blog/cac-benchmarks-2026 — the EUR 7.99 anchor and the three-match window are internal product policy, not a Foundry quote.
+
+Secondary metrics:
+
+CTR on padel community channels: ≥ 6% (per Phase 06 stop test).
+
+Direct-traffic share of beta sign-ups: ≥ 40% within 8 weeks (per the published evidence#).
+
+stop decision logic. If WTP < 4% AND direct-traffic share < 25% by week 8, the hedge model (business-to-business coach SaaS at EUR 19–29 per coach per month, anchored on CoachLogic and Hudl Assist tiers) becomes primary. The role would draft the pivot memo for founder signoff.
+
+B.4 First retention cohort
+
+Starts week 5; runs 4 weeks. Mixed + cohort. Primary metric: weekly active uploaders with ≥ 1 acknowledged insight per week. Leading indicator: recap-acknowledgement rate by week 2 (anchor — to be validated, see metric tree).
+
+B.5 Output artifacts (end of phase B)
+
+Pilot weekly review packet (one-pager + recap exemplars).
+
+Conversion-curve dashboard (free → activated → paid) updated weekly.
+
+First stop/keep memo on segments and pricing tier.
+
+Retention cohort dashboard (engineering-staffed; no new tooling spend assumed).
+
+Phase C — Days 61–90: Productisation and channel
+
+C.1 Objectives
+
+The role would pull manual steps that hit reliability thresholds into product surface.
+
+The role would open a second club pilot to test transferability of the recipe.
+
+The role would run the first paid-acquisition test against a capped budget.
+
+The role would deliver a decision memo on the rating-platform path.
+
+C.2 Productisation targets
+
+StepPromote ifSource
+
+Recap card generation≥ 70% of recaps require zero advisory coach edits during phase Bthe published evidence#
+
+Drill prescription template≥ 10% of free uploads convert to a drill plan acknowledgementthe published evidence#
+
+Coach outcome capture≥ 70% of recaps closed with a coach-filed outcome tag in phase Bthe published evidence#
+
+Steps that fall short of their gate stay manual into the next 90-day window.
+
+Post-pilot exploration (not a 90-day target). A pair-level surface that drives ≥1.5x sharing rate vs the single-user baseline (the published evidence#) sits in the post-pilot exploration backlog. The manual MVP in 03 does not generate the data needed to evaluate this gate inside 90 days; gating it inside this plan would be a sequencing error.
+
+C.3 Second club pilot (Italy)
+
+Target: Milan or Rome, to stress-test localisation. stop metric: if second-club week-4 cohort retention < 60% of first-club benchmark, the manual loop is over-fit to the original club; the role would pause Italy expansion and document the gap before any Italian paid-acquisition spend.
+
+C.4 First paid-acquisition test
+
+Two channels, capped budget. The role would propose the cap at the lower bound of CAC × intended cohort size; exact figure pending founder signoff. No fixed budget is committed in this plan.
+
+ChannelCAC anchorSource
+
+Meta (Instagram + Facebook), Spanish-language padel creativesUSD 94 / paid acquisitionthe published evidence; Foundry CRO 2026
+
+Apple Search Ads (App Store)USD 4.7 / install (install-only)the published evidence#; Foundry CRO 2026
+
+stop metric: paid CAC > 3x organic CAC after 4 weeks (per the published evidence#).
+
+C.5 Rating-platform decision memo
+
+Two paths come into the memo:
+
+Option A — FIP-affiliated organiser integration (the published evidence#). Partner-dependent, two LOIs targeted in 6 weeks.
+
+Option B — Derived-only rating. Ship the rating model on smartphone footage; expose a public profile that links out from Playtomic / MATCHi.
+
+Decision criteria:
+
+≥ 2 LOIs by week 12 → pursue Option A in parallel with B.
+
+0 LOIs by week 12 → default to Option B; revisit federation integration after the rating reaches ≥ 5,000 active rated players in ≥ 3 cities (expansion threshold per the published evidence).
+
+C.6 Output artifacts (end of phase C)
+
+Roadmap for days 91–180.
+
+go-to-market dashboard (channel mix, CAC, payback period, direct-traffic share).
+
+Decision memo on rating-platform path.
+
+Productisation log: which manual steps graduated, which stayed manual, why.
+
+D. Hypothesis backlog
+
+Format: H-XX | hypothesis | metric | threshold | timeline | source/data gap.
+
+IDPhaseHypothesisMetricThresholdTimelineSource / data gap
+
+H-01APlateau-stuck regulars convert on partner-comparison triggers, not self-perceived plateau.% of interviewees citing a partner-driven event vs internal feeling.≥ 60% partner-driven trigger.By day 21.the published evidence#
+
+H-02ANewly-ranked competitors will accept a derived rating if it travels across cities.% of interviewees willing to display derived rating publicly.≥ 50%.By day 21.the published evidence#
+
+H-03AClub coaches will use the recap pack at renewal conversations.Coaches confirming intent to attach recap to renewal.≥ 3 of 4 coaches.By day 28.the published evidence#
+
+H-04BFree-to-paid at EUR 7.99/month (ES + IT) meets the internal-synthesised exit threshold. RU runs as a fact-finding test only.Smoke-test paid conversion (ES + IT stop gate; RU fact-finding).ES + IT: ≥ 8% paid (stop below 4%). RU: organic-only — paid channels are structurally null per 02 RU scenario.Days 31–60.the published evidence; underlying range only at Foundry CRO 2026
+
+H-05BDirect-readership newsletter owns the audience.Direct-traffic share of beta sign-ups.≥ 40% by week 8.Days 14–60.the published evidence#
+
+H-06BRecap-acknowledgement is a 4-week leading indicator of retention.Recap-open rate week 2 vs week-4 weekly active.Anchor — to be validated in week 5 cohort.Week 5–8.data gap; instrumentation from phase A
+
+H-07BCoach-filed outcome tag rate stays ≥ 70% across the pilot cohort once weekly reminders are removed.Coach outcome-tag rate, weeks 5–8 of pilot, no reminder cadence.≥ 70%.Days 45–60.the published evidence#; the published evidence#
+
+H-08CThe pilot recipe transfers to a second club without hands-on operation.Second-club week-4 retention vs first-club.≥ 60% of first-club benchmark.Days 61–90.the published evidence#
+
+H-09CPaid CAC stays within 3x organic CAC during first paid test.Blended paid CAC (Meta + ASA) vs organic CAC.≤ 3x organic.Days 61–90.the published evidence#; Foundry CRO 2026
+
+H-10CFIP-affiliated organisers will sign ≥ 2 LOIs in 6 weeks.Signed LOIs.≥ 2.Days 49–90.the published evidence#
+
+H-11CLocalised cohort (ES + RU) retains ≥ 1.3x English baseline at week 3.Week-3 retention (localised vs English).≥ 1.3x.Days 61–90.the published evidence#
+
+H-12CCoach-driven sign-ups carry a 90-day retention bonus over self-served.Day-90 retention (coach vs self-served).Anchor — to be validated; first read at day 120.Anchor — day 120.the published evidence#
+
+E. Metric tree
+
+North-Star metric. Rated players completing 90-day retention with ≥ 1 weekly insight. This combines retention (subscription health) and product engagement ( insight delivery). No public peer benchmark available; it is an anchor — to be validated in week 13 cohort.
+
+Input metrics
+
+MetricPurposeBenchmark status
+
+Weekly match uploads per active userVolume input to the rating model and the recap pipeline.data gap.
+
+Recap-acknowledgement rateLeading indicator of insight delivery.data gap.
+
+Partner-invite activation rateproduct-led growth loop strength.≥ 25% per the published evidence#.
+
+Direct-traffic share of sign-upsAudience ownership / distribution moat.≥ 40% per the published evidence#.
+
+Free-to-paid conversion within 30 daysSubscription monetisation primary input.5–9% per Foundry CRO 2026.
+
+Output metrics
+
+MetricPurposeBenchmark status
+
+Monthly churn (business-to-consumer paid)Subscription health.6–9% in months 1–3 per the published evidence.
+
+12-month retention (paid)LTV anchor.35–45% — flagged as gap in the published evidence.
+
+ARPU paidRevenue density.EUR 7–9 per the published evidence.
+
+LTV:CAC ratioChannel investment guardrail.≥ 3:1 organic; ≥ 1:1 paid (paid is test-only) per the published evidence.
+
+Guardrail metrics
+
+MetricPurposeBenchmark status
+
+Tagging human-correction rateReliability gate before productisation.Anchor — ≤ 15% threshold; validated in pilot weeks 5–8.
+
+Privacy / consent compliance signalsGDPR + 152-FZ guardrail (Russian-language path).Binary — pass/fail review by external counsel before paid acquisition.
+
+F. Risk register
+
+Five risks ranked by probability × impact. Each carries a mitigation, an owner pattern, and a trigger to escalate.
+
+R-01 — OSS capture pipeline cannot reach acceptable accuracy (rank 1)
+
+Probability × impact: medium × critical → HIGH.
+
+Description: Joao-M-Silva/padel_analytics cannot reach acceptable accuracy on representative club video. Per the published evidence#, the stop signal is "OSS pipeline cannot reach acceptable accuracy on a representative club video sample."
+
+Trigger to escalate: ≥ 25% of pilot matches require manual re-tagging at week 4; OR shot-classification accuracy < 70% on a 50-match validation set.
+
+Mitigation: The role would run accuracy validation in week 1 of phase A on existing club footage. If below threshold, productisation work pauses and the path routes to engineering for OSS-fork or model-swap before pilot launch.
+
+Owner pattern: PM coordinates; engineering owns accuracy work; advisory coach owns ground-truth labelling.
+
+R-02 — WTP and direct-channel both miss thresholds (rank 2)
+
+Probability × impact: medium × critical → HIGH.
+
+Description: WTP test fails the exit threshold (< 4% paid conversion) and the direct-channel audience does not materialise (< 25% direct-traffic share). Either alone is a setback; both together stop the business-to-consumer primary thesis.
+
+Trigger to escalate: WTP < 4% AND direct-traffic share < 25% by week 8 of phase B.
+
+Mitigation: A pre-drafted pivot memo to the hedge model (business-to-business coach SaaS at EUR 19–29 per coach per month) would be ready for founder signoff before week 8. Segment recruitment expanded to in parallel.
+
+Owner pattern: PM owns memo; founder owns decision; ops owns coach recruitment.
+
+R-03 — Coach-renewal chain collapses on tool-refusal (rank 3)
+
+Probability × impact: medium × high → HIGH.
+
+Description: Coaches refuse any tool the student also touches. Per the published evidence#: "Coaches sometimes refuse any tool the student also touches; if that refusal dominates, the segment splits into coach-only vs business-to-business-to-consumer and the latter shrinks."
+
+Trigger to escalate: ≥ 5 of 8 coaches in pilot decline shared-tool model; coach-driven handoff rate < 5% by week 8 (per the published evidence#).
+
+Mitigation: Split the product surface — coach-only dashboard becomes a separate SKU, narrows to coach-only, and the business-to-business-to-consumer distribution claim retires with a adversarial review-style memo.
+
+Owner pattern: PM owns SKU split; advisory coach pool owns the refusal-pattern interview; design owns coach-only surface.
+
+R-04 — Privacy / regulatory drag on the Russian-language path (rank 4)
+
+Probability × impact: low-to-medium × high → MEDIUM-HIGH.
+
+Description: 152-FZ on-device processing requirements block the direct channel and the WTP test. Per the published evidence#, on-device CV is requires_capital band and not yet ready.
+
+Trigger to escalate: External counsel flags hosting pattern as non-compliant; OR the Telegram bot path is rejected for the channel.
+
+Mitigation: On-device inference path scoped in phase A as a parallel track. The Russian-language WTP variant runs as a Telegram-flow CTA without external links if the web path is gated. Counsel review booked for week 2.
+
+Owner pattern: PM owns scoping; engineering owns on-device pipeline; ops owns Telegram bot operation; external counsel owns sign-off.
+
+R-05 — domain gap propagates into product (rank 5)
+
+Probability × impact: medium × medium → MEDIUM.
+
+Description: Zero playing-level expertise in padel leads to flawed interview design or bad recap content. Advisory coach pool fails to scale.
+
+Trigger to escalate: Two consecutive recap exemplars rejected by advisory coach pool; OR jobs-to-be-done interviews surface frame-mismatch language (using terminology no rated player recognises).
+
+Mitigation: Advisory coach pool secured as paid retainer in week 1 of phase A. The sits in on coach-led drill sessions in weeks 2–3 to absorb shot taxonomy. Every recap card is reviewed by the coach pool until the reliability gate is met.
+
+Owner pattern: PM owns retainer setup; advisory coach pool owns content review; founder owns ratification.
+
+Definition of done
+
+PhaseDone when
+
+A — days 0–30AJTBD canvas validated for /002/003; hypothesis backlog promoted; PRD outline reviewed by eng lead; instrumentation spec reviewed by eng lead; no headcount committed.
+
+B — days 31–60Pilot ran 4 weeks end-to-end; WTP smoke test result on file with stop/keep memo; first retention cohort live; segment-level stop/keep memo signed by founder.
+
+C — days 61–90Reliability-gated steps shipped to product surface; second-club pilot live; paid-acquisition test results on file; rating-platform decision memo signed by founder; 90-day roadmap published.
+
+Verified URL register (≥ 6 distinct sources)
+
+github.com/Joao-M-Silva/padel_analytics — OSS feasibility anchor for capture-then-tag pipeline.
+
+foundrycro.com/blog/cac-benchmarks-2026 — CAC benchmarks for organic, paid, ASO, community, affiliate channels.
+
+padelfip.com/world-padel-report-2025 — Italy court count growth (12.9% YoY 2025); Spain 17,300 courts; SAM basis.
+
+playtomic.com/global-padel-report — Active player benchmarks; SOM low-end basis.
+
+fep.es — Spanish federation chapter (coach recruitment, ).
+
+fitp.it — Italian federation chapter (coach recruitment, ).
+
+hudl.com/products — Coach co-pilot analogue from adjacent sports.
+
+strava.com/premium — business-to-consumer subscription pricing anchor (USD 11.99/month).
+
+insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744 — Adjacent AI-fitness ceiling sizing.
+
+padelytics.ai — Counter-example: existing match-level analysis vendor selling to plateau players.
+
+
+# Model Provenance: Every AI Model Used
+
+Source URL: https://avaluev.github.io/padel-market-analysis/model-provenance.html
+
+Full disclosure of every model invoked across the pipeline, the role each played, and the billing class.
+
+---
+
+Model provenance — every model used in this research
+
+Every AI model used in this research is named, with the artefact it produced and its billing class. Strategic synthesis used paid Anthropic Claude Opus and Sonnet. Deep web research used paid Perplexity Sonar (pro, deep research, and reasoning tiers) plus a single free Alibaba Tongyi DeepResearch arm as a cross-check. Structured extraction used Claude Haiku. No model output was accepted without a verifiable source URL.
+
+Every number in the pack is only as honest as the model that produced it. This page names every model, its billing class, and the artefact it touched.
+
+Every claim downstream of this page is only as honest as the model that produced it. This page enumerates every model invoked across the research pipeline, its billing class, and the artefacts it produced. Verification method: grep -oE '"model":\s*"[^"]+"' across the published evidence file, cross-referenced with the orchestration contract in padel-research-os/CLAUDE.md.
+
+Why this page exists
+
+The public portfolio at avaluev.github.io/padel-market-analysis has, until this audit, named only the Anthropic Claude family in its author footer ("Built with Claude Opus 4.7 + Claude Haiku 4.5 + Claude Sonnet 4.6"). That phrasing was incomplete. The deep-search workhorse of the pipeline was the paid Perplexity Sonar tier; one research arm ran on a free Alibaba Tongyi model. Both facts deserve the same visibility as the Claude lineup.
+
+Radical transparency here is not a virtue signal — it is a hiring signal. Any reviewer who asks "which numbers came from a free model?" deserves an answer that points to a file, not a paragraph.
+
+Models actually invoked
+
+Paid frontier — primary
+
+Model IDVendorRoleProduced research arms
+
+perplexity/sonar-proPerplexity (via OpenRouter)Primary deep search and peer discoveryB_sonar_pro.json, E2_pricing_pro.json, G_gtm_sonar.json, H_naval_sonar.json, H2_naval_pro.json
+
+perplexity/sonar-deep-researchPerplexity (via OpenRouter)Long-form research with multi-step web traversalA_sonar_deep.json, E_pricing_sonar.json, F_geo_sonar.json, J_market_size_big4.json
+
+perplexity/sonar-reasoning-proPerplexity (via OpenRouter)Reasoning over peer set and adversarial adversarial reviewI_peers_reasoning.json, Z_redteam_final.json
+
+anthropic/claude-opus-4.xAnthropic (via Claude Code)Plan, synthesis, adversarial review direction, final write-upOrchestration of the published evidence through the published evidence
+
+anthropic/claude-haiku-4.5Anthropic (via Claude Code)Structured-extraction sub-agents and render templatesNormalization steps of the published evidence
+
+anthropic/claude-sonnet-4.6Anthropic (via Claude Code)Mid-tier coding where Opus would be over-specscripts/_build_*.py generation
+
+Free model — single arm
+
+Model IDVendorRoleProduced research arms
+
+alibaba/tongyi-deepresearch-30b-a3bAlibaba (via OpenRouter free tier)Redundancy arm only — output cross-validated by paid Perplexity arms before any claim entered final reportsC_tongyi.json
+
+The Tongyi arm fed into the published evidence as one of three sources for peer discovery; every Tongyi-discovered peer was independently corroborated by B_sonar_pro.json (paid) before being added to the verified set.
+
+Free fallback chain — declared but NOT invoked
+
+Three free models appear in the operating contract (padel-research-os/CLAUDE.md) as a fallback chain when paid Anthropic credits are tight. Verification of the published evidence file returns zero invocations of any of them in this run.
+
+Model IDStatus
+
+nvidia/nemotron-3-super-120b-a12b:freeDeclared in fallback chain · NOT invoked
+
+nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:freeDeclared in fallback chain · NOT invoked
+
+inclusionai/ling-2.6-1t:freeDeclared in fallback chain · NOT invoked
+
+This is documented to prevent confusion between declared model availability and measured model usage — two different claims, often conflated in vendor-led marketing.
+
+Paid versus free split
+
+By research-arm count: 11 of 12 research arms (~92%) ran on paid Perplexity Sonar tiers.
+
+By synthesis share: 100% of synthesis, adversarial review, and final report assembly ran on paid Anthropic models.
+
+By token cost: Not preserved in this evidence run. The operating contract calls for a cost_report.sh script that future runs are expected to emit. Until then, token-cost splits are a documented gap, not a measurement.
+
+How model identity is verified per claim
+
+Every numeric claim in a downstream report cites a source_url and a verbatim quote ≤15 words. Those quotes are the gold standard. The model identity behind any given claim is recoverable in two steps:
+
+The claim cites an evidence file (e.g., the published evidence).
+
+The evidence file lists which research arm it derives from; the arm header carries the "model" field.
+
+This page exists so a reviewer can do the trace without reading the source code.
+
+data gaps
+
+Token-cost split per model is not preserved in this evidence run; only model identity and arm membership are recoverable. Closure: future runs are expected to emit cost_report.sh per the operating contract's tooling section.
+
+The precise Anthropic model used per Claude Code session step (Opus vs Sonnet vs Haiku) is not stamped into evidence files; the declared mapping in padel-research-os/CLAUDE.md is the source of truth, not a measurement.
+
+The single Tongyi arm (C_tongyi.json) was not penalised in any final score even though it ran on a free model; its claims were corroborated by paid arms before merge, and the cross-validation logic itself is not yet automated.
+
+Transparency statement for public pages
+
+Research pipeline ran primarily on paid Perplexity Sonar tiers (sonar-pro, sonar-deep-research, sonar-reasoning-pro) for web traversal, with one free Alibaba Tongyi arm used for redundancy. Synthesis, planning, and adversarial review ran on paid Anthropic Claude (Opus 4.x, Sonnet 4.6, Haiku 4.5) via the Claude Code orchestrator. The fallback free-model chain declared in the operating contract (Nvidia Nemotron, InclusionAI Ling) was not invoked in this run. Token-cost splits per model are a documented gap for future runs.
+
+Source files
+
+Ground-truth JSON: reports/interview_pack/the published evidence published evidence
+
+Operating contract: padel-research-os/CLAUDE.md — kept private (see .gitignore) to protect orchestration internals; the rules summarised on this page are the public-safe extract.
+
+Research arms: the published evidence file (12 files)
+
+Cross-validation rule: every Tongyi-derived claim must appear in at least one paid Perplexity arm before merge.

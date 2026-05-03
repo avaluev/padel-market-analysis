@@ -3,7 +3,9 @@
 HTML renderer. Adds a `human` layer that the template uses directly so
 no jargon, no internal IDs, and no `{{#if}}` conditionals leak through.
 """
+
 from __future__ import annotations
+
 import argparse
 import json
 import pathlib
@@ -62,9 +64,22 @@ GEO_BAND_TO_PLAIN = {
 }
 
 
-def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
-                value_mechanics, moat_audit, monetization, gtm, geo,
-                capability, canonical_brief, market_size):
+def build_human(
+    blueprint,
+    aura,
+    jobs_graph,
+    peers,
+    peer_cards,
+    red_team,
+    value_mechanics,
+    moat_audit,
+    monetization,
+    gtm,
+    geo,
+    capability,
+    canonical_brief,
+    market_size,
+):
     """Compose the plain-English template layer."""
 
     # --- 1. Executive summary --------------------------------------------------
@@ -88,14 +103,14 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
     summary_html = (
         "<strong>Lucia plays in Madrid every Tuesday.</strong> Last week her partner Marco "
         "bumped his self-declared level on "
-        "<a href=\"https://playtomic.io/blog\">Playtomic</a> by half a step. Lucia has no way "
+        '<a href="https://playtomic.io/blog">Playtomic</a> by half a step. Lucia has no way '
         "to tell whether Marco is actually better or just bolder, and her coach charges around "
         "EUR 60 for an assessment that means nothing the moment she books a court in Valencia. "
         "She wants a number that travels with her. So do roughly 35 million other padel players "
-        "across <a href=\"https://www.padelfip.com/world-padel-report-2025/\">77,300 courts</a> "
+        'across <a href="https://www.padelfip.com/world-padel-report-2025/">77,300 courts</a> '
         "worldwide (FIP World Padel Report 2025), most of whom still pick a level on "
-        "<a href=\"https://playtomic.io/blog\">Playtomic</a> or "
-        "<a href=\"https://matchi.com/\">MATCHi</a> because nothing better exists. "
+        '<a href="https://playtomic.io/blog">Playtomic</a> or '
+        '<a href="https://matchi.com/">MATCHi</a> because nothing better exists. '
         "The opportunity is a phone-recorded rating that follows the player between clubs and "
         "tournaments, and that earns its keep inside the coach's renewal conversation."
     )
@@ -105,9 +120,7 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
         "accepted without paying for a coach assessment that does not transfer."
     )
 
-    stage_kpi_summary = (
-        "Pick the audience and the bet — not the roadmap."
-    )
+    stage_kpi_summary = "Pick the audience and the bet — not the roadmap."
 
     primary_audience_kpi_summary = (
         "Tournament-loss switcher (the regular who just lost a bracket and wants a real number)."
@@ -123,46 +136,48 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
             "need": "Status — be seen at the right level",
             "trigger": "After a humiliating loss to a regular partner, the player wants a rating that the partner cannot wave away.",
             "in_product": "Match-by-match rating delta with a public profile link the player chooses to share.",
-            "retention_signal": "Repeat upload by the same player within 7 days of the first recap."
+            "retention_signal": "Repeat upload by the same player within 7 days of the first recap.",
         },
         {
             "need": "Mastery — close the gap between effort and progress",
             "trigger": "Three matches in a row lost on the same shot.",
             "in_product": "Two prioritised drills tied to the recurring losing shot, ready before the next booking.",
-            "retention_signal": "Drill plan acknowledgement followed by a rating delta improvement on that shot."
+            "retention_signal": "Drill plan acknowledgement followed by a rating delta improvement on that shot.",
         },
         {
             "need": "Belonging — keep the partnership alive",
             "trigger": "Post-match argument with the partner about what cost the third set.",
             "in_product": "Shared annotated review timeline both partners can scrub through and tag.",
-            "retention_signal": "Both accounts active in the same review within two days of upload."
+            "retention_signal": "Both accounts active in the same review within two days of upload.",
         },
         {
             "need": "Self-efficacy — feel the next session has a plan",
             "trigger": "Booking a slot for next Tuesday with no idea what to practise.",
             "in_product": "One-line plan: shot, drill, success criterion, partner role.",
-            "retention_signal": "Booking made through Playtomic / MATCHi with the plan referenced in-session notes."
+            "retention_signal": "Booking made through Playtomic / MATCHi with the plan referenced in-session notes.",
         },
         {
             "need": "Coach-led recognition (B2B2C)",
             "trigger": "A high-paying student goes quiet before renewal.",
             "in_product": "Weekly per-student progress recap the coach forwards before the renewal call.",
-            "retention_signal": "Coach sends recap to the student; student renews."
-        }
+            "retention_signal": "Coach sends recap to the student; student renews.",
+        },
     ]
 
     # --- 2. Jobs -------------------------------------------------------------
     jobs = []
     if canonical_brief and canonical_brief.get("ajtbd", {}).get("jobs"):
         for j in canonical_brief["ajtbd"]["jobs"]:
-            jobs.append({
-                "name": j.get("summary", ""),
-                "switch_trigger": j.get("switch_trigger", ""),
-                "expected_outcome": j.get("expected_outcome", ""),
-                "audience": j.get("segment_hint", ""),
-                "evidence_url": j.get("evidence_url", ""),
-                "story": _job_story(j),
-            })
+            jobs.append(
+                {
+                    "name": j.get("summary", ""),
+                    "switch_trigger": j.get("switch_trigger", ""),
+                    "expected_outcome": j.get("expected_outcome", ""),
+                    "audience": j.get("segment_hint", ""),
+                    "evidence_url": j.get("evidence_url", ""),
+                    "story": _job_story(j),
+                }
+            )
 
     # --- 3. Stage classification ---------------------------------------------
     stage = "Understanding"
@@ -185,13 +200,15 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
     audiences = []
     if canonical_brief and canonical_brief.get("segments", {}).get("rows"):
         for r in canonical_brief["segments"]["rows"]:
-            audiences.append({
-                "name": r.get("name", ""),
-                "what_they_want": r.get("core_job", ""),
-                "verdict": VERDICT_TO_PLAIN.get(r.get("verdict",""), r.get("verdict","")),
-                "verdict_class": VERDICT_TO_CSS.get(r.get("verdict",""), "inferred"),
-                "story": _audience_story(r),
-            })
+            audiences.append(
+                {
+                    "name": r.get("name", ""),
+                    "what_they_want": r.get("core_job", ""),
+                    "verdict": VERDICT_TO_PLAIN.get(r.get("verdict", ""), r.get("verdict", "")),
+                    "verdict_class": VERDICT_TO_CSS.get(r.get("verdict", ""), "inferred"),
+                    "story": _audience_story(r),
+                }
+            )
 
     # --- 5. Competitors ------------------------------------------------------
     competitors = []
@@ -210,49 +227,57 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
             "rating system authority": "Rating authority",
             "academy lms": "Academy management",
         }.get(archetype, archetype)
-        competitors.append({
-            "name": c.get("name", ""),
-            "url": c.get("url", ""),
-            "archetype_human": archetype,
-            "value_prop": c.get("value_prop", ""),
-            "pricing_model": (c.get("pricing") or {}).get("model","").replace("_"," ") or "—",
-            "pricing_anchor": (c.get("pricing") or {}).get("price_anchor","") or "—",
-            "moat_class": (c.get("moat_class") or "—").replace("_"," "),
-            "verification_status": c.get("verification_status","INFERRED"),
-            "verification_status_class": "verified" if c.get("verification_status")=="VERIFIED" else "inferred",
-        })
+        competitors.append(
+            {
+                "name": c.get("name", ""),
+                "url": c.get("url", ""),
+                "archetype_human": archetype,
+                "value_prop": c.get("value_prop", ""),
+                "pricing_model": (c.get("pricing") or {}).get("model", "").replace("_", " ") or "—",
+                "pricing_anchor": (c.get("pricing") or {}).get("price_anchor", "") or "—",
+                "moat_class": (c.get("moat_class") or "—").replace("_", " "),
+                "verification_status": c.get("verification_status", "INFERRED"),
+                "verification_status_class": "verified"
+                if c.get("verification_status") == "VERIFIED"
+                else "inferred",
+            }
+        )
 
     # --- 6. Defensibility bets (was: value mechanics + Naval audit) ----------
     bets = []
     if value_mechanics and moat_audit:
         verdict_by_name = {row["mechanic"]: row for row in moat_audit.get("audit", [])}
         for vm in value_mechanics:
-            mname = (vm.get("name","")
-                     .replace("founder-owned", "directly-reached")
-                     .replace("Founder-owned", "Directly-reached")
-                     .replace("founder ", "direct ")
-                     .replace("Founder ", "Direct "))
-            audit_row = next(
-                (v for k,v in verdict_by_name.items() if k.startswith(vm.get("mechanic_id",""))),
-                None
+            mname = (
+                vm.get("name", "")
+                .replace("founder-owned", "directly-reached")
+                .replace("Founder-owned", "Directly-reached")
+                .replace("founder ", "direct ")
+                .replace("Founder ", "Direct ")
             )
-            verdict = audit_row.get("verdict","") if audit_row else ""
+            audit_row = next(
+                (v for k, v in verdict_by_name.items() if k.startswith(vm.get("mechanic_id", ""))),
+                None,
+            )
+            verdict = audit_row.get("verdict", "") if audit_row else ""
             scores = audit_row.get("scores", {}) if audit_row else {}
-            bets.append({
-                "name": mname,
-                "moat_class_human": vm.get("moat_class","").replace("_"," "),
-                "thesis": vm.get("thesis",""),
-                "verdict_human": VERDICT_TO_PLAIN.get(verdict, verdict.title() or "Open"),
-                "verdict_class": {
-                    "lead_candidate":"verified",
-                    "supporting":"inferred",
-                    "demote":"absent",
-                    "kill":"absent"
-                }.get(verdict, "inferred"),
-                "story": _bet_story(vm, audit_row),
-                "rice_score": vm.get("rice",{}).get("score", 0),
-                "kill_experiment": (vm.get("kill_experiment") or {}).get("description",""),
-            })
+            bets.append(
+                {
+                    "name": mname,
+                    "moat_class_human": vm.get("moat_class", "").replace("_", " "),
+                    "thesis": vm.get("thesis", ""),
+                    "verdict_human": VERDICT_TO_PLAIN.get(verdict, verdict.title() or "Open"),
+                    "verdict_class": {
+                        "lead_candidate": "verified",
+                        "supporting": "inferred",
+                        "demote": "absent",
+                        "kill": "absent",
+                    }.get(verdict, "inferred"),
+                    "story": _bet_story(vm, audit_row),
+                    "rice_score": vm.get("rice", {}).get("score", 0),
+                    "kill_experiment": (vm.get("kill_experiment") or {}).get("description", ""),
+                }
+            )
 
     # --- 7. Defensibility frame (Naval gates) --------------------------------
     defensibility_rows = []
@@ -260,100 +285,119 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
         scores = row.get("scores", {})
         # Strip the leading "VM-XXX " prefix from the mechanic label so the
         # rendered table reads as plain English.
-        mechanic_label = re.sub(r"^(?:Hypothetical\s+)?VM-[A-Z0-9]+\s+", "", row.get("mechanic",""))
+        mechanic_label = re.sub(
+            r"^(?:Hypothetical\s+)?VM-[A-Z0-9]+\s+", "", row.get("mechanic", "")
+        )
         # Replace any remaining founder language inside that label.
-        mechanic_label = (mechanic_label
-                          .replace("founder-owned", "directly-reached")
-                          .replace("Founder-owned", "Directly-reached")
-                          .replace("founder ", "direct ")
-                          .replace("Founder ", "Direct "))
-        defensibility_rows.append({
-            "mechanic": mechanic_label,
-            "distribution": scores.get("distribution",0),
-            "network": scores.get("network",0),
-            "data": scores.get("data",0),
-            "hardware": scores.get("hardware",0),
-            "vertical_depth": scores.get("vertical_depth",0),
-            "verdict_human": VERDICT_TO_PLAIN.get(row.get("verdict",""), row.get("verdict","")),
-            "verdict_class": {
-                "lead_candidate":"verified",
-                "supporting":"inferred",
-                "demote":"absent",
-                "kill":"absent"
-            }.get(row.get("verdict",""), "inferred"),
-        })
+        mechanic_label = (
+            mechanic_label.replace("founder-owned", "directly-reached")
+            .replace("Founder-owned", "Directly-reached")
+            .replace("founder ", "direct ")
+            .replace("Founder ", "Direct ")
+        )
+        defensibility_rows.append(
+            {
+                "mechanic": mechanic_label,
+                "distribution": scores.get("distribution", 0),
+                "network": scores.get("network", 0),
+                "data": scores.get("data", 0),
+                "hardware": scores.get("hardware", 0),
+                "vertical_depth": scores.get("vertical_depth", 0),
+                "verdict_human": VERDICT_TO_PLAIN.get(
+                    row.get("verdict", ""), row.get("verdict", "")
+                ),
+                "verdict_class": {
+                    "lead_candidate": "verified",
+                    "supporting": "inferred",
+                    "demote": "absent",
+                    "kill": "absent",
+                }.get(row.get("verdict", ""), "inferred"),
+            }
+        )
 
     # --- 8. Pricing ----------------------------------------------------------
     pricing_rows = []
     for b in (monetization or {}).get("price_benchmarks", []):
-        pricing_rows.append({
-            "vendor": b.get("vendor",""),
-            "tier": b.get("tier") or b.get("tier_name") or "",
-            "price": b.get("price") or "",
-            "geography": b.get("geography","") or "",
-            "source_url": b.get("source_url",""),
-            "verified_quote": b.get("verified_quote",""),
-        })
+        pricing_rows.append(
+            {
+                "vendor": b.get("vendor", ""),
+                "tier": b.get("tier") or b.get("tier_name") or "",
+                "price": b.get("price") or "",
+                "geography": b.get("geography", "") or "",
+                "source_url": b.get("source_url", ""),
+                "verified_quote": b.get("verified_quote", ""),
+            }
+        )
 
     # --- 9. GTM channels -----------------------------------------------------
     gtm_channels = []
     for c in (gtm or {}).get("channels", []):
-        gtm_channels.append({
-            "rank": c.get("rank",""),
-            "name": c.get("name",""),
-            "type_human": (c.get("type") or "").title(),
-            "cac_anchor": c.get("cac_anchor",""),
-            "cac_anchor_url": c.get("cac_anchor_url",""),
-            "moat_alignment": (c.get("moat_alignment") or "").replace("_"," ").title(),
-            "story": _channel_story(c),
-        })
+        gtm_channels.append(
+            {
+                "rank": c.get("rank", ""),
+                "name": c.get("name", ""),
+                "type_human": (c.get("type") or "").title(),
+                "cac_anchor": c.get("cac_anchor", ""),
+                "cac_anchor_url": c.get("cac_anchor_url", ""),
+                "moat_alignment": (c.get("moat_alignment") or "").replace("_", " ").title(),
+                "story": _channel_story(c),
+            }
+        )
     plg_loops_human = []
     for l in (gtm or {}).get("plg_loops", []):
-        plg_loops_human.append({
-            "name": l.get("name",""),
-            "trigger": l.get("trigger",""),
-            "action": l.get("action",""),
-            "reward": l.get("reward",""),
-            "kill_threshold": l.get("kill_threshold",""),
-            "story": _plg_story(l),
-        })
+        plg_loops_human.append(
+            {
+                "name": l.get("name", ""),
+                "trigger": l.get("trigger", ""),
+                "action": l.get("action", ""),
+                "reward": l.get("reward", ""),
+                "kill_threshold": l.get("kill_threshold", ""),
+                "story": _plg_story(l),
+            }
+        )
 
     # --- 10. Geo -------------------------------------------------------------
     geo_rows = []
     for g in (geo or {}).get("geographies", []):
-        geo_rows.append({
-            "band_human": GEO_BAND_TO_PLAIN.get(g.get("band",""), g.get("band","")),
-            "country": g.get("country") or g.get("country_iso",""),
-            "court_count": g.get("court_count_total"),
-            "growth_yoy_pct": g.get("court_growth_yoy_pct"),
-            "data_year": g.get("data_year",""),
-            "rationale": g.get("rationale",""),
-            "evidence_url": g.get("evidence_url",""),
-        })
+        geo_rows.append(
+            {
+                "band_human": GEO_BAND_TO_PLAIN.get(g.get("band", ""), g.get("band", "")),
+                "country": g.get("country") or g.get("country_iso", ""),
+                "court_count": g.get("court_count_total"),
+                "growth_yoy_pct": g.get("court_growth_yoy_pct"),
+                "data_year": g.get("data_year", ""),
+                "rationale": g.get("rationale", ""),
+                "evidence_url": g.get("evidence_url", ""),
+            }
+        )
 
     # --- 11. Capability map (the section that broke) ------------------------
     capabilities_human = []
     for c in (capability or {}).get("capabilities", []):
         anchor_url = c.get("oss_anchor_url") or c.get("api_url") or ""
         anchor_label = c.get("oss_anchor") or c.get("api") or "—"
-        capabilities_human.append({
-            "capability": c.get("capability",""),
-            "band_human": BAND_TO_PLAIN.get(c.get("band",""), c.get("band","")),
-            "anchor_label": anchor_label,
-            "anchor_url": anchor_url,
-            "first_observable_output": c.get("first_observable_output",""),
-            "kill_signal": c.get("kill_signal",""),
-        })
+        capabilities_human.append(
+            {
+                "capability": c.get("capability", ""),
+                "band_human": BAND_TO_PLAIN.get(c.get("band", ""), c.get("band", "")),
+                "anchor_label": anchor_label,
+                "anchor_url": anchor_url,
+                "first_observable_output": c.get("first_observable_output", ""),
+                "kill_signal": c.get("kill_signal", ""),
+            }
+        )
 
     # --- 12. Reality-check tests (was: kill experiments) --------------------
     reality_checks = []
     for k in (blueprint or {}).get("kill_experiments", []):
-        reality_checks.append({
-            "hypothesis_human": k.get("hypothesis",""),
-            "kill_criterion_human": k.get("kill_criterion",""),
-            "evidence_required_human": k.get("evidence_required",""),
-            "story": _reality_check_story(k),
-        })
+        reality_checks.append(
+            {
+                "hypothesis_human": k.get("hypothesis", ""),
+                "kill_criterion_human": k.get("kill_criterion", ""),
+                "evidence_required_human": k.get("evidence_required", ""),
+                "story": _reality_check_story(k),
+            }
+        )
 
     # --- 13. Risks -----------------------------------------------------------
     risks = (canonical_brief or {}).get("risks", []) or []
@@ -367,8 +411,8 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
     # --- 15. TRIZ contradiction (re-narrated, no jargon) --------------------
     triz = (canonical_brief or {}).get("triz", {}) or {}
     triz_human = {
-        "contradiction": triz.get("contradiction",""),
-        "resolution": triz.get("resolution",""),
+        "contradiction": triz.get("contradiction", ""),
+        "resolution": triz.get("resolution", ""),
     }
 
     # --- 16. Differentiation table -------------------------------------------
@@ -422,197 +466,273 @@ def build_human(blueprint, aura, jobs_graph, peers, peer_cards, red_team,
 
 
 def _job_story(job: dict) -> str:
-    name = job.get("summary","").lower()
+    name = job.get("summary", "").lower()
     if "rating" in name:
-        return ("Concrete example: a Madrid regular plays the same partner every Tuesday. The "
-                "partner upgrades their self-declared level on Playtomic by half a step. The "
-                "regular wants to know whether the partner is actually that strong, or just "
-                "confident, without paying for a coach assessment that does not transfer to next "
-                "week's club.")
+        return (
+            "Concrete example: a Madrid regular plays the same partner every Tuesday. The "
+            "partner upgrades their self-declared level on Playtomic by half a step. The "
+            "regular wants to know whether the partner is actually that strong, or just "
+            "confident, without paying for a coach assessment that does not transfer to next "
+            "week's club."
+        )
     if "drills" in name:
-        return ("Concrete example: a player loses three matches in a row to the same backhand "
-                "lob over the cage. They want a 30-second recap that names the shot, the body "
-                "position, and the next two drills they should book — not a generic '20 minutes "
-                "of warm-up' suggestion.")
+        return (
+            "Concrete example: a player loses three matches in a row to the same backhand "
+            "lob over the cage. They want a 30-second recap that names the shot, the body "
+            "position, and the next two drills they should book — not a generic '20 minutes "
+            "of warm-up' suggestion."
+        )
     if "student" in name or "coach" in name:
-        return ("Concrete example: a Barcelona academy coach has 12 weekly students. One of them "
-                "is up for renewal. The coach wants a 1-page recap of that student's shot mix, "
-                "best rally and weakest pattern over the last 4 sessions — composed without "
-                "manual note-taking after each lesson.")
+        return (
+            "Concrete example: a Barcelona academy coach has 12 weekly students. One of them "
+            "is up for renewal. The coach wants a 1-page recap of that student's shot mix, "
+            "best rally and weakest pattern over the last 4 sessions — composed without "
+            "manual note-taking after each lesson."
+        )
     if "argument" in name or "settle" in name:
-        return ("Concrete example: two partners disagree about who lost the third-set tiebreak. "
-                "One thinks it was the smashes, the other thinks it was service returns. They "
-                "want a shared timeline where both can scrub through the rallies and tag what "
-                "they think mattered, before booking next Saturday.")
+        return (
+            "Concrete example: two partners disagree about who lost the third-set tiebreak. "
+            "One thinks it was the smashes, the other thinks it was service returns. They "
+            "want a shared timeline where both can scrub through the rallies and tag what "
+            "they think mattered, before booking next Saturday."
+        )
     return ""
 
 
 def _audience_story(seg: dict) -> str:
-    name = seg.get("name","").lower()
+    name = seg.get("name", "").lower()
     if "plateau" in name:
-        return ("Story: a player who books two slots a week for two years. They know they have "
-                "stopped improving. They have tried a paid coach, a generic fitness app, and "
-                "their friend's racket sensor. None of those produced a number their next "
-                "partner accepts. That is the moment they look for something new.")
+        return (
+            "Story: a player who books two slots a week for two years. They know they have "
+            "stopped improving. They have tried a paid coach, a generic fitness app, and "
+            "their friend's racket sensor. None of those produced a number their next "
+            "partner accepts. That is the moment they look for something new."
+        )
     if "newly" in name:
-        return ("Story: a player who entered their first regional tournament and lost in the "
-                "round of 32. They suspect their level is honest, but they want a public-looking "
-                "rating before they pay for the next entry fee. The moment of reaching for a tool "
-                "is the morning after the loss, not the day before the tournament.")
+        return (
+            "Story: a player who entered their first regional tournament and lost in the "
+            "round of 32. They suspect their level is honest, but they want a public-looking "
+            "rating before they pay for the next entry fee. The moment of reaching for a tool "
+            "is the morning after the loss, not the day before the tournament."
+        )
     if "coach" in name:
-        return ("Story: a working coach with 8–20 students. One paying student churns to a "
-                "competing academy because the rival coach 'showed them progress charts'. The "
-                "coach goes looking for a tool the next morning — but only if it does not "
-                "compete with their authority in front of the student.")
+        return (
+            "Story: a working coach with 8–20 students. One paying student churns to a "
+            "competing academy because the rival coach 'showed them progress charts'. The "
+            "coach goes looking for a tool the next morning — but only if it does not "
+            "compete with their authority in front of the student."
+        )
     if "operator" in name:
-        return ("Story: a club operator running 6 courts with 60% weekday occupancy. They want "
-                "to differentiate against the new club two streets away. Their default purchase "
-                "is more cameras and a booking refresh, not a coaching layer — which is why this "
-                "audience was rejected.")
+        return (
+            "Story: a club operator running 6 courts with 60% weekday occupancy. They want "
+            "to differentiate against the new club two streets away. Their default purchase "
+            "is more cameras and a booking refresh, not a coaching layer — which is why this "
+            "audience was rejected."
+        )
     if "travelling" in name:
-        return ("Story: a player who plays in Madrid and Barcelona alternating weekends. Their "
-                "Playtomic level is inconsistent across cities. They reach for a tool when an "
-                "out-of-town tournament invitation lands and the seeding system asks for a "
-                "rating they do not have.")
+        return (
+            "Story: a player who plays in Madrid and Barcelona alternating weekends. Their "
+            "Playtomic level is inconsistent across cities. They reach for a tool when an "
+            "out-of-town tournament invitation lands and the seeding system asks for a "
+            "rating they do not have."
+        )
     if "injury" in name:
-        return ("Story: a player returning from lateral epicondylitis. They want load monitoring "
-                "for racket-specific motions, not a generic Whoop strain score. Today, no padel "
-                "product collects this data longitudinally — which is why this group was treated "
-                "as a wishlist rather than a real audience.")
+        return (
+            "Story: a player returning from lateral epicondylitis. They want load monitoring "
+            "for racket-specific motions, not a generic Whoop strain score. Today, no padel "
+            "product collects this data longitudinally — which is why this group was treated "
+            "as a wishlist rather than a real audience."
+        )
     return ""
 
 
 def _bet_story(vm: dict, audit_row) -> str:
-    name = (vm.get("name","") or "").lower()
+    name = (vm.get("name", "") or "").lower()
     if "smartphone" in name and "rating" in name:
-        return ("Story: the user props a phone on the side of the court. The app ingests the "
-                "match video, segments rallies, tags shot types, and produces a rating delta. "
-                "Each match the player records improves the rating model for everyone — that is "
-                "the reason the data gate is real and not just analytics theatre.")
+        return (
+            "Story: the user props a phone on the side of the court. The app ingests the "
+            "match video, segments rallies, tags shot types, and produces a rating delta. "
+            "Each match the player records improves the rating model for everyone — that is "
+            "the reason the data gate is real and not just analytics theatre."
+        )
     if "cross-club" in name:
-        return ("Story: a regional FIP-affiliated organiser in Valencia accepts the rating spec "
-                "and uses it to seed their bracket. Once the bracket runs cleanly, removing the "
-                "integration costs the organiser hours of manual seeding work — which is why "
-                "this is a switching-cost moat, not a feature parity claim.")
+        return (
+            "Story: a regional FIP-affiliated organiser in Valencia accepts the rating spec "
+            "and uses it to seed their bracket. Once the bracket runs cleanly, removing the "
+            "integration costs the organiser hours of manual seeding work — which is why "
+            "this is a switching-cost moat, not a feature parity claim."
+        )
     if "drill" in name:
-        return ("Story: instead of a generic 'practice your backhand' tip, the player gets "
-                "'Tuesday at Club X, drill backhand-lob defence with right partner, success "
-                "criterion 7 of 10 returns inside the cage.' The drill prescription rides on top "
-                "of the rating chain — kill the rating and this drill loses its anchor.")
+        return (
+            "Story: instead of a generic 'practice your backhand' tip, the player gets "
+            "'Tuesday at Club X, drill backhand-lob defence with right partner, success "
+            "criterion 7 of 10 returns inside the cage.' The drill prescription rides on top "
+            "of the rating chain — kill the rating and this drill loses its anchor."
+        )
     if "coach" in name and "co-pilot" in name:
-        return ("Story: a coach taps four quick tags on their phone after each lesson. By Friday "
-                "the app has composed a per-student weekly recap that the coach forwards before "
-                "the renewal call. The coach does not export the tag history when they leave — "
-                "that history is the switching cost.")
+        return (
+            "Story: a coach taps four quick tags on their phone after each lesson. By Friday "
+            "the app has composed a per-student weekly recap that the coach forwards before "
+            "the renewal call. The coach does not export the tag history when they leave — "
+            "that history is the switching cost."
+        )
     if "shared" in name and "review" in name:
-        return ("Story: after the match, both partners get an annotated timeline. One tags the "
-                "third-set return, the other tags the smash that landed long. They both invite a "
-                "second pair into the same surface for next Saturday — one user becomes four.")
+        return (
+            "Story: after the match, both partners get an annotated timeline. One tags the "
+            "third-set return, the other tags the smash that landed long. They both invite a "
+            "second pair into the same surface for next Saturday — one user becomes four."
+        )
     if "newsletter" in name or "audience" in name:
-        return ("Story: a Spanish-language padel publication with weekly tactical recaps and a "
-                "Russian-language Telegram digest. Subscribers arrive direct, not from Playtomic "
-                "or Meta. If the direct-traffic share of beta sign-ups falls below 25 percent at "
-                "week 8, this is a marketing tactic and not a moat.")
+        return (
+            "Story: a Spanish-language padel publication with weekly tactical recaps and a "
+            "Russian-language Telegram digest. Subscribers arrive direct, not from Playtomic "
+            "or Meta. If the direct-traffic share of beta sign-ups falls below 25 percent at "
+            "week 8, this is a marketing tactic and not a moat."
+        )
     if "tournament" in name:
-        return ("Story: when the bracket auto-seeds against the imported rating, officials run "
-                "the day with one fewer manual step. Removing the integration means the "
-                "organiser re-learns the manual process — operational lock-in beats a feature "
-                "parity argument.")
+        return (
+            "Story: when the bracket auto-seeds against the imported rating, officials run "
+            "the day with one fewer manual step. Removing the integration means the "
+            "organiser re-learns the manual process — operational lock-in beats a feature "
+            "parity argument."
+        )
     if "local-language" in name or "language" in name:
-        return ("Story: a Spanish-only player gets a recap that uses the same vocabulary their "
-                "club coach uses. An English-first competitor cannot replicate that cadence "
-                "until they hire local writers — that hiring step is the moat, not the "
-                "translation step.")
+        return (
+            "Story: a Spanish-only player gets a recap that uses the same vocabulary their "
+            "club coach uses. An English-first competitor cannot replicate that cadence "
+            "until they hire local writers — that hiring step is the moat, not the "
+            "translation step."
+        )
     if "open-source" in name:
-        return ("Story: shipping the court-calibration step as open-source attracts CV engineers "
-                "and gives the brand a credible story. It does not protect any value alone — that "
-                "is why it was downgraded to a supporting bet.")
+        return (
+            "Story: shipping the court-calibration step as open-source attracts CV engineers "
+            "and gives the brand a credible story. It does not protect any value alone — that "
+            "is why it was downgraded to a supporting bet."
+        )
     if "on-device" in name or "privacy" in name:
-        return ("Story: matches in Russia and the EU process locally on the phone. Only the "
-                "rating delta leaves the device. Useful as a positioning lever in regulated "
-                "markets — not strong enough to be a primary moat.")
+        return (
+            "Story: matches in Russia and the EU process locally on the phone. Only the "
+            "rating delta leaves the device. Useful as a positioning lever in regulated "
+            "markets — not strong enough to be a primary moat."
+        )
     if "academy" in name or "open data" in name:
-        return ("Story: an academy adopts the tag taxonomy. Coach onboarding for new hires drops "
-                "from a week to two days. Switching to a competitor means re-training every "
-                "coach — the cost is human, not technical.")
+        return (
+            "Story: an academy adopts the tag taxonomy. Coach onboarding for new hires drops "
+            "from a week to two days. Switching to a competitor means re-training every "
+            "coach — the cost is human, not technical."
+        )
     return ""
 
 
 def _channel_story(ch: dict) -> str:
     name = (ch.get("name") or "").lower()
     if "newsletter" in name:
-        return ("Story: a weekly Spanish-language tactical recap, biweekly Russian-language "
-                "version, both with a 'match-recap' link in every issue. Direct-traffic "
-                "share is the proof that this audience is owned, not rented.")
+        return (
+            "Story: a weekly Spanish-language tactical recap, biweekly Russian-language "
+            "version, both with a 'match-recap' link in every issue. Direct-traffic "
+            "share is the proof that this audience is owned, not rented."
+        )
     if "club partnership" in name:
-        return ("Story: anchor three clubs in Madrid, Barcelona, Milan with a free pilot. "
-                "Each club's leaderboard becomes co-branded; the club imports its own audience.")
+        return (
+            "Story: anchor three clubs in Madrid, Barcelona, Milan with a free pilot. "
+            "Each club's leaderboard becomes co-branded; the club imports its own audience."
+        )
     if "tournament" in name:
-        return ("Story: sign two FIP-affiliated regional organisers to a 30-day bracket "
-                "trial. After one tournament runs cleanly, organisers commit to paid "
-                "integration.")
+        return (
+            "Story: sign two FIP-affiliated regional organisers to a 30-day bracket "
+            "trial. After one tournament runs cleanly, organisers commit to paid "
+            "integration."
+        )
     if "youtube" in name or "creator" in name:
-        return ("Story: sponsor five Spanish-language padel coaching creators with a "
-                "'match-recap' format using their subscriber footage. Each creator runs a "
-                "trackable referral code.")
+        return (
+            "Story: sponsor five Spanish-language padel coaching creators with a "
+            "'match-recap' format using their subscriber footage. Each creator runs a "
+            "trackable referral code."
+        )
     if "reddit" in name or "discord" in name or "community" in name:
-        return ("Story: pinned moderator AMA in r/padel, weekly Discord office hours with "
-                "anonymised recaps. Engaged community members convert to beta uploaders.")
+        return (
+            "Story: pinned moderator AMA in r/padel, weekly Discord office hours with "
+            "anonymised recaps. Engaged community members convert to beta uploaders."
+        )
     if "telegram" in name or "cis" in name:
-        return ("Story: a Telegram digest in Russian with a /recap command flow. Subscribers "
-                "stay on platform; the on-device pipeline keeps the data inside the user's "
-                "phone for 152-FZ compliance.")
+        return (
+            "Story: a Telegram digest in Russian with a /recap command flow. Subscribers "
+            "stay on platform; the on-device pipeline keeps the data inside the user's "
+            "phone for 152-FZ compliance."
+        )
     if "coach affiliate" in name:
-        return ("Story: 8 coaches recruited via federation chapters in Spain and Italy. Each "
-                "coach gets a per-student recap they can share before renewal calls.")
+        return (
+            "Story: 8 coaches recruited via federation chapters in Spain and Italy. Each "
+            "coach gets a per-student recap they can share before renewal calls."
+        )
     if "apple search ads" in name or "google search" in name or "paid" in name:
-        return ("Story: paid search is conversion-stage only — keywords like 'padel rating' "
-                "and 'padel coach app' get tested against organic traffic, not used as the "
-                "lead acquisition channel.")
+        return (
+            "Story: paid search is conversion-stage only — keywords like 'padel rating' "
+            "and 'padel coach app' get tested against organic traffic, not used as the "
+            "lead acquisition channel."
+        )
     return ""
 
 
 def _plg_story(loop: dict) -> str:
-    name = (loop.get("name","") or "").lower()
+    name = (loop.get("name", "") or "").lower()
     if "post-match" in name or "share" in name:
-        return ("Story: a player finishes uploading a match and gets a 30-second highlight + "
-                "insight card with both names. They share it on WhatsApp; the partner and the "
-                "two opponents see it.")
+        return (
+            "Story: a player finishes uploading a match and gets a 30-second highlight + "
+            "insight card with both names. They share it on WhatsApp; the partner and the "
+            "two opponents see it."
+        )
     if "partner" in name and "invite" in name:
-        return ("Story: 'Review with partner' button creates a shared annotation seat. One "
-                "invite turns one user into a paired account.")
+        return (
+            "Story: 'Review with partner' button creates a shared annotation seat. One "
+            "invite turns one user into a paired account."
+        )
     if "leaderboard" in name or "club discovery" in name:
-        return ("Story: a club leaderboard URL is co-branded with the club logo. Members see "
-                "the top 20 ranking and click through to claim their profile.")
+        return (
+            "Story: a club leaderboard URL is co-branded with the club logo. Members see "
+            "the top 20 ranking and click through to claim their profile."
+        )
     if "rating display" in name or "playtomic" in name or "matchi" in name:
-        return ("Story: a player elects to surface their derived rating on their booking "
-                "profile. Booking partners see it on the booking flow itself.")
+        return (
+            "Story: a player elects to surface their derived rating on their booking "
+            "profile. Booking partners see it on the booking flow itself."
+        )
     if "coach handoff" in name:
-        return ("Story: after three uploaded matches the player can grant a coach access. The "
-                "coach receives a weekly recap pack for that player and can extend invites to "
-                "other students.")
+        return (
+            "Story: after three uploaded matches the player can grant a coach access. The "
+            "coach receives a weekly recap pack for that player and can extend invites to "
+            "other students."
+        )
     return ""
 
 
 def _reality_check_story(kx: dict) -> str:
-    h = (kx.get("hypothesis","") or "").lower()
+    h = (kx.get("hypothesis", "") or "").lower()
     if "rating" in h and "smartphone" in h:
-        return ("Story: a Spanish landing page lets a beta user upload a sample match and "
-                "receive a rating. If fewer than a quarter of testers accept the result as "
-                "their public level, the rating idea was wishful thinking.")
+        return (
+            "Story: a Spanish landing page lets a beta user upload a sample match and "
+            "receive a rating. If fewer than a quarter of testers accept the result as "
+            "their public level, the rating idea was wishful thinking."
+        )
     if "coach" in h and "dashboard" in h:
-        return ("Story: 8 coaches in Spain and Italy run a one-week pilot with a per-student "
-                "dashboard. If fewer than 3 of them send a recap to a real student, the "
-                "coach co-pilot is a feature, not a workflow.")
+        return (
+            "Story: 8 coaches in Spain and Italy run a one-week pilot with a per-student "
+            "dashboard. If fewer than 3 of them send a recap to a real student, the "
+            "coach co-pilot is a feature, not a workflow."
+        )
     if "rating" in h and ("tournament" in h or "organizer" in h or "organiser" in h):
-        return ("Story: outreach to two FIP-affiliated regional organisers in Spain and Italy "
-                "for a 30-day bracket trial. If neither agrees in writing, the cross-club "
-                "moat is theatre.")
+        return (
+            "Story: outreach to two FIP-affiliated regional organisers in Spain and Italy "
+            "for a 30-day bracket trial. If neither agrees in writing, the cross-club "
+            "moat is theatre."
+        )
     if "smartphone" in h and "pipeline" in h:
-        return ("Story: clone the open-source padel CV pipeline, spend a fixed budget of 40 "
-                "person-hours integrating it on a single laptop. If the pipeline does not "
-                "work end-to-end in that window, every plan that depended on the smartphone "
-                "path needs to be re-priced against partner clubs.")
+        return (
+            "Story: clone the open-source padel CV pipeline, spend a fixed budget of 40 "
+            "person-hours integrating it on a single laptop. If the pipeline does not "
+            "work end-to-end in that window, every plan that depended on the smartphone "
+            "path needs to be re-priced against partner clubs."
+        )
     return ""
 
 
@@ -641,9 +761,20 @@ def main() -> int:
     market_size = load_json(e / "15_market_size.json")
 
     human = build_human(
-        blueprint, aura, jobs_graph, peers, peer_cards, red_team,
-        value_mechanics, moat_audit, monetization, gtm, geo, capability,
-        canonical_brief, market_size,
+        blueprint,
+        aura,
+        jobs_graph,
+        peers,
+        peer_cards,
+        red_team,
+        value_mechanics,
+        moat_audit,
+        monetization,
+        gtm,
+        geo,
+        capability,
+        canonical_brief,
+        market_size,
     )
 
     data = {

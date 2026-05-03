@@ -1,0 +1,13 @@
+# Default owner for everything in this repo.
+* @avaluev
+
+# Quality gates and pipeline scripts — owner review on every change.
+/scripts/check_quality.py            @avaluev
+/scripts/sanitise_pages.py           @avaluev
+/scripts/build_pages.mjs             @avaluev
+/scripts/build_seo_assets.py         @avaluev
+/QUALITY_BAR.md                      @avaluev
+/CLAUDE.md                           @avaluev
+
+# CI configuration — owner review.
+/.github/workflows/                  @avaluev

@@ -1,0 +1,17 @@
+{
+  "name": "Padel Coaching Tech Research",
+  "short_name": "Padel Research",
+  "description": "Evidence-graded research on padel coaching technology.",
+  "start_url": "/padel-market-analysis/",
+  "scope": "/padel-market-analysis/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0a6cf3",
+  "icons": [
+    {"src": "favicon.svg", "type": "image/svg+xml", "sizes": "any"},
+    {"src": "apple-touch-icon.png", "type": "image/png", "sizes": "180x180"}
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["research", "education", "sports"]
+}
