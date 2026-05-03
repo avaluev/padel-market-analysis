@@ -13,8 +13,13 @@ This is a soft trace: it does not validate that the number is correct,
 only that it is sourced. The Naval filter and red-team phases verify
 correctness separately.
 """
+
 from __future__ import annotations
-import argparse, json, pathlib, re, sys
+
+import argparse
+import pathlib
+import re
+import sys
 
 NUM = re.compile(r"(?<![A-Za-z])(\$?\d{1,3}(?:[.,]\d{3})+(?:\.\d+)?|\$?\d+(?:\.\d+)?%?)")
 CODE = re.compile(r"```.*?```", re.DOTALL)
@@ -27,11 +32,12 @@ HEX_COLOR = re.compile(r"#[0-9A-Fa-f]{3,8}\b")
 DATE_LIKE = re.compile(r"\b(19|20)\d{2}\b")
 
 # Skip these mundane numbers entirely.
-TRIVIAL = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-           "100", "1000", "100%"}
+TRIVIAL = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100", "1000", "100%"}
+
 
 def normalize(s: str) -> str:
     return s.replace(",", "").replace("$", "").replace("%", "").strip()
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -49,9 +55,12 @@ def main() -> int:
     sourced: set[str] = set()
     if evid.exists():
         for p in evid.rglob("*"):
-            if not p.is_file(): continue
-            if p.suffix.lower() not in {".json", ".jsonl", ".yaml", ".yml", ".md"}: continue
-            if "_cache" in p.parts: continue
+            if not p.is_file():
+                continue
+            if p.suffix.lower() not in {".json", ".jsonl", ".yaml", ".yml", ".md"}:
+                continue
+            if "_cache" in p.parts:
+                continue
             try:
                 txt = p.read_text(encoding="utf-8", errors="ignore")
             except Exception:
@@ -71,8 +80,10 @@ def main() -> int:
         for m in NUM.finditer(clean):
             raw = m.group(1)
             n = normalize(raw)
-            if n in TRIVIAL: continue
-            if DATE_LIKE.match(raw): continue
+            if n in TRIVIAL:
+                continue
+            if DATE_LIKE.match(raw):
+                continue
             if n not in sourced:
                 fail.append((str(f), raw))
 
@@ -85,6 +96,7 @@ def main() -> int:
         return 1
     print("[check_numeric_claims] clean.")
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

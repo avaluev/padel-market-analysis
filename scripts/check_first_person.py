@@ -8,8 +8,13 @@ operating policy are OUT of scope (those are instructions to the model).
 Allow-list: code blocks (text inside ``` fences) are skipped because they
 may contain quoted source material, JSON keys named "we_believe", etc.
 """
+
 from __future__ import annotations
-import argparse, pathlib, re, sys
+
+import argparse
+import pathlib
+import re
+import sys
 
 PRONOUNS = re.compile(
     r"(?<![A-Za-z'])(I|I'm|I've|I'll|I'd|we|We|we're|we've|we'll|we'd|"
@@ -22,13 +27,25 @@ INLINE_CODE = re.compile(r"`[^`\n]*`")
 HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 URL_RX = re.compile(r"https?://[A-Za-z0-9._/?=&%#:+~,@\-]+")
 HTML_TAG = re.compile(r"<[^>]+>")
-HTML_ATTR = re.compile(r"\s(href|src|alt|title|aria-[a-z]+|class|id|name|action|content|value|data-[a-z0-9_-]+)\s*=\s*\"[^\"]*\"", re.I)
+HTML_ATTR = re.compile(
+    r"\s(href|src|alt|title|aria-[a-z]+|class|id|name|action|content|value|data-[a-z0-9_-]+)\s*=\s*\"[^\"]*\"",
+    re.I,
+)
 
 # Strings that legitimately contain pronoun substrings (allow them through):
 ALLOWED_TOKENS = {
-    "API", "AI", "UI", "USP", "CI", "MVI", "MVP",  # acronyms
-    "Italy", "Iberian", "iOS",  # geos / platforms
+    "API",
+    "AI",
+    "UI",
+    "USP",
+    "CI",
+    "MVI",
+    "MVP",  # acronyms
+    "Italy",
+    "Iberian",
+    "iOS",  # geos / platforms
 }
+
 
 def strip_safe(text: str) -> str:
     text = CODE_FENCE.sub("", text)
@@ -38,7 +55,8 @@ def strip_safe(text: str) -> str:
     text = HTML_ATTR.sub(" ", text)
     return text
 
-def scan_file(path: pathlib.Path) -> list[tuple[int,str,str]]:
+
+def scan_file(path: pathlib.Path) -> list[tuple[int, str, str]]:
     hits = []
     try:
         raw = path.read_text(encoding="utf-8", errors="ignore")
@@ -53,6 +71,7 @@ def scan_file(path: pathlib.Path) -> list[tuple[int,str,str]]:
             hits.append((i, tok, line.strip()[:160]))
     return hits
 
+
 def targets_for(run_id: str) -> list[pathlib.Path]:
     roots = [
         pathlib.Path(f"reports/{run_id}"),
@@ -62,11 +81,16 @@ def targets_for(run_id: str) -> list[pathlib.Path]:
     out: list[pathlib.Path] = []
     for r in roots:
         if r.is_dir():
-            out.extend(p for p in r.rglob("*") if p.is_file()
-                       and p.suffix.lower() in {".md", ".html", ".txt", ".json", ".yaml", ".yml"})
+            out.extend(
+                p
+                for p in r.rglob("*")
+                if p.is_file()
+                and p.suffix.lower() in {".md", ".html", ".txt", ".json", ".yaml", ".yml"}
+            )
         elif r.is_file():
             out.append(r)
     return out
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -76,7 +100,9 @@ def main() -> int:
 
     files = targets_for(args.run_id)
     if not files:
-        print(f"[check_first_person] no target files yet for run {args.run_id} (ok in early phases)")
+        print(
+            f"[check_first_person] no target files yet for run {args.run_id} (ok in early phases)"
+        )
         return 0
 
     total = 0
@@ -92,6 +118,7 @@ def main() -> int:
         return 1
     print("[check_first_person] clean.")
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

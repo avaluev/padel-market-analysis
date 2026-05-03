@@ -1,0 +1,19 @@
+# Padel Coaching Tech Research
+
+> Independent, evidence-graded research on padel coaching technology — competitor landscape, subscription economics, MVP design, and operating plan. Every claim cites a verifiable source URL.
+
+Author: Alexandr Valuev. License: Apache 2.0. Repository: https://github.com/avaluev/padel-market-analysis.
+
+## Reports
+- [Padel AI Coaching Platform — Strategic Brief](https://avaluev.github.io/padel-market-analysis/padel-ai-coach-research.html): The full strategic brief: market sizing, jobs to be done, competitive landscape, defensibility analysis, go-to-market thinking, risk register, and pivot triggers. Eighteen sections, every numeric claim cited.
+- [Evidence Map — Source Trace](https://avaluev.github.io/padel-market-analysis/evidence-map.html): Source trace for the strategic brief. Every claim cross-referenced to the verbatim source quote and the URL fetched at runtime.
+- [Methodology — How This Research Was Built](https://avaluev.github.io/padel-market-analysis/methodology.html): The pipeline that produced the research: multi-agent orchestration, multi-model fan-out, evidence gates, mobile-first rendering, adversarial review.
+- [Padel Coaching Tech: Competitor Landscape](https://avaluev.github.io/padel-market-analysis/competitor-landscape.html): Independent analysis of padel coaching apps, club-management software, and racket-sport AI. Who has data moats, where the white space is, what failed and why.
+- [Padel App Subscription Economics: Pricing, Churn, LTV/CAC](https://avaluev.github.io/padel-market-analysis/subscription-economics.html): How a padel coaching subscription would price against eight verified anchors, with monthly churn, LTV/CAC by channel, and four geographic scenarios.
+- [Padel AI MVP Design: Capture, Insight, Practice Loop](https://avaluev.github.io/padel-market-analysis/mvp-design.html): Visual-first MVP design: a three-stage product loop, three pilot tracks compared, a decision tree, and a five-row risk register. Plain language, no jargon.
+- [Padel AI Platform: First 90 Days Operating Plan](https://avaluev.github.io/padel-market-analysis/90-day-plan.html): Twelve testable hypotheses, a metric tree from headline number to weekly leading indicators, and a risk register with named exit criteria.
+- [Model Provenance: Every AI Model Used](https://avaluev.github.io/padel-market-analysis/model-provenance.html): Full disclosure of every model invoked across the pipeline, the role each played, and the billing class.
+
+## Optional
+- [Site index](https://avaluev.github.io/padel-market-analysis/index.html): Landing page; the report links above are the substantive content.
+- [Full text](https://avaluev.github.io/padel-market-analysis/llms-full.txt): All page bodies concatenated for retrieval contexts.

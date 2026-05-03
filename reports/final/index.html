@@ -6,12 +6,86 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Deep Research OS — a multi-agent, multi-model research pipeline that produces an investor-grade strategic brief from a single prompt. Evidence-graded, link-verified, mobile-first.">
-<meta property="og:title" content="Deep Research OS — Padel AI Coach case study">
-<meta property="og:description" content="Multi-agent research pipeline. Every claim cites a verified URL, every number computed in a Python sandbox, every section red-teamed before merge.">
+<meta name="description" content="Independent, evidence-graded research on padel coaching technology — competitor landscape, subscription economics, MVP design, and operating plan. Every claim cites a verifiable source URL.">
+<meta name="keywords" content="padel coaching, padel AI, padel app, racket-sport AI, market research, MVP design, subscription economics">
+<meta name="author" content="Alexandr Valuev">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:type" content="website">
-<title>Deep Research OS · Padel AI Coach case study</title>
-<link rel="canonical" href="./">
+<meta property="og:title" content="Padel Coaching Tech Research — Home">
+<meta property="og:description" content="Independent, evidence-graded research on padel coaching technology. Competitor landscape, subscription economics, MVP design, and operating plan.">
+<meta property="og:url" content="https://avaluev.github.io/padel-market-analysis/">
+<meta property="og:image" content="https://avaluev.github.io/padel-market-analysis/og-default.png">
+<meta property="og:site_name" content="Padel Coaching Tech Research">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Padel Coaching Tech Research — Home">
+<meta name="twitter:description" content="Independent, evidence-graded research on padel coaching technology.">
+<meta name="twitter:image" content="https://avaluev.github.io/padel-market-analysis/og-default.png">
+<title>Padel Coaching Tech Research — Home</title>
+<link rel="canonical" href="https://avaluev.github.io/padel-market-analysis/">
+<link rel="alternate" type="application/rss+xml" title="Padel Coaching Tech Research" href="feed.xml">
+<link rel="alternate" type="text/markdown" title="LLM index" href="llms.txt">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="me" href="https://www.linkedin.com/in/valuev/">
+<link rel="me" href="https://t.me/ASNKT">
+<link rel="me" href="https://github.com/avaluev">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avaluev.github.io/padel-market-analysis/#organization",
+      "name": "Padel Coaching Tech Research",
+      "url": "https://avaluev.github.io/padel-market-analysis/",
+      "logo": "https://avaluev.github.io/padel-market-analysis/favicon.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Alexandr Valuev",
+        "url": "https://www.linkedin.com/in/valuev/"
+      },
+      "sameAs": [
+        "https://github.com/avaluev/padel-market-analysis"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avaluev.github.io/padel-market-analysis/#website",
+      "url": "https://avaluev.github.io/padel-market-analysis/",
+      "name": "Padel Coaching Tech Research",
+      "description": "Independent, evidence-graded research on padel coaching technology.",
+      "publisher": { "@id": "https://avaluev.github.io/padel-market-analysis/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.linkedin.com/in/valuev/#person",
+      "name": "Alexandr Valuev",
+      "url": "https://www.linkedin.com/in/valuev/",
+      "sameAs": [
+        "https://www.linkedin.com/in/valuev/",
+        "https://github.com/avaluev",
+        "https://t.me/ASNKT"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://avaluev.github.io/padel-market-analysis/#webpage",
+      "url": "https://avaluev.github.io/padel-market-analysis/",
+      "name": "Padel Coaching Tech Research — Home",
+      "isPartOf": { "@id": "https://avaluev.github.io/padel-market-analysis/#website" },
+      "about": { "@id": "https://avaluev.github.io/padel-market-analysis/#organization" },
+      "datePublished": "2026-05-03",
+      "dateModified": "2026-05-03",
+      "inLanguage": "en",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="topnav.css">
 <style>
   :root{
     --bg:#fff; --bg-soft:#fafafa; --bg-card:#fff; --bg-elev:#f5f7fa;
@@ -34,13 +108,14 @@
     }
   }
   *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:120px}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
   body{margin:0;background:var(--bg);color:var(--ink);
-    font:400 16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","SF Pro Text",system-ui,Roboto,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI","SF Pro Text",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     padding-left:var(--safe-l);padding-right:var(--safe-r);
     overflow-x:clip;
+    text-rendering:optimizeLegibility;
   }
   a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
   a:hover{text-decoration-color:var(--accent)}
@@ -48,14 +123,12 @@
 
   .wrap{max-width:1100px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(16px,4vw,32px) calc(64px + var(--safe-b))}
   header.hero{margin-bottom:36px}
-  .meta{color:var(--ink-mute);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
-  h1{font-size:clamp(1.75rem,1.4rem + 2vw,2.5rem);line-height:1.1;letter-spacing:-0.02em;margin:0 0 .35em;text-wrap:balance}
-  p.lede{font-size:clamp(1rem,.95rem + .4vw,1.175rem);color:var(--ink-soft);max-width:68ch;margin:0 0 24px;text-wrap:pretty}
-  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-  .badge{display:inline-block;padding:4px 10px;font-size:.7rem;font-weight:600;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft)}
-  .badge.good{color:var(--good);border-color:rgba(10,138,82,.25);background:rgba(10,138,82,.08)}
+  h1{font-size:clamp(1.875rem,1.5rem + 2.2vw,2.6rem);line-height:1.12;letter-spacing:-0.025em;margin:0 0 .5em;text-wrap:balance;color:var(--ink);font-weight:700}
+  p.lede{font-size:clamp(1.0625rem,.95rem + .4vw,1.175rem);color:var(--ink);max-width:68ch;margin:0 0 18px;text-wrap:pretty;line-height:1.6}
+  p.summary{font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--bg-soft);border-left:3px solid var(--accent);padding:18px 22px;border-radius:0 var(--radius) var(--radius) 0;margin:0 0 32px;max-width:72ch}
 
-  h2{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);margin:48px 0 16px;letter-spacing:-.01em}
+  h2{font-size:clamp(1.25rem,1.05rem + .65vw,1.5rem);margin:48px 0 16px;letter-spacing:-.015em;font-weight:650}
+  h2::before{content:"";display:block;width:32px;height:2px;background:var(--accent);margin-bottom:14px;border-radius:2px;opacity:.7}
 
   .grid{display:grid;gap:14px;grid-template-columns:1fr;margin:18px 0}
   @media (min-width:640px){.grid.two{grid-template-columns:repeat(2,1fr)}}
@@ -70,202 +143,187 @@
   }
   a.tile:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-elev)}
   a.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  a.tile h3{margin:0 0 .25em;font-size:1.1rem;color:var(--accent);letter-spacing:-.01em}
-  a.tile p{margin:0;color:var(--ink-soft);font-size:.95rem}
-  a.tile .small{display:block;margin-top:8px;font-size:.75rem;color:var(--ink-mute);font-variant-numeric:tabular-nums}
-
-  .stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:18px 0 0}
-  .stat .item{padding:14px 16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius)}
-  .stat .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-mute);font-weight:600}
-  .stat .value{font-size:clamp(1.1rem,1rem + .5vw,1.4rem);font-weight:600;margin-top:4px;letter-spacing:-.01em}
+  a.tile h3{margin:0 0 .35em;font-size:1.1rem;color:var(--accent);letter-spacing:-.01em;font-weight:600}
+  a.tile p{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.5}
 
   ul.crisp{margin:14px 0;padding-left:1.2em}
-  ul.crisp li{margin:.4em 0;color:var(--ink-soft)}
-  ul.crisp li strong{color:var(--ink)}
+  ul.crisp li{margin:.55em 0;color:var(--ink-soft)}
+  ul.crisp li strong{color:var(--ink);font-weight:600}
+  ul.crisp li::marker{color:var(--accent)}
 
-  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:.75rem}
-  footer p{margin:.4em 0}
+  footer.page-foot{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:.825rem}
+  footer.page-foot p{margin:.4em 0}
+  .author-foot{margin-top:48px;padding:24px 16px calc(32px + env(safe-area-inset-bottom,0));border-top:1px solid var(--line);font-size:.825rem;color:var(--ink-mute);max-width:1100px;margin-left:auto;margin-right:auto}
+  .author-foot .author-shell{display:flex;flex-direction:column;gap:10px;flex-wrap:wrap}
+  .author-foot .author-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;line-height:1.5}
+  .author-foot .author-line strong{color:var(--ink);font-weight:600}
+  .author-foot a{color:var(--accent)}
+  .author-foot .dot-sep{color:var(--ink-mute);user-select:none}
+  @media (min-width:768px){.author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}}
 
   @media print{
+    .topnav,.skip-link{display:none}
     a{color:#000;text-decoration:underline}
     a.tile{box-shadow:none;border-color:#ccc;background:#fff}
   }
-
-/* Author footer + digital fingerprint */
-.author-foot{
-  margin-top:48px;
-  padding:24px 0 calc(32px + env(safe-area-inset-bottom,0));
-  border-top:1px solid var(--line, #e6e6e6);
-  font-size:.825rem;
-  color:var(--ink-mute, #71717a);
-}
-.author-foot .author-shell{
-  display:flex;flex-direction:column;gap:8px;
-  flex-wrap:wrap;
-}
-.author-foot .author-line,
-.author-foot .author-fingerprint{
-  display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;
-}
-.author-foot .author-line .who{color:var(--ink-soft, #3f3f46)}
-.author-foot .author-line strong{color:var(--ink, #0a0a0a);font-weight:600}
-.author-foot a{color:var(--accent, #0a6cf3)}
-.author-foot .dot-sep{color:var(--ink-mute, #71717a);user-select:none}
-.author-foot code{font-size:.75rem}
-@media (min-width:640px){
-  .author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}
-}
-@media print{
-  .author-foot{break-before:auto;break-inside:avoid}
-  .author-foot a{color:#000}
-}
 </style>
-<link rel="stylesheet" href="topnav.css">
-<meta name="author" content="Alexandr Valuev">
-<link rel="me" href="https://www.linkedin.com/in/valuev/">
-<link rel="me" href="https://t.me/ASNKT">
-<link rel="me" href="https://github.com/avaluev">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Deep Research OS — Padel AI Coach case study",
-  "description": "Multi-agent, multi-model research pipeline. Investor-grade strategic brief produced from a single prompt.",
-  "inLanguage": "en",
-  "license": "https://www.apache.org/licenses/LICENSE-2.0",
-  "isAccessibleForFree": true,
-  "isPartOf": {
-    "@type": "Collection",
-    "name": "Deep Research OS — Padel AI Coach case study",
-    "url": "https://github.com/avaluev/padel-market-analysis"
-  },
-  "codeRepository": "https://github.com/avaluev/padel-market-analysis",
-  "author": {
-    "@type": "Person",
-    "name": "Alexandr Valuev",
-    "url": "https://www.linkedin.com/in/valuev/",
-    "sameAs": [
-      "https://www.linkedin.com/in/valuev/",
-      "https://t.me/ASNKT",
-      "https://github.com/avaluev",
-      "https://github.com/avaluev/padel-market-analysis"
-    ]
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "Alexandr Valuev",
-    "url": "https://www.linkedin.com/in/valuev/"
-  },
-  "datePublished": "2026-05-03"
-}
-</script>
 </head>
 <body>
 
-<header class="topnav" role="navigation" aria-label="Cross-page navigation">
-  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Deep Research OS</a>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topnav" role="navigation" aria-label="Site navigation">
+  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <nav id="primary-nav" class="nav-links" aria-label="Primary">
     <a class="np" href="index.html" aria-current="page">Home</a>
-    <a class="np" href="padel-ai-coach-research.html">Strategic Brief</a>
-    <a class="np" href="evidence-map.html">Evidence Map</a>
+    <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
+    <a class="np" href="evidence-map.html">Evidence map</a>
+    <a class="np" href="competitor-landscape.html">Competitors</a>
+    <a class="np" href="subscription-economics.html">Economics</a>
+    <a class="np" href="mvp-design.html">MVP design</a>
+    <a class="np" href="90-day-plan.html">90-day plan</a>
     <a class="np" href="methodology.html">Methodology</a>
-  <span class="spacer"></span>
-  <span class="ext">Run 20260501T135005Z</span>
+    <a class="np" href="model-provenance.html">Model provenance</a>
+  </nav>
 </header>
-<div class="wrap">
+<main id="main" class="wrap" role="main">
 
 <header class="hero">
-  <p class="meta">Portfolio · Run 20260501T135005Z</p>
-  <h1>Deep Research Operating System</h1>
-  <p class="lede">A reproducible multi-agent, multi-model research pipeline that produces an investor-grade strategic brief from a single prompt. Every claim cites a URL fetched at runtime, every number is computed in a Python sandbox, every section survives a red-team before merge. The whole bundle ships as static HTML a CTO can audit in a browser.</p>
-  <div class="badges">
-    <span class="badge good">100% link-verified</span>
-    <span class="badge good">Zero LLM arithmetic</span>
-    <span class="badge">12 specialist agents</span>
-    <span class="badge">4+ frontier models</span>
-    <span class="badge">7 quality gates</span>
-    <span class="badge">Mobile-first audited</span>
-  </div>
+  <h1>Padel Coaching Tech — Independent Research</h1>
+  <p class="summary">An evidence-graded research portfolio on padel coaching technology in 2026. Eight pages cover the competitor landscape, subscription economics, an MVP design, a first-quarter operating plan, and full disclosure of every AI model used to produce the research. Every numeric claim cites a verifiable source URL fetched at the time of writing.</p>
 </header>
 
-<h2>Read the case study</h2>
+<h2>Read the strategic work</h2>
 <div class="grid three">
   <a class="tile" href="padel-ai-coach-research.html">
-    <h3>Strategic Brief →</h3>
-    <p>18 sections. Market sizing, jobs to be done, competitive landscape, defensibility bets, GTM, risks, pivot triggers.</p>
-    <span class="small">~126 KB · Padel AI Coach</span>
+    <h3>Strategic brief →</h3>
+    <p>Eighteen sections on market sizing, jobs to be done, the competitive landscape, defensibility, go-to-market, risks, and pivot triggers.</p>
   </a>
   <a class="tile" href="evidence-map.html">
-    <h3>Evidence Map →</h3>
-    <p>Source-trace document. Every claim in the brief paired with verbatim quotes and primary URLs.</p>
-    <span class="small">~42 KB · 17 peer cards · 11 mechanics · 21 countries</span>
+    <h3>Evidence map →</h3>
+    <p>Source trace for the brief — every claim paired with the verbatim source quote and the URL it came from.</p>
   </a>
   <a class="tile" href="methodology.html">
     <h3>Methodology →</h3>
-    <p>The pipeline itself. Architecture, model routing, quality gates, evidence chain, mobile-first frontend, multi-perspective audit.</p>
-    <span class="small">~30 KB · for CTOs and CPOs</span>
+    <p>How the research was built: agents, models, evidence gates, mobile-first rendering, adversarial review.</p>
   </a>
 </div>
 
-<h2>Interview pack</h2>
-<div class="grid two">
-  <a class="tile" href="interview-pack/index.html">
-    <h3>Product Lead Interview Pack →</h3>
-    <p>Six evidence-driven deliverables prepared before a Product Lead screening interview: competitor brief, subscription economics, MVP loop, 30-60-90 plan, JD coverage map, full model-provenance disclosure.</p>
-    <span class="small">6 deliverables · 12 visual evidence captures · model-transparent</span>
+<h2>Read the supporting analyses</h2>
+<div class="grid three">
+  <a class="tile" href="competitor-landscape.html">
+    <h3>Competitor landscape →</h3>
+    <p>Padel coaching apps, club software, and racket-sport AI. Who has the data moats and where the white space is.</p>
   </a>
-  <a class="tile" href="interview-pack/model-provenance.html">
-    <h3>Model Provenance & Transparency →</h3>
-    <p>Every model invoked across the pipeline, by billing class. Paid Perplexity Sonar tiers, paid Anthropic Claude, the single free Alibaba Tongyi arm — and the declared free fallback chain that was never invoked.</p>
-    <span class="small">radical transparency · no marketing</span>
+  <a class="tile" href="subscription-economics.html">
+    <h3>Subscription economics →</h3>
+    <p>Eight pricing anchors verified May 2026. LTV/CAC by channel across four geographic scenarios.</p>
+  </a>
+  <a class="tile" href="mvp-design.html">
+    <h3>MVP design →</h3>
+    <p>The smallest product loop that earns the right to exist. Three pilot tracks compared, decision tree, risk register.</p>
+  </a>
+  <a class="tile" href="90-day-plan.html">
+    <h3>90-day plan →</h3>
+    <p>Twelve testable hypotheses for the first quarter. A metric tree from the headline number down to weekly leading indicators.</p>
+  </a>
+  <a class="tile" href="model-provenance.html">
+    <h3>Model provenance →</h3>
+    <p>Every AI model used in the research, by billing class. Paid Anthropic, paid Perplexity, plus a free Alibaba arm as a cross-check.</p>
   </a>
 </div>
 
-<h2>What this proves</h2>
+<h2>What this work shows</h2>
 <ul class="crisp">
-  <li><strong>Operating discipline.</strong> A research artefact is a build, not a document. Schemas, fail-fast gates, immutable canonical state, regression rules after each failure.</li>
-  <li><strong>Multi-model orchestration.</strong> Strategic models (Claude Opus 4.7) plan and red-team. Three deep-research workers (Perplexity Sonar Deep Research, Alibaba Tongyi DeepResearch 30B, OpenAI o4-mini deep-research) fan out in parallel. Claude Haiku 4.5 swarms structure the data. Python runs every calculation. The right model for the right job, with explicit cost/quality tradeoffs.</li>
-  <li><strong>Evidence over polish.</strong> Three rules govern every output: every number has a verified source URL; quotes are ≤15 words verbatim from the source; nulls with documented gaps beat fabricated values.</li>
-  <li><strong>Frontend engineering.</strong> Vanilla HTML+CSS, no framework, no build step. Loads under 50 KB gzip. Playwright-audited mobile-first design, sticky navigation on tablet+, bottom-sheet drawer on mobile, dark mode, safe-area insets, print stylesheet.</li>
-  <li><strong>Deployable today.</strong> Vercel and GitHub Pages configurations are checked in. Push to main → live in production.</li>
+  <li><strong>Research as a build, not a document.</strong> Schemas, fail-fast quality gates, immutable canonical state, regression rules added every time something fails.</li>
+  <li><strong>Multi-model orchestration.</strong> Strategic models plan and adversarially review. Three deep-research workers fan out in parallel. Smaller models structure the data. Python runs every calculation.</li>
+  <li><strong>Evidence over polish.</strong> Three rules govern every output. Every number has a verified source URL. Quotes are at most fifteen words verbatim from the source. A documented gap is more honest than a fabricated number.</li>
+  <li><strong>Mobile-first frontend.</strong> Vanilla HTML and CSS. No framework. No build step. Audited across five device profiles before each release.</li>
+  <li><strong>Open and reproducible.</strong> The whole pipeline ships as static HTML and the source repository contains every prompt, every script, and every quality gate.</li>
 </ul>
 
-<h2>By the numbers</h2>
-<div class="stat">
-  <div class="item"><div class="label">Specialist agents</div><div class="value">12</div></div>
-  <div class="item"><div class="label">Frontier models</div><div class="value">4+</div></div>
-  <div class="item"><div class="label">Quality gates</div><div class="value">7</div></div>
-  <div class="item"><div class="label">Verified peer cards</div><div class="value">17</div></div>
-  <div class="item"><div class="label">Value mechanics audited</div><div class="value">11</div></div>
-  <div class="item"><div class="label">Countries in SAM</div><div class="value">21</div></div>
-  <div class="item"><div class="label">URLs verified HTTP 200</div><div class="value">100%</div></div>
-  <div class="item"><div class="label">Device profiles</div><div class="value">5</div></div>
-  <div class="item"><div class="label">Bundle size (gzip)</div><div class="value">&lt; 50 KB</div></div>
-</div>
-
-<footer>
-  <p>Apache 2.0 licensed · Built with Claude Code, OpenRouter, Playwright · Deployable to Vercel or GitHub Pages with zero build step · Companion repository contains the full pipeline source.</p>
+<footer class="page-foot">
+  <p>Apache 2.0 licensed. Built with Claude Code, OpenRouter, and Playwright. Deployable to GitHub Pages with no build step. The companion repository contains the full pipeline source.</p>
 </footer>
 
-</div>
+</main>
+
 <footer class="author-foot" role="contentinfo">
   <div class="author-shell">
     <div class="author-line">
-      <span class="who">By <strong>Alexandr Valuev</strong></span>
+      <span>By <strong>Alexandr Valuev</strong></span>
       <span class="dot-sep" aria-hidden="true">·</span>
       <a href="https://www.linkedin.com/in/valuev/" rel="me noopener" target="_blank">LinkedIn</a>
       <span class="dot-sep" aria-hidden="true">·</span>
       <a href="https://t.me/ASNKT" rel="me noopener" target="_blank">Telegram</a>
       <span class="dot-sep" aria-hidden="true">·</span>
-      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">GitHub repository</a>
-    </div>
-    <div class="author-fingerprint">
-      <span>Run <code>20260501T135005Z</code></span>
+      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">Repository</a>
       <span class="dot-sep" aria-hidden="true">·</span>
       <span>Apache 2.0</span>
-      <span class="dot-sep" aria-hidden="true">·</span>
-      <span>Models: Claude Opus 4.7 + Sonnet 4.6 + Haiku 4.5 · Perplexity Sonar (pro / deep / reasoning) · Alibaba Tongyi 30B (free arm)</span>
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var btn = document.querySelector('.topnav .nav-toggle');
+  var menu = document.getElementById('primary-nav');
+  if (!btn || !menu) return;
+  function close() { btn.setAttribute('aria-expanded', 'false'); }
+  function open() {
+    btn.setAttribute('aria-expanded', 'true');
+    var first = menu.querySelector('a');
+    if (first) first.focus();
+  }
+  btn.addEventListener('click', function () {
+    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+      close();
+      btn.focus();
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
+      close();
+    }
+  });
+})();
+</script>
+
+<script>
+// Mobile nav toggle — hamburger drawer with focus management and Esc-to-close.
+(function () {
+  var btn = document.querySelector('.topnav .nav-toggle');
+  var menu = document.getElementById('primary-nav');
+  if (!btn || !menu) return;
+  function close() { btn.setAttribute('aria-expanded', 'false'); }
+  function open() {
+    btn.setAttribute('aria-expanded', 'true');
+    var first = menu.querySelector('a');
+    if (first) first.focus();
+  }
+  btn.addEventListener('click', function () {
+    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+      close();
+      btn.focus();
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
+      close();
+    }
+  });
+})();
+</script>
 </body>
 </html>

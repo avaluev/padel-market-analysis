@@ -1,0 +1,44 @@
+# Pre-commit hooks for the padel-research-os repository.
+# Install: pre-commit install
+# Run on demand: pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^reports/final/llms-full\.txt$
+      - id: end-of-file-fixer
+        exclude: ^reports/final/llms-full\.txt$
+      - id: check-yaml
+      - id: check-json
+        exclude: ^reports/final/data\.json$
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+        exclude: '^(reports/.*\.html|evidence/.*\.json|reports/.*/data\.json|reports/final/llms-full\.txt|reports/.*/screenshots/.*)$'
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        files: ^(scripts|tests)/.*\.py$
+      - id: ruff-format
+        files: ^(scripts|tests)/.*\.py$
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+
+  - repo: local
+    hooks:
+      - id: check-quality
+        name: Content & SEO quality gates
+        entry: python3 scripts/check_quality.py
+        language: system
+        files: ^reports/final/.*\.(html|txt|xml|webmanifest)$
+        pass_filenames: false

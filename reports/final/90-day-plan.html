@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A first-quarter operating plan for a padel coaching AI: twelve testable hypotheses, a metric tree from north star to leading indicators, and a five-row risk register with named exit criteria.">
+<meta name="keywords" content="90 day plan, product lead operating plan, startup hypothesis testing, metric tree">
+<meta name="author" content="Alexandr Valuev">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Padel AI Platform: First 90 Days Operating Plan">
+<meta property="og:description" content="A first-quarter operating plan for a padel coaching AI: twelve testable hypotheses, a metric tree from north star to leading indicators, and a five-row risk register with named exit criteria.">
+<meta property="og:url" content="https://avaluev.github.io/padel-market-analysis/90-day-plan.html">
+<meta property="og:image" content="https://avaluev.github.io/padel-market-analysis/og-default.png">
+<meta property="og:site_name" content="Padel Coaching Tech Research">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-03T00:00:00Z">
+<meta property="article:modified_time" content="2026-05-03T00:00:00Z">
+<meta property="article:author" content="https://www.linkedin.com/in/valuev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Padel AI Platform: First 90 Days Operating Plan">
+<meta name="twitter:description" content="A first-quarter operating plan for a padel coaching AI: twelve testable hypotheses, a metric tree from north star to leading indicators, and a five-row risk register with named exit criteria.">
+<meta name="twitter:image" content="https://avaluev.github.io/padel-market-analysis/og-default.png">
+<title>Padel AI Platform: First 90 Days Operating Plan</title>
+<link rel="canonical" href="https://avaluev.github.io/padel-market-analysis/90-day-plan.html">
+<link rel="alternate" type="application/rss+xml" title="Padel Research" href="https://avaluev.github.io/padel-market-analysis/feed.xml">
+<link rel="me" href="https://www.linkedin.com/in/valuev/">
+<link rel="me" href="https://t.me/ASNKT">
+<link rel="me" href="https://github.com/avaluev">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Padel AI platform — first 90 days operating plan",
+  "description": "A first-quarter operating plan for a padel coaching AI: twelve testable hypotheses, a metric tree from north star to leading indicators, and a five-row risk register with named exit criteria.",
+  "inLanguage": "en",
+  "url": "https://avaluev.github.io/padel-market-analysis/90-day-plan.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://avaluev.github.io/padel-market-analysis/90-day-plan.html"
+  },
+  "datePublished": "2026-05-03",
+  "dateModified": "2026-05-03",
+  "author": {
+    "@type": "Person",
+    "name": "Alexandr Valuev",
+    "url": "https://www.linkedin.com/in/valuev/",
+    "sameAs": [
+      "https://www.linkedin.com/in/valuev/",
+      "https://github.com/avaluev",
+      "https://t.me/ASNKT"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Research OS",
+    "url": "https://avaluev.github.io/padel-market-analysis"
+  },
+  "keywords": "90 day plan, product lead operating plan, startup hypothesis testing, metric tree",
+  "isAccessibleForFree": true,
+  "license": "https://www.apache.org/licenses/LICENSE-2.0"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://avaluev.github.io/padel-market-analysis/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Padel AI platform — first 90 days operating plan",
+      "item": "https://avaluev.github.io/padel-market-analysis/90-day-plan.html"
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#fff; --bg-soft:#fafafa; --bg-card:#fff; --bg-elev:#f5f7fa;
+    --ink:#0a0a0a; --ink-soft:#3f3f46; --ink-mute:#71717a;
+    --line:#e6e6e6;
+    --accent:#0a6cf3; --accent-soft:#e6efff; --accent-ink:#fff;
+    --good:#0a8a52; --warn:#b54708; --bad:#b42318;
+    --shadow:0 1px 2px rgba(0,0,0,.04),0 1px 1px rgba(0,0,0,.04);
+    --shadow-elev:0 6px 24px rgba(0,0,0,.08);
+    --radius:10px;
+    --safe-l:env(safe-area-inset-left,0); --safe-r:env(safe-area-inset-right,0); --safe-b:env(safe-area-inset-bottom,0);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0a0a0a; --bg-soft:#101012; --bg-card:#141416; --bg-elev:#181a1d;
+      --ink:#fafafa; --ink-soft:#d4d4d8; --ink-mute:#a1a1aa;
+      --line:#27272a;
+      --accent:#3b9bff; --accent-soft:#0e2440; --accent-ink:#0a0a0a;
+      --good:#2f9961; --warn:#d97706; --bad:#ef4444;
+      --shadow-elev:0 6px 24px rgba(0,0,0,.5);
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI","SF Pro Text",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    padding-left:var(--safe-l);padding-right:var(--safe-r);
+    overflow-x:clip;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"kern","liga","calt","ss01";
+  }
+  a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{text-decoration-color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent);color:var(--ink)}
+
+  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip-link:focus{position:fixed;left:8px;top:8px;z-index:200;width:auto;height:auto;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px}
+
+  /* Top nav: mobile-first hamburger drawer, expands to row on tablet+ */
+  .topnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:saturate(140%) blur(8px);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line);padding:8px 16px;display:flex;align-items:center;gap:8px;min-height:52px}
+  .topnav .brand{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);text-decoration:none;font-size:.95rem;letter-spacing:-.01em;flex-shrink:0}
+  .topnav .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+  .nav-toggle{margin-left:auto;display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:44px;height:44px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg-soft);cursor:pointer}
+  .nav-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .nav-toggle-bar{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform 200ms ease,opacity 200ms ease}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:52px;flex-direction:column;gap:2px;padding:12px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:var(--shadow-elev);max-height:calc(100vh - 52px);overflow-y:auto}
+  .nav-links a.np{display:block;padding:12px 14px;border-radius:8px;color:var(--ink-soft);text-decoration:none;font-size:.95rem;font-weight:500;min-height:44px}
+  .nav-links a.np:hover{background:var(--bg-soft);color:var(--ink)}
+  .nav-links a.np[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .nav-toggle[aria-expanded="true"] + .nav-links{display:flex}
+  @media (min-width:880px){
+    .nav-toggle{display:none}
+    .nav-links{display:flex !important;position:static;flex-direction:row;flex-wrap:wrap;gap:4px;padding:0;background:transparent;border:none;box-shadow:none;max-height:none;overflow:visible;flex:1}
+    .nav-links a.np{padding:8px 12px;font-size:.875rem;min-height:36px;display:inline-flex;align-items:center}
+  }
+  @media print{.topnav{display:none}}
+
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(24px,6vw,64px) clamp(16px,5vw,28px) calc(64px + var(--safe-b))}
+  @media (min-width:1024px){ .wrap{max-width:780px} }
+
+  h1{font-size:clamp(1.875rem,1.5rem + 2.2vw,2.6rem);line-height:1.12;letter-spacing:-0.025em;margin:0 0 .5em;text-wrap:balance;color:var(--ink);font-weight:700}
+  h2{font-size:clamp(1.25rem,1.05rem + .65vw,1.5rem);margin:52px 0 14px;letter-spacing:-.015em;line-height:1.25;text-wrap:balance;font-weight:650}
+  h2::before{content:"";display:block;width:32px;height:2px;background:var(--accent);margin-bottom:14px;border-radius:2px;opacity:.7}
+  h3{font-size:1.1rem;margin:32px 0 10px;letter-spacing:-.01em;line-height:1.3;font-weight:600}
+  h4{font-size:.85rem;margin:22px 0 8px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  p{margin:.7em 0 1em;color:var(--ink-soft);text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+  p strong{color:var(--ink);font-weight:600}
+  em{font-style:italic;color:var(--ink)}
+  .summary{font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--bg-soft);border-left:3px solid var(--accent);padding:18px 22px;border-radius:0 var(--radius) var(--radius) 0;margin:0 0 32px}
+  blockquote{margin:1.2em 0;padding:.7em 1.1em;border-left:3px solid var(--accent);background:var(--bg-soft);color:var(--ink);border-radius:0 var(--radius) var(--radius) 0;font-size:1.0625rem;line-height:1.55}
+  blockquote p{color:var(--ink);margin:.3em 0}
+  ul.crisp,ol.crisp{margin:14px 0 18px;padding-left:1.2em}
+  ul.crisp li,ol.crisp li{margin:.55em 0;color:var(--ink-soft);padding-left:.2em}
+  ul.crisp li::marker{color:var(--accent)}
+  ol.crisp li::marker{color:var(--accent);font-weight:600}
+  ul.crisp li strong, ol.crisp li strong{color:var(--ink)}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--bg-elev);padding:1px 5px;border-radius:4px;border:1px solid var(--line);overflow-wrap:anywhere;word-break:break-word}
+  pre{margin:14px 0;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow-x:auto;font-size:.8125rem;line-height:1.5;-webkit-overflow-scrolling:touch}
+  pre code{background:none;border:none;padding:0;font-size:1em}
+
+  .table-wrap{overflow-x:auto;margin:18px -4px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:max-content}
+  th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:var(--bg-elev);font-weight:600;color:var(--ink);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--bg-elev)}
+
+  figure.shot{margin:24px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-soft);box-shadow:var(--shadow)}
+  figure.shot img{display:block;width:100%;height:auto;aspect-ratio:1280/800;object-fit:cover}
+  figure.shot figcaption{padding:10px 14px;font-size:.825rem;color:var(--ink-mute);border-top:1px solid var(--line);background:var(--bg-elev);line-height:1.45}
+
+  .author-foot{margin-top:48px;padding:24px 16px calc(32px + env(safe-area-inset-bottom,0));border-top:1px solid var(--line);font-size:.825rem;color:var(--ink-mute);max-width:1100px;margin-left:auto;margin-right:auto}
+  .author-foot .author-shell{display:flex;flex-direction:column;gap:10px;flex-wrap:wrap}
+  .author-foot .author-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;line-height:1.5}
+  .author-foot .author-line strong{color:var(--ink);font-weight:600}
+  .author-foot a{color:var(--accent)}
+  .author-foot .dot-sep{color:var(--ink-mute);user-select:none}
+  @media (min-width:768px){.author-foot .author-shell{flex-direction:row;align-items:center;justify-content:space-between}}
+</style>
+<link rel="stylesheet" href="topnav.css">
+</head>
+<body>
+
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topnav" role="navigation" aria-label="Site navigation">
+  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <nav id="primary-nav" class="nav-links" aria-label="Primary">
+    <a class="np" href="index.html">Home</a>
+    <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
+    <a class="np" href="evidence-map.html">Evidence map</a>
+    <a class="np" href="competitor-landscape.html">Competitors</a>
+    <a class="np" href="subscription-economics.html">Economics</a>
+    <a class="np" href="mvp-design.html">MVP design</a>
+    <a class="np" href="90-day-plan.html" aria-current="page">90-day plan</a>
+    <a class="np" href="methodology.html">Methodology</a>
+    <a class="np" href="model-provenance.html">Model provenance</a>
+  </nav>
+</header>
+<main id="main" class="wrap" role="main">
+<article>
+<h1>Padel AI platform — first 90 days operating plan</h1>
+<p class="summary">A first-quarter operating plan for a padel coaching AI is structured around twelve testable hypotheses, a metric tree from the headline number down to weekly leading indicators, and a risk register with named exit criteria. Days 1 to 30 focus on capture-quality validation in a single club; days 31 to 60 add a coach panel and the first paid cohort; days 61 to 90 measure ninety-day paid retention before any second-club expansion.</p>
+
+<p>A 90-day plan earns its title by naming what would stop it on day 30, day 60, and day 90. This document does that for the Padel AI Platform: three phases, one stop memo, one pivot route, twelve hypotheses on the clock.</p>
+<blockquote>Voice: third-person professional, capability-conditional. No first-person pronouns. No promised headcount, budget, or timelines beyond what existing evidence supports.</blockquote>
+<p>></p>
+<blockquote>Audience: hiring-panel screening interview.</blockquote>
+<p>></p>
+<blockquote>Evidence base: <code>the published evidence</code>. Every numeric threshold below cites either a verified URL or carries an "anchor — to be validated" flag.</blockquote>
+<p>></p>
+<blockquote>profile assumed: deep product-strategy and research expertise, zero playing-level expertise in padel itself. The plan treats the domain gap as a primary risk and routes mitigations through an advisory coach pool (R-05).</blockquote>
+<hr>
+<h2 id="executive-frame">Executive frame</h2>
+<p>The role would inherit a pre-validated research package that has already done two things the plan must respect.</p>
+<p>First, the adversarial review pass (the published evidence) has already pruned the segment list. <strong> (plateau-stuck regular)</strong>, <strong> (newly-ranked competitor)</strong>, and <strong> (club coach, business-to-business-to-consumer)</strong> carry PASS or PASS-with-caveats verdicts. (club operator) and (injury-aware returner) were KILLED. (travelling enthusiast) was MERGED into . The plan does not re-litigate these calls; it executes against them.</p>
+<p>Second, the jobs graph (the published evidence) names the <strong>rating-clarity backbone </strong> as the critical chain: smartphone match capture → auto-tag → rating delta → defensible rating. Every other Core Job — drill prescription, coach co-pilot, post-match argument settler — is gated on working at smartphone-only fidelity. The plan invests there first.</p>
+<p>Third, monetisation (the published evidence) sets a hard exit threshold for the business-to-consumer path: <strong>below 4% paid conversion at EUR 7.99/month</strong> triggers a pivot to the business-to-business coach-SaaS hedge. The plan sequences a smoke test in Spanish and Russian against this threshold inside phase B.</p>
+<blockquote>A roadmap that does not name what would stop it is not a roadmap, it is a wishlist.</blockquote>
+<hr>
+<h2 id="phase-a-days-030-discovery-and-anchor">Phase A — Days 0–30: Discovery and anchor</h2>
+<h3 id="a1-objectives">A.1 Objectives</h3>
+<ul class="crisp">
+<li>The role would establish a documented mental model of (rating-clarity backbone) and (coach-renewal chain) before touching scope.</li>
+<li>The role would validate or stop the inherited top-10 hypotheses without re-running existing research.</li>
+<li>The role would stand up the jobs-to-be-done interview cohort across the three PASS segments.</li>
+<li>The role would scope a single-club manual MVP loop without launching it.</li>
+</ul>
+<h3 id="a2-stakeholder-map">A.2 Stakeholder map</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Stakeholder</th><th>Cadence</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Founder / CEO</td><td>Weekly 1:1 + async written brief</td><td>Strategic alignment; stop-experiment authority; pricing signoff</td></tr>
+<tr><td>Engineering lead</td><td>Weekly synchronous + standing async channel</td><td>Capture-pipeline reliability; instrumentation spec ownership</td></tr>
+<tr><td>Design lead (or contractor)</td><td>Bi-weekly working session</td><td>Recap card UX; partner-share surface; share-link semantics</td></tr>
+<tr><td>Operations / community</td><td>Weekly check-in</td><td>Direct-readership newsletter cadence; CIS Telegram group; club outreach</td></tr>
+<tr><td>Advisory coach pool (3–5 padel pros)</td><td>Two structured sessions in month 1; on-call thereafter</td><td>Domain-gap mitigation; ground-truth shot taxonomy; recap review</td></tr>
+</tbody></table></div>
+<p>The role would coordinate with engineering and design as currently staffed. No headcount asks during the first 30 days. The advisory coach pool is the mitigation for the domain gap (R-05) and is treated as a paid retainer secured in week 1.</p>
+<h3 id="a3-jobs-to-be-done-interview-cohort">A.3 jobs-to-be-done interview cohort</h3>
+<p>Total: 20 interviews, all conducted in the first 28 days, drawn exclusively from PASS segments per the published evidence.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Segment</th><th>Count</th><th>Verdict</th><th>Interview focus</th></tr></thead><tbody>
+<tr><td><strong> — Plateau-stuck regular</strong></td><td>12</td><td>pass_with_caveats</td><td>Switch trigger calibration: separate self-perceived plateau from partner-comparison loss. Confirm <code>alternatives_hired</code> set (Padelytics, Clutch, club camera, paid coach).</td></tr>
+<tr><td><strong> — Newly-ranked competitor</strong></td><td>4</td><td>pass</td><td>Tournament-loss → reach-for-tool latency. Test rating-portability willingness across federation, Premier Padel, and derived sources.</td></tr>
+<tr><td><strong> — Club coach (business-to-business-to-consumer)</strong></td><td>4</td><td>pass_with_caveats</td><td>Renewal-conversation pain. Refusal patterns on tools the student also touches. LTV math on coach-affiliate channel. Recruit via <a href="https://www.fep.es/" rel="noopener" target="_blank">FEP</a> and <a href="https://www.fitp.it/" rel="noopener" target="_blank">FITP</a> chapters.</td></tr>
+</tbody></table></div>
+<p><strong>Explicit exclusions</strong> (per Phase 06 adversarial review):</p>
+<ul class="crisp">
+<li>(club operator, business-to-business): killed — venue-size descriptor in disguise.</li>
+<li>(travelling enthusiast): merged into .</li>
+<li>(injury-aware returner): killed — life-situation label without verified switch trigger.</li>
+</ul>
+<h3 id="a4-evidence-audit">A.4 Evidence audit</h3>
+<p>The role would review the inherited research package (peer cards, jobs graph, adversarial review, monetisation, go-to-market, capability map, market sizing) and produce an annotated hypothesis backlog. Hypotheses are tagged keep / stop / promote-to-experiment. Killed hypotheses move to a graveyard log; reactivation requires new evidence, per the project operating contract.</p>
+<h3 id="a5-single-club-pilot-scoping-not-yet-running">A.5 Single-club pilot scoping (not yet running)</h3>
+<p>Scoping deliverables only — no execution in phase A:</p>
+<ul class="crisp">
+<li><strong>Pilot brief</strong>: target club profile (Madrid or Barcelona, 4–8 courts, 1 coach champion).</li>
+<li><strong>Manual loop diagram</strong>: capture → tag → recap → drill → next session.</li>
+<li><strong>Reliability thresholds</strong> for graduating each step out of manual ops (see B.2).</li>
+<li><strong>Privacy / consent flow draft</strong> (GDPR baseline; 152-FZ flagged for Russian-language path).</li>
+</ul>
+<h3 id="a6-output-artifacts-end-of-phase-a">A.6 Output artifacts (end of phase A)</h3>
+<ol class="crisp">
+<li>Validated AJTBD canvas per PASS segment.</li>
+<li>Prioritised hypothesis backlog (this document, section D).</li>
+<li>PRD outline for the manual MVP loop.</li>
+<li>Instrumentation spec covering match-upload, share, partner-invite, and recap-acknowledgement events.</li>
+<li>Stakeholder map and cadence document.</li>
+<li>Risk register v1 (this document, section F).</li>
+</ol>
+<hr>
+<h2 id="phase-b-days-3160-manual-mvp-and-pricing-test">Phase B — Days 31–60: Manual MVP and pricing test</h2>
+<h3 id="b1-objectives">B.1 Objectives</h3>
+<ul class="crisp">
+<li>The role would run the manual measurement → insight → training loop in one club end-to-end without productising any step.</li>
+<li>The role would run the WTP smoke test in Spanish and Russian against the EUR 7.99 anchor.</li>
+<li>The role would begin the first 4-week retention cohort (week 5–8 of pilot).</li>
+<li>The role would produce the first stop/keep call against segment-level evidence.</li>
+</ul>
+<h3 id="b2-manual-mvp-loop">B.2 Manual MVP loop</h3>
+<p>Pilot clubs film matches on a tripod-mounted phone. The OSS baseline (<a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">Joao-M-Silva/padel_analytics</a>) auto-tags shots. The plus advisory coach review three matches per pilot user. A recap card and a two-drill prescription get sent to the player and copied to the coach <strong>before the next booking</strong>.</p>
+<p>Instrumentation events to land in the spec:</p>
+<ul class="crisp">
+<li><code>match_uploaded</code>, <code>match_tagged</code>, <code>recap_sent</code>, <code>recap_opened</code>, <code>drill_acknowledged</code>, <code>coach_outcome_tag</code>.</li>
+</ul>
+<blockquote>Out of scope for the 90-day window: pair-share and partner-invite mechanics. The manual MVP loop in <code>03_mvp_loop_design.md</code> is single-player → coach. Any pair-viral surface (<code>share_clicked</code>, <code>partner_invited</code>, <code>partner_activated</code>) requires a Stage 2.5 build that is not part of this pilot. Pair-share viral lift is logged as a post-pilot exploration item, not a 90-day hypothesis.</blockquote>
+<p><strong>Reliability gates to graduate manual steps into product</strong> (used in phase C):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Promote when</th></tr></thead><tbody>
+<tr><td>Tagging</td><td>Human-correction rate ≤ 15% across 50 matches.</td></tr>
+<tr><td>Recap template</td><td>≥ 70% of recaps require zero advisory coach edits.</td></tr>
+<tr><td>Drill prescription</td><td>≥ 60% of recaps result in a logged drill within seven days.</td></tr>
+</tbody></table></div>
+<h3 id="b3-wtp-smoke-test-spanish-russian">B.3 WTP smoke test (Spanish + Russian)</h3>
+<p>Two landing pages — Spanish and Russian — each with a fake-door "request a padel rating" CTA priced at the geo-localised tier per the published evidence:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Country</th><th>Tier</th><th>Price/month</th><th>Smoke-test role</th></tr></thead><tbody>
+<tr><td>ES</td><td>Anchor</td><td>EUR 7.99</td><td>stop gate (≥8% keep, <4% pivot)</td></tr>
+<tr><td>IT</td><td>Adjacent</td><td>EUR 7.99</td><td>stop gate (same threshold as ES)</td></tr>
+<tr><td>RU</td><td>Direct-channel</td><td>RUB 499 (PPP-indexed ≈ EUR 5.0; on-device-only path required)</td><td><strong>Fact-finding only</strong>, not a stop gate — paid Meta and ASA are structurally unavailable in this channel mix per <code>02 RU scenario</code>, so the channel reduces to organic-only. The unit economics already validate LTV:CAC organic = 5.32 at honest 8.5% churn.</td></tr>
+</tbody></table></div>
+<p><strong>Anchor threshold (stop / keep).</strong> Internal exit threshold synthesised from the Foundry CRO 2026 5–9% free-to-paid range (verbatim quote sits in the published evidence at the F4 funnel row): at EUR 7.99/month, ≥8% paid conversion within three matches is keep; below 4% triggers the hedge model (business-to-business coach SaaS). Source for the underlying range: <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">foundrycro.com/blog/cac-benchmarks-2026</a> — the EUR 7.99 anchor and the three-match window are internal product policy, not a Foundry quote.</p>
+<p>Secondary metrics:</p>
+<ul class="crisp">
+<li>CTR on padel community channels: ≥ 6% (per Phase 06 stop test).</li>
+<li>Direct-traffic share of beta sign-ups: ≥ 40% within 8 weeks (per <code>the published evidence#</code>).</li>
+</ul>
+<p><strong>stop decision logic.</strong> If WTP < 4% AND direct-traffic share < 25% by week 8, the hedge model (business-to-business coach SaaS at EUR 19–29 per coach per month, anchored on <a href="https://www.coach-logic.com/" rel="noopener" target="_blank">CoachLogic</a> and <a href="https://www.hudl.com/pricing" rel="noopener" target="_blank">Hudl Assist tiers</a>) becomes primary. The role would draft the pivot memo for founder signoff.</p>
+<h3 id="b4-first-retention-cohort">B.4 First retention cohort</h3>
+<p>Starts week 5; runs 4 weeks. Mixed + cohort. Primary metric: weekly active uploaders with ≥ 1 acknowledged insight per week. Leading indicator: recap-acknowledgement rate by week 2 (anchor — to be validated, see metric tree).</p>
+<h3 id="b5-output-artifacts-end-of-phase-b">B.5 Output artifacts (end of phase B)</h3>
+<ol class="crisp">
+<li>Pilot weekly review packet (one-pager + recap exemplars).</li>
+<li>Conversion-curve dashboard (free → activated → paid) updated weekly.</li>
+<li>First stop/keep memo on segments and pricing tier.</li>
+<li>Retention cohort dashboard (engineering-staffed; no new tooling spend assumed).</li>
+</ol>
+<hr>
+<h2 id="phase-c-days-6190-productisation-and-channel">Phase C — Days 61–90: Productisation and channel</h2>
+<h3 id="c1-objectives">C.1 Objectives</h3>
+<ul class="crisp">
+<li>The role would pull manual steps that hit reliability thresholds into product surface.</li>
+<li>The role would open a second club pilot to test transferability of the recipe.</li>
+<li>The role would run the first paid-acquisition test against a capped budget.</li>
+<li>The role would deliver a decision memo on the rating-platform path.</li>
+</ul>
+<h3 id="c2-productisation-targets">C.2 Productisation targets</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Promote if</th><th>Source</th></tr></thead><tbody>
+<tr><td>Recap card generation</td><td>≥ 70% of recaps require zero advisory coach edits during phase B</td><td><code>the published evidence#</code></td></tr>
+<tr><td>Drill prescription template</td><td>≥ 10% of free uploads convert to a drill plan acknowledgement</td><td><code>the published evidence#</code></td></tr>
+<tr><td>Coach outcome capture</td><td>≥ 70% of recaps closed with a coach-filed outcome tag in phase B</td><td><code>the published evidence#</code></td></tr>
+</tbody></table></div>
+<p>Steps that fall short of their gate stay manual into the next 90-day window.</p>
+<p><strong>Post-pilot exploration (not a 90-day target).</strong> A pair-level surface that drives ≥1.5x sharing rate vs the single-user baseline (<code>the published evidence#</code>) sits in the post-pilot exploration backlog. The manual MVP in <code>03</code> does not generate the data needed to evaluate this gate inside 90 days; gating it inside this plan would be a sequencing error.</p>
+<h3 id="c3-second-club-pilot-italy">C.3 Second club pilot (Italy)</h3>
+<p>Target: Milan or Rome, to stress-test localisation. stop metric: if second-club week-4 cohort retention < 60% of first-club benchmark, the manual loop is over-fit to the original club; the role would pause Italy expansion and document the gap before any Italian paid-acquisition spend.</p>
+<h3 id="c4-first-paid-acquisition-test">C.4 First paid-acquisition test</h3>
+<p>Two channels, capped budget. The role would propose the cap at the lower bound of CAC × intended cohort size; exact figure pending founder signoff. <strong>No fixed budget is committed in this plan.</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Channel</th><th>CAC anchor</th><th>Source</th></tr></thead><tbody>
+<tr><td>Meta (Instagram + Facebook), Spanish-language padel creatives</td><td>USD 94 / paid acquisition</td><td>the published evidence; <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">Foundry CRO 2026</a></td></tr>
+<tr><td>Apple Search Ads (App Store)</td><td>USD 4.7 / install (install-only)</td><td><code>the published evidence#</code>; <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">Foundry CRO 2026</a></td></tr>
+</tbody></table></div>
+<p>stop metric: paid CAC > 3x organic CAC after 4 weeks (per <code>the published evidence#</code>).</p>
+<h3 id="c5-rating-platform-decision-memo">C.5 Rating-platform decision memo</h3>
+<p>Two paths come into the memo:</p>
+<ul class="crisp">
+<li><strong>Option A — FIP-affiliated organiser integration</strong> (<code>the published evidence#</code>). Partner-dependent, two LOIs targeted in 6 weeks.</li>
+<li><strong>Option B — Derived-only rating</strong>. Ship the rating model on smartphone footage; expose a public profile that links out from Playtomic / MATCHi.</li>
+</ul>
+<p>Decision criteria:</p>
+<ul class="crisp">
+<li>≥ 2 LOIs by week 12 → pursue Option A in parallel with B.</li>
+<li>0 LOIs by week 12 → default to Option B; revisit federation integration after the rating reaches ≥ 5,000 active rated players in ≥ 3 cities (expansion threshold per the published evidence).</li>
+</ul>
+<h3 id="c6-output-artifacts-end-of-phase-c">C.6 Output artifacts (end of phase C)</h3>
+<ol class="crisp">
+<li>Roadmap for days 91–180.</li>
+<li>go-to-market dashboard (channel mix, CAC, payback period, direct-traffic share).</li>
+<li>Decision memo on rating-platform path.</li>
+<li>Productisation log: which manual steps graduated, which stayed manual, why.</li>
+</ol>
+<hr>
+<h2 id="d-hypothesis-backlog">D. Hypothesis backlog</h2>
+<p>Format: <code>H-XX | hypothesis | metric | threshold | timeline | source/data gap</code>.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>ID</th><th>Phase</th><th>Hypothesis</th><th>Metric</th><th>Threshold</th><th>Timeline</th><th>Source / data gap</th></tr></thead><tbody>
+<tr><td>H-01</td><td>A</td><td>Plateau-stuck regulars convert on partner-comparison triggers, not self-perceived plateau.</td><td>% of interviewees citing a partner-driven event vs internal feeling.</td><td>≥ 60% partner-driven trigger.</td><td>By day 21.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-02</td><td>A</td><td>Newly-ranked competitors will accept a derived rating if it travels across cities.</td><td>% of interviewees willing to display derived rating publicly.</td><td>≥ 50%.</td><td>By day 21.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-03</td><td>A</td><td>Club coaches will use the recap pack at renewal conversations.</td><td>Coaches confirming intent to attach recap to renewal.</td><td>≥ 3 of 4 coaches.</td><td>By day 28.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-04</td><td>B</td><td>Free-to-paid at EUR 7.99/month (ES + IT) meets the internal-synthesised exit threshold. RU runs as a fact-finding test only.</td><td>Smoke-test paid conversion (ES + IT stop gate; RU fact-finding).</td><td>ES + IT: ≥ 8% paid (stop below 4%). RU: organic-only — paid channels are structurally null per <code>02 RU scenario</code>.</td><td>Days 31–60.</td><td>the published evidence; underlying range only at <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">Foundry CRO 2026</a></td></tr>
+<tr><td>H-05</td><td>B</td><td>Direct-readership newsletter owns the audience.</td><td>Direct-traffic share of beta sign-ups.</td><td>≥ 40% by week 8.</td><td>Days 14–60.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-06</td><td>B</td><td>Recap-acknowledgement is a 4-week leading indicator of retention.</td><td>Recap-open rate week 2 vs week-4 weekly active.</td><td>Anchor — to be validated in week 5 cohort.</td><td>Week 5–8.</td><td>data gap; instrumentation from phase A</td></tr>
+<tr><td>H-07</td><td>B</td><td>Coach-filed outcome tag rate stays ≥ 70% across the pilot cohort once weekly reminders are removed.</td><td>Coach outcome-tag rate, weeks 5–8 of pilot, no reminder cadence.</td><td>≥ 70%.</td><td>Days 45–60.</td><td><code>the published evidence#</code>; <code>the published evidence#</code></td></tr>
+<tr><td>H-08</td><td>C</td><td>The pilot recipe transfers to a second club without hands-on operation.</td><td>Second-club week-4 retention vs first-club.</td><td>≥ 60% of first-club benchmark.</td><td>Days 61–90.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-09</td><td>C</td><td>Paid CAC stays within 3x organic CAC during first paid test.</td><td>Blended paid CAC (Meta + ASA) vs organic CAC.</td><td>≤ 3x organic.</td><td>Days 61–90.</td><td><code>the published evidence#</code>; <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">Foundry CRO 2026</a></td></tr>
+<tr><td>H-10</td><td>C</td><td>FIP-affiliated organisers will sign ≥ 2 LOIs in 6 weeks.</td><td>Signed LOIs.</td><td>≥ 2.</td><td>Days 49–90.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-11</td><td>C</td><td>Localised cohort (ES + RU) retains ≥ 1.3x English baseline at week 3.</td><td>Week-3 retention (localised vs English).</td><td>≥ 1.3x.</td><td>Days 61–90.</td><td><code>the published evidence#</code></td></tr>
+<tr><td>H-12</td><td>C</td><td>Coach-driven sign-ups carry a 90-day retention bonus over self-served.</td><td>Day-90 retention (coach vs self-served).</td><td>Anchor — to be validated; first read at day 120.</td><td>Anchor — day 120.</td><td><code>the published evidence#</code></td></tr>
+</tbody></table></div>
+<hr>
+<h2 id="e-metric-tree">E. Metric tree</h2>
+<p><strong>North-Star metric.</strong> <em>Rated players completing 90-day retention with ≥ 1 weekly insight.</em> This combines retention (subscription health) and product engagement ( insight delivery). No public peer benchmark available; it is an anchor — to be validated in week 13 cohort.</p>
+<h3 id="input-metrics">Input metrics</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Metric</th><th>Purpose</th><th>Benchmark status</th></tr></thead><tbody>
+<tr><td>Weekly match uploads per active user</td><td>Volume input to the rating model and the recap pipeline.</td><td>data gap.</td></tr>
+<tr><td>Recap-acknowledgement rate</td><td>Leading indicator of insight delivery.</td><td>data gap.</td></tr>
+<tr><td>Partner-invite activation rate</td><td>product-led growth loop strength.</td><td>≥ 25% per <code>the published evidence#</code>.</td></tr>
+<tr><td>Direct-traffic share of sign-ups</td><td>Audience ownership / distribution moat.</td><td>≥ 40% per <code>the published evidence#</code>.</td></tr>
+<tr><td>Free-to-paid conversion within 30 days</td><td>Subscription monetisation primary input.</td><td>5–9% per <a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">Foundry CRO 2026</a>.</td></tr>
+</tbody></table></div>
+<h3 id="output-metrics">Output metrics</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Metric</th><th>Purpose</th><th>Benchmark status</th></tr></thead><tbody>
+<tr><td>Monthly churn (business-to-consumer paid)</td><td>Subscription health.</td><td>6–9% in months 1–3 per the published evidence.</td></tr>
+<tr><td>12-month retention (paid)</td><td>LTV anchor.</td><td>35–45% — flagged as gap in the published evidence.</td></tr>
+<tr><td>ARPU paid</td><td>Revenue density.</td><td>EUR 7–9 per the published evidence.</td></tr>
+<tr><td>LTV:CAC ratio</td><td>Channel investment guardrail.</td><td>≥ 3:1 organic; ≥ 1:1 paid (paid is test-only) per the published evidence.</td></tr>
+</tbody></table></div>
+<h3 id="guardrail-metrics">Guardrail metrics</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Metric</th><th>Purpose</th><th>Benchmark status</th></tr></thead><tbody>
+<tr><td>Tagging human-correction rate</td><td>Reliability gate before productisation.</td><td>Anchor — ≤ 15% threshold; validated in pilot weeks 5–8.</td></tr>
+<tr><td>Privacy / consent compliance signals</td><td>GDPR + 152-FZ guardrail (Russian-language path).</td><td>Binary — pass/fail review by external counsel before paid acquisition.</td></tr>
+</tbody></table></div>
+<hr>
+<h2 id="f-risk-register">F. Risk register</h2>
+<p>Five risks ranked by probability × impact. Each carries a mitigation, an owner pattern, and a trigger to escalate.</p>
+<h3 id="r-01-oss-capture-pipeline-cannot-reach-acceptable-accuracy-r">R-01 — OSS capture pipeline cannot reach acceptable accuracy (rank 1)</h3>
+<ul class="crisp">
+<li><strong>Probability × impact</strong>: medium × critical → <strong>HIGH</strong>.</li>
+<li><strong>Description</strong>: <a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">Joao-M-Silva/padel_analytics</a> cannot reach acceptable accuracy on representative club video. Per <code>the published evidence#</code>, the stop signal is "OSS pipeline cannot reach acceptable accuracy on a representative club video sample."</li>
+<li><strong>Trigger to escalate</strong>: ≥ 25% of pilot matches require manual re-tagging at week 4; OR shot-classification accuracy < 70% on a 50-match validation set.</li>
+<li><strong>Mitigation</strong>: The role would run accuracy validation in week 1 of phase A on existing club footage. If below threshold, productisation work pauses and the path routes to engineering for OSS-fork or model-swap before pilot launch.</li>
+<li><strong>Owner pattern</strong>: PM coordinates; engineering owns accuracy work; advisory coach owns ground-truth labelling.</li>
+</ul>
+<h3 id="r-02-wtp-and-direct-channel-both-miss-thresholds-rank-2">R-02 — WTP and direct-channel both miss thresholds (rank 2)</h3>
+<ul class="crisp">
+<li><strong>Probability × impact</strong>: medium × critical → <strong>HIGH</strong>.</li>
+<li><strong>Description</strong>: WTP test fails the exit threshold (< 4% paid conversion) and the direct-channel audience does not materialise (< 25% direct-traffic share). Either alone is a setback; both together stop the business-to-consumer primary thesis.</li>
+<li><strong>Trigger to escalate</strong>: WTP < 4% AND direct-traffic share < 25% by week 8 of phase B.</li>
+<li><strong>Mitigation</strong>: A pre-drafted pivot memo to the hedge model (business-to-business coach SaaS at EUR 19–29 per coach per month) would be ready for founder signoff before week 8. Segment recruitment expanded to in parallel.</li>
+<li><strong>Owner pattern</strong>: PM owns memo; founder owns decision; ops owns coach recruitment.</li>
+</ul>
+<h3 id="r-03-coach-renewal-chain-collapses-on-tool-refusal-rank-3">R-03 — Coach-renewal chain collapses on tool-refusal (rank 3)</h3>
+<ul class="crisp">
+<li><strong>Probability × impact</strong>: medium × high → <strong>HIGH</strong>.</li>
+<li><strong>Description</strong>: Coaches refuse any tool the student also touches. Per <code>the published evidence#</code>: "Coaches sometimes refuse any tool the student also touches; if that refusal dominates, the segment splits into coach-only vs business-to-business-to-consumer and the latter shrinks."</li>
+<li><strong>Trigger to escalate</strong>: ≥ 5 of 8 coaches in pilot decline shared-tool model; coach-driven handoff rate < 5% by week 8 (per <code>the published evidence#</code>).</li>
+<li><strong>Mitigation</strong>: Split the product surface — coach-only dashboard becomes a separate SKU, narrows to coach-only, and the business-to-business-to-consumer distribution claim retires with a adversarial review-style memo.</li>
+<li><strong>Owner pattern</strong>: PM owns SKU split; advisory coach pool owns the refusal-pattern interview; design owns coach-only surface.</li>
+</ul>
+<h3 id="r-04-privacy-regulatory-drag-on-the-russian-language-path-ra">R-04 — Privacy / regulatory drag on the Russian-language path (rank 4)</h3>
+<ul class="crisp">
+<li><strong>Probability × impact</strong>: low-to-medium × high → <strong>MEDIUM-HIGH</strong>.</li>
+<li><strong>Description</strong>: 152-FZ on-device processing requirements block the direct channel and the WTP test. Per <code>the published evidence#</code>, on-device CV is <code>requires_capital</code> band and not yet ready.</li>
+<li><strong>Trigger to escalate</strong>: External counsel flags hosting pattern as non-compliant; OR the Telegram bot path is rejected for the channel.</li>
+<li><strong>Mitigation</strong>: On-device inference path scoped in phase A as a parallel track. The Russian-language WTP variant runs as a Telegram-flow CTA without external links if the web path is gated. Counsel review booked for week 2.</li>
+<li><strong>Owner pattern</strong>: PM owns scoping; engineering owns on-device pipeline; ops owns Telegram bot operation; external counsel owns sign-off.</li>
+</ul>
+<h3 id="r-05-domain-gap-propagates-into-product-rank-5">R-05 — domain gap propagates into product (rank 5)</h3>
+<ul class="crisp">
+<li><strong>Probability × impact</strong>: medium × medium → <strong>MEDIUM</strong>.</li>
+<li><strong>Description</strong>: Zero playing-level expertise in padel leads to flawed interview design or bad recap content. Advisory coach pool fails to scale.</li>
+<li><strong>Trigger to escalate</strong>: Two consecutive recap exemplars rejected by advisory coach pool; OR jobs-to-be-done interviews surface frame-mismatch language (using terminology no rated player recognises).</li>
+<li><strong>Mitigation</strong>: Advisory coach pool secured as paid retainer in week 1 of phase A. The sits in on coach-led drill sessions in weeks 2–3 to absorb shot taxonomy. Every recap card is reviewed by the coach pool until the reliability gate is met.</li>
+<li><strong>Owner pattern</strong>: PM owns retainer setup; advisory coach pool owns content review; founder owns ratification.</li>
+</ul>
+<hr>
+<h2 id="definition-of-done">Definition of done</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Phase</th><th>Done when</th></tr></thead><tbody>
+<tr><td><strong>A — days 0–30</strong></td><td>AJTBD canvas validated for /002/003; hypothesis backlog promoted; PRD outline reviewed by eng lead; instrumentation spec reviewed by eng lead; no headcount committed.</td></tr>
+<tr><td><strong>B — days 31–60</strong></td><td>Pilot ran 4 weeks end-to-end; WTP smoke test result on file with stop/keep memo; first retention cohort live; segment-level stop/keep memo signed by founder.</td></tr>
+<tr><td><strong>C — days 61–90</strong></td><td>Reliability-gated steps shipped to product surface; second-club pilot live; paid-acquisition test results on file; rating-platform decision memo signed by founder; 90-day roadmap published.</td></tr>
+</tbody></table></div>
+<hr>
+<h2 id="verified-url-register-6-distinct-sources">Verified URL register (≥ 6 distinct sources)</h2>
+<ol class="crisp">
+<li><a href="https://github.com/Joao-M-Silva/padel_analytics" rel="noopener" target="_blank">github.com/Joao-M-Silva/padel_analytics</a> — OSS feasibility anchor for capture-then-tag pipeline.</li>
+<li><a href="https://foundrycro.com/blog/cac-benchmarks-2026/" rel="noopener" target="_blank">foundrycro.com/blog/cac-benchmarks-2026</a> — CAC benchmarks for organic, paid, ASO, community, affiliate channels.</li>
+<li><a href="https://www.padelfip.com/world-padel-report-2025/" rel="noopener" target="_blank">padelfip.com/world-padel-report-2025</a> — Italy court count growth (12.9% YoY 2025); Spain 17,300 courts; SAM basis.</li>
+<li><a href="https://playtomic.com/global-padel-report" rel="noopener" target="_blank">playtomic.com/global-padel-report</a> — Active player benchmarks; SOM low-end basis.</li>
+<li><a href="https://www.fep.es/" rel="noopener" target="_blank">fep.es</a> — Spanish federation chapter (coach recruitment, ).</li>
+<li><a href="https://www.fitp.it/" rel="noopener" target="_blank">fitp.it</a> — Italian federation chapter (coach recruitment, ).</li>
+<li><a href="https://www.hudl.com/products" rel="noopener" target="_blank">hudl.com/products</a> — Coach co-pilot analogue from adjacent sports.</li>
+<li><a href="https://www.strava.com/premium" rel="noopener" target="_blank">strava.com/premium</a> — business-to-consumer subscription pricing anchor (USD 11.99/month).</li>
+<li><a href="https://www.insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744" rel="noopener" target="_blank">insightaceanalytic.com/report/ai-in-fitness-and-wellness-market/2744</a> — Adjacent AI-fitness ceiling sizing.</li>
+<li><a href="https://www.padelytics.ai/" rel="noopener" target="_blank">padelytics.ai</a> — Counter-example: existing match-level analysis vendor selling to plateau players.</li>
+</ol>
+
+</article>
+</main>
+
+<footer class="author-foot" role="contentinfo">
+  <div class="author-shell">
+    <div class="author-line">
+      <span>By <strong>Alexandr Valuev</strong></span>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/valuev/" rel="me noopener" target="_blank">LinkedIn</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <a href="https://github.com/avaluev/padel-market-analysis" rel="me noopener" target="_blank">Repository</a>
+      <span class="dot-sep" aria-hidden="true">·</span>
+      <span>Apache 2.0</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// Mobile nav toggle — hamburger drawer with focus management and Esc-to-close.
+(function () {
+  var btn = document.querySelector('.topnav .nav-toggle');
+  var menu = document.getElementById('primary-nav');
+  if (!btn || !menu) return;
+  function close() { btn.setAttribute('aria-expanded', 'false'); }
+  function open() {
+    btn.setAttribute('aria-expanded', 'true');
+    var first = menu.querySelector('a');
+    if (first) first.focus();
+  }
+  btn.addEventListener('click', function () {
+    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+      close();
+      btn.focus();
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
+      close();
+    }
+  });
+})();
+</script>
+</body>
+</html>

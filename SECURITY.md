@@ -2,17 +2,38 @@
 
 ## Reporting a vulnerability
 
-Open a GitHub issue with the label `security`, or contact the maintainer privately if the issue is sensitive. We will respond within 5 business days.
+If you find a security vulnerability in this repository (leaked secret, dependency vulnerability, content-injection vector, deploy-pipeline issue), please **do not file a public issue**. Instead, contact the author directly:
+
+- LinkedIn: <https://www.linkedin.com/in/valuev/>
+- Telegram: <https://t.me/ASNKT>
+
+Include:
+
+- The affected file or URL.
+- Steps to reproduce.
+- The impact you assessed.
+
+Acknowledgement target: within seven days. Mitigation timeline depends on severity.
 
 ## Scope
 
-This repository ships a static HTML bundle and a research pipeline. The relevant attack surfaces:
+In scope:
 
-- **The pipeline** consumes web content via curl and Playwright. URL validation, response caching, and HTTP-only enforcement (no `file://`) live in `scripts/verify_links.sh`.
-- **The OpenRouter API key** is loaded from `OPENROUTER_API_KEY` env only. There are no committed credentials.
-- **The deployed bundle** is fully static. Security headers (HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy) are configured in `vercel.json`.
+- Secrets accidentally committed to the repository.
+- Vulnerabilities in the GitHub Actions workflows under `.github/workflows/`.
+- Vulnerabilities in build / publish scripts under `scripts/`.
+- Cross-site scripting or content-injection vectors in published HTML pages.
+- Misconfigured `robots.txt` or `security.txt` rules.
 
-## Out of scope
+Out of scope:
 
-- Vulnerabilities in third-party dependencies (Playwright, Node) — please report upstream.
-- Issues requiring social-engineering of the maintainer.
+- Vulnerabilities in third-party crawler behaviour (GPTBot, ClaudeBot, etc.) — report those to the operator.
+- Content disagreements (factual disputes, source-quality concerns) — file a public issue instead.
+
+## Supported versions
+
+The repository follows a rolling-release model on `main`. Security fixes land on `main` and ship through the next deploy.
+
+## Response
+
+Confirmed vulnerabilities are added to `evidence/_security/<date>.md` after mitigation. The note includes the vulnerability class, the fix, and the regression check added to prevent recurrence (in line with the project's stabilisation cycle).

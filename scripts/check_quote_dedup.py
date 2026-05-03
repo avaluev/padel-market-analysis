@@ -8,14 +8,23 @@ written by every prompt that pulls a source. Each line is:
 A run-level violation occurs when the same canonical URL appears with two
 or more *distinct* quote strings.
 """
+
 from __future__ import annotations
-import argparse, json, pathlib, sys, urllib.parse, collections
+
+import argparse
+import collections
+import json
+import pathlib
+import sys
+import urllib.parse
+
 
 def canon(url: str) -> str:
     p = urllib.parse.urlparse(url.strip())
     netloc = p.netloc.lower().lstrip("www.")
     path = p.path.rstrip("/")
     return f"{p.scheme}://{netloc}{path}"
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -25,13 +34,14 @@ def main() -> int:
 
     log = pathlib.Path(f"evidence/{args.run_id}/citations.jsonl")
     if not log.exists():
-        print(f"[check_quote_dedup] no citations.jsonl yet (ok early on)")
+        print("[check_quote_dedup] no citations.jsonl yet (ok early on)")
         return 0
 
     by_url = collections.defaultdict(set)
     for line in log.read_text(encoding="utf-8", errors="ignore").splitlines():
         line = line.strip()
-        if not line: continue
+        if not line:
+            continue
         try:
             obj = json.loads(line)
         except json.JSONDecodeError:
@@ -43,14 +53,18 @@ def main() -> int:
     fail = 0
     for url, quotes in by_url.items():
         if len(quotes) > 1:
-            print(f"[check_quote_dedup] FAIL: {url} has {len(quotes)} distinct quotes:", file=sys.stderr)
+            print(
+                f"[check_quote_dedup] FAIL: {url} has {len(quotes)} distinct quotes:",
+                file=sys.stderr,
+            )
             for q in quotes:
-                print(f"  - \"{q[:120]}\"", file=sys.stderr)
+                print(f'  - "{q[:120]}"', file=sys.stderr)
             fail += 1
     if fail:
         return 1
     print("[check_quote_dedup] clean.")
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

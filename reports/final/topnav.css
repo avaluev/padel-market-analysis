@@ -1,13 +1,38 @@
-/* Cross-page sticky top navigation. Loaded by every page in the bundle.
-   Renders a horizontal scroll-capable bar that works across iPhone SE
-   widths up to large desktops. Section sidenav (when present) sits below it.
-   Variables come from the host page's design tokens; if they are not
-   declared, sensible defaults kick in. */
+/* Cross-page navigation — mobile-first hamburger drawer that expands to a
+   horizontal row on tablet (>= 880px). Loaded by every page in the bundle.
+   Variables come from the host page's design tokens; defaults kick in when
+   the host has not declared them. */
+
 :root {
-  --topnav-h: 48px;
+  --topnav-h: 52px;
   --topnav-bg: var(--bg, #ffffff);
   --topnav-line: var(--line, #e6e6e6);
 }
+
+/* Skip link for keyboard / screen-reader users — hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: 8px;
+  top: 8px;
+  z-index: 200;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: var(--accent, #0a6cf3);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .topnav {
   position: sticky;
   top: 0;
@@ -16,93 +41,160 @@
   -webkit-backdrop-filter: saturate(140%) blur(8px);
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--topnav-line);
-  padding: 6px max(12px, env(safe-area-inset-right, 0)) 6px max(12px, env(safe-area-inset-left, 0));
+  padding: 8px max(12px, env(safe-area-inset-right, 0)) 8px max(12px, env(safe-area-inset-left, 0));
   display: flex;
   align-items: center;
-  gap: 4px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  gap: 8px;
   min-height: var(--topnav-h);
+  position: sticky;
 }
-.topnav::-webkit-scrollbar {
-  display: none;
-}
+
 .topnav .brand {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
-  padding: 6px 8px;
-  font-weight: 600;
-  font-size: 0.825rem;
+  gap: 8px;
+  font-weight: 700;
   color: var(--ink, #0a0a0a);
-  margin-right: 8px;
-  flex-shrink: 0;
   text-decoration: none;
+  font-size: 0.95rem;
   letter-spacing: -0.01em;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 6px 4px;
 }
+
 .topnav .brand .dot {
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--accent, #0a6cf3);
-  margin-right: 8px;
   flex-shrink: 0;
 }
-.topnav a.np {
+
+/* Hamburger toggle — mobile only. */
+.topnav .nav-toggle {
+  margin-left: auto;
   display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  color: var(--ink-soft, #3f3f46);
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: background-color 120ms ease, color 120ms ease;
-}
-.topnav a.np:hover {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line, #e6e6e6);
+  border-radius: 8px;
   background: var(--bg-soft, #fafafa);
-  color: var(--ink, #0a0a0a);
+  cursor: pointer;
+  color: inherit;
 }
-.topnav a.np:focus-visible {
+.topnav .nav-toggle:focus-visible {
   outline: 2px solid var(--accent, #0a6cf3);
   outline-offset: 2px;
 }
-.topnav a.np[aria-current="page"] {
+.topnav .nav-toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink, #0a0a0a);
+  border-radius: 2px;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.topnav .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.topnav .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.topnav .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Nav drawer — full-width sheet on mobile, inline row on tablet+. */
+.topnav .nav-links {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--topnav-h);
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  background: var(--bg, #ffffff);
+  border-bottom: 1px solid var(--line, #e6e6e6);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  max-height: calc(100vh - var(--topnav-h));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.topnav .nav-toggle[aria-expanded="true"] + .nav-links {
+  display: flex;
+}
+
+.topnav .nav-links a.np {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: var(--ink-soft, #3f3f46);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  min-height: 44px; /* WCAG 2.5.5 */
+  line-height: 1.4;
+}
+.topnav .nav-links a.np:hover {
+  background: var(--bg-soft, #fafafa);
+  color: var(--ink, #0a0a0a);
+}
+.topnav .nav-links a.np:focus-visible {
+  outline: 2px solid var(--accent, #0a6cf3);
+  outline-offset: 2px;
+}
+.topnav .nav-links a.np[aria-current="page"] {
   background: var(--accent-soft, #e6efff);
   color: var(--accent, #0a6cf3);
   font-weight: 600;
 }
-.topnav .spacer {
-  flex: 1 1 auto;
-}
-.topnav .ext {
-  display: none;
-  font-size: 0.75rem;
-  color: var(--ink-mute, #71717a);
-  flex-shrink: 0;
-  padding: 0 8px;
-}
-@media (min-width: 720px) {
+
+@media (min-width: 880px) {
   .topnav {
     padding: 8px max(20px, env(safe-area-inset-right, 0)) 8px max(20px, env(safe-area-inset-left, 0));
     gap: 6px;
   }
-  .topnav .brand {
-    margin-right: 14px;
-    font-size: 0.9rem;
+  .topnav .nav-toggle {
+    display: none;
   }
-  .topnav .ext {
+  .topnav .nav-links {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    max-height: none;
+    overflow: visible;
+    flex: 1;
+  }
+  .topnav .nav-links a.np {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    min-height: 36px;
     display: inline-flex;
     align-items: center;
   }
 }
+
 @media print {
-  .topnav {
-    display: none;
+  .topnav,
+  .nav-toggle,
+  .nav-links {
+    display: none !important;
+  }
+  .skip-link {
+    display: none !important;
   }
 }

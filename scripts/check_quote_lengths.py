@@ -19,8 +19,13 @@ This change preserves the original intent: an explicit quoted citation in
 authored prose still trips the gate at >15 words, but property values inside
 structured evidence files do not.
 """
+
 from __future__ import annotations
-import argparse, pathlib, re, sys
+
+import argparse
+import pathlib
+import re
+import sys
 
 CQUOTE_RX = re.compile(r"“([^”\n]{3,})”")
 BLOCK_RX = re.compile(r"<blockquote[^>]*>(.*?)</blockquote>", re.DOTALL | re.IGNORECASE)
@@ -93,10 +98,13 @@ def main() -> int:
     fail = 0
     for f in targets(args.run_id):
         for q, n in scan(f):
-            print(f"[check_quote_lengths] {f}: {n} words :: \"{q}\"", file=sys.stderr)
+            print(f'[check_quote_lengths] {f}: {n} words :: "{q}"', file=sys.stderr)
             fail += 1
     if fail:
-        print(f"[check_quote_lengths] FAIL: {fail} over-length quote(s) (>{LIMIT} words).", file=sys.stderr)
+        print(
+            f"[check_quote_lengths] FAIL: {fail} over-length quote(s) (>{LIMIT} words).",
+            file=sys.stderr,
+        )
         return 1
     print("[check_quote_lengths] clean.")
     return 0

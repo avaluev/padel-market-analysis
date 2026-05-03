@@ -1,0 +1,132 @@
+[project]
+name = "padel-research-os"
+version = "2.0.0"
+description = "Multi-agent research pipeline for padel coaching tech — produces an evidence-graded strategic brief from a single prompt."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Alexandr Valuev", email = "valuev.alexandr@gmail.com" },
+]
+keywords = ["research", "ai", "padel", "agents", "claude-code", "openrouter"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+# Pipeline scripts use stdlib only. No runtime third-party Python deps.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "pre-commit>=3.7",
+]
+
+[project.urls]
+Homepage = "https://avaluev.github.io/padel-market-analysis/"
+Repository = "https://github.com/avaluev/padel-market-analysis"
+Issues = "https://github.com/avaluev/padel-market-analysis/issues"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# We're not really publishing a Python package; we just want pip to install
+# the dev tooling. Declare an empty package set and point py_modules at
+# nothing.
+py-modules = []
+packages = []
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["scripts", "tests"]
+extend-exclude = ["vendored", "evidence", "reports/final/llms-full.txt"]
+
+[tool.ruff.lint]
+select = [
+  "E",    # pycodestyle errors
+  "F",    # pyflakes
+  "W",    # pycodestyle warnings
+  "I",    # isort
+  "N",    # pep8-naming
+  "UP",   # pyupgrade
+  "B",    # flake8-bugbear
+  "C4",   # flake8-comprehensions
+  "SIM",  # flake8-simplify
+  "RUF",  # ruff-specific
+]
+ignore = [
+  "E501",   # line too long — handled by formatter
+  "SIM117", # nested with statements OK in our context
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]  # assert in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_unimported = false  # we don't have typed stubs for stdlib subprocess shapes
+no_implicit_optional = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_no_return = true
+warn_return_any = true
+files = ["scripts", "tests"]
+exclude = ["vendored/", "evidence/", "reports/"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+  "-ra",
+  "--strict-markers",
+  "--strict-config",
+  "--cov-report=term-missing:skip-covered",
+  "--cov-report=html:htmlcov",
+  "--cov-fail-under=70",
+]
+
+[tool.coverage.run]
+# Cover only the new gate / sanitiser modules. Legacy `_build_*.py` and
+# specialised `check_*.py` scripts are integration-tested via the
+# end-to-end pipeline run rather than unit-tested.
+source = [
+  "scripts/check_quality.py",
+  "scripts/sanitise_pages.py",
+]
+omit = [
+  "scripts/_build_*.py",
+  "scripts/build_pages.mjs",
+  "scripts/inject_*.mjs",
+  "scripts/scroll_check.mjs",
+  "scripts/build_interview_pack_html.mjs",
+  "scripts/verify_pack_links.mjs",
+  "scripts/audit_*.mjs",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "if __name__ == .__main__.:",
+  "raise SystemExit",
+  "raise NotImplementedError",
+]

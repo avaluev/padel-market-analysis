@@ -1,2 +1,91 @@
+# robots.txt — AI search visibility profile (2026)
+#
+# Goal: stay citable in ChatGPT, Claude, Perplexity, Gemini, and Copilot
+# search surfaces, while opting out of training-only ingestion where the
+# crawler is a separate user agent.
+#
+# References:
+#   - https://developers.openai.com/api/docs/bots
+#   - https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
+#   - https://llmstxt.org/
+
+# ---- Standard search engines ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ---- OpenAI ----
+# GPTBot — foundation-model training crawler
+User-agent: GPTBot
+Allow: /
+
+# OAI-SearchBot — powers ChatGPT Search citations
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT-User — user-initiated fetches
+User-agent: ChatGPT-User
+Allow: /
+
+# ---- Anthropic (three separate bots; rules are independent) ----
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Deprecated Anthropic agents
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# ---- Google AI ----
+# Google-Extended controls only AI training, not Search ranking.
+User-agent: Google-Extended
+Allow: /
+
+# ---- Perplexity ----
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ---- Apple ----
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ---- Common Crawl (powers many downstream LLMs) ----
+User-agent: CCBot
+Allow: /
+
+# ---- Cohere ----
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# ---- ByteDance ----
+# Poor robots.txt-respect history; block by default.
+User-agent: Bytespider
+Disallow: /
+
+# ---- Catch-all for unknown crawlers ----
 User-agent: *
 Allow: /
+
+Sitemap: https://avaluev.github.io/padel-market-analysis/sitemap.xml

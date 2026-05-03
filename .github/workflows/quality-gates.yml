@@ -1,0 +1,110 @@
+name: Quality gates
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-gates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-python:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dev deps
+        run: pip install -e '.[dev]'
+      - run: ruff check scripts tests
+      - run: ruff format --check scripts tests
+
+  typecheck-python:
+    name: Type check (mypy --strict)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e '.[dev]'
+      - run: mypy scripts tests
+
+  test-python:
+    name: Tests + coverage (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e '.[dev]'
+      - run: pytest
+
+  content-quality:
+    name: Content & SEO gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unified quality gate
+        run: python3 scripts/check_quality.py
+
+  link-verify:
+    name: External link verification (HTTP 200)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run verify_links.sh
+        run: bash scripts/verify_links.sh
+        # External link checks are advisory in CI — anti-bot 4xx are common.
+        continue-on-error: true
+
+  secret-scan:
+    name: Secret scanning (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-pages:
+    name: Build public pages (idempotency check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build pages
+        run: |
+          node scripts/build_pages.mjs
+          node scripts/inject_topnav.mjs
+          python3 scripts/build_seo_assets.py
+      - name: Verify build is idempotent (no diff after rebuild)
+        run: |
+          if ! git diff --quiet reports/final; then
+            echo "ERROR: rebuild produced different output. Build is not idempotent."
+            git diff --stat reports/final
+            exit 1
+          fi
