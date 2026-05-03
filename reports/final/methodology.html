@@ -251,23 +251,23 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="topnav" role="navigation" aria-label="Site navigation">
-  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-  </button>
-  <nav id="primary-nav" class="nav-links" aria-label="Primary">
-    <a class="np" href="index.html">Home</a>
-    <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
-    <a class="np" href="evidence-map.html">Evidence map</a>
-    <a class="np" href="competitor-landscape.html">Competitors</a>
-    <a class="np" href="subscription-economics.html">Economics</a>
-    <a class="np" href="mvp-design.html">MVP design</a>
-    <a class="np" href="90-day-plan.html">90-day plan</a>
-    <a class="np" href="methodology.html" aria-current="page">Methodology</a>
-    <a class="np" href="model-provenance.html">Model provenance</a>
-  </nav>
+ <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
+ <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ </button>
+ <nav id="primary-nav" class="nav-links" aria-label="Primary">
+ <a class="np" href="index.html">Home</a>
+ <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
+ <a class="np" href="evidence-map.html">Evidence map</a>
+ <a class="np" href="competitor-landscape.html">Competitors</a>
+ <a class="np" href="subscription-economics.html">Economics</a>
+ <a class="np" href="mvp-design.html">MVP design</a>
+ <a class="np" href="90-day-plan.html">90-day plan</a>
+ <a class="np" href="methodology.html" aria-current="page">Methodology</a>
+ <a class="np" href="model-provenance.html">Model provenance</a>
+ </nav>
 </header>
 <div class="shell">
 
@@ -389,15 +389,36 @@
 
 <section id="gates">
  <h2>5 · Quality gates</h2>
- <p>Seven gates, sequential, each with explicit pass criteria and a documented retry policy. Failure does not silently retry — failure becomes a new rule.</p>
+ <p>The pipeline runs two layers of gates. Pipeline-phase gates check each research stage as it produces JSON; content-and-SEO gates check the published HTML before deploy. Failure becomes a new rule — the gate file at <code>scripts/check_quality.py</code> is the live regression log.</p>
 
- <div class="gate"><div class="gate-num">1</div><div class="gate-body"><strong>Research brief validity</strong><p>Completeness ≥ 60%, content_type not null, target geographies non-empty. Fail action: surface clarification questions to the user.</p></div></div>
- <div class="gate"><div class="gate-num">2</div><div class="gate-body"><strong>Citation coverage</strong><p>Every numeric claim has a corresponding <code>_source</code> URL; the URL was fetched and returned HTTP 200; the response body is archived. Fail action: re-invoke the research agent with the missing-field list.</p></div></div>
- <div class="gate"><div class="gate-num">3</div><div class="gate-body"><strong>Mathematical integrity</strong><p><code>calculation_method == "python_subprocess_executed"</code>; pessimistic &lt; base &lt; optimistic; revenue percentages sum to 1.0 ± 0.001. Fail action: halt the pipeline, require user confirmation.</p></div></div>
- <div class="gate"><div class="gate-num">4</div><div class="gate-body"><strong>adversarial review minimum issues</strong><p>≥ 3 HIGH-severity issues. Below threshold means the critic is being too diplomatic; re-invoke with stricter framing.</p></div></div>
- <div class="gate"><div class="gate-num">5</div><div class="gate-body"><strong>Regulatory coverage</strong><p>An entry in <code>regulatory_compliance</code> for every priority geography. Fail action: re-invoke the risk-assessor with the missing-geos list.</p></div></div>
- <div class="gate"><div class="gate-num">6</div><div class="gate-body"><strong>Deck completeness</strong><p>Every section heading non-null; no <code>{placeholder}</code> strings; financial figures reference canonical brief values verbatim.</p></div></div>
- <div class="gate"><div class="gate-num">7</div><div class="gate-body"><strong>Output file completeness</strong><p>All output files present and non-empty; HTML files contain the expected number of sections.</p></div></div>
+ <h3>Pipeline-phase gates (research output)</h3>
+ <div class="gate"><div class="gate-num">1</div><div class="gate-body"><strong>Research brief validity</strong><p>Completeness ≥ 60%, content type set, target geographies non-empty. Fail action: surface clarification questions to the user.</p></div></div>
+ <div class="gate"><div class="gate-num">2</div><div class="gate-body"><strong>Citation coverage</strong><p>Every numeric claim has a <code>_source</code> URL; the URL was fetched and returned HTTP 200; the response body is archived. Fail action: re-invoke the research agent with the missing-field list.</p></div></div>
+ <div class="gate"><div class="gate-num">3</div><div class="gate-body"><strong>Mathematical integrity</strong><p><code>calculation_method == "python_subprocess_executed"</code>; pessimistic &lt; base &lt; optimistic; revenue percentages sum to 1.0 ± 0.001. Fail action: halt the pipeline, require explicit confirmation.</p></div></div>
+ <div class="gate"><div class="gate-num">4</div><div class="gate-body"><strong>Adversarial review minimum</strong><p>At least three HIGH-severity issues identified. Below threshold means the critic is being too diplomatic; re-invoke with stricter framing.</p></div></div>
+ <div class="gate"><div class="gate-num">5</div><div class="gate-body"><strong>Regulatory coverage</strong><p>An entry in <code>regulatory_compliance</code> for every priority geography. Fail action: re-invoke the risk assessor with the missing-geographies list.</p></div></div>
+ <div class="gate"><div class="gate-num">6</div><div class="gate-body"><strong>Section completeness</strong><p>Every section heading non-null; no placeholder strings; financial figures reference canonical brief values verbatim.</p></div></div>
+ <div class="gate"><div class="gate-num">7</div><div class="gate-body"><strong>Output file completeness</strong><p>All output files present and non-empty; HTML files contain the expected number of sections; URLs resolve to HTTP 200.</p></div></div>
+
+ <h3>Content + SEO gates (published HTML)</h3>
+ <p>Fourteen gates run on every page in <code>reports/final/</code> via <a href="https://github.com/avaluev/padel-market-analysis/blob/main/scripts/check_quality.py" rel="noopener" target="_blank"><code>scripts/check_quality.py</code></a>. The full set runs locally with <code>make audit</code> and on every pull request via <a href="https://github.com/avaluev/padel-market-analysis/blob/main/.github/workflows/quality-gates.yml" rel="noopener" target="_blank"><code>.github/workflows/quality-gates.yml</code></a>.</p>
+ <div class="grid cols-2">
+ <div class="card"><div class="card-title">h1</div><p class="small">Exactly one <code>&lt;h1&gt;</code> per page.</p></div>
+ <div class="card"><div class="card-title">run_id</div><p class="small">Block timestamped run identifiers in published prose.</p></div>
+ <div class="card"><div class="card-title"></div><p class="small">Block job-application framing leaking into research voice.</p></div>
+ <div class="card"><div class="card-title">jd_coverage</div><p class="small">Block any reference to the deleted JD coverage page.</p></div>
+ <div class="card"><div class="card-title">jargon</div><p class="small">Block "stop test", "exit criteria", "adversarial review" jargon variants in user-facing prose.</p></div>
+ <div class="card"><div class="card-title">marketing</div><p class="small">Block specific unverified marketing badge phrases.</p></div>
+ <div class="card"><div class="card-title">link_syntax</div><p class="small">Block literal <code>&lt;https://...&gt;</code> markdown auto-link text.</p></div>
+ <div class="card"><div class="card-title">internal_ids</div><p class="small">Block internal codes like <code></code>, <code></code> in prose.</p></div>
+ <div class="card"><div class="card-title">meta</div><p class="small">Required <code>&lt;head&gt;</code> tags present (title, canonical, OG, Twitter, robots).</p></div>
+ <div class="card"><div class="card-title">jsonld</div><p class="small">JSON-LD structured data present and parseable.</p></div>
+ <div class="card"><div class="card-title">images</div><p class="small">Every <code>&lt;img&gt;</code> has alt + width + height (CLS prevention).</p></div>
+ <div class="card"><div class="card-title">links</div><p class="small">Every internal href resolves to an existing file.</p></div>
+ <div class="card"><div class="card-title">nav</div><p class="small">Every page carries the same nav structure.</p></div>
+ <div class="card"><div class="card-title">seo_assets</div><p class="small">Site-wide files (robots.txt, llms.txt, sitemap.xml, etc.) present and valid.</p></div>
+ </div>
+ <p>The gate suite is unit-tested at <a href="https://github.com/avaluev/padel-market-analysis/blob/main/tests/test_check_quality.py" rel="noopener" target="_blank"><code>tests/test_check_quality.py</code></a> (51 tests, ~72% coverage on the gate modules). When a new failure is found in production, the failure becomes a new gate. No retry without a new rule.</p>
 </section>
 
 <section id="evidence">
@@ -413,21 +434,27 @@
 
 <section id="agents">
  <h2>7 · Agent specialisation</h2>
- <p>Twelve specialist agents in <code>.claude/agents/</code>, each with a narrow contract:</p>
+ <p>Six specialist agents in the project's <code>.claude/agents/</code> directory, each with a narrow contract. Routing decisions and effort budgets are documented in <code>QUALITY_BAR.md</code>.</p>
  <div class="grid cols-2">
- <div class="card"><div class="card-title">intake-analyst</div><p class="small">Classifies the input prompt, extracts structured fields, surfaces clarification questions.</p></div>
- <div class="card"><div class="card-title">market-researcher</div><p class="small">Web research with full citation work for market sizing.</p></div>
- <div class="card"><div class="card-title">comp-analyst</div><p class="small">Competitive analysis, deduplication, peer-card extraction.</p></div>
- <div class="card"><div class="card-title">audience-analyst</div><p class="small">Behavioural profiling, JTBD parsing, segment-stress-test.</p></div>
- <div class="card"><div class="card-title">financial-modeler</div><p class="small">Generates Python, executes via subprocess, writes the financial model JSON.</p></div>
- <div class="card"><div class="card-title">positioning-strategist</div><p class="small">Strategic synthesis; runs on Claude Opus 4.7.</p></div>
- <div class="card"><div class="card-title">risk-assessor</div><p class="small">Five-domain risk classification with mitigation pathways.</p></div>
- <div class="card"><div class="card-title">critic-adversarial review</div><p class="small">Hostile-investor adversarial review; runs on Claude Opus 4.7, max thinking budget.</p></div>
- <div class="card"><div class="card-title">research-synthesizer</div><p class="small">Cross-document conflict resolution; produces the canonical brief.</p></div>
- <div class="card"><div class="card-title">deck-assembler</div><p class="small">Builds the slide spec from the canonical brief.</p></div>
- <div class="card"><div class="card-title">translator</div><p class="small">Builds the glossary first; then translates; preserves verbatim original.</p></div>
- <div class="card"><div class="card-title">output-renderer</div><p class="small">Renders the final HTML with charts, navigation, dark mode.</p></div>
+ <div class="card"><div class="card-title">deep-research-orchestrator</div><p class="small">Runs parallel fan-out across Sonar Deep Research, Sonar Pro, Tongyi DeepResearch, and o4-mini. Cross-validates free arms with paid models.</p></div>
+ <div class="card"><div class="card-title">peer-extractor</div><p class="small">Extracts the peer set from research arms, deduplicates, tags discovery method and verification timestamp.</p></div>
+ <div class="card"><div class="card-title">adversarial review-critic</div><p class="small">Surfaces at least three HIGH-severity issues plus at least five MEDIUM-severity. Includes fabrication-risk detection and survivorship-bias check. Runs on Claude Opus.</p></div>
+ <div class="card"><div class="card-title">canonical-synthesizer</div><p class="small">Writes the immutable canonical brief; respects the cross-document consistency contract.</p></div>
+ <div class="card"><div class="card-title">archetype-synthesizer</div><p class="small">Constructs persona archetypes from peer cards and segment data.</p></div>
+ <div class="card"><div class="card-title">report-renderer</div><p class="small">Renders the final HTML with mobile-first design, JSON-LD, and Playwright-audited layout.</p></div>
  </div>
+
+ <h3>Five new skills (AI-search optimisation)</h3>
+ <p>The session that produced this rewrite added five reusable skills (loaded by Claude Code from the user's <code>~/.claude/skills/</code> directory) and two universal rule files:</p>
+ <div class="grid cols-2">
+ <div class="card"><div class="card-title"><a href="https://github.com/avaluev/padel-market-analysis/blob/main/evidence/research/ai-search-optimization/SUMMARY.md" rel="noopener" target="_blank">geo-optimization</a></div><p class="small">Generative Engine Optimisation — make content cited by ChatGPT Search, Perplexity, Gemini.</p></div>
+ <div class="card"><div class="card-title">aio-optimization</div><p class="small">AI Overview Optimisation — land in Google AI Overviews. Direct-answer paragraphs, query fan-out, quarterly freshness.</p></div>
+ <div class="card"><div class="card-title">aeo-optimization</div><p class="small">Answer Engine Optimisation — voice search, featured snippets, "People also ask".</p></div>
+ <div class="card"><div class="card-title">llmo-optimization</div><p class="small">LLM Optimisation — crawler access, llms.txt spec, brand-entity reinforcement, the AI-crawler reference table.</p></div>
+ <div class="card"><div class="card-title">seo-structured-data</div><p class="small">Schema.org reference — the five JSON-LD types covering 80% of cases plus universal head-tag and JSON-LD templates.</p></div>
+ <div class="card"><div class="card-title">+ rules</div><p class="small">Universal rule files <code>ai-search-optimization.md</code> and <code>content-quality-gates.md</code> in <code>~/.claude/rules/common/</code>.</p></div>
+ </div>
+ <p>The full research note backing those skills lives at <a href="https://github.com/avaluev/padel-market-analysis/blob/main/evidence/research/ai-search-optimization/SUMMARY.md" rel="noopener" target="_blank">evidence/research/ai-search-optimization/SUMMARY.md</a>: 4,696 words, 67 unique sources, primary docs anchoring the load-bearing claims (Princeton GEO paper, llmstxt.org, OpenAI bot docs, Anthropic privacy page, Schema.org type pages).</p>
 </section>
 
 <section id="frontend">
@@ -465,22 +492,68 @@
  <p>Audit reports live alongside the run artefacts in <code>evidence/_audits/</code>. The discipline is the same as the adversarial review: an audit that says "everything passes" is itself a failure.</p>
 </section>
 
-<section id="numbers">
- <h2>10 · The numbers</h2>
- <div class="stat">
- <div class="item"><div class="label">Specialist agents</div><div class="value">12</div></div>
- <div class="item"><div class="label">Frontier models</div><div class="value">4+</div></div>
- <div class="item"><div class="label">Quality gates</div><div class="value">7</div></div>
- <div class="item"><div class="label">Verified peer cards</div><div class="value">17</div></div>
- <div class="item"><div class="label">Value mechanics audited</div><div class="value">11</div></div>
- <div class="item"><div class="label">Countries in SAM rebuild</div><div class="value">21</div></div>
- <div class="item"><div class="label">Cited URLs (HTTP 200)</div><div class="value">100%</div></div>
- <div class="item"><div class="label">Device profiles audited</div><div class="value">5</div></div>
+<section id="ai-search">
+ <h2>10 · AI search optimisation</h2>
+ <p>The site is engineered to be cited by AI search surfaces (ChatGPT Search, Perplexity, Google AI Overviews, Claude). The four 2026 paradigms — Generative Engine Optimisation (GEO), AI Overview Optimisation (AIO), Answer Engine Optimisation (AEO), and LLM Optimisation (LLMO) — are summarised in the cross-cutting reference at <a href="https://github.com/avaluev/padel-market-analysis/blob/main/evidence/research/ai-search-optimization/SUMMARY.md" rel="noopener" target="_blank">evidence/research/ai-search-optimization/SUMMARY.md</a>.</p>
+
+ <h3>Per-page</h3>
+ <ul>
+ <li>Forty-to-sixty word citable summary lead under H1.</li>
+ <li>JSON-LD <code>@graph</code> with <code>Article</code> + <code>Organization</code> + <code>WebSite</code> + <code>BreadcrumbList</code> + <code>Person</code>.</li>
+ <li>Open Graph + Twitter Card meta tags.</li>
+ <li>Canonical URL, language attribute, robots directive permitting full snippet reuse.</li>
+ <li>Mobile-first hamburger drawer that expands to a horizontal row at ≥ 880 px (WCAG 2.5.5 — 44 px tap targets).</li>
+ </ul>
+
+ <h3>Site-wide assets</h3>
+ <p>Generated deterministically by <a href="https://github.com/avaluev/padel-market-analysis/blob/main/scripts/build_seo_assets.py" rel="noopener" target="_blank"><code>scripts/build_seo_assets.py</code></a>:</p>
+ <div class="grid cols-2">
+ <div class="card"><div class="card-title"><a href="robots.txt" target="_blank">robots.txt</a></div><p class="small">AI-crawler-aware allow / disallow per the 2026 reference. Allows GPTBot, OAI-SearchBot, ChatGPT-User, the three Anthropic bots, PerplexityBot, Google-Extended, Applebot-Extended; blocks Bytespider and the deprecated Anthropic agents.</p></div>
+ <div class="card"><div class="card-title"><a href="llms.txt" target="_blank">llms.txt</a></div><p class="small">Concise machine-readable index per the <a href="https://llmstxt.org/" rel="noopener" target="_blank">llmstxt.org</a> spec — H1, blockquote summary, H2-grouped link list with one-line annotations.</p></div>
+ <div class="card"><div class="card-title"><a href="llms-full.txt" target="_blank">llms-full.txt</a></div><p class="small">Full plain-text concatenation of every page's body. AI agents visit it ~2× more than llms.txt (Semrush 2026).</p></div>
+ <div class="card"><div class="card-title"><a href="sitemap.xml" target="_blank">sitemap.xml</a></div><p class="small">Standard XML sitemap with <code>lastmod</code> from file mtime, priority, change frequency.</p></div>
+ <div class="card"><div class="card-title"><a href="feed.xml" target="_blank">feed.xml</a></div><p class="small">RSS 2.0 feed of every report page.</p></div>
+ <div class="card"><div class="card-title"><a href=".well-known/security.txt" target="_blank">security.txt</a></div><p class="small">RFC 9116 contact + policy file under <code>/.well-known/</code>.</p></div>
+ <div class="card"><div class="card-title"><a href="manifest.webmanifest" target="_blank">manifest.webmanifest</a></div><p class="small">Minimal PWA manifest. Sets the brand colour, icon, language, and category.</p></div>
+ <div class="card"><div class="card-title"><a href="humans.txt" target="_blank">humans.txt</a></div><p class="small">Human-readable team and credit file.</p></div>
  </div>
 </section>
 
+<section id="repository">
+ <h2>11 · Repository &amp; engineering quality</h2>
+ <p>The full source is at <a href="https://github.com/avaluev/padel-market-analysis" rel="noopener" target="_blank">github.com/avaluev/padel-market-analysis</a> — every script, every prompt, every test, every CI workflow. Apache 2.0.</p>
+
+ <h3>Layout</h3>
+ <ul>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/tree/main/scripts" rel="noopener" target="_blank"><code>scripts/</code></a> — pipeline builders, content sanitiser, SEO asset generator, quality gate, mobile audit.</li>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/tree/main/tests" rel="noopener" target="_blank"><code>tests/</code></a> — pytest suite for the new gates (51 tests).</li>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/tree/main/reports/final" rel="noopener" target="_blank"><code>reports/final/</code></a> — the published site (this directory is what GitHub Pages serves).</li>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/tree/main/evidence" rel="noopener" target="_blank"><code>evidence/</code></a> — raw research output, audit reports, the AI-search research summary.</li>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/blob/main/QUALITY_BAR.md" rel="noopener" target="_blank"><code>QUALITY_BAR.md</code></a> — the rules every agent obeys.</li>
+ <li><a href="https://github.com/avaluev/padel-market-analysis/tree/main/.github/workflows" rel="noopener" target="_blank"><code>.github/workflows/</code></a> — CI: deploy + quality-gates.</li>
+ </ul>
+
+ <h3>Engineering quality</h3>
+ <ul>
+ <li><strong>Typed Python</strong> — <code>mypy --strict</code> on <code>scripts/</code> and <code>tests/</code>; configured in <a href="https://github.com/avaluev/padel-market-analysis/blob/main/pyproject.toml" rel="noopener" target="_blank">pyproject.toml</a>.</li>
+ <li><strong>Linted + formatted</strong> — <a href="https://docs.astral.sh/ruff/" rel="noopener" target="_blank">ruff</a> for both lint and format; runs as a pre-commit hook.</li>
+ <li><strong>Tested</strong> — <a href="https://github.com/avaluev/padel-market-analysis/blob/main/tests/test_check_quality.py" rel="noopener" target="_blank">51 unit tests</a>, ~72% coverage on the gate modules; tests required for every new gate.</li>
+ <li><strong>CI gated</strong> — <a href="https://github.com/avaluev/padel-market-analysis/blob/main/.github/workflows/quality-gates.yml" rel="noopener" target="_blank">quality-gates.yml</a> blocks merge to <code>main</code> on lint, typecheck, test, content-quality, link-verify, secret-scan failures.</li>
+ <li><strong>Secret scanning</strong> — <a href="https://github.com/gitleaks/gitleaks" rel="noopener" target="_blank">gitleaks</a> as both a pre-commit hook and a CI job.</li>
+ <li><strong>Reproducible builds</strong> — <a href="https://github.com/avaluev/padel-market-analysis/blob/main/Makefile" rel="noopener" target="_blank">Makefile</a> with <code>make install</code>, <code>make test</code>, <code>make audit</code>, <code>make build</code>; idempotency check in CI.</li>
+ <li><strong>Dependency hygiene</strong> — Dependabot weekly runs on Python, npm, GitHub Actions.</li>
+ </ul>
+
+ <h3>Local audit</h3>
+ <p>Reproduce the full pre-deploy gate set in one command:</p>
+ <pre><code>git clone https://github.com/avaluev/padel-market-analysis.git
+cd padel-market-analysis
+make install # python dev deps + node deps
+make audit # build + content + SEO gates</code></pre>
+</section>
+
 <section id="whatsnext">
- <h2>11 · What this scales to</h2>
+ <h2>12 · What this scales to</h2>
  <p>The pipeline is domain-agnostic. The Padel AI Coach run is a worked example, not the product. Replace the input prompt and the same architecture produces:</p>
  <ul>
  <li>An investor-grade brief on any market opportunity.</li>
@@ -518,29 +591,29 @@
 <script>
 // Mobile nav toggle — hamburger drawer with focus management and Esc-to-close.
 (function () {
-  var btn = document.querySelector('.topnav .nav-toggle');
-  var menu = document.getElementById('primary-nav');
-  if (!btn || !menu) return;
-  function close() { btn.setAttribute('aria-expanded', 'false'); }
-  function open() {
-    btn.setAttribute('aria-expanded', 'true');
-    var first = menu.querySelector('a');
-    if (first) first.focus();
-  }
-  btn.addEventListener('click', function () {
-    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
-      close();
-      btn.focus();
-    }
-  });
-  menu.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
-      close();
-    }
-  });
+ var btn = document.querySelector('.topnav .nav-toggle');
+ var menu = document.getElementById('primary-nav');
+ if (!btn || !menu) return;
+ function close() { btn.setAttribute('aria-expanded', 'false'); }
+ function open() {
+ btn.setAttribute('aria-expanded', 'true');
+ var first = menu.querySelector('a');
+ if (first) first.focus();
+ }
+ btn.addEventListener('click', function () {
+ btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+ });
+ document.addEventListener('keydown', function (e) {
+ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+ close();
+ btn.focus();
+ }
+ });
+ menu.addEventListener('click', function (e) {
+ if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
+ close();
+ }
+ });
 })();
 </script>
 </body>

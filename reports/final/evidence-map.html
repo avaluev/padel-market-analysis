@@ -311,23 +311,23 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="topnav" role="navigation" aria-label="Site navigation">
-  <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-    <span class="nav-toggle-bar" aria-hidden="true"></span>
-  </button>
-  <nav id="primary-nav" class="nav-links" aria-label="Primary">
-    <a class="np" href="index.html">Home</a>
-    <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
-    <a class="np" href="evidence-map.html" aria-current="page">Evidence map</a>
-    <a class="np" href="competitor-landscape.html">Competitors</a>
-    <a class="np" href="subscription-economics.html">Economics</a>
-    <a class="np" href="mvp-design.html">MVP design</a>
-    <a class="np" href="90-day-plan.html">90-day plan</a>
-    <a class="np" href="methodology.html">Methodology</a>
-    <a class="np" href="model-provenance.html">Model provenance</a>
-  </nav>
+ <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Padel Research</a>
+ <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ <span class="nav-toggle-bar" aria-hidden="true"></span>
+ </button>
+ <nav id="primary-nav" class="nav-links" aria-label="Primary">
+ <a class="np" href="index.html">Home</a>
+ <a class="np" href="padel-ai-coach-research.html">Strategic brief</a>
+ <a class="np" href="evidence-map.html" aria-current="page">Evidence map</a>
+ <a class="np" href="competitor-landscape.html">Competitors</a>
+ <a class="np" href="subscription-economics.html">Economics</a>
+ <a class="np" href="mvp-design.html">MVP design</a>
+ <a class="np" href="90-day-plan.html">90-day plan</a>
+ <a class="np" href="methodology.html">Methodology</a>
+ <a class="np" href="model-provenance.html">Model provenance</a>
+ </nav>
 </header>
 <div class="shell">
 
@@ -675,29 +675,29 @@
 <script>
 // Mobile nav toggle — hamburger drawer with focus management and Esc-to-close.
 (function () {
-  var btn = document.querySelector('.topnav .nav-toggle');
-  var menu = document.getElementById('primary-nav');
-  if (!btn || !menu) return;
-  function close() { btn.setAttribute('aria-expanded', 'false'); }
-  function open() {
-    btn.setAttribute('aria-expanded', 'true');
-    var first = menu.querySelector('a');
-    if (first) first.focus();
-  }
-  btn.addEventListener('click', function () {
-    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
-      close();
-      btn.focus();
-    }
-  });
-  menu.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
-      close();
-    }
-  });
+ var btn = document.querySelector('.topnav .nav-toggle');
+ var menu = document.getElementById('primary-nav');
+ if (!btn || !menu) return;
+ function close() { btn.setAttribute('aria-expanded', 'false'); }
+ function open() {
+ btn.setAttribute('aria-expanded', 'true');
+ var first = menu.querySelector('a');
+ if (first) first.focus();
+ }
+ btn.addEventListener('click', function () {
+ btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+ });
+ document.addEventListener('keydown', function (e) {
+ if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+ close();
+ btn.focus();
+ }
+ });
+ menu.addEventListener('click', function (e) {
+ if (e.target.tagName === 'A' && window.matchMedia('(max-width: 879px)').matches) {
+ close();
+ }
+ });
 })();
 </script>
 </body>
